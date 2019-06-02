@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class PlayerScript : MonoBehaviour
 {
 
+    public GameObject dog;
+
     public float movementSpeed;
     public float rotationSpeed;
-    public InputField input;
-    public float slowedTime;
 
     private Vector3 movementInput;
     private Vector3 rotationInput;
@@ -22,8 +22,6 @@ public class PlayerScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         head = transform.GetChild(0).gameObject;
-
-        input.gameObject.SetActive(false);
     }
 
     
@@ -41,16 +39,6 @@ public class PlayerScript : MonoBehaviour
     {
         movementInput.x = Input.GetAxis("Horizontal") * movementSpeed;
         movementInput.z = Input.GetAxis("Vertical") * movementSpeed;
-
-        if (Input.GetKeyDown(KeyCode.Return) && input.gameObject.activeSelf == false)
-        {
-            ReceiveCommand();
-        }
-        else if (Input.GetKeyDown(KeyCode.Return) && input.gameObject.activeSelf == true)
-        {
-            input.gameObject.SetActive(false);
-            Time.timeScale = 1;
-        }
     }
 
     void TranslateMovementInput()
@@ -64,12 +52,4 @@ public class PlayerScript : MonoBehaviour
         head.transform.rotation = Quaternion.Slerp(head.transform.rotation, Camera.main.transform.rotation, rotationSpeed);
     }
 
-    void ReceiveCommand()
-    {
-        input.gameObject.SetActive(true);
-        input.Select();
-        input.ActivateInputField();
-
-        Time.timeScale = slowedTime;
-    }
 }
