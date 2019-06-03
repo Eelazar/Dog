@@ -27,16 +27,29 @@ public class DogScript : MonoBehaviour
 
     public void CMDWalk(Vector3 target)
     {
+        navAgent.isStopped = false;
         navAgent.SetDestination(target);
     }
 
     public void CMDFollow(GameObject target)
     {
+        navAgent.isStopped = false;
         permanentTarget = target;
     }
 
     public void CMDStopFollow()
     {
+        navAgent.isStopped = true;
         permanentTarget = null;
+    }
+
+    public void CMDStop()
+    {
+        navAgent.isStopped = true;
+    }
+
+    public void CMDGo()
+    {
+        navAgent.isStopped = false;
     }
 }

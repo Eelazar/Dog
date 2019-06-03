@@ -100,10 +100,29 @@ public class DialogueManager : MonoBehaviour
         {
             case 0:
                 //Fresh thought
-                if (input.Contains(PlayerPrefs.GetString("v_move")))
+                if (input.Contains("stop"))
+                {
+                    if (input.Contains(PlayerPrefs.GetString("v_follow")))
+                    {
+                        dogS.CMDStopFollow();
+                        RespondFlat(6);
+                        return;
+                    }
+
+                    dogS.CMDStop();
+                    RespondFlat(5);
+                    return;
+                }
+                else if (input.Contains("go"))
+                {
+                    dogS.CMDGo();
+                    RespondFlat(2);
+                    return;
+                }
+                else if (input.Contains(PlayerPrefs.GetString("v_move")))
                 {
                     //IF LOCATION ETC
-                    RespondFlat(2);
+                    RespondFlat(1);
                     return;
                 }
                 else if (input.Contains(PlayerPrefs.GetString("v_follow")))
@@ -112,32 +131,30 @@ public class DialogueManager : MonoBehaviour
                     {
                         dogS.CMDFollow(player);
 
-                        RespondFlat(1);
+                        RespondFlat(4);
                         return;
                     }
                     else
                     {
                         trainOfThoughts = 2;
                         RespondAsk(1);
+                        return;
                     }
-                }
-                else if (input.Contains("stop"))
-                {
-                    dogS.CMDStopFollow();
-
-                    RespondFlat(1);
-                    return;
                 }
                 else
                 {
                     //If nothing is found answer with "not understood" sample
                     RespondFlat(0);
+                    return;
                 }
-                break;
 
             case 1:
-                //Missing move location
-                break;
+                //else
+                //{
+                //    //If nothing is found answer with "not understood" sample
+                //    RespondFlat(0);
+                //    return;
+                //}
 
             case 2:
                 //Missing follow target
@@ -145,13 +162,15 @@ public class DialogueManager : MonoBehaviour
                 {
                     dogS.CMDFollow(player);
 
-                    RespondFlat(1);
+                    RespondFlat(4);
+                    return;
                 }
                 else
                 {
+                    //If nothing is found answer with "not understood" sample
                     RespondFlat(0);
+                    return;
                 }
-                break;
 
             default:
                 break;
@@ -194,12 +213,28 @@ public class DialogueManager : MonoBehaviour
                 response = "Sorry, I couldn't understand that.";
                 break;
             case 1:
-                //Acknowledgement
-                response = "Sure!";
+                //Bad Excuse
+                response = "I don't think this feature was programmed into my brain yet...";
                 break;
             case 2:
-                //Bad Excuse
-                response = "I don't think this feature was programmed into my brain yet..";
+                //Acknowledgement 
+                response = "Sure!";
+                break;
+            case 3:
+                //Acknowledgement Move
+                response = "Okay, I'll " + PlayerPrefs.GetString("v_move") + " there.";
+                break;
+            case 4:
+                //Acknowledgement Follow
+                response = "I will " + PlayerPrefs.GetString("v_follow") + " " + PlayerPrefs.GetString("s_player") + " then!";
+                break;
+            case 5:
+                //Acknowledgement Stop
+                response = "I'll stop.";
+                break;
+            case 6:
+                //Acknowledgement Stop Follow
+                response = "Ok I'll stop " + PlayerPrefs.GetString("v_follow") + " " + PlayerPrefs.GetString("s_player") + ".";
                 break;
             default:
                 break;
