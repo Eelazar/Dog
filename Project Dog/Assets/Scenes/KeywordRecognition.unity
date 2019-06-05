@@ -120,6 +120,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &681986266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 681986268}
+  - component: {fileID: 681986267}
+  m_Layer: 0
+  m_Name: KeywordDictionary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &681986267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681986266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470f3c57ae6191c48827d3c8df446b45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sentences:
+  - action: Move to
+    objects:
+    - Door
+    - Box
+  - action: Open
+    objects:
+    - Door
+  - action: Pick Up
+    objects:
+    - Box
+    - Key
+--- !u!4 &681986268
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681986266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 395, y: 30, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796947531
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +499,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1086783869}
   - component: {fileID: 1086783868}
-  - component: {fileID: 1086783870}
   m_Layer: 0
   m_Name: KeywordRecognition
   m_TagString: Untagged
@@ -478,34 +532,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1086783870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086783867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470f3c57ae6191c48827d3c8df446b45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sentences:
-  - keywordsInOrder:
-    - Start
-    - Game
-  - keywordsInOrder:
-    - Follow
-    - Me
-  - keywordsInOrder:
-    - Suck
-    - Dick
-  - keywordsInOrder:
-    - Watch
-    - Out
-  - keywordsInOrder:
-    - Shut
-    - Up
 --- !u!1 &1354081019
 GameObject:
   m_ObjectHideFlags: 0

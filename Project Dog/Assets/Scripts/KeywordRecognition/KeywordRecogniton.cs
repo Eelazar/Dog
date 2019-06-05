@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class KeywordRecognitionResult
 {
+    public bool matched;
 
-    public string[] keywords;
+    public string response;
 
 }
 public class KeywordRecogniton : MonoBehaviour
@@ -16,42 +17,21 @@ public class KeywordRecogniton : MonoBehaviour
     {
         string[] words = rawText.Split(' ');
 
-        int bestMatchCount = 0;
-
-        KeywordRecognitionResult bestMatch = null;
+        KeywordRecognitionResult result = null;
 
         for (int i = 0; i < KeywordDictionary.current.sentences.Length; i++)
         {
-            KeywordRecognitionResult result;
+            KeywordDictionary.current.sentences[i].IsSentence(words, out result);
 
-            int currentMatch = KeywordDictionary.current.sentences[i].IsSentence(words, out result);
-
-            if (currentMatch > bestMatchCount)
+            if (result.matched)
             {
-                bestMatchCount = currentMatch;
-
-                bestMatch = result;
+                break;
             }
         }
 
-        if (bestMatch != null)
+        if (result.matched)
         {
-            StringBuilder str = new StringBuilder();
-
-            for (int i = 0; i < bestMatch.keywords.Length; i++)
-            {
-                if (i == bestMatch.keywords.Length - 1)
-                {
-                    str.Append(bestMatch.keywords[i]);
-                }
-                else
-                {
-                    str.Append(bestMatch.keywords[i] + ", ");
-                }
-
-            }
-
-            Debug.Log(str.ToString());
+            Debug.Log(result.response);
         }
     }
 }

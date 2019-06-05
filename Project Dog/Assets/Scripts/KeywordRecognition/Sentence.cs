@@ -6,31 +6,70 @@ using UnityEngine;
 [Serializable]
 public class Sentence
 {
-    public string[] keywordsInOrder;
+    public string action;
 
-    public int IsSentence(string[] words, out KeywordRecognitionResult result)
+    public string[] objects;
+
+    public void IsSentence(string[] words, out KeywordRecognitionResult result)
     {
         result = new KeywordRecognitionResult();
 
-        List<string> keywords = new List<string>();
+        string[] actionParts = action.Split(' ');
 
-        int start = 0;
+        bool actionFound = false;
 
-        for (int i = 0; i < keywordsInOrder.Length; i++)
+        result.matched = false;
+
+        bool actionObjectFound = false;
+
+        string actionObject = "";
+
+        for (int j = 0; j < words.Length; j++)
         {
-            for (int j = start; j < words.Length; j++)
+            if (actionFound)
             {
-                if (words[j].ToUpper().Equals(keywordsInOrder[i].ToUpper()))
+                for (int i = 0; i < objects.Length; i++)
                 {
-                    start = j;
+                    if (words[j].ToUpper().Equals(objects[i].ToUpper()))
+                    {
+                        actionObjectFound = true;
+                        actionObject = objects[i];
+                    }
+                }
+            }
+            else
+            {
+                if (words[j].ToUpper().Equals(actionParts[0].ToUpper()))
+                {
+                    bool fits = true;
 
-                    keywords.Add(keywordsInOrder[i]);
+                    for (int x = 1; x < actionParts.Length; x++)
+                    {
+                        if (j + x >= words.Length)
+                        {
+                            fits = false;
+                            break;
+                        }
+
+                        if (!words[j + x].ToUpper().Equals(actionParts[x].ToUpper()))
+                        {
+                            fits = false;
+                        }
+                    }
+
+                    actionFound = fits;
+                    result.matched = fits;
                 }
             }
         }
 
-        result.keywords = keywords.ToArray();
-
-        return keywords.Count;
+        if (actionFound && actionObjectFound)
+        {
+            result.response = action.ToUpper() + " " + actionObject.ToUpper();
+        }
+        else if (actionFound)
+        {
+            result.response = action.ToUpper() + " WHAT?";
+        }
     }
 }
