@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(AudioSource))]
 public class Console : MonoBehaviour
 {
     public TMP_InputField console_InputField;
     public TMP_Text[] log_TextFields;
+
+    private AudioSource keySource;
 
     private string focus;
     private string subFocus;
@@ -23,12 +26,20 @@ public class Console : MonoBehaviour
 
     void Start()
     {
+        keySource = gameObject.GetComponent<AudioSource>();
+
         SetFocus("input");
     }
 
     void Update()
     {
         GetInput();
+
+        if (Input.anyKeyDown)
+        {
+            keySource.pitch = Random.Range(0.5F, 3F);
+            keySource.Play();
+        }
     }
 
     void GetInput()

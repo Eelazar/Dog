@@ -3,11 +3,12 @@ using System.Collections;
 using System.IO;
 using System.Xml;
 using UnityEngine.UI;
+using TMPro;
 
-public class loadXmlFile : MonoBehaviour 
+public class XMLLoader : MonoBehaviour 
 {
     public TextAsset xmlRawFile;
-    public Text uiText;
+    public TMP_Text uiText;
 
     // Use this for initialization
     void Start () 
@@ -22,7 +23,7 @@ public class loadXmlFile : MonoBehaviour
         XmlDocument xmlDoc = new XmlDocument ();
         xmlDoc.Load(new StringReader(xmlData));
 
-        string xmlPathPattern = "//Navigation/Browser";
+        string xmlPathPattern = "//Help/Navigation";
         XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
         foreach(XmlNode node in myNodeList)
         {
@@ -30,7 +31,7 @@ public class loadXmlFile : MonoBehaviour
             XmlNode addr = name.NextSibling;
             XmlNode phone = addr.NextSibling;
 
-            totVal += " Name : "+name.InnerXml+"\n Address : "+ addr.InnerXml+"\n Mobile : "+phone.InnerXml+"\n\n";
+            totVal += "1 : "+name.InnerText +"\n2 : "+ addr.InnerXml+"\n3 : "+phone.Name+"\n\n";
             uiText.text = totVal;
         }
     }
