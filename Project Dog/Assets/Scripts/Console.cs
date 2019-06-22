@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource), typeof(XMLLoader))]
 public class Console : MonoBehaviour
 {
     public TMP_InputField console_InputField;
     public TMP_Text[] log_TextFields;
 
     private AudioSource keySource;
+    private XMLLoader xml;
 
+    //"console" "documentation"
     private string focus;
+    //"input, log" "main"
     private string subFocus;
 
     private int currentLogIndex;
@@ -27,6 +31,7 @@ public class Console : MonoBehaviour
     void Start()
     {
         keySource = gameObject.GetComponent<AudioSource>();
+        xml = gameObject.GetComponent<XMLLoader>();
 
         SetFocus("input");
     }
@@ -54,6 +59,23 @@ public class Console : MonoBehaviour
                 if (rawInput != "")
                 {
                     LogText(rawInput);
+
+                    //TEST CASES:
+                    if (rawInput.Contains("open"))
+                    {
+                        //hard coded: must begin with "open "
+                        string temp = rawInput.Remove(0, 5);
+                        //Capitalize first letter
+                        temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                        Debug.Log(temp);
+
+                        xml.MoveDown(temp);
+                    }
+                    if (rawInput.Contains("move up"))
+                    {
+                        xml.MoveUp();
+                    }
                 }
 
                 console_InputField.ActivateInputField();
@@ -68,6 +90,12 @@ public class Console : MonoBehaviour
         }
         else if (focus == "console" && subFocus == "log")
         {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                console_InputField.text = consoleLog[currentLogIndex];
+                SetFocus("input");
+            }
+
             if (Input.GetKeyUp(KeyCode.UpArrow))
             {
                 ScrollText(true);
@@ -100,6 +128,13 @@ public class Console : MonoBehaviour
         {
             focus = "console";
             subFocus = "log";
+
+            console_InputField.DeactivateInputField();
+        }
+        else if (f == "documentation")
+        {
+            focus = "documentation";
+            subFocus = "main";
 
             console_InputField.DeactivateInputField();
         }

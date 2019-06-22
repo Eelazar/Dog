@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System.Xml;
+using System.Xml.XPath;
 using UnityEngine.UI;
 using TMPro;
 
@@ -10,29 +11,83 @@ public class XMLLoader : MonoBehaviour
     public TextAsset xmlRawFile;
     public TMP_Text uiText;
 
+    private string nodePathFocus;
+    private string nodePath = "/";
+
+    private XPathNavigator nav;
+    private XPathDocument docNav;
+
     // Use this for initialization
     void Start () 
     {
-        string data = xmlRawFile.text;
-        parseXmlFile(data);
+        //UpdateData("Content");
+
+        // Open the XML.
+        docNav = new XPathDocument("Assets\\Scripts\\CommandLog.xml");
+        // Create a navigator to query with XPath.
+        nav = docNav.CreateNavigator();
+        //Initial XPathNavigator to start at the root.
+        nav.MoveToRoot();
+        //Move to first Child
+        nav.MoveToFirstChild();
+
+        UpdateXMLData();
     }
 
-    void parseXmlFile(string xmlData)
+    public void MoveDown(string node)
     {
-        string totVal = "";
-        XmlDocument xmlDoc = new XmlDocument ();
-        xmlDoc.Load(new StringReader(xmlData));
-
-        string xmlPathPattern = "//Help/Navigation";
-        XmlNodeList myNodeList = xmlDoc.SelectNodes(xmlPathPattern);
-        foreach(XmlNode node in myNodeList)
+        if (nav.HasChildren)
         {
-            XmlNode name = node.FirstChild;
-            XmlNode addr = name.NextSibling;
-            XmlNode phone = addr.NextSibling;
-
-            totVal += "1 : "+name.InnerText +"\n2 : "+ addr.InnerXml+"\n3 : "+phone.Name+"\n\n";
-            uiText.text = totVal;
+            nav.MoveToChild(node, string.Empty);
         }
+
+        UpdateXMLData();
     }
+
+    public void MoveUp()
+    {
+        nav.MoveToParent();
+
+        UpdateXMLData();
+    }
+
+
+    void UpdateXMLData()
+    {
+        //Get the header
+        string finalText = nav.Name + ":\n\n";
+
+        //Check if the current node is an entry
+        if (nav.HasAttributes)
+        {
+            if (nav.GetAttribute("type", string.Empty) == "entry")
+            {
+                finalText += nav.Value;
+            }
+        }
+
+        //Check for children
+        else if (nav.HasChildren)
+        {
+            //Get the amount of children
+            int childCount = nav.SelectChildren(XPathNodeType.All).Count;
+            //Move to first child
+            nav.MoveToFirstChild();
+
+            for (int i = 0; i < childCount; i++)
+            {
+                finalText += nav.Name + "\n\n";
+
+                //Move to the next sibling
+                nav.MoveToNext();
+            }
+
+            //Return to the parent node
+            nav.MoveToParent();
+        }
+        
+        //Update Text
+        uiText.text = finalText;
+    }
+
 }

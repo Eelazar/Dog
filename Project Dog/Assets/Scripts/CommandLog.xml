@@ -1,46 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Root>
-  <Commands>
-    <Navigation>
-      <open>
-        <Synonyms>open ; launch ; engage ; start ; load</Synonyms>
-
-        <Browser>
-          <Main>browser ; file browser ; explorer ; file explorer</Main>
-        </Browser>
-
-        <Camera>
-          <Main>camera ; camera window ; camera feed ; cam ; cam window ; cam feed</Main>
-          <Analytics>analysis ; analytics ; analysis mode</Analytics>
-          <Dog>dog camera ; dog vision ; doggo mode</Dog>
-        </Camera>
-      </open>
-    </Navigation>
-  </Commands>
-
   <Content>
     <Help>
       <Navigation>
         <Browser>
-          <Entry>Type "open browser" to open your content browser</Entry>
-          <Entry>Type "open " plus one of the subcategories to open further folders</Entry>
-          <Entry>Type "back" to move up a level in the hierarchy</Entry>
+          <Entry1 type="entry">Type "open browser" to open your content browser</Entry1>
+          <Entry2 type="entry">Type "open " plus one of the subcategories to open further folders</Entry2>
+          <Entry3 type="entry">Type "back" to move up a level in the hierarchy</Entry3>
         </Browser>
         
         <Camera>
-          <Entry1>Type "open camera" to launch the camera feed</Entry1>
-          <Entry2>Type "zoom in" to enhance the camera's vision</Entry2>
-          <Entry3>Type "analyze" to launch the camera's analytics mode</Entry3>
+          <Entry1 type="entry">Type "open camera" to launch the camera feed</Entry1>
+          <Entry2 type="entry">Type "zoom in" to enhance the camera's vision</Entry2>
+          <Entry3 type="entry">Type "analyze" to launch the camera's analytics mode</Entry3>
         </Camera>
 
         <Robot>
           <Movement>
-            <Entry1>Type "go to" and coordinates to send a move order to your robot</Entry1>
+            <Entry1 type="entry">Type "go to" and coordinates to send a move order to your robot</Entry1>
           </Movement>
         </Robot>
-      </Navigation>
-      
+      </Navigation>      
     </Help>
+
+    <Log>
+      <Entry1 type="entry">Sike</Entry1>
+      <Entry2 type="entry">Ya boring</Entry2>
+    </Log>
+
+    <Data>
+      <Entry1 type="entry">Move along nothing to see here</Entry1>
+      <Entry2 type="entry">Get the fuck off my node</Entry2>
+    </Data>
+
   </Content>
 </Root>
