@@ -51,7 +51,7 @@ public class Console : MonoBehaviour
     {
         if(focus == "console" && subFocus == "input")
         {
-            if (Input.GetKeyUp(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 rawInput = console_InputField.text;
                 console_InputField.text = "";
@@ -92,8 +92,14 @@ public class Console : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                console_InputField.text = consoleLog[currentLogIndex];
                 SetFocus("input");
+
+                //Copy the selected text to input
+                console_InputField.text = consoleLog[currentLogIndex];
+                //Set the caret to the end of the line
+                console_InputField.caretPosition = console_InputField.text.Length;
+                //Remove the "> " from the selected slot
+                log_TextFields[selectedSlotIndex].text = log_TextFields[selectedSlotIndex].text.Remove(0, 2);
             }
 
             if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -186,7 +192,7 @@ public class Console : MonoBehaviour
         }
         else 
         {
-            //Add an indentation to currntly selected text
+            //Add an indentation to currently selected text
             log_TextFields[selectedSlotIndex].text = "> " + log_TextFields[selectedSlotIndex].text;
             //Set Input Text to selected text, also lower alpha
             console_InputField.text = "<color=#" + ColorUtility.ToHtmlStringRGBA(inputFadeColor) + ">" + consoleLog[currentLogIndex] + "</color>";

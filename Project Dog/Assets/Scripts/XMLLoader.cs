@@ -9,19 +9,15 @@ using TMPro;
 public class XMLLoader : MonoBehaviour 
 {
     public TextAsset xmlRawFile;
-    public TMP_Text uiText;
+    public TMP_Text display_Text;
+    public TMP_Text displayHeader_Text;
 
-    private string nodePathFocus;
-    private string nodePath = "/";
 
     private XPathNavigator nav;
     private XPathDocument docNav;
 
-    // Use this for initialization
     void Start () 
     {
-        //UpdateData("Content");
-
         // Open the XML.
         docNav = new XPathDocument("Assets\\Scripts\\CommandLog.xml");
         // Create a navigator to query with XPath.
@@ -54,15 +50,17 @@ public class XMLLoader : MonoBehaviour
 
     void UpdateXMLData()
     {
+        string finalText = "";
+
         //Get the header
-        string finalText = nav.Name + ":\n\n";
+        displayHeader_Text.text = "> " + nav.Name;
 
         //Check if the current node is an entry
         if (nav.HasAttributes)
         {
             if (nav.GetAttribute("type", string.Empty) == "entry")
             {
-                finalText += nav.Value;
+                finalText += "\n" + nav.Value;
             }
         }
 
@@ -76,7 +74,7 @@ public class XMLLoader : MonoBehaviour
 
             for (int i = 0; i < childCount; i++)
             {
-                finalText += nav.Name + "\n\n";
+                finalText += "> " + nav.Name + "\n";
 
                 //Move to the next sibling
                 nav.MoveToNext();
@@ -85,9 +83,9 @@ public class XMLLoader : MonoBehaviour
             //Return to the parent node
             nav.MoveToParent();
         }
-        
+
         //Update Text
-        uiText.text = finalText;
+        display_Text.text = finalText;
     }
 
 }
