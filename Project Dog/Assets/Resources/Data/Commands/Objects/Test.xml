@@ -1,0 +1,9 @@
+<ObjectCommands>
+	<id>0</id>
+	<Commands>
+		<Command>
+			<action>Open</action>
+			<functionCall>OnCommandOpen</functionCall>
+		</Command>
+	</Commands>
+</ObjectCommands>
