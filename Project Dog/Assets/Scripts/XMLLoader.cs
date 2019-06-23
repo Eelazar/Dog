@@ -12,6 +12,7 @@ public class XMLLoader : MonoBehaviour
     public TMP_Text display_Text;
     public TMP_Text displayHeader_Text;
 
+    public float textSpeed;
 
     private XPathNavigator nav;
     private XPathDocument docNav;
@@ -53,7 +54,7 @@ public class XMLLoader : MonoBehaviour
         string finalText = "";
 
         //Get the header
-        displayHeader_Text.text = "> " + nav.Name;
+        StartCoroutine(AnimateText(displayHeader_Text, "> " + nav.Name));
 
         //Check if the current node is an entry
         if (nav.HasAttributes)
@@ -85,7 +86,20 @@ public class XMLLoader : MonoBehaviour
         }
 
         //Update Text
-        display_Text.text = finalText;
+        StartCoroutine(AnimateText(display_Text, finalText));
+    }
+
+    IEnumerator AnimateText(TMP_Text ui, string s)
+    {
+        ui.text = "";
+
+        foreach(char c in s)
+        {
+            ui.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        yield return null;
     }
 
 }

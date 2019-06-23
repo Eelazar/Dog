@@ -11,6 +11,8 @@ public class Console : MonoBehaviour
     public TMP_InputField console_InputField;
     public TMP_Text[] log_TextFields;
 
+    public float textSpeed;
+
     private AudioSource keySource;
     private XMLLoader xml;
 
@@ -224,7 +226,27 @@ public class Console : MonoBehaviour
         //Fill the text fields
         for (int i = 0; i < log_TextFields.Length; i++)
         {
-            log_TextFields[i].text = consoleLog[currentLogIndex - selectedSlotIndex + i];
+            if(i == 0)
+            {
+                StartCoroutine(AnimateText(log_TextFields[i], consoleLog[currentLogIndex - selectedSlotIndex + i]));
+            }
+            else
+            {
+                log_TextFields[i].text = consoleLog[currentLogIndex - selectedSlotIndex + i];
+            } 
         }
+    }
+
+    IEnumerator AnimateText(TMP_Text ui, string s)
+    {
+        ui.text = "";
+
+        foreach (char c in s)
+        {
+            ui.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        yield return null;
     }
 }
