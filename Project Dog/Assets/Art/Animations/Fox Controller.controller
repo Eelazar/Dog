@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-8498943416078188301
+--- !u!1102 &-3771998566041611581
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature_001_proxy|Armature_001_proxyAction
+  m_Name: Fox Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -59,8 +59,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -8498943416078188301}
-    m_Position: {x: 289.17642, y: 188.35295, z: 0}
+    m_State: {fileID: -3771998566041611581}
+    m_Position: {x: 424.61456, y: 218.34967, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -70,4 +70,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -8498943416078188301}
+  m_DefaultState: {fileID: -3771998566041611581}

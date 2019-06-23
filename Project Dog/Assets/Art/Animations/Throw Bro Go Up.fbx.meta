@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 613061727f3d38a45bed1ecd7598428e
+guid: 9ea4df5ba378d7b4d92777e9ff1744fe
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
-      74: -8442307530746634395
-    second: Fox Walk
+      74: -6096764882618747778
+    second: Throw Bro Go Up
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fox Walk
-      takeName: Armature.001_proxy|Armature.001_proxyAction
-      internalID: -8442307530746634395
+      name: Throw Bro Go Up
+      takeName: Armature_proxy|Armature_proxyAction
+      internalID: -6096764882618747778
       firstFrame: 1
-      lastFrame: 38
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
