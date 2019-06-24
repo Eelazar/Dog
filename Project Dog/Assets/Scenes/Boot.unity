@@ -3496,7 +3496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f654a6911f653b042b1f6e5d96c822dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  console_InputField: {fileID: 1809537091}
   log_TextFields:
   - {fileID: 1690241218}
   - {fileID: 1634407823}
@@ -3513,17 +3512,13 @@ MonoBehaviour:
   - {fileID: 1095682517}
   - {fileID: 44633861}
   - {fileID: 754297329}
-  consolePanel: {fileID: 1682874038}
-  window: {fileID: 1163182367}
+  console_InputField: {fileID: 1809537091}
   programLogo: {fileID: 561687930}
   transitionBlack: {fileID: 61797445}
   loadingEye: {fileID: 591670369}
   loadingText: {fileID: 1742776326}
   textSpeed: 0.02
-  windowAnimDuration: 0.5
   logoAnimDuration: 0.85
-  loadingAnimDuration: 1.5
-  loadingAnimTurnCount: 3
   logoAnimMaxScale: 1.5
   logoAnimCurve_Scale:
     serializedVersion: 2
@@ -3600,6 +3595,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  logoAnimPause: 0.7
+  windowAnimDuration: 0.5
+  fadeAnimPause: 0.2
+  loadingAnimDuration: 1.5
+  loadingAnimTurnCount: 3
+  spinAnimPause: 0.2
   sceneToLoad: Console
 --- !u!4 &1657284612
 Transform:
@@ -4143,7 +4144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809537091
@@ -5090,8 +5091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_AnchoredPosition: {x: 5, y: 0}
+  m_SizeDelta: {x: -10, y: 20}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &2131474832
 GameObject:
