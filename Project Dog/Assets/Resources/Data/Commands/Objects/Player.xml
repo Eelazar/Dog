@@ -1,0 +1,33 @@
+<ObjectCommands>
+  <baseName>Player</baseName>
+  <Commands>
+    <Command>
+      <Actions>
+        <Action>Move</Action>
+        <Action>Front</Action>
+      </Actions>
+      <functionCall>OnCommandMoveFront</functionCall>
+    </Command>
+    <Command>
+      <Actions>
+        <Action>Move</Action>
+        <Action>Back</Action>
+      </Actions>
+      <functionCall>OnCommandMoveBack</functionCall>
+    </Command>
+    <Command>
+      <Actions>
+        <Action>Move</Action>
+        <Action>Left</Action>
+      </Actions>
+      <functionCall>OnCommandMoveLeft</functionCall>
+    </Command>
+    <Command>
+      <Actions>
+        <Action>Move</Action>
+        <Action>Right</Action>
+      </Actions>
+      <functionCall>OnCommandMoveRight</functionCall>
+    </Command>
+  </Commands>
+</ObjectCommands>

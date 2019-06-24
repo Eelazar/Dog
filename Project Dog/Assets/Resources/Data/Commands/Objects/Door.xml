@@ -1,0 +1,17 @@
+<ObjectCommands>
+  <baseName>Door</baseName>
+  <Commands>
+    <Command>
+      <Actions>
+        <Action>Open</Action>
+      </Actions>
+      <functionCall>OnCommandOpen</functionCall>
+    </Command>
+    <Command>
+      <Actions>
+        <Action>Close</Action>
+      </Actions>
+      <functionCall>OnCommandClose</functionCall>
+    </Command>
+  </Commands>
+</ObjectCommands>

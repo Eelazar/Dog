@@ -51,7 +51,7 @@ public class Console : MonoBehaviour
 
     void GetInput()
     {
-        if(focus == "console" && subFocus == "input")
+        if (focus == "console" && subFocus == "input")
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
@@ -62,22 +62,30 @@ public class Console : MonoBehaviour
                 {
                     LogText(rawInput);
 
-                    //TEST CASES:
-                    if (rawInput.Contains("open"))
-                    {
-                        //hard coded: must begin with "open "
-                        string temp = rawInput.Remove(0, 5);
-                        //Capitalize first letter
-                        temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+                    CommandFeedback commandFeedback = CommandManager.ExecuteCommand(rawInput.Split(' '));
 
-                        Debug.Log(temp);
-
-                        xml.MoveDown(temp);
-                    }
-                    if (rawInput.Contains("move up"))
+                    if (!commandFeedback.valid)
                     {
-                        xml.MoveUp();
+                        LogText(commandFeedback.feedback);
                     }
+
+                    ////TEST CASES:
+                    //if (rawInput.Contains("open"))
+                    //{
+                    //    //hard coded: must begin with "open "
+                    //    string temp = rawInput.Remove(0, 5);
+                    //    //Capitalize first letter
+                    //    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                    //    Debug.Log(temp);
+
+                    //    xml.MoveDown(temp);
+                    //}
+
+                    //if (rawInput.Contains("move up"))
+                    //{
+                    //    xml.MoveUp();
+                    //}
                 }
 
                 console_InputField.ActivateInputField();
@@ -109,7 +117,7 @@ public class Console : MonoBehaviour
                 ScrollText(true);
             }
 
-            if(Input.GetKeyUp(KeyCode.DownArrow) && currentLogIndex == 0)
+            if (Input.GetKeyUp(KeyCode.DownArrow) && currentLogIndex == 0)
             {
                 ScrollText(false, true);
                 SetFocus("input");
@@ -155,10 +163,10 @@ public class Console : MonoBehaviour
         {
             currentLogIndex = 0;
             selectedSlotIndex = 0;
-        }        
-        else if(up)
+        }
+        else if (up)
         {
-            if(currentLogIndex >= 4)
+            if (currentLogIndex >= 4)
             {
                 //If selection is at the top of window, only scroll
                 currentLogIndex++;
@@ -172,13 +180,13 @@ public class Console : MonoBehaviour
         }
         else if (!up)
         {
-            if(currentLogIndex > 0)
+            if (currentLogIndex > 0)
             {
                 //If log is above 0, scroll down
                 currentLogIndex--;
             }
 
-            if(selectedSlotIndex > 0)
+            if (selectedSlotIndex > 0)
             {
                 //if selection is not at the bottom, also move selection
                 selectedSlotIndex--;
@@ -192,7 +200,7 @@ public class Console : MonoBehaviour
         {
             console_InputField.text = "";
         }
-        else 
+        else
         {
             //Add an indentation to currently selected text
             log_TextFields[selectedSlotIndex].text = "> " + log_TextFields[selectedSlotIndex].text;
@@ -226,14 +234,14 @@ public class Console : MonoBehaviour
         //Fill the text fields
         for (int i = 0; i < log_TextFields.Length; i++)
         {
-            if(i == 0)
-            {
-                StartCoroutine(AnimateText(log_TextFields[i], consoleLog[currentLogIndex - selectedSlotIndex + i]));
-            }
-            else
-            {
-                log_TextFields[i].text = consoleLog[currentLogIndex - selectedSlotIndex + i];
-            } 
+            //if (i == 0)
+            //{
+            //    StartCoroutine(AnimateText(log_TextFields[i], consoleLog[currentLogIndex - selectedSlotIndex + i]));
+            //}
+            //else
+            //{
+            log_TextFields[i].text = consoleLog[currentLogIndex - selectedSlotIndex + i];
+            //}
         }
     }
 

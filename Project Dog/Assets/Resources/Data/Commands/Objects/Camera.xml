@@ -1,0 +1,11 @@
+<ObjectCommands>
+  <baseName>Camera</baseName>
+  <Commands>
+    <Command>
+      <Actions>
+        <Action>Open</Action>
+      </Actions>
+      <functionCall>OnCommandOpen</functionCall>
+    </Command>
+  </Commands>
+</ObjectCommands>

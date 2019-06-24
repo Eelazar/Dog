@@ -11,7 +11,7 @@ public class ObjectCommandLoader : MonoBehaviour
     void Awake()
     {
 
-        var objectFiles = Resources.LoadAll("Data/Commands/Objects/Test", typeof(TextAsset)).Cast<TextAsset>();
+        var objectFiles = Resources.LoadAll("Data/Commands/Objects", typeof(TextAsset)).Cast<TextAsset>();
 
         foreach (TextAsset objectFile in objectFiles)
         {

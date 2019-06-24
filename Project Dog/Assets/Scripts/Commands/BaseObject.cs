@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour
 {
-    public int id;
+    public string baseName;
+
+    public string definedName;
 
     // Start is called before the first frame update
     void Start()
@@ -16,10 +18,5 @@ public class BaseObject : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public void OnCommandOpen(CommandContext context)
-    {
-        Debug.Log(transform.name + ": YE YUP");
     }
 }

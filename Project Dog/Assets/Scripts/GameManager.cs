@@ -20,13 +20,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectManager.AddObject("Door1", door1);
-        ObjectManager.AddObject("Door2", door2);
+        ObjectManager.AddObject(door1);
+        ObjectManager.AddObject(door2);
 
-        CommandFeedback feedback = CommandManager.ExecuteCommand("Open", "Door1");
-
-        if (!feedback.valid)
-            Debug.Log(feedback.feedback);
+        ObjectManager.AddObject(player);
     }
 
     // Update is called once per frame
