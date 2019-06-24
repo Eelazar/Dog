@@ -11,16 +11,16 @@ public class XMLLoader : MonoBehaviour
     #region Editor Variables
     [SerializeField]
     [Tooltip("The XML File to be loaded")]
-    public TextAsset xmlRawFile;
+    private TextAsset xmlRawFile;
     [SerializeField]
     [Tooltip("The Object where content is to be displayed")]
-    public TMP_Text display_Text;
+    private TMP_Text display_Text;
     [SerializeField]
     [Tooltip("The Object where content headers and titles are to be displayed")]
-    public TMP_Text displayHeader_Text;
+    private TMP_Text displayHeader_Text;
     [SerializeField]
     [Tooltip("The duration between each character being added during the typewriter animation")]
-    public float textSpeed;
+    private float textSpeed;
     #endregion Editor Variables
 
     #region Private Variables

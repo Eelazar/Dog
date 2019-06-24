@@ -50,11 +50,17 @@ public class BootConsole : MonoBehaviour
     [SerializeField]
     [Tooltip("The Animation Curve for the rotation speed during the logo animation")]
     private AnimationCurve logoAnimCurve_Rotation;
+    [SerializeField]
+    [Tooltip("The duration of the pause between the Logo Animation and the Fade Animation")]
+    private float logoAnimPause;
 
     [Header("Fade-To-Black Animation")]
     [SerializeField]
     [Tooltip("The duration of the fade-to-black animation")]
     private float windowAnimDuration;
+    [SerializeField]
+    [Tooltip("The duration of the pause between the Fade Animation and the Loading Animation ")]
+    private float fadeAnimPause;
 
     [Header("Logo Animation (Loading Screen)")]
     [SerializeField]
@@ -63,6 +69,9 @@ public class BootConsole : MonoBehaviour
     [SerializeField]
     [Tooltip("The amount of logo spins in the loading screen")]
     private int loadingAnimTurnCount;
+    [SerializeField]
+    [Tooltip("The duration of the pause between each spin during the Loading Animation")]
+    private float spinAnimPause;
 
     [Header("Other")]
     [SerializeField]
@@ -291,7 +300,7 @@ public class BootConsole : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(logoAnimPause);
 
         //Initialize Lerp
         float tFade = 0;
@@ -308,6 +317,8 @@ public class BootConsole : MonoBehaviour
 
             yield return null;
         }
+
+        yield return new WaitForSeconds(fadeAnimPause);
 
         window.SetActive(false);
         loadingEye.SetActive(true);
@@ -336,7 +347,7 @@ public class BootConsole : MonoBehaviour
                 yield return null;
             }
 
-            yield return new WaitForSeconds(0.2F);
+            yield return new WaitForSeconds(spinAnimPause);
         }
 
         //Load the scene
