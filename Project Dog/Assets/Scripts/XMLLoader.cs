@@ -8,16 +8,28 @@ using TMPro;
 
 public class XMLLoader : MonoBehaviour 
 {
+    #region Editor Variables
+    [SerializeField]
+    [Tooltip("The XML File to be loaded")]
     public TextAsset xmlRawFile;
+    [SerializeField]
+    [Tooltip("The Object where content is to be displayed")]
     public TMP_Text display_Text;
+    [SerializeField]
+    [Tooltip("The Object where content headers and titles are to be displayed")]
     public TMP_Text displayHeader_Text;
-
+    [SerializeField]
+    [Tooltip("The duration between each character being added during the typewriter animation")]
     public float textSpeed;
+    #endregion Editor Variables
 
+    #region Private Variables
+    //XML Navigation Variables
     private XPathNavigator nav;
     private XPathDocument docNav;
+    #endregion Private Variables
 
-    void Start () 
+    private void Start () 
     {
         // Open the XML.
         docNav = new XPathDocument("Assets\\Scripts\\CommandLog.xml");
@@ -28,39 +40,24 @@ public class XMLLoader : MonoBehaviour
         //Move to first Child
         nav.MoveToFirstChild();
 
+        //Initial Update
         UpdateXMLData();
     }
 
-    public void MoveDown(string node)
-    {
-        if (nav.HasChildren)
-        {
-            nav.MoveToChild(node, string.Empty);
-        }
-
-        UpdateXMLData();
-    }
-
-    public void MoveUp()
-    {
-        nav.MoveToParent();
-
-        UpdateXMLData();
-    }
-
-
-    void UpdateXMLData()
+    private void UpdateXMLData()
     {
         string finalText = "";
 
         //Get the header
         StartCoroutine(AnimateText(displayHeader_Text, "> " + nav.Name));
 
-        //Check if the current node is an entry
+        //Check for attributes
         if (nav.HasAttributes)
         {
+            //Check if the current node is an entry
             if (nav.GetAttribute("type", string.Empty) == "entry")
             {
+                //If yes just display the text without looking for children
                 finalText += "\n" + nav.Value;
             }
         }
@@ -89,8 +86,27 @@ public class XMLLoader : MonoBehaviour
         StartCoroutine(AnimateText(display_Text, finalText));
     }
 
-    IEnumerator AnimateText(TMP_Text ui, string s)
+    public void MoveDown(string node)
     {
+        if (nav.HasChildren)
+        {
+            nav.MoveToChild(node, string.Empty);
+        }
+
+        UpdateXMLData();
+    }
+
+    public void MoveUp()
+    {
+        nav.MoveToParent();
+
+        UpdateXMLData();
+    }
+
+    private IEnumerator AnimateText(TMP_Text ui, string s)
+    {
+        //Add text one character at a time to create a typewriter effect
+
         ui.text = "";
 
         foreach(char c in s)
