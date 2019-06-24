@@ -47,6 +47,11 @@ public class BootConsole : MonoBehaviour
 
         log_ActiveFields = new List<GameObject>();
 
+        foreach(TMP_Text tmp in log_TextFields)
+        {
+            tmp.gameObject.SetActive(false);
+        }
+
         //Suggest Help
         LogText("Type 'help' to see a list of available commands");
     }
@@ -61,41 +66,7 @@ public class BootConsole : MonoBehaviour
             keySource.Play();
         }
 
-        float yOffset = consolePanel.GetComponent<RectTransform>().sizeDelta.y;
-        Vector2 parentAnchorMin = new Vector2(window.GetComponent<RectTransform>().anchorMin.x, window.GetComponent<RectTransform>().anchorMin.y);
-        Vector2 parentAnchorMax = new Vector2(window.GetComponent<RectTransform>().anchorMax.x, window.GetComponent<RectTransform>().anchorMax.y);
-        Vector2 parentScreenPercent = new Vector2(parentAnchorMax.x - parentAnchorMin.x, parentAnchorMax.y - parentAnchorMin.y);
-
-        float canvasHeight = Screen.height;
-        float logSize = (canvasHeight * parentScreenPercent.y) + yOffset;
-
-        int slotAmount = Mathf.FloorToInt(logSize / 20);
-        int activeAmount = log_ActiveFields.Count;
-        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
-        if(activeAmount < slotAmount)
-        {
-            for (int i = activeAmount; i < slotAmount; i++)
-            {
-                log_TextFields[i].gameObject.SetActive(true);
-                log_ActiveFields.Add(log_TextFields[i].gameObject);
-            }
-        }
-        else if (activeAmount > slotAmount)
-        {
-            for (int i = activeAmount; i > slotAmount; i--)
-            {
-                log_TextFields[i-1].gameObject.SetActive(false);
-                log_ActiveFields.Remove(log_TextFields[i-1].gameObject);
-            }
-
-            //Cleanup
-            for (int i = activeAmount; i < log_TextFields.Length; i++)
-            {
-                log_TextFields[i].gameObject.SetActive(false);
-            }
-        }
-
-
+        ResizeLog();
     }
 
     void GetInput()
@@ -151,6 +122,43 @@ public class BootConsole : MonoBehaviour
             else
             {
                 log_TextFields[i].text = consoleLog[currentLogIndex - selectedSlotIndex + i];
+            }
+        }
+    }
+
+    void ResizeLog()
+    {
+        float yOffset = consolePanel.GetComponent<RectTransform>().sizeDelta.y;
+        Vector2 parentAnchorMin = new Vector2(window.GetComponent<RectTransform>().anchorMin.x, window.GetComponent<RectTransform>().anchorMin.y);
+        Vector2 parentAnchorMax = new Vector2(window.GetComponent<RectTransform>().anchorMax.x, window.GetComponent<RectTransform>().anchorMax.y);
+        Vector2 parentScreenPercent = new Vector2(parentAnchorMax.x - parentAnchorMin.x, parentAnchorMax.y - parentAnchorMin.y);
+
+        float canvasHeight = Screen.height;
+        float logSize = (canvasHeight * parentScreenPercent.y) + yOffset;
+
+        int slotAmount = Mathf.FloorToInt(logSize / 20);
+        int activeAmount = log_ActiveFields.Count;
+        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+        if (activeAmount < slotAmount)
+        {
+            for (int i = activeAmount; i < slotAmount; i++)
+            {
+                log_TextFields[i].gameObject.SetActive(true);
+                log_ActiveFields.Add(log_TextFields[i].gameObject);
+            }
+        }
+        else if (activeAmount > slotAmount)
+        {
+            for (int i = activeAmount; i > slotAmount; i--)
+            {
+                log_TextFields[i - 1].gameObject.SetActive(false);
+                log_ActiveFields.Remove(log_TextFields[i - 1].gameObject);
+            }
+
+            //Cleanup
+            for (int i = activeAmount; i < log_TextFields.Length; i++)
+            {
+                log_TextFields[i].gameObject.SetActive(false);
             }
         }
     }
