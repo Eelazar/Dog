@@ -108,6 +108,7 @@ Material:
     - _OcclusionStrength: 1
     - _Outline: 0
     - _Parallax: 0.02
+    - _ScanPower: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0
     - _SrcBlend: 1
@@ -121,6 +122,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 0.18867922, g: 0.17710927, b: 0.17710927, a: 1}
     - _LightWrapping: {r: 0, g: 0, b: 0, a: 1}
+    - _ScanColor: {r: 1, g: 0.23783785, b: 0, a: 1}
     - _SpecColor: {r: 0.2735849, g: 0, b: 0, a: 1}
     - _Transmission: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _node_2864: {r: 0.5, g: 0.5, b: 0.5, a: 1}
