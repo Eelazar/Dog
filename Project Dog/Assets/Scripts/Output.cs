@@ -13,8 +13,12 @@ public class Output : MonoBehaviour
     [Header("Object References")]
     [SerializeField]
     [Tooltip("The panel containing all the log TextFields")]
-    private GameObject entryHolder;   
+    private GameObject entryHolder;
 
+    [Header("Text Animation")]
+    [SerializeField]
+    [Tooltip("The duration of the pause between each letter during typewriter animation")]
+    private float textSpeed;
 
     #endregion Editor Variables
 
@@ -25,6 +29,12 @@ public class Output : MonoBehaviour
     private TMP_Text[] textFields;
     //The dynamic list containing all the text fields that are currently active
     private List<GameObject> activeFields;
+    //The log with x saved messages
+    private string[] log = new string[200];
+    //Index for the currently selected log entry
+    private int currentLogIndex;
+    //Index for the currently selected text field position i.e. slot
+    private int selectedSlotIndex;
 
     void Start()
     {
@@ -107,5 +117,55 @@ public class Output : MonoBehaviour
         {
             textFields[i] = entryHolder.transform.GetChild((count - 1) - i).GetComponent<TMP_Text>();
         }
+    }
+
+    public void LogText(string s)
+    {
+        //temp1 gets the new text
+        string temp1 = s;
+        string temp2;
+
+        for (int i = 0; i < log.Length; i++)
+        {
+            //Temp2 gets the old text
+            temp2 = log[i];
+            //Old text is replaced by the new text
+            log[i] = temp1;
+            //Old text is replaced by new text
+            temp1 = temp2;
+        }
+
+        UpdateLog();
+    }
+
+    private void UpdateLog()
+    {
+        //Fill the text fields
+        for (int i = 0; i < textFields.Length; i++)
+        {
+            if (i == 0)
+            {
+                //If its a new entry animate it with a tyewriter effect
+                StartCoroutine(AnimateText(textFields[i], log[currentLogIndex - selectedSlotIndex + i]));
+            }
+            else
+            {
+                textFields[i].text = log[currentLogIndex - selectedSlotIndex + i];
+            }
+        }
+    }
+
+    IEnumerator AnimateText(TMP_Text ui, string s)
+    {
+        ui.text = "";
+
+        //Add a new character every X seconds for a typewriter effect
+        foreach (char c in s)
+        {
+            ui.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        yield return null;
     }
 }
