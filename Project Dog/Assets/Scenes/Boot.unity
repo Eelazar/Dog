@@ -3496,23 +3496,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f654a6911f653b042b1f6e5d96c822dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  log_TextFields:
-  - {fileID: 1690241218}
-  - {fileID: 1634407823}
-  - {fileID: 445174565}
-  - {fileID: 453103050}
-  - {fileID: 1845586182}
-  - {fileID: 477706698}
-  - {fileID: 2131474834}
-  - {fileID: 1982902917}
-  - {fileID: 1936042077}
-  - {fileID: 742968063}
-  - {fileID: 518553443}
-  - {fileID: 1432012760}
-  - {fileID: 1095682517}
-  - {fileID: 44633861}
-  - {fileID: 754297329}
   console_InputField: {fileID: 1809537091}
+  consolePanel: {fileID: 1682874038}
   programLogo: {fileID: 561687930}
   transitionBlack: {fileID: 61797445}
   loadingEye: {fileID: 591670369}

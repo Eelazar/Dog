@@ -13,9 +13,6 @@ public class Console : MonoBehaviour
     #region Editor Variables
     [Header("Object References")]
     [SerializeField]
-    [Tooltip("All the textfields from bottom to top")]
-    private TMP_Text[] log_TextFields;
-    [SerializeField]
     [Tooltip("The console InputField object")]
     private TMP_InputField console_InputField;
     [SerializeField]
@@ -36,6 +33,8 @@ public class Console : MonoBehaviour
     private List<GameObject> log_ActiveFields;
     //The panel containing the log TextFields and the input field
     private GameObject console_Panel;
+    //All the textfields from bottom to top
+    private TMP_Text[] log_TextFields;
 
     ////Other Variables
     //Index for the currently selected log entry
@@ -58,11 +57,14 @@ public class Console : MonoBehaviour
     void Start()
     {
         //Initialize
-        console_Panel = log_Panel.transform.parent.gameObject;
-        log_ActiveFields = new List<GameObject>();
-
         keySource = gameObject.GetComponent<AudioSource>();
         xml = gameObject.GetComponent<XMLLoader>();
+
+        console_Panel = log_Panel.transform.parent.gameObject;
+        log_ActiveFields = new List<GameObject>();
+        log_TextFields = new TMP_Text[log_Panel.transform.childCount];
+
+        FillTextFieldArray();
 
         //Turn off all text fields
         foreach (TMP_Text tmp in log_TextFields)
@@ -315,6 +317,16 @@ public class Console : MonoBehaviour
         }
 
         UpdateLog();
+    }
+
+    void FillTextFieldArray()
+    {
+        int count = log_TextFields.Length;
+
+        for (int i = 0; i < count; i++)
+        {
+            log_TextFields[i] = log_Panel.transform.GetChild((count - 1) - i).GetComponent<TMP_Text>();
+        }
     }
 
     void UpdateLog()

@@ -14,11 +14,11 @@ public class BootConsole : MonoBehaviour
     #region Editor Variables
     [Header("Object References")]
     [SerializeField]
-    [Tooltip("All the textfields from bottom to top")]
-    private TMP_Text[] log_TextFields;
-    [SerializeField]
     [Tooltip("The console InputField object")]
     private TMP_InputField console_InputField;
+    [SerializeField]
+    [Tooltip("The panel containing all the log TextFields")]
+    private GameObject consolePanel;
     [SerializeField]
     [Tooltip("The object containing the taskbar logo")]
     private GameObject programLogo;
@@ -83,12 +83,12 @@ public class BootConsole : MonoBehaviour
     ////Object References
     //The panel containing the console panel and input panel
     private GameObject window;
-    //The panel containing all the log TextFields
-    private GameObject consolePanel;
     //The audio source for the key sounds
     private AudioSource keySource;
     //The dynamic list containing all the text fields that are currently active
     private List<GameObject> log_ActiveFields;
+    //All the textfields from bottom to top
+    private TMP_Text[] log_TextFields;
 
     ////Other Variables
     //Holder for the text input
@@ -107,14 +107,16 @@ public class BootConsole : MonoBehaviour
     {
         //Initialize
         log_ActiveFields = new List<GameObject>();
+        log_TextFields = new TMP_Text[consolePanel.transform.childCount];
 
         //Get some stuff
-        consolePanel = log_TextFields[0].transform.parent.gameObject;
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
-
+        
         //Activate the input field to get the cursor on it
         console_InputField.ActivateInputField();
+
+        FillTextFieldArray();
 
         //Turn off all text fields
         foreach (TMP_Text tmp in log_TextFields)
@@ -354,5 +356,15 @@ public class BootConsole : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneToLoad);
 
         yield return null;
+    }
+
+    void FillTextFieldArray()
+    {
+        int count = log_TextFields.Length;
+
+        for (int i = 0; i < count; i++)
+        {
+            log_TextFields[i] = consolePanel.transform.GetChild((count - 1) - i).GetComponent<TMP_Text>();
+        }
     }
 }
