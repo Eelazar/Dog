@@ -117,7 +117,7 @@ public class BootConsole : MonoBehaviour
         console_InputField.ActivateInputField();
 
         //Turn off all text fields
-        foreach(TMP_Text tmp in log_TextFields)
+        foreach (TMP_Text tmp in log_TextFields)
         {
             tmp.gameObject.SetActive(false);
         }

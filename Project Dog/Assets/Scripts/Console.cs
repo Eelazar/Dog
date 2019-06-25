@@ -8,32 +8,67 @@ using System.Linq;
 [RequireComponent(typeof(AudioSource), typeof(XMLLoader))]
 public class Console : MonoBehaviour
 {
-    public TMP_InputField console_InputField;
-    public TMP_Text[] log_TextFields;
+    private const float lineHeight = 20F;
 
-    public float textSpeed;
+    #region Editor Variables
+    [Header("Object References")]
+    [SerializeField]
+    [Tooltip("All the textfields from bottom to top")]
+    private TMP_Text[] log_TextFields;
+    [SerializeField]
+    [Tooltip("The console InputField object")]
+    private TMP_InputField console_InputField;
+    [SerializeField]
+    [Tooltip("The Panel containing the log objects")]
+    private GameObject log_Panel;
 
+    [Header("Text Animation")]
+    [SerializeField]
+    [Tooltip("The duration of the pause between each letter during typewriter animation")]
+    private float textSpeed;
+    #endregion Editor Variables
+
+    #region Private Variables
+    ////Object References
     private AudioSource keySource;
     private XMLLoader xml;
+    //The dynamic list containing all the text fields that are currently active
+    private List<GameObject> log_ActiveFields;
+    //The panel containing the log TextFields and the input field
+    private GameObject console_Panel;
+
+    ////Other Variables
+    //Index for the currently selected log entry
+    private int currentLogIndex;
+    //Index for the currently selected text field position i.e. slot
+    private int selectedSlotIndex;
+    //The color of the text in the input field while scrolling through the log
+    public Color inputFadeColor;
+    //Holder for the text input
+    private string rawInput;
+    //Backup of up to x log entries
+    private string[] consoleLog = new string[200];
 
     //"console" "documentation"
     private string focus;
     //"input, log" "main"
     private string subFocus;
-
-    private int currentLogIndex;
-    private int selectedSlotIndex;
-
-    public Color inputFadeColor;
-
-    private string rawInput;
-
-    private string[] consoleLog = new string[50];
+    #endregion Private Variables
 
     void Start()
     {
+        //Initialize
+        console_Panel = log_Panel.transform.parent.gameObject;
+        log_ActiveFields = new List<GameObject>();
+
         keySource = gameObject.GetComponent<AudioSource>();
         xml = gameObject.GetComponent<XMLLoader>();
+
+        //Turn off all text fields
+        foreach (TMP_Text tmp in log_TextFields)
+        {
+            tmp.gameObject.SetActive(false);
+        }
 
         SetFocus("input");
     }
@@ -47,6 +82,8 @@ public class Console : MonoBehaviour
             keySource.pitch = Random.Range(0.5F, 3F);
             keySource.Play();
         }
+
+        ResizeLog();
     }
 
     void GetInput()
@@ -130,6 +167,57 @@ public class Console : MonoBehaviour
         }
     }
 
+    void ResizeLog()
+    {
+        //Measure how many pixels are unused (e.g. the top part of the window -> decoration)
+        float yOffset = log_Panel.GetComponent<RectTransform>().sizeDelta.y;
+
+        //Get the anchors of the log window, i.e. from where to where on the screen it spans
+        Vector2 parentAnchorMin = new Vector2(console_Panel.GetComponent<RectTransform>().anchorMin.x, console_Panel.GetComponent<RectTransform>().anchorMin.y);
+        Vector2 parentAnchorMax = new Vector2(console_Panel.GetComponent<RectTransform>().anchorMax.x, console_Panel.GetComponent<RectTransform>().anchorMax.y);
+
+        //From the anchors get the percentage of screen the log window occupies
+        Vector2 parentScreenPercent = new Vector2(parentAnchorMax.x - parentAnchorMin.x, parentAnchorMax.y - parentAnchorMin.y);
+
+        //Get the height in pixels of the entire game window
+        float canvasHeight = Screen.height;
+
+        //Calculate the actual height of the log by multiplying the screen height by the window percentage, and finally substracting the unused space
+        float logSize = (canvasHeight * parentScreenPercent.y) + yOffset;
+
+        //Calculate the highest possible amount of slots that can fit into the log
+        int slotAmount = Mathf.FloorToInt(logSize / lineHeight);
+
+        //Check how many slots are currently active
+        int activeAmount = log_ActiveFields.Count;
+
+        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+
+        //If more slots could fit into the log, add them
+        if (activeAmount < slotAmount)
+        {
+            for (int i = activeAmount; i < slotAmount; i++)
+            {
+                log_TextFields[i].gameObject.SetActive(true);
+                log_ActiveFields.Add(log_TextFields[i].gameObject);
+            }
+        }
+        //Otherwise remove the excess slots
+        else if (activeAmount > slotAmount)
+        {
+            for (int i = activeAmount; i > slotAmount; i--)
+            {
+                log_TextFields[i - 1].gameObject.SetActive(false);
+                log_ActiveFields.Remove(log_TextFields[i - 1].gameObject);
+            }
+
+            //Cleanup
+            for (int i = activeAmount; i < log_TextFields.Length; i++)
+            {
+                log_TextFields[i].gameObject.SetActive(false);
+            }
+        }
+    }
 
     void SetFocus(string f)
     {
