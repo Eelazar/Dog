@@ -45,6 +45,7 @@ public class Player : BaseObject
     {
         transform.position = Vector3.Lerp(transform.position, toPosition, Time.deltaTime * speed);
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, Time.deltaTime * speed);
+        //Gibt Error raus
+        //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, Time.deltaTime * speed);
     }
 }

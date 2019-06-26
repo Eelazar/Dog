@@ -2303,8 +2303,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1393555467}
   - {fileID: 1163852774}
+  - {fileID: 1393555467}
   - {fileID: 125309324}
   - {fileID: 1694589884}
   m_Father: {fileID: 1488210259}
@@ -4264,7 +4264,7 @@ RectTransform:
   - {fileID: 2088461108}
   - {fileID: 343426514}
   m_Father: {fileID: 680860369}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.3}
   m_AnchorMax: {x: 0.3, y: 1}
@@ -5408,7 +5408,7 @@ RectTransform:
   m_Children:
   - {fileID: 1711725627}
   m_Father: {fileID: 680860369}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3, y: 0.3}
   m_AnchorMax: {x: 1, y: 1}
@@ -8741,6 +8741,7 @@ GameObject:
   - component: {fileID: 1921440463}
   - component: {fileID: 1921440464}
   - component: {fileID: 1921440465}
+  - component: {fileID: 1921440466}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -8903,6 +8904,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entryHolder: {fileID: 1434044126}
+  textSpeed: 0
+--- !u!114 &1921440466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921440460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649edc2659ea6234985da314ccb982a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  docPanel: {fileID: 1163852773}
+  camPanel: {fileID: 1393555466}
+  consolePanel: {fileID: 1694589883}
+  outputPanel: {fileID: 125309323}
+  animDuration: 2
 --- !u!1 &1926883109
 GameObject:
   m_ObjectHideFlags: 0
