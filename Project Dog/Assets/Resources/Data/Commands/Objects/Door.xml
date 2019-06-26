@@ -6,12 +6,16 @@
         <Action>Open</Action>
       </Actions>
       <functionCall>OnCommandOpen</functionCall>
+      <Parameters>
+      </Parameters>
     </Command>
     <Command>
       <Actions>
         <Action>Close</Action>
       </Actions>
       <functionCall>OnCommandClose</functionCall>
+      <Parameters>
+      </Parameters>
     </Command>
   </Commands>
 </ObjectCommands>

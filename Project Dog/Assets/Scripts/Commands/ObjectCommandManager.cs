@@ -21,13 +21,11 @@ public static class ObjectCommandManager
         baseNameCommandDicitionary.Add(objectCommand.baseName, objectCommand);
     }
 
-    public static bool IsValidCommand(string baseName, string[] words, out string[] actions, out string functionCall, out int count)
+    public static bool IsValidCommand(string baseName, string[] words, out string[] actions, out string functionCall, out object[] paramters)
     {
         functionCall = "";
 
         ObjectCommands objectCommands = null;
-
-        count = 1;
 
         int bestFit = 0;
 
@@ -37,6 +35,8 @@ public static class ObjectCommandManager
 
         actions = new string[0];
 
+        paramters = new object[0];
+
         if (baseNameCommandDicitionary.TryGetValue(baseName, out objectCommands))
         {
             for (int i = 0; i < objectCommands.commands.Length; i++)
@@ -45,6 +45,8 @@ public static class ObjectCommandManager
                 Command command = objectCommands.commands[i];
 
                 int start = 0;
+
+                int paramterStart = 0;
                 for (int j = 0; j < command.action.Length; j++)
                 {
                     for (int k = start; k < words.Length; k++)
@@ -55,17 +57,19 @@ public static class ObjectCommandManager
                             currentFit++;
                             if (currentFit != command.action.Length)
                                 break;
+
+                            if (currentFit == command.action.Length)
+                                continue;
                         }
 
                         if (currentFit == command.action.Length)
                         {
-                            int n;
-                            bool isNumeric = int.TryParse(words[k], out n);
+                            paramters = new object[command.paramters.Length];
 
-                            if (isNumeric)
+                            for (int h = paramterStart; h < command.paramters.Length; h++)
                             {
-                                count = n;
-                                break;
+                                paramters[h] = ParameterConverter.ConvertInt(words[k]);
+                                paramterStart++;
                             }
                         }
                     }

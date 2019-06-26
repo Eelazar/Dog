@@ -10,6 +10,9 @@ public class Command
     public string[] action;
 
     public string functionCall;
+
+    [XmlArray("Parameters"), XmlArrayItem("Parameter")]
+    public string[] paramters;
 }
 
 public class CommandContext
@@ -19,6 +22,8 @@ public class CommandContext
     public BaseObject receiver;
 
     public string[] command;
+
+    public object[] paramters;
 }
 
 public class CommandFeedback
@@ -50,19 +55,16 @@ public static class CommandManager
 
         string[] actions = new string[0];
 
+        object[] paramters = new object[0];
+
         string functionCall = "";
-
-        int count = 1;
-
-        bool isPlayerCommand = false;
 
         if (!objectFound)
         {
             //Object not found
             //Check if its a Player Command
-            if (ObjectCommandManager.IsValidCommand(GameManager.current.player.baseName, rawWords, out actions, out functionCall, out count))
+            if (ObjectCommandManager.IsValidCommand(GameManager.current.player.baseName, rawWords, out actions, out functionCall, out paramters))
             {
-                isPlayerCommand = true;
                 actionFound = true;
             }
 
@@ -73,7 +75,7 @@ public static class CommandManager
         {
             for (int i = 0; i < rawWords.Length; i++)
             {
-                if (ObjectCommandManager.IsValidCommand(baseObject.baseName, rawWords, out actions, out functionCall, out count))
+                if (ObjectCommandManager.IsValidCommand(baseObject.baseName, rawWords, out actions, out functionCall, out paramters))
                 {
                     actionFound = true;
                     break;
@@ -87,17 +89,7 @@ public static class CommandManager
             return new CommandFeedback() { valid = false, feedback = "Unknown Action" };
         }
 
-        if (isPlayerCommand)
-        {
-            for (int i = 0; i < count; i++)
-            {
-                GameManager.current.player.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions });
-            }
-        }
-        else
-        {
-            GameManager.current.player.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions });
-        }
+        GameManager.current.player.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions, paramters = paramters });
 
         if (objectFound)
             baseObject.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions });

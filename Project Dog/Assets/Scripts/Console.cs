@@ -103,27 +103,37 @@ public class Console : MonoBehaviour
 
                     CommandFeedback commandFeedback = CommandManager.ExecuteCommand(rawInput.Split(' '));
 
-                    if (!commandFeedback.valid)
-                    {
-                        LogText(commandFeedback.feedback);
-                    }
-
-                    ////TEST CASES:
-                    //if (rawInput.Contains("open"))
+                    //if (!commandFeedback.valid)
                     //{
-                    //    //hard coded: must begin with "open "
-                    //    string temp = rawInput.Remove(0, 5);
-                    //    //Capitalize first letter
-                    //    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
-
-                    //    Debug.Log(temp);
-
-                    //    xml.MoveDown(temp);
+                    //    LogText(commandFeedback.feedback);
                     //}
 
-                    //if (rawInput.Contains("move up"))
+                    ////TEST CASES:
+                    if (rawInput.Contains("open"))
+                    {
+                        //hard coded: must begin with "open "
+                        string temp = rawInput.Remove(0, 5);
+                        //Capitalize first letter
+                        temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                        Debug.Log(temp);
+
+                        xml.MoveDown(temp);
+                    }
+
+                    if (rawInput.Contains("move up"))
+                    {
+                        xml.MoveUp();
+                    }
+
+                    //if (rawInput.Contains("fullscreen"))
                     //{
-                    //    xml.MoveUp();
+                    //    StartCoroutine(gameObject.GetComponent<SizeManager>().EnterFullscreenCam());
+                    //}
+
+                    //if (rawInput.Contains("resize to (0.2, 0.2)"))
+                    //{
+                    //    StartCoroutine(gameObject.GetComponent<SizeManager>().ResizeWindows(new Vector2(0.2F, 0.2F)));
                     //}
                 }
 
@@ -193,7 +203,7 @@ public class Console : MonoBehaviour
         //Check how many slots are currently active
         int activeAmount = log_ActiveFields.Count;
 
-        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         //If more slots could fit into the log, add them
         if (activeAmount < slotAmount)

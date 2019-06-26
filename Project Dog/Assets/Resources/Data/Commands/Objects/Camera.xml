@@ -6,6 +6,8 @@
         <Action>Open</Action>
       </Actions>
       <functionCall>OnCommandOpen</functionCall>
+      <Parameters>
+      </Parameters>
     </Command>
   </Commands>
 </ObjectCommands>

@@ -7,6 +7,9 @@
         <Action>Front</Action>
       </Actions>
       <functionCall>OnCommandMoveFront</functionCall>
+      <Parameters>
+        <Parameter>int</Parameter>
+      </Parameters>
     </Command>
     <Command>
       <Actions>
@@ -14,6 +17,9 @@
         <Action>Back</Action>
       </Actions>
       <functionCall>OnCommandMoveBack</functionCall>
+      <Parameters>
+        <Parameter>int</Parameter>
+      </Parameters>
     </Command>
     <Command>
       <Actions>
@@ -21,6 +27,9 @@
         <Action>Left</Action>
       </Actions>
       <functionCall>OnCommandMoveLeft</functionCall>
+      <Parameters>
+        <Parameter>int</Parameter>
+      </Parameters>
     </Command>
     <Command>
       <Actions>
@@ -28,6 +37,9 @@
         <Action>Right</Action>
       </Actions>
       <functionCall>OnCommandMoveRight</functionCall>
+      <Parameters>
+        <Parameter>int</Parameter>
+      </Parameters>
     </Command>
   </Commands>
 </ObjectCommands>
