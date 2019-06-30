@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource), typeof(BootManager))]
 public class BootConsole : MonoBehaviour
 {
     //Constants
@@ -19,76 +19,23 @@ public class BootConsole : MonoBehaviour
     [SerializeField]
     [Tooltip("The panel containing all the log TextFields")]
     private GameObject consolePanel;
-    [SerializeField]
-    [Tooltip("The object containing the taskbar logo")]
-    private GameObject programLogo;
-    [SerializeField]
-    [Tooltip("The object that is used for the fade-to-black transition")]
-    private GameObject transitionBlack;
-    [SerializeField]
-    [Tooltip("The object containing the loading screen logo")]
-    private GameObject loadingEye;
-    [SerializeField]
-    [Tooltip("The object containing the loading screen text")]
-    private GameObject loadingText;
 
     [Header("Text Animation")]
     [SerializeField]
     [Tooltip("The duration of the pause between each letter during typewriter animation")]
     private float textSpeed;
-
-    [Header("Logo Animation (Taskbar & Loading Screen)")]
-    [SerializeField]
-    [Tooltip("The duration of the taskbar-logo animation")]
-    private float logoAnimDuration;
-    [SerializeField]
-    [Tooltip("The highest scale the logo will reach during its animation")]
-    private float logoAnimMaxScale;
-    [SerializeField]
-    [Tooltip("The Animation Curve for the scaling changes during the logo animation")]
-    private AnimationCurve logoAnimCurve_Scale;
-    [SerializeField]
-    [Tooltip("The Animation Curve for the rotation speed during the logo animation")]
-    private AnimationCurve logoAnimCurve_Rotation;
-    [SerializeField]
-    [Tooltip("The duration of the pause between the Logo Animation and the Fade Animation")]
-    private float logoAnimPause;
-
-    [Header("Fade-To-Black Animation")]
-    [SerializeField]
-    [Tooltip("The duration of the fade-to-black animation")]
-    private float windowAnimDuration;
-    [SerializeField]
-    [Tooltip("The duration of the pause between the Fade Animation and the Loading Animation ")]
-    private float fadeAnimPause;
-
-    [Header("Logo Animation (Loading Screen)")]
-    [SerializeField]
-    [Tooltip("The duration of one spin in the loading screen")]
-    private float loadingAnimDuration;
-    [SerializeField]
-    [Tooltip("The amount of logo spins in the loading screen")]
-    private int loadingAnimTurnCount;
-    [SerializeField]
-    [Tooltip("The duration of the pause between each spin during the Loading Animation")]
-    private float spinAnimPause;
-
-    [Header("Other")]
-    [SerializeField]
-    [Tooltip("The Scene that will be loaded upon finsihing the loading animation")]
-    private string sceneToLoad;
     #endregion Editor Varibles
 
     #region Private Variables
     ////Object References
-    //The panel containing the console panel and input panel
-    private GameObject window;
     //The audio source for the key sounds
     private AudioSource keySource;
     //The dynamic list containing all the text fields that are currently active
     private List<GameObject> log_ActiveFields;
     //All the textfields from bottom to top
     private TMP_Text[] log_TextFields;
+    //Manager
+    private BootManager manager;
 
     ////Other Variables
     //Holder for the text input
@@ -99,9 +46,16 @@ public class BootConsole : MonoBehaviour
     private int selectedSlotIndex;
     //Backup of up to x log entries
     private string[] consoleLog = new string[50];
-    //Boolean to lock console entries during animations
-    private bool loading;
     #endregion Private Variables
+
+    #region Public Variables
+    //Boolean to lock console entries during animations
+    [HideInInspector]
+    public bool loading;
+    //The panel containing the console panel and input panel
+    [HideInInspector]
+    public GameObject window;
+    #endregion Public Variables
 
     void Start()
     {
@@ -112,9 +66,7 @@ public class BootConsole : MonoBehaviour
         //Get some stuff
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
-        
-        //Activate the input field to get the cursor on it
-        console_InputField.ActivateInputField();
+        manager = transform.GetComponent<BootManager>();
 
         FillTextFieldArray();
 
@@ -122,10 +74,7 @@ public class BootConsole : MonoBehaviour
         foreach (TMP_Text tmp in log_TextFields)
         {
             tmp.gameObject.SetActive(false);
-        }
-
-        //Suggest Help
-        LogText("Type 'help' to see a list of available commands");
+        }        
     }
 
     void Update()
@@ -135,6 +84,14 @@ public class BootConsole : MonoBehaviour
         
         //Dynamically resize the log
         ResizeLog();
+    }
+
+    public void Launch()
+    {
+        console_InputField.ActivateInputField();
+
+        //Suggest Help
+        LogText("Type 'help' to see a list of available commands");
     }
 
     void GetInput()
@@ -161,7 +118,7 @@ public class BootConsole : MonoBehaviour
                 if (rawInput.Contains("start"))
                 {
                     //If start command launch start animation
-                    StartCoroutine(AnimateStart());
+                    StartCoroutine(manager.AnimateStart());
                 }
             }
 
@@ -271,93 +228,7 @@ public class BootConsole : MonoBehaviour
 
         yield return null;
     }
-
-    IEnumerator AnimateStart()
-    {
-        //Block input
-        loading = true;
-
-        //Initialize Lerp
-        float tLogo = 0;
-        float start = Time.time;
-
-        //Get the anchors of the fade-to-black image in advance
-        Vector2 minAnchor = transitionBlack.GetComponent<RectTransform>().anchorMin;
-        Vector2 maxAnchor = transitionBlack.GetComponent<RectTransform>().anchorMax;
-
-        //Taskbar Logo Animation:
-        while (tLogo < 1)
-        {
-            tLogo = (Time.time - start) / logoAnimDuration;
-
-            //Get the appropriate scale from the curve and lerp the logo 
-            float scale = 1 + logoAnimMaxScale * logoAnimCurve_Scale.Evaluate(tLogo);
-            programLogo.transform.localScale = Vector2.LerpUnclamped(new Vector2(1, 1), new Vector2(scale, scale), tLogo);
-
-            //Get the appropriate rotation from the curve and rotate the logo
-            float rotation = 360 * logoAnimCurve_Rotation.Evaluate(tLogo);
-            Vector3 rotationVector = new Vector3(0, 0, rotation);
-            programLogo.transform.eulerAngles = rotationVector;
-
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(logoAnimPause);
-
-        //Initialize Lerp
-        float tFade = 0;
-        start = Time.time;
-
-        //Fade-To-Black Animation
-        while (tFade < 1)
-        {
-            tFade = (Time.time - start) / windowAnimDuration;
-
-            //Use the anchors to scale the image evenly to achieve a smooth transition to a black screen
-            transitionBlack.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(minAnchor, new Vector2(0F, 0F), tFade);
-            transitionBlack.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(maxAnchor, new Vector2(1F, 1F), tFade);
-
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(fadeAnimPause);
-
-        window.SetActive(false);
-        loadingEye.SetActive(true);
-        loadingText.SetActive(true);
-
-        //Loading Screen Animation
-        //Repeats as many times as there are spins 
-        for(int i = 0; i < loadingAnimTurnCount; i++)
-        {
-            tLogo = 0;
-            start = Time.time;
-
-            while (tLogo < 1)
-            {
-                tLogo = (Time.time - start) / loadingAnimDuration;
-
-                //Get the appropriate scale from the curve and lerp the logo 
-                float scale = 1 + logoAnimMaxScale * logoAnimCurve_Scale.Evaluate(tLogo);
-                loadingEye.transform.localScale = Vector2.LerpUnclamped(new Vector2(1, 1), new Vector2(scale, scale), tLogo);
-
-                //Get the appropriate rotation from the curve and rotate the logo
-                float rotation = 360 * logoAnimCurve_Rotation.Evaluate(tLogo);
-                Vector3 rotationVector = new Vector3(0, 0, rotation);
-                loadingEye.transform.eulerAngles = rotationVector;
-
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(spinAnimPause);
-        }
-
-        //Load the scene
-        SceneManager.LoadSceneAsync(sceneToLoad);
-
-        yield return null;
-    }
-
+    
     void FillTextFieldArray()
     {
         int count = log_TextFields.Length;
