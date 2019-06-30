@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 613061727f3d38a45bed1ecd7598428e
+guid: 135720f4185c33948ad992ec3581fd28
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable:
   - first:
       74: -8442307530746634395
-    second: Fox Walk
+    second: Fox Turn Right
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,10 +35,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Fox Walk
+      name: Fox Turn Right
       takeName: Armature.001_proxy|Armature.001_proxyAction
       internalID: -8442307530746634395
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 38
       wrapMode: 0
       orientationOffsetY: 0
@@ -46,7 +46,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
