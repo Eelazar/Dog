@@ -1,0 +1,1181 @@
+fileFormatVersion: 2
+guid: 06e738ef7fb2df945b9610ccf7d5b495
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3181799355568206873
+    second: Eye Animation Spritesheet_0
+  - first:
+      213: -2396209553011127660
+    second: Eye Animation Spritesheet_1
+  - first:
+      213: 6613000951092173545
+    second: Eye Animation Spritesheet_2
+  - first:
+      213: -5322233767246408925
+    second: Eye Animation Spritesheet_3
+  - first:
+      213: 4294006191684895713
+    second: Eye Animation Spritesheet_4
+  - first:
+      213: -6025231400014813617
+    second: Eye Animation Spritesheet_5
+  - first:
+      213: 6546698312842477712
+    second: Eye Animation Spritesheet_6
+  - first:
+      213: 2340666383560186593
+    second: Eye Animation Spritesheet_7
+  - first:
+      213: -7420578838458660279
+    second: Eye Animation Spritesheet_8
+  - first:
+      213: -1449769875712943532
+    second: Eye Animation Spritesheet_9
+  - first:
+      213: -7310050313566684715
+    second: Eye Animation Spritesheet_10
+  - first:
+      213: -4263019223005445644
+    second: Eye Animation Spritesheet_11
+  - first:
+      213: -3780727217427729895
+    second: Eye Animation Spritesheet_12
+  - first:
+      213: -7189016717008759296
+    second: Eye Animation Spritesheet_13
+  - first:
+      213: 7982164008222235791
+    second: Eye Animation Spritesheet_14
+  - first:
+      213: -7683402240653846581
+    second: Eye Animation Spritesheet_15
+  - first:
+      213: 5129454890439330916
+    second: Eye Animation Spritesheet_16
+  - first:
+      213: -3163929374694785366
+    second: Eye Animation Spritesheet_17
+  - first:
+      213: 9058918271430892489
+    second: Eye Animation Spritesheet_18
+  - first:
+      213: -7005545594881998534
+    second: Eye Animation Spritesheet_19
+  - first:
+      213: 8049673718628937513
+    second: Eye Animation Spritesheet_20
+  - first:
+      213: 5997815439156868251
+    second: Eye Animation Spritesheet_21
+  - first:
+      213: 5840847435460114760
+    second: Eye Animation Spritesheet_22
+  - first:
+      213: 6797505960097487492
+    second: Eye Animation Spritesheet_23
+  - first:
+      213: 7162005640763700611
+    second: Eye Animation Spritesheet_24
+  - first:
+      213: -8734770125382993851
+    second: Eye Animation Spritesheet_25
+  - first:
+      213: -1912204690184484010
+    second: Eye Animation Spritesheet_26
+  - first:
+      213: -5772162508339661928
+    second: Eye Animation Spritesheet_27
+  - first:
+      213: 4181270476882444847
+    second: Eye Animation Spritesheet_28
+  - first:
+      213: 5210039809316214058
+    second: Eye Animation Spritesheet_29
+  - first:
+      213: 8664364634706828521
+    second: Eye Animation Spritesheet_30
+  - first:
+      213: -966501338323146004
+    second: Eye Animation Spritesheet_31
+  - first:
+      213: 661226948208918652
+    second: Eye Animation Spritesheet_32
+  - first:
+      213: 7127535897608787972
+    second: Eye Animation Spritesheet_33
+  - first:
+      213: -5043639498881422958
+    second: Eye Animation Spritesheet_34
+  - first:
+      213: -5423417576540024856
+    second: Eye Animation Spritesheet_35
+  - first:
+      213: -8876135768932515232
+    second: Eye Animation Spritesheet_36
+  - first:
+      213: 5653790205005696203
+    second: Eye Animation Spritesheet_37
+  - first:
+      213: 5331625545075342723
+    second: Eye Animation Spritesheet_38
+  - first:
+      213: -6982231023310722042
+    second: Eye Animation Spritesheet_39
+  - first:
+      213: -7340651489474563126
+    second: Eye Animation Spritesheet_40
+  - first:
+      213: -1738538577784009185
+    second: Eye Animation Spritesheet_41
+  - first:
+      213: -3262069773944836162
+    second: Eye Animation Spritesheet_42
+  - first:
+      213: 4337355655881821429
+    second: Eye Animation Spritesheet_43
+  - first:
+      213: -9058051550671520503
+    second: Eye Animation Spritesheet_44
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260447bbd02560e48a13738a8aeac98d
+      internalID: 3181799355568206873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b46c703cb250ed4c95072b8f41a0822
+      internalID: -2396209553011127660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cb576524fe4124789823fa66b832aa
+      internalID: 6613000951092173545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23480c870a3e7674abe7d880add0ef1d
+      internalID: -5322233767246408925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1bbe4fe9d59d7f42a98d6f280323e01
+      internalID: 4294006191684895713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafb77e6732d39841a226320c3486a7c
+      internalID: -6025231400014813617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24ea7d1c6b399524b992b1e7e41a4851
+      internalID: 6546698312842477712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c8900a9eaf74e5479710d8c8ce6e254
+      internalID: 2340666383560186593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 320
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 107a842c864db4144a46559b1bf6787d
+      internalID: -7420578838458660279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbbdff785bf09741b487e93a63fbe67
+      internalID: -1449769875712943532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32accfb123199e94493a700b9a0cd0dc
+      internalID: -7310050313566684715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 526a5f57756ce0043af5be10cd553e44
+      internalID: -4263019223005445644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae72753d6ec20604cb18167caef803f9
+      internalID: -3780727217427729895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0b1589018263a498a40151a067babc
+      internalID: -7189016717008759296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e92fba93979d7d439bcf2b57932ed23
+      internalID: 7982164008222235791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef58dbf20863f54ebc0dd246159f651
+      internalID: -7683402240653846581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3675c0e40a23ccd43b47165ff33b678c
+      internalID: 5129454890439330916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 240
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c67d1bb039587488ccf83d4efc2609
+      internalID: -3163929374694785366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac23d55d7605308429f749436555eb7d
+      internalID: 9058918271430892489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acac63cec1ac0ab408d409770e1b082c
+      internalID: -7005545594881998534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f7dfa5d545a504b9ed7d9e3d2d44ff
+      internalID: 8049673718628937513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c72832f1030bd4bb9f181294657c0b
+      internalID: 5997815439156868251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d1ccb473520de42a20f3b475faebf9
+      internalID: 5840847435460114760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3627fdca1d829374b9935c213f46a205
+      internalID: 6797505960097487492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39d8538f09e55c4f8f4d90f560fb8f0
+      internalID: 7162005640763700611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c69d82b3ad39994eab2047201b0d148
+      internalID: -8734770125382993851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 160
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e54dc4d08a82f44918399c33bfdd79
+      internalID: -1912204690184484010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22202c4b143a1674ba35173c76823fbc
+      internalID: -5772162508339661928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9904589aba3791c4ea652bc20fb8b16a
+      internalID: 4181270476882444847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7468066d701b2f42846deaa25b3c391
+      internalID: 5210039809316214058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d660463e39dd99c4895c0686f3b3cbe0
+      internalID: 8664364634706828521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35a4223804f269b4f97fdf691a176719
+      internalID: -966501338323146004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55c628c11334fc649ae466b4e1ba65f6
+      internalID: 661226948208918652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29041a01d71df147b05bbe85928f9bb
+      internalID: 7127535897608787972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ab83d3e5ae57d4cba5ad4eff5c8468
+      internalID: -5043639498881422958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 80
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf37d17153efde40a4ac40334f41a20
+      internalID: -5423417576540024856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1d7c2430fa14149b46fcef8d314e55
+      internalID: -8876135768932515232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f163d3b759bc64085035cfb51e24bc
+      internalID: 5653790205005696203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60ca5ee568cc66a469148f04f51eeb7c
+      internalID: 5331625545075342723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 777e19421c5c4724fb5ba41766e88dbd
+      internalID: -6982231023310722042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afee92780692c8245928df572f72fc02
+      internalID: -7340651489474563126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46b0962a4a15f4a45ae94d49728333af
+      internalID: -1738538577784009185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630a6b80a6f39324fb2709a42fe028b3
+      internalID: -3262069773944836162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e46938991c34e047acd1d0dbf9e7002
+      internalID: 4337355655881821429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eye Animation Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 91
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e87bba70193a7947870f01939f57bf6
+      internalID: -9058051550671520503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 4618ab94bf41d644bb005c4fce457560
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
