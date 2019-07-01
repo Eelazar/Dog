@@ -19,6 +19,14 @@ public class BootConsole : MonoBehaviour
     [SerializeField]
     [Tooltip("The panel containing all the log TextFields")]
     private GameObject consolePanel;
+    [SerializeField]
+    [Tooltip("The log TextField prefab")]
+    private GameObject log_Prefab;
+
+    [Header("Configuration")]
+    [SerializeField]
+    [Tooltip("The amount of TextFields that will be generated (also max displayed)")]
+    private int textFieldAmount;
 
     [Header("Text Animation")]
     [SerializeField]
@@ -61,14 +69,14 @@ public class BootConsole : MonoBehaviour
     {
         //Initialize
         log_ActiveFields = new List<GameObject>();
-        log_TextFields = new TMP_Text[consolePanel.transform.childCount];
+        log_TextFields = new TMP_Text[textFieldAmount];
 
         //Get some stuff
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
         manager = transform.GetComponent<BootManager>();
 
-        FillTextFieldArray();
+        GenerateTextFieldArray();
 
         //Turn off all text fields
         foreach (TMP_Text tmp in log_TextFields)
@@ -229,13 +237,14 @@ public class BootConsole : MonoBehaviour
         yield return null;
     }
     
-    void FillTextFieldArray()
+    void GenerateTextFieldArray()
     {
-        int count = log_TextFields.Length;
-
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < textFieldAmount; i++)
         {
-            log_TextFields[i] = consolePanel.transform.GetChild((count - 1) - i).GetComponent<TMP_Text>();
+            GameObject go = Instantiate<GameObject>(log_Prefab);
+            go.transform.parent = consolePanel.transform;
+            go.name = "Log TextField " + (textFieldAmount - i);
+            log_TextFields[textFieldAmount - (i + 1)] = go.GetComponent<TMP_Text>();
         }
     }
 }
