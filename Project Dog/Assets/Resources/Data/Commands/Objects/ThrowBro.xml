@@ -1,0 +1,13 @@
+<ObjectCommands>
+  <baseName>ThrowBro</baseName>
+  <Commands>
+    <Command>
+      <Actions>
+        <Action>Activate</Action>
+      </Actions>
+      <functionCall>OnCommandActivate</functionCall>
+      <Parameters>
+      </Parameters>
+    </Command>
+  </Commands>
+</ObjectCommands>

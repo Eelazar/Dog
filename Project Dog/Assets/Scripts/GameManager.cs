@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public BaseObject door2;
 
+    public BaseObject throwBro;
+
     private void Awake()
     {
         current = this;
@@ -20,8 +22,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ObjectManager.AddObject(door1);
-        ObjectManager.AddObject(door2);
+        //ObjectManager.AddObject(door1);
+        //ObjectManager.AddObject(door2);
+
+        ObjectManager.AddObject(throwBro);
 
         ObjectManager.AddObject(player);
     }

@@ -16,13 +16,15 @@ public class Move
 
     public Quaternion rotationDelta;
 
-    public bool hastoRotate;
+    public bool hasToRotate;
 
     public bool hasRotated;
 
     public bool hasMoved;
 
-    public Move(Vector3 startPosition, float moveDistance, Quaternion startRotation, Quaternion rotationDelta)
+    public float angle;
+
+    public Move(Vector3 startPosition, float moveDistance, Quaternion startRotation, Quaternion rotationDelta, float angle)
     {
         this.startRotation = startRotation;
         this.targetRotation = startRotation * rotationDelta;
@@ -31,6 +33,10 @@ public class Move
         this.startPosition = startPosition;
         this.targetPosition = startPosition + (targetRotation * (Vector3.forward * moveDistance));
         this.positionDelta = Vector3.forward * moveDistance;
+
+        this.angle = angle;
+
+        hasToRotate = angle > 1f || angle < 1f;
     }
 }
 
@@ -48,7 +54,7 @@ public class Player : BaseObject
 
     public float rotationSpeed;
 
-    bool hasToTurn;
+    public PlayerAnimation playerAnimation;
 
     private void Awake()
     {
@@ -61,7 +67,7 @@ public class Player : BaseObject
         if (context.paramters.Length > 0)
             count = (int)context.paramters[0];
 
-        AddNewMove(moveDistance * count, Quaternion.identity);
+        AddNewMove(moveDistance * count, Quaternion.identity, 0f);
     }
 
     public void OnCommandMoveBack(CommandContext context)
@@ -70,7 +76,7 @@ public class Player : BaseObject
         if (context.paramters.Length > 0)
             count = (int)context.paramters[0];
 
-        AddNewMove(moveDistance * count, Quaternion.Euler(0f, 180f, 0f));
+        AddNewMove(moveDistance * count, Quaternion.Euler(0f, 180f, 0f), 180f);
     }
 
     public void OnCommandMoveLeft(CommandContext context)
@@ -79,7 +85,7 @@ public class Player : BaseObject
         if (context.paramters.Length > 0)
             count = (int)context.paramters[0];
 
-        AddNewMove(moveDistance * count, Quaternion.Euler(0f, -90f, 0f));
+        AddNewMove(moveDistance * count, Quaternion.Euler(0f, -90f, 0f), -90f);
     }
 
     public void OnCommandMoveRight(CommandContext context)
@@ -88,21 +94,21 @@ public class Player : BaseObject
         if (context.paramters.Length > 0)
             count = (int)context.paramters[0];
 
-        AddNewMove(moveDistance * count, Quaternion.Euler(0f, 90f, 0f));
+        AddNewMove(moveDistance * count, Quaternion.Euler(0f, 90f, 0f), 90f);
     }
 
-    void AddNewMove(float moveDistance, Quaternion rotationDelta)
+    void AddNewMove(float moveDistance, Quaternion rotationDelta, float angle)
     {
         if (currentMove != null)
         {
             Move newMove;
             if (lastAddedMove != null)
             {
-                newMove = new Move(lastAddedMove.targetPosition, moveDistance, lastAddedMove.targetRotation, rotationDelta);
+                newMove = new Move(lastAddedMove.targetPosition, moveDistance, lastAddedMove.targetRotation, rotationDelta, angle);
             }
             else
             {
-                newMove = new Move(currentMove.targetPosition, moveDistance, currentMove.targetRotation, rotationDelta);
+                newMove = new Move(currentMove.targetPosition, moveDistance, currentMove.targetRotation, rotationDelta, angle);
             }
 
             lastAddedMove = newMove;
@@ -111,7 +117,7 @@ public class Player : BaseObject
         }
         else
         {
-            SetCurrentMove(new Move(transform.position, moveDistance, transform.rotation, rotationDelta));
+            SetCurrentMove(new Move(transform.position, moveDistance, transform.rotation, rotationDelta, angle));
             lastAddedMove = null;
         }
     }
@@ -119,6 +125,8 @@ public class Player : BaseObject
     void SetCurrentMove(Move newCurrent)
     {
         currentMove = newCurrent;
+
+        playerAnimation.Reset();
 
         if (newCurrent != null)
         {
@@ -128,6 +136,13 @@ public class Player : BaseObject
             positionInterpolationStep = positionSpeed / currentMove.positionDelta.magnitude;
 
             rotationInterpolationStep = rotationSpeed;
+
+            newCurrent.hasRotated = newCurrent.hasToRotate;
+
+            if (newCurrent.angle < -1f)
+            {
+                playerAnimation.SetLeft(true);
+            }
         }
     }
 
@@ -143,13 +158,13 @@ public class Player : BaseObject
     {
         if (currentMove != null)
         {
+            playerAnimation.SetIdle(false);
+
             if (!currentMove.hasRotated)
             {
                 rotationInterpolation += rotationInterpolationStep * Time.deltaTime;
 
                 transform.rotation = Quaternion.Lerp(currentMove.startRotation, currentMove.targetRotation, rotationInterpolation);
-
-                Debug.Log(rotationInterpolation);
 
                 if (rotationInterpolation >= 1f)
                 {
@@ -161,8 +176,6 @@ public class Player : BaseObject
             {
                 positionInterpolation += positionInterpolationStep * Time.deltaTime;
 
-                Debug.Log(positionInterpolation);
-
                 transform.position = Vector3.Lerp(currentMove.startPosition, currentMove.targetPosition, positionInterpolation);
 
                 if (positionInterpolation >= 1f)
@@ -171,10 +184,14 @@ public class Player : BaseObject
                 }
             }
 
-            if (currentMove.hasMoved && currentMove.hasMoved)
+            if (currentMove.hasRotated && currentMove.hasMoved)
             {
                 SetCurrentMove(moves.Count > 0 ? moves.Dequeue() : null);
             }
+        }
+        else
+        {
+            playerAnimation.SetIdle(true);
         }
     }
 }
