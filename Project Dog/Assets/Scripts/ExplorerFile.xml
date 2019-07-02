@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Root>
+  <Help description="The help section">
+    <Explorer description="How to use the explorer">
+      <Structure>
+        <Introduction entry="Guide to the explorer structure">The explorer window consists of multiple nodes, that are organized in a tree hierarchy. The nodes are gathered from the system you are currently accessing. Every node has a different purpose; most are either sub-categories or log entries, but some may have a critical role, especially if you are accessing a foreign entity.</Introduction>
+        <Markup entry="Guide to the visual representation"></Markup>
+      </Structure>
+      <Commands description="List of available commands">
+        <Move_Up entry="The 'move up' command">Type 'move up' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple multiple levels up at once. Example: 'move up 2'</Move_Up>
+        <Open entry="The 'open' command">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</Open>
+        <Refresh entry ="The 'refresh' command">Type 'refresh' to reload the contents of your browser.</Refresh>
+      </Commands>
+    </Explorer>
+  </Help>
+
+  <Log>
+    <Entry1 entry="Lorem Ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</Entry1>
+    <Entry2 entry="Second Entry Summary">Move along nothing to see here</Entry2>
+  </Log>
+</Root>

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 [RequireComponent(typeof(AudioSource), typeof(BootManager))]
 public class BootConsole : MonoBehaviour
@@ -44,6 +46,8 @@ public class BootConsole : MonoBehaviour
     private TMP_Text[] log_TextFields;
     //Manager
     private BootManager manager;
+    //Explorer
+    private BootExplorer explorer;
 
     ////Other Variables
     //Holder for the text input
@@ -75,6 +79,7 @@ public class BootConsole : MonoBehaviour
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
         manager = transform.GetComponent<BootManager>();
+        explorer = transform.GetComponent<BootExplorer>();
 
         GenerateTextFieldArray();
 
@@ -127,6 +132,34 @@ public class BootConsole : MonoBehaviour
                 {
                     //If start command launch start animation
                     StartCoroutine(manager.AnimateStart());
+                }
+                else if (rawInput.Contains("up"))
+                {
+                    string resultString = Regex.Match(rawInput, @"\d+").Value;
+
+                    if(resultString != "")
+                    {
+                        int amount = int.Parse(resultString);
+                        explorer.NavigateUp(amount);
+                    }
+                    else
+                    {
+                        explorer.NavigateUp(1);
+                    }                    
+                }
+                else if (rawInput.Contains("open"))
+                {
+                    //hard coded: must begin with "open "
+                    string temp = rawInput.Remove(0, 5);
+                    //Capitalize first letter
+                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                    explorer.NavigateDown(temp);
+                }
+                else if (rawInput.Contains("refresh"))
+                {
+                    //If 
+                    StartCoroutine(explorer.UpdateData());
                 }
             }
 
@@ -242,7 +275,7 @@ public class BootConsole : MonoBehaviour
         for (int i = 0; i < textFieldAmount; i++)
         {
             GameObject go = Instantiate<GameObject>(log_Prefab);
-            go.transform.parent = consolePanel.transform;
+            go.transform.SetParent(consolePanel.transform, false);
             go.name = "Log TextField " + (textFieldAmount - i);
             log_TextFields[textFieldAmount - (i + 1)] = go.GetComponent<TMP_Text>();
         }
