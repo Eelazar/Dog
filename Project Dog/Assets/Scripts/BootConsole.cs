@@ -103,8 +103,6 @@ public class BootConsole : MonoBehaviour
     {
         console_InputField.ActivateInputField();
 
-        //Suggest Help
-        LogText("Type 'help' to see a list of available commands");
     }
 
     void GetInput()
@@ -133,7 +131,7 @@ public class BootConsole : MonoBehaviour
                     //If start command launch start animation
                     StartCoroutine(manager.AnimateStart());
                 }
-                else if (rawInput.Contains("up"))
+                else if (rawInput.Contains("move up"))
                 {
                     string resultString = Regex.Match(rawInput, @"\d+").Value;
 
@@ -160,6 +158,10 @@ public class BootConsole : MonoBehaviour
                 {
                     //If 
                     StartCoroutine(explorer.UpdateData());
+                }
+                else if (rawInput.Contains("launch explorer"))
+                {
+                    StartCoroutine(manager.LaunchExplorer());
                 }
             }
 

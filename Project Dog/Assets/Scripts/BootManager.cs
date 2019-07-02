@@ -24,6 +24,9 @@ public class BootManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The login loading screen logo")]
     private GameObject loginAnimLogo;
+    [SerializeField]
+    [Tooltip("The explorer window")]
+    private GameObject explorerWindow;
 
     [Header("Login Logo Animation")]
     [SerializeField]
@@ -35,6 +38,11 @@ public class BootManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The Animation Curve for the rotation speed during the login animation")]
     private AnimationCurve loginAnimCurve;
+
+    [Header("Explorer Launch Animation")]
+    [SerializeField]
+    [Tooltip("The duration of the explorer launch Animation")]
+    private float explorerAnimDuration;
 
     [Header("Logo Animation (Taskbar & Loading Screen)")]
     [SerializeField]
@@ -87,6 +95,7 @@ public class BootManager : MonoBehaviour
 
     private Assistant assistant;
     private BootConsole console;
+    private BootExplorer explorer;
 
     private TMP_InputField login_Input;
 
@@ -99,6 +108,7 @@ public class BootManager : MonoBehaviour
 
         assistant = transform.GetComponent<Assistant>();
         console = transform.GetComponent<BootConsole>();
+        explorer = transform.GetComponent<BootExplorer>();
 
         osMaster_Object.SetActive(false);
         loginMaster_Object.SetActive(true);
@@ -181,7 +191,7 @@ public class BootManager : MonoBehaviour
         StartCoroutine(assistant.DisplayMessage(s, 5F));
         StartCoroutine(assistant.HideMessage(9F));
 
-        s = "Try typing 'help' in the console to see a list of available commands";
+        s = "Try typing 'launch explorer' in the console to get started";
         StartCoroutine(assistant.DisplayMessage(s, 10F));
         StartCoroutine(assistant.HideMessage(13F));
 
@@ -189,6 +199,52 @@ public class BootManager : MonoBehaviour
         yield return null;
     }
 
+    public IEnumerator LaunchExplorer()
+    {
+        //Initialize Lerp
+        float t = 0;
+        float start = Time.time;
+
+        Vector2 oldMin = explorerWindow.GetComponent<RectTransform>().anchorMin;
+        Vector2 oldMax = explorerWindow.GetComponent<RectTransform>().anchorMax;
+
+        Color full = explorerWindow.GetComponent<Image>().color;
+        Color clear = new Color(full.r, full.g, full.b, 0);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / explorerAnimDuration;
+
+            explorerWindow.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(oldMin, explorer.anchorMin, t);
+            explorerWindow.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(oldMax, explorer.anchorMax, t);
+
+            explorerWindow.GetComponent<Image>().color = Vector4.Lerp(clear, full, t);
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.2F);
+
+        StartCoroutine(explorer.UpdateData());
+
+        yield return new WaitForSeconds(0.5F);
+
+        string s = "Good! This is your explorer, use it to browse your files";
+        StartCoroutine(assistant.DisplayMessage(s, 0F));
+        StartCoroutine(assistant.HideMessage(2F));
+
+        s = "There's lots of stuff in here, try typing 'open root' to access the next folder";
+        StartCoroutine(assistant.DisplayMessage(s, 2.8F));
+        StartCoroutine(assistant.HideMessage(6F));
+
+        s = "If you want to back to the previous folder, type 'move up'";
+        StartCoroutine(assistant.DisplayMessage(s, 7F));
+        StartCoroutine(assistant.HideMessage(12F));
+
+        s = "I'll let you explore for a while";
+        StartCoroutine(assistant.DisplayMessage(s, 13F));
+        StartCoroutine(assistant.HideMessage(15F));
+    }
 
     public IEnumerator AnimateStart()
     {

@@ -11,7 +11,7 @@ public class BootExplorer : MonoBehaviour
     private const float lineHeight = 20F;
     private const float charWidth = 11.47F;
 
-
+    public bool tutorialLaunch;
     [SerializeField]
     [Tooltip("The duration between each character being added during the typewriter animation")]
     private float textSpeed;
@@ -36,11 +36,21 @@ public class BootExplorer : MonoBehaviour
     private XPathNavigator nav;
     private XPathDocument docNav;
 
+    [HideInInspector]
+    public Vector2 anchorMin;
+    [HideInInspector]
+    public Vector2 anchorMax;
+
+    private bool launched;
+
     void Start()
     {
         explorerWindow = explorerPanel.transform.parent.gameObject;
         node_ActiveFields = new List<GameObject>();
         node_TextFields = new TMP_Text[textFieldAmount];
+
+        anchorMin = explorerWindow.GetComponent<RectTransform>().anchorMin;
+        anchorMax = explorerWindow.GetComponent<RectTransform>().anchorMax;
 
         GenerateTextFieldArray();
 
@@ -59,13 +69,24 @@ public class BootExplorer : MonoBehaviour
         ////Move to first Child
         //nav.MoveToFirstChild();
 
-        //Initial Update
-        StartCoroutine(UpdateData());
+        if (!tutorialLaunch)
+        {
+            //Initial Update
+            StartCoroutine(UpdateData());
+        }
+        else
+        {
+            explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
+            explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
+        }
     }
 
     void Update()
     {
-        ResizeLog();
+        if (launched)
+        {
+            ResizeLog();
+        }
     }
 
     void ResizeLog()
@@ -136,6 +157,7 @@ public class BootExplorer : MonoBehaviour
 
     public IEnumerator UpdateData()
     {
+        launched = true;
         bool entry = false;
 
         //Empty all Text Fields
@@ -267,22 +289,28 @@ public class BootExplorer : MonoBehaviour
 
     public void NavigateDown(string node)
     {
-        if (nav.HasChildren)
+        if (launched)
         {
-            nav.MoveToChild(node, string.Empty);
-        }
+            if (nav.HasChildren)
+            {
+                nav.MoveToChild(node, string.Empty);
+            }
 
-        StartCoroutine(UpdateData());
+            StartCoroutine(UpdateData());
+        }
     }
 
     public void NavigateUp(int amount)
     {
-        for(int i = 0; i < amount; i++)
+        if (launched)
         {
-            nav.MoveToParent();
-        }
+            for (int i = 0; i < amount; i++)
+            {
+                nav.MoveToParent();
+            }
 
-        StartCoroutine(UpdateData());
+            StartCoroutine(UpdateData());
+        }
     }
 
     void GenerateTextFieldArray()

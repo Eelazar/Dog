@@ -588,7 +588,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 10
   m_fontSizeMax: 20
   m_fontStyle: 0
   m_textAlignment: 513
@@ -4257,7 +4257,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animDuration: 0.8
+  animDuration: 0.7
 --- !u!4 &1657284612
 Transform:
   m_ObjectHideFlags: 0
@@ -4289,6 +4289,7 @@ MonoBehaviour:
   loadingEye: {fileID: 591670369}
   loadingText: {fileID: 1742776326}
   loginAnimLogo: {fileID: 409579218}
+  explorerWindow: {fileID: 1341457818}
   loginAnimDuration: 2
   loginAnimTurnCount: 3
   loginAnimCurve:
@@ -4333,6 +4334,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  explorerAnimDuration: 0.5
   logoAnimDuration: 0.85
   logoAnimMaxScale: 1.5
   logoAnimCurve_Scale:
@@ -4433,6 +4435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa7354ad5ec254eb8a18077baeded6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialLaunch: 1
   textSpeed: 0.01
   node_Prefab: {fileID: 7326543335313210315, guid: 18000411f73e0df4c97ae1733b1535d7,
     type: 3}
@@ -4442,6 +4445,8 @@ MonoBehaviour:
   entryMarkup_Color: {r: 0.1966002, g: 0.4598363, b: 0.8867924, a: 1}
   entryText_Color: {r: 1, g: 0, b: 0, a: 1}
   textFieldAmount: 70
+  anchorMin: {x: 0, y: 0}
+  anchorMax: {x: 0, y: 0}
 --- !u!1 &1682874038
 GameObject:
   m_ObjectHideFlags: 0
