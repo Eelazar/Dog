@@ -43,8 +43,18 @@ public class BootExplorer : MonoBehaviour
 
     private bool launched;
 
+    private List<TMP_Text> encryptedFields;
+    private List<TMP_Text> lockedFields;
+
+    private BootManager manager;
+    private Assistant assistant;
+
     void Start()
     {
+        manager = transform.GetComponent<BootManager>();
+        assistant = transform.GetComponent<Assistant>();
+        encryptedFields = new List<TMP_Text>();
+        lockedFields = new List<TMP_Text>();
         explorerWindow = explorerPanel.transform.parent.gameObject;
         node_ActiveFields = new List<GameObject>();
         node_TextFields = new TMP_Text[textFieldAmount];
@@ -86,6 +96,8 @@ public class BootExplorer : MonoBehaviour
         if (launched)
         {
             ResizeLog();
+
+            AnimateEncryptedNode();
         }
     }
 
@@ -165,6 +177,8 @@ public class BootExplorer : MonoBehaviour
         {
             tmp.text = "";
         }
+        encryptedFields.Clear();
+        lockedFields.Clear();
 
         //Save the current node
         string currentNode = nav.Name;
@@ -254,16 +268,35 @@ public class BootExplorer : MonoBehaviour
             //For each child
             for (int i = 0; i < childCount; i++)
             {
-                ////Check if the current node has a description
-                //if (nav.GetAttribute("description", string.Empty) != "")
-                //{
-                //    //Get the 
-                //    string s = nav.GetAttribute("description", string.Empty);
-                //    StartCoroutine(AnimateText(node_TextFields[i + 2], "<" + nav.Name + ">" + s + "</" + nav.Name + ">"));
-                //}
+                //Check if the child node is hidden
+                if (nav.GetAttribute("status", string.Empty) == "hidden")
+                {
 
+                }
+                //Check if the child node is secured
+                else if (nav.GetAttribute("security", string.Empty) != "")
+                {                    
+                    //Check if the child node is encrypted
+                    if (nav.GetAttribute("security", string.Empty) == "encrypted")
+                    {
+                        //Display the child node name with entry description
+                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
+
+                        //Add the node to the array for animation
+                        encryptedFields.Add(node_TextFields[i + 2]);
+                    }
+                    //Check if the child node is locked
+                    else if (nav.GetAttribute("security", string.Empty) == "locked")
+                    {
+                        //Display the child node name with entry description
+                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
+
+                        //Add the node to the array
+                        lockedFields.Add(node_TextFields[i + 2]);
+                    }                    
+                }
                 //Check if the child node is an entry
-                if (nav.GetAttribute("entry", string.Empty) != "")
+                else if (nav.GetAttribute("entry", string.Empty) != "")
                 {
                     //Get the entry description
                     string s = nav.GetAttribute("entry", string.Empty);
@@ -286,6 +319,27 @@ public class BootExplorer : MonoBehaviour
             nav.MoveToParent();
         }
     }
+    
+    public void AnimateEncryptedNode()
+    {
+        if(encryptedFields.Count > 0)
+        {
+            foreach(TMP_Text tmp in encryptedFields)
+            {
+                char[] chars = tmp.text.ToCharArray();
+                int modulo = Random.Range(1, 5);
+
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    if(i % modulo == 0)
+                    {
+                        chars[i] = System.Convert.ToChar(Random.Range(32, 127));
+                        tmp.text = new string(chars);
+                    }
+                }
+            }
+        }
+    }
 
     public void NavigateDown(string node)
     {
@@ -294,6 +348,29 @@ public class BootExplorer : MonoBehaviour
             if (nav.HasChildren)
             {
                 nav.MoveToChild(node, string.Empty);
+
+                if (nav.HasAttributes)
+                {
+                    if (nav.GetAttribute("status", string.Empty) == "hidden")
+                    {
+                        nav.MoveToParent();
+                        return;
+                    }
+                    else if (nav.GetAttribute("security", string.Empty) == "encrypted")
+                    {
+                        nav.MoveToParent();
+                        StartCoroutine(assistant.DisplayMessage("This node is encrypted", 0.1F));
+                        StartCoroutine(assistant.HideMessage(1F));
+                        return;
+                    }
+                    else if (nav.GetAttribute("security", string.Empty) == "locked")
+                    {
+                        nav.MoveToParent();
+                        StartCoroutine(assistant.DisplayMessage("This node is locked", 0.1F));
+                        StartCoroutine(assistant.HideMessage(1F));
+                        return;
+                    }
+                }
             }
 
             StartCoroutine(UpdateData());

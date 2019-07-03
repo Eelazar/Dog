@@ -132,6 +132,8 @@ public class BootManager : MonoBehaviour
         }
     }
 
+
+
     IEnumerator LaunchFakeOS()
     {
         //Initialize Lerp
@@ -241,7 +243,7 @@ public class BootManager : MonoBehaviour
         StartCoroutine(assistant.DisplayMessage(s, 7F));
         StartCoroutine(assistant.HideMessage(12F));
 
-        s = "I'll let you explore for a while";
+        s = "Alright then, I'll let you explore for a while now";
         StartCoroutine(assistant.DisplayMessage(s, 13F));
         StartCoroutine(assistant.HideMessage(15F));
     }
