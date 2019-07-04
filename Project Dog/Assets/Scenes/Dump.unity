@@ -7747,11 +7747,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 4c64861326ac1574d9556cf8b50a5b9c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a9581377222013343b0aa64cdc535dde, type: 2}
     - target: {fileID: -4216859302048453862, guid: 4c64861326ac1574d9556cf8b50a5b9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7807,6 +7802,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 4c64861326ac1574d9556cf8b50a5b9c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9581377222013343b0aa64cdc535dde, type: 2}
     - target: {fileID: 7995125058302216693, guid: 4c64861326ac1574d9556cf8b50a5b9c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13865,21 +13865,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: motherfucker (18)
       objectReference: {fileID: 0}
-    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.024
-      objectReference: {fileID: 0}
-    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.084
-      objectReference: {fileID: 0}
-    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.163
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 180e4a0ee99aa544fa6f602129655723,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13955,6 +13940,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 78d841b10f85c7b4ea617b93c27b31c0, type: 2}
+    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.084
+      objectReference: {fileID: 0}
+    - target: {fileID: -5975033157549033438, guid: 180e4a0ee99aa544fa6f602129655723,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.163
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 180e4a0ee99aa544fa6f602129655723, type: 3}
 --- !u!4 &1060434754 stripped
@@ -14148,14 +14148,14 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -27.240656, y: 6.5030003, z: 12.533693}
-  - {x: -26.284222, y: 6.2404466, z: 13.550386}
-  - {x: -25.357485, y: 6.0147467, z: 14.585303}
-  - {x: -24.486559, y: 5.8583107, z: 15.654468}
-  - {x: -23.690828, y: 5.7951927, z: 16.769772}
-  - {x: -22.980606, y: 5.838193, z: 17.93755}
-  - {x: -22.355892, y: 5.9873104, z: 19.157799}
-  - {x: -21.806374, y: 6.229747, z: 20.42419}
-  - {x: -21.312666, y: 6.541446, z: 21.72483}
+  - {x: -26.698126, y: 6.1751223, z: 13.804522}
+  - {x: -26.135368, y: 5.891977, z: 15.06292}
+  - {x: -25.5346, y: 5.6929035, z: 16.297958}
+  - {x: -24.882616, y: 5.6070986, z: 17.501524}
+  - {x: -24.172394, y: 5.650099, z: 18.669302}
+  - {x: -23.403933, y: 5.821903, z: 19.80129}
+  - {x: -22.584257, y: 6.106977, z: 20.901808}
+  - {x: -21.72657, y: 6.476122, z: 21.978966}
   - {x: -20.848656, y: 6.8900003, z: 23.043694}
   m_Parameters:
     serializedVersion: 3
@@ -14834,11 +14834,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox (1)
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 4c64861326ac1574d9556cf8b50a5b9c,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a9581377222013343b0aa64cdc535dde, type: 2}
     - target: {fileID: -4216859302048453862, guid: 4c64861326ac1574d9556cf8b50a5b9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14894,6 +14889,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -79.41701
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 4c64861326ac1574d9556cf8b50a5b9c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9581377222013343b0aa64cdc535dde, type: 2}
     - target: {fileID: 7995125058302216693, guid: 4c64861326ac1574d9556cf8b50a5b9c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -30248,7 +30248,7 @@ MonoBehaviour:
   endPointTransform: {fileID: 2112698128}
   pointsInLineRenderer: 10
   sagAmplitude: 0.6
-  swayMultiplier: 1
+  swayMultiplier: 0.35
   swayXMultiplier: 1
   swayYMultiplier: 0.5
   swayFrequency: 1
@@ -30291,15 +30291,15 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 1.0613441, y: 7.37, z: 22.523693}
-  - {x: 1.4091439, y: 6.6276593, z: 21.245127}
-  - {x: 1.717272, y: 5.90222, z: 19.969738}
-  - {x: 1.9508424, y: 5.2085423, z: 18.700321}
-  - {x: 2.0839608, y: 4.5576572, z: 17.438951}
-  - {x: 2.1028495, y: 3.955435, z: 16.186728}
-  - {x: 2.007509, y: 3.4018755, z: 14.943654}
-  - {x: 1.8117164, y: 2.891109, z: 13.708627}
-  - {x: 1.541366, y: 2.4121044, z: 12.47957}
-  - {x: 1.2313441, y: 1.9500003, z: 11.253693}
+  - {x: 1.1563745, y: 6.5574446, z: 21.275082}
+  - {x: 1.2422209, y: 5.770259, z: 20.026035}
+  - {x: 1.3108076, y: 5.0307517, z: 18.77617}
+  - {x: 1.35614, y: 4.355481, z: 17.525204}
+  - {x: 1.3750288, y: 3.7532587, z: 16.27298}
+  - {x: 1.3674741, y: 3.2240849, z: 15.019503}
+  - {x: 1.3366653, y: 2.7591481, z: 13.764924}
+  - {x: 1.2885966, y: 2.3418894, z: 12.509526}
+  - {x: 1.2313442, y: 1.9500003, z: 11.253693}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
