@@ -23,6 +23,7 @@ public class BootExplorer : MonoBehaviour
     public Color nodeMarkup_Color;
     public Color entryMarkup_Color;
     public Color entryText_Color;
+    public Color lockedMarkup_Color;
 
     public int textFieldAmount;
 
@@ -210,11 +211,20 @@ public class BootExplorer : MonoBehaviour
             }
             //Check if the current node is an entry
             else if (nav.GetAttribute("entry", string.Empty) != "")
-            {
+            {             
                 //Get the entry description
                 string s = nav.GetAttribute("entry", string.Empty);
-                //Display the node name with the entry description
-                StartCoroutine(AnimateText(node_TextFields[1], AddColor(entryMarkup_Color, "<" + nav.Name + ">") + AddColor(node_Color, s)));
+
+                if (s == "true")
+                {
+                    //Display the node name with the entry description
+                    StartCoroutine(AnimateText(node_TextFields[1], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
+                }
+                else
+                {
+                    //Display the node name with the entry description
+                    StartCoroutine(AnimateText(node_TextFields[1], AddColor(entryMarkup_Color, "<" + nav.Name + ">") + AddColor(node_Color, s)));
+                }
 
                 yield return new WaitForSeconds(0.2F);
 
@@ -273,6 +283,11 @@ public class BootExplorer : MonoBehaviour
                 {
 
                 }
+                //Check if the child node is revealable
+                else if (nav.GetAttribute("status", string.Empty) == "revealable")
+                {
+
+                }
                 //Check if the child node is secured
                 else if (nav.GetAttribute("security", string.Empty) != "")
                 {                    
@@ -289,7 +304,7 @@ public class BootExplorer : MonoBehaviour
                     else if (nav.GetAttribute("security", string.Empty) == "locked")
                     {
                         //Display the child node name with entry description
-                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
+                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(lockedMarkup_Color, "<" + nav.Name + ">")));
 
                         //Add the node to the array
                         lockedFields.Add(node_TextFields[i + 2]);
@@ -300,8 +315,16 @@ public class BootExplorer : MonoBehaviour
                 {
                     //Get the entry description
                     string s = nav.GetAttribute("entry", string.Empty);
-                    //Display the child node name with entry description
-                    StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">") + AddColor(node_Color, s)));
+                    if(s == "true")
+                    {
+                        //Display the child node name
+                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
+                    }
+                    else
+                    {
+                        //Display the child node name with entry description
+                        StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">") + AddColor(node_Color, s)));
+                    }
                 }
                 else
                 {
@@ -388,6 +411,11 @@ public class BootExplorer : MonoBehaviour
 
             StartCoroutine(UpdateData());
         }
+    }
+
+    public void Analyze(string node)
+    {
+        
     }
 
     void GenerateTextFieldArray()

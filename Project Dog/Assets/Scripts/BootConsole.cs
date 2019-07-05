@@ -126,13 +126,23 @@ public class BootConsole : MonoBehaviour
                 //Send the text to the log
                 LogText(rawInput);
 
-                if (rawInput.Contains("start"))
+                if (rawInput.Contains("yea yup"))
                 {
                     //If start command launch start animation
                     StartCoroutine(manager.AnimateStart());
                 }
+                else if (rawInput.Contains("analyze"))
+                {
+                    //hard coded: must begin with "analyze "
+                    string temp = rawInput.Remove(0, 8);
+                    //Capitalize first letter
+                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                    explorer.Analyze(temp);
+                }
                 else if (rawInput.Contains("move up"))
                 {
+                    //Check for numbers
                     string resultString = Regex.Match(rawInput, @"\d+").Value;
 
                     if(resultString != "")

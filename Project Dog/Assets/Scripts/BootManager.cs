@@ -143,18 +143,22 @@ public class BootManager : MonoBehaviour
         login_Panel.SetActive(false);
         loginAnimLogo.SetActive(true);
 
-        //Login Loading Logo Animation:
-        while (t < 1)
-        {
-            t = (Time.time - start) / loginAnimDuration;
+        ////Login Loading Logo Animation:
+        //while (t < 1)
+        //{
+        //    t = (Time.time - start) / loginAnimDuration;
 
-            //Get the appropriate rotation from the curve and rotate the logo
-            float rotation = (360 * loginAnimTurnCount) * loginAnimCurve.Evaluate(t);
-            Vector3 rotationVector = new Vector3(0, 0, rotation);
-            loginAnimLogo.transform.eulerAngles = rotationVector;
+        //    //Get the appropriate rotation from the curve and rotate the logo
+        //    float rotation = (360 * loginAnimTurnCount) * loginAnimCurve.Evaluate(t);
+        //    Vector3 rotationVector = new Vector3(0, 0, rotation);
+        //    loginAnimLogo.transform.eulerAngles = rotationVector;
 
-            yield return null;
-        }
+        //    yield return null;
+        //}
+
+        //loginAnimLogo.GetComponent<Animator>().StartPlayback();
+        //Wait for animation length
+        yield return new WaitForSeconds(2F);
 
         loginAnimLogo.SetActive(false);
         access_Panel.SetActive(true);
@@ -185,20 +189,7 @@ public class BootManager : MonoBehaviour
 
         console.Launch();
 
-        string s = "Welcome " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
-        StartCoroutine(assistant.DisplayMessage(s, 1F));
-        StartCoroutine(assistant.HideMessage(4F));
-
-        s = "I'm Jarvis, your personal assistant, here to help whenever you need me";
-        StartCoroutine(assistant.DisplayMessage(s, 5F));
-        StartCoroutine(assistant.HideMessage(9F));
-
-        s = "Try typing 'launch explorer' in the console to get started";
-        StartCoroutine(assistant.DisplayMessage(s, 10F));
-        StartCoroutine(assistant.HideMessage(13F));
-
-
-        yield return null;
+        DisplayDialogue(1);
     }
 
     public IEnumerator LaunchExplorer()
@@ -229,23 +220,9 @@ public class BootManager : MonoBehaviour
 
         StartCoroutine(explorer.UpdateData());
 
-        yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(1F);
 
-        string s = "Good! This is your explorer, use it to browse your files";
-        StartCoroutine(assistant.DisplayMessage(s, 0F));
-        StartCoroutine(assistant.HideMessage(2F));
-
-        s = "There's lots of stuff in here, try typing 'open root' to access the next folder";
-        StartCoroutine(assistant.DisplayMessage(s, 2.8F));
-        StartCoroutine(assistant.HideMessage(6F));
-
-        s = "If you want to back to the previous folder, type 'move up'";
-        StartCoroutine(assistant.DisplayMessage(s, 7F));
-        StartCoroutine(assistant.HideMessage(12F));
-
-        s = "Alright then, I'll let you explore for a while now";
-        StartCoroutine(assistant.DisplayMessage(s, 13F));
-        StartCoroutine(assistant.HideMessage(15F));
+        DisplayDialogue(2);  
     }
 
     public IEnumerator AnimateStart()
@@ -335,5 +312,183 @@ public class BootManager : MonoBehaviour
         SceneManager.LoadSceneAsync(sceneToLoad);
 
         yield return null;
+    }
+
+    public void DisplayDialogue(int i)
+    {
+        StopAllCoroutines();
+
+        switch (i)
+        {
+            case 1:
+                DisplayMessage(1, 2F);
+                DisplayMessage(2, 7F);
+                DisplayMessage(3, 12F);
+                DisplayMessage(4, 17F);
+                DisplayMessage(5, 22F);
+                break;
+
+            case 2:
+                DisplayMessage(6, 1F);
+                DisplayMessage(7, 6F);
+                DisplayMessage(8, 14F);
+                DisplayMessage(9, 20F);
+                DisplayMessage(10, 28F);
+                DisplayMessage(11, 33F);
+                break;
+
+            case 3:
+
+                break;
+
+            case 4:
+
+                break;
+
+            case 5:
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void DisplayMessage(int i, float delay)
+    {
+        string s = "";
+
+        switch (i)
+        {
+            #region Dialogue 1
+            case 1:
+                s = "Welcome back " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 2:
+                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as per usual.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 3:
+                s = "A new software update has been deployed while you were absent.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 4:
+                s = "Update v1.0.4 has improved the security and wireless access protocols.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 5:
+                s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 60F));
+                break;
+
+            #endregion Dialogue 1
+            #region Dialogue 2
+            case 6:
+                s = "Well done! This is your new content explorer.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 7:
+                s = "The new update allows you to type 'open ' followed by a node name to access it.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 7F));
+                break;
+
+            case 8:
+                s = "For example, try typing 'open root' to open the Root node";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 5F));
+                break;
+
+            case 9:
+                s = "If you want to return to the previous node, type 'move up'";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 7F));
+                break;
+
+            case 10:
+                s = "That's it for the new update, I'll let you get back to work now";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 4F));
+                break;
+
+            case 11:
+                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
+                StartCoroutine(assistant.DisplayMessage(s, delay));
+                StartCoroutine(assistant.HideMessage(delay + 120F));
+                break;
+
+            #endregion Dialogue 2
+
+            case 12:
+
+                break;
+
+            case 13:
+
+                break;
+
+            case 14:
+
+                break;
+
+            case 15:
+
+                break;
+
+            case 16:
+
+                break;
+
+            case 17:
+
+                break;
+
+            case 18:
+
+                break;
+
+            case 19:
+
+                break;
+
+            case 20:
+
+                break;
+
+            case 21:
+
+                break;
+
+            case 22:
+
+                break;
+
+            case 23:
+
+                break;
+
+            case 24:
+
+                break;
+
+            case 25:
+
+                break;
+
+            default:
+                break;
+        }
     }
 }
