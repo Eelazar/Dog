@@ -3,9 +3,9 @@
   <Commands>
     <Command>
       <Actions>
-        <Action>Activate</Action>
+        <Action>Toss</Action>
       </Actions>
-      <functionCall>OnCommandActivate</functionCall>
+      <functionCall>OnCommandToss</functionCall>
       <Parameters>
       </Parameters>
     </Command>

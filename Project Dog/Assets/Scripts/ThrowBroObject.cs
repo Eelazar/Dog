@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class ThrowBroObject : BaseObject
 {
-    public Animator animator;
+    public ThrowBroToss toss;
 
-    public Transform platform;
-
-    public void OnCommandActivate()
+    public void OnCommandToss()
     {
-        Debug.Log("DO SHIT !");
-
-        animator.SetBool("PickUp", true);
-
-        GameManager.current.player.transform.SetParent(platform, true);
+        toss.Toss();
     }
 }

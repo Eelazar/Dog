@@ -56,6 +56,8 @@ public class Player : BaseObject
 
     public PlayerAnimation playerAnimation;
 
+    public CapsuleCollider collider;
+
     private void Awake()
     {
 
@@ -131,6 +133,7 @@ public class Player : BaseObject
         if (newCurrent != null)
         {
             positionInterpolation = 0f;
+
             rotationInterpolation = 0f;
 
             positionInterpolationStep = positionSpeed / currentMove.positionDelta.magnitude;
@@ -138,6 +141,19 @@ public class Player : BaseObject
             rotationInterpolationStep = rotationSpeed;
 
             newCurrent.hasRotated = newCurrent.hasToRotate;
+
+            RaycastHit raycastHit;
+
+            Vector3 direction = (newCurrent.targetPosition - newCurrent.startPosition);
+
+            if (Physics.SphereCast(newCurrent.startPosition + collider.center, collider.radius * 0.8f, direction, out raycastHit, direction.magnitude))
+            {
+                float length = Mathf.FloorToInt(raycastHit.distance / 4f) * 4f;
+
+                Debug.Log(length);
+
+                newCurrent.targetPosition = currentMove.startPosition + direction * length;
+            }
 
             if (newCurrent.angle < -1f)
             {
@@ -158,7 +174,16 @@ public class Player : BaseObject
     {
         if (currentMove != null)
         {
-            playerAnimation.SetIdle(false);
+            bool moving = (currentMove.targetPosition - currentMove.startPosition).magnitude > 0.1f;
+
+            if (!moving)
+            {
+                currentMove.hasMoved = true;
+            }
+            else
+            {
+                playerAnimation.SetIdle(false);
+            }
 
             if (!currentMove.hasRotated)
             {

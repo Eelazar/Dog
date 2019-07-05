@@ -16,7 +16,7 @@ public class CameraManager : MonoBehaviour
 
         activeCamera = cams[0];
 
-        for(int i = 0; i < cams.Length; i++)
+        for (int i = 0; i < cams.Length; i++)
         {
             BaseObject baseObject = cams[i].GetComponent<BaseObject>();
 
