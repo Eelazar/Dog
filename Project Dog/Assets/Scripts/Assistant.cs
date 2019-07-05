@@ -20,9 +20,12 @@ public class Assistant : MonoBehaviour
     private Vector2 shownPosMin;
     private Vector2 shownPosMax;
 
+    private BootManager manager;
+
     void Start()
     {
         assistant_Rect = assistant_Object.GetComponent<RectTransform>();
+        manager = GetComponent<BootManager>();
 
         shownPosMin = assistant_Rect.anchorMin;
         shownPosMax = assistant_Rect.anchorMax;
@@ -56,6 +59,8 @@ public class Assistant : MonoBehaviour
         float start = Time.time;
 
         assistant_Text.text = s;
+
+        manager.gameObject.transform.GetChild(0).GetComponent<AudioSource>().Play();
 
         while (t < 1)
         {

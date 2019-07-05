@@ -32,7 +32,7 @@ public class XMLLoader : MonoBehaviour
     private void Start () 
     {
         // Open the XML.
-        docNav = new XPathDocument("Assets\\Scripts\\CommandLog.xml");
+        docNav = new XPathDocument("Assets\\Scripts\\ExplorerFile.xml");
         // Create a navigator to query with XPath.
         nav = docNav.CreateNavigator();
         //Initial XPathNavigator to start at the root.
