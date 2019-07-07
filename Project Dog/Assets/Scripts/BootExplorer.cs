@@ -35,7 +35,8 @@ public class BootExplorer : MonoBehaviour
 
     //XML Navigation Variables
     private XPathNavigator nav;
-    private XPathDocument docNav;
+    [HideInInspector]
+    public XmlDocument xmlDoc;
 
     [HideInInspector]
     public Vector2 anchorMin;
@@ -72,9 +73,10 @@ public class BootExplorer : MonoBehaviour
         }
 
         // Open the XML.
-        docNav = new XPathDocument("Assets\\Scripts\\ExplorerFile.xml");
+        xmlDoc = new XmlDocument();
+        xmlDoc.Load("Assets\\Scripts\\ExplorerFile.xml");
         // Create a navigator to query with XPath.
-        nav = docNav.CreateNavigator();
+        nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
         nav.MoveToRoot();
         ////Move to first Child
@@ -126,7 +128,7 @@ public class BootExplorer : MonoBehaviour
         //Check how many slots are currently active
         int activeAmount = node_ActiveFields.Count;
 
-        Debug.Log("Pixel Height: " + canvasHeight + ", Explorer Window Size: " + explorerSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Explorer Window Size: " + explorerSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         if(activeAmount != slotAmount)
         {
@@ -181,6 +183,7 @@ public class BootExplorer : MonoBehaviour
         encryptedFields.Clear();
         lockedFields.Clear();
 
+        #region Parent Node Stuff
         //Save the current node
         string currentNode = nav.Name;
 
@@ -197,10 +200,13 @@ public class BootExplorer : MonoBehaviour
         }
         //If there is no parent display an empty node
         else node_TextFields[0].text = "<>";
-  
+        #endregion Parent Node Stuff
+
+        #region Current Node Stuff
         //Check if the current node has attributes
         if (nav.HasAttributes)
         {
+
             //Check if the current node has a description
             if (nav.GetAttribute("description", string.Empty) != "")
             {
@@ -266,7 +272,9 @@ public class BootExplorer : MonoBehaviour
         }
         
         yield return new WaitForSeconds(0.2F);
+        #endregion Current Node Stuff
 
+        #region Child Node Stuff
         //Check if the current node has children
         if (nav.HasChildren && entry == false)
         {
@@ -341,8 +349,9 @@ public class BootExplorer : MonoBehaviour
             //Return to the parent node
             nav.MoveToParent();
         }
+        #endregion Child Node Stuff
     }
-    
+
     public void AnimateEncryptedNode()
     {
         if(encryptedFields.Count > 0)
@@ -364,11 +373,15 @@ public class BootExplorer : MonoBehaviour
         }
     }
 
-    public void NavigateDown(string node)
+    public void Interact(string node)
     {
         if (launched)
         {
-            if (nav.HasChildren)
+            if (!nav.HasChildren)
+            {
+                StartCoroutine(UpdateData());
+            }
+            else if (nav.HasChildren)
             {
                 nav.MoveToChild(node, string.Empty);
 
@@ -379,24 +392,38 @@ public class BootExplorer : MonoBehaviour
                         nav.MoveToParent();
                         return;
                     }
-                    else if (nav.GetAttribute("security", string.Empty) == "encrypted")
+
+                    //Check if the current node has an assistant message
+                    if (nav.GetAttribute("assistant", string.Empty) != "")
                     {
-                        nav.MoveToParent();
-                        StartCoroutine(assistant.DisplayMessage("This node is encrypted", 0.1F));
-                        StartCoroutine(assistant.HideMessage(1F));
-                        return;
-                    }
-                    else if (nav.GetAttribute("security", string.Empty) == "locked")
-                    {
-                        nav.MoveToParent();
-                        StartCoroutine(assistant.DisplayMessage("This node is locked", 0.1F));
-                        StartCoroutine(assistant.HideMessage(1F));
-                        return;
+                        string text = nav.GetAttribute("assistant", string.Empty);
+                        string flag = nav.GetAttribute("assistantFlag", string.Empty);
+
+                        nav.MoveToAttribute("assistantFlag", string.Empty);
+                        Message m = null;
+
+                        switch (flag)
+                        {
+                            case "always":
+                                m = new Message(text, 0, 4);
+                                assistant.QueueMessage(m);
+                                break;
+                            case "false":
+                                m = new Message(text, 0, 4);
+                                assistant.QueueMessage(m);
+                                nav.SetValue("true");
+                                break;
+                            case "true":
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                        nav.MoveToPrevious();
                     }
                 }
             }
-
-            StartCoroutine(UpdateData());
         }
     }
 
@@ -411,11 +438,6 @@ public class BootExplorer : MonoBehaviour
 
             StartCoroutine(UpdateData());
         }
-    }
-
-    public void Analyze(string node)
-    {
-        
     }
 
     void GenerateTextFieldArray()

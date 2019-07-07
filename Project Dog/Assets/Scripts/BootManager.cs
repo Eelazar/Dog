@@ -110,6 +110,7 @@ public class BootManager : MonoBehaviour
         console = transform.GetComponent<BootConsole>();
         explorer = transform.GetComponent<BootExplorer>();
 
+        loadingEye.SetActive(false);
         osMaster_Object.SetActive(false);
         loginMaster_Object.SetActive(true);
         access_Panel.SetActive(false);
@@ -189,7 +190,7 @@ public class BootManager : MonoBehaviour
 
         console.Launch();
 
-        DisplayDialogue(1);
+        DialogueShortcut(1);
     }
 
     public IEnumerator LaunchExplorer()
@@ -222,7 +223,7 @@ public class BootManager : MonoBehaviour
 
         yield return new WaitForSeconds(1F);
 
-        DisplayDialogue(2);  
+        DialogueShortcut(2);  
     }
 
     public IEnumerator AnimateStart()
@@ -282,31 +283,9 @@ public class BootManager : MonoBehaviour
         loadingEye.SetActive(true);
         loadingText.SetActive(true);
 
-        //Loading Screen Animation
-        //Repeats as many times as there are spins 
-        for (int i = 0; i < loadingAnimTurnCount; i++)
-        {
-            tLogo = 0;
-            start = Time.time;
-
-            while (tLogo < 1)
-            {
-                tLogo = (Time.time - start) / loadingAnimDuration;
-
-                //Get the appropriate scale from the curve and lerp the logo 
-                float scale = 1 + logoAnimMaxScale * logoAnimCurve_Scale.Evaluate(tLogo);
-                loadingEye.transform.localScale = Vector2.LerpUnclamped(new Vector2(1, 1), new Vector2(scale, scale), tLogo);
-
-                //Get the appropriate rotation from the curve and rotate the logo
-                float rotation = 360 * logoAnimCurve_Rotation.Evaluate(tLogo);
-                Vector3 rotationVector = new Vector3(0, 0, rotation);
-                loadingEye.transform.eulerAngles = rotationVector;
-
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(spinAnimPause);
-        }
+        loadingEye.SetActive(true);
+        float duration = (1.933F + Random.Range(0.5F, 3F));
+        yield return new WaitForSeconds(duration);
 
         //Load the scene
         SceneManager.LoadSceneAsync(sceneToLoad);
@@ -314,176 +293,60 @@ public class BootManager : MonoBehaviour
         yield return null;
     }
 
-    public void DisplayDialogue(int i)
-    {
-        StopAllCoroutines();
-
-        switch (i)
-        {
-            case 1:
-                DisplayMessage(1, 2F);
-                DisplayMessage(2, 7F);
-                DisplayMessage(3, 12F);
-                DisplayMessage(4, 17F);
-                DisplayMessage(5, 22F);
-                break;
-
-            case 2:
-                DisplayMessage(6, 1F);
-                DisplayMessage(7, 6F);
-                DisplayMessage(8, 14F);
-                DisplayMessage(9, 20F);
-                DisplayMessage(10, 28F);
-                DisplayMessage(11, 33F);
-                break;
-
-            case 3:
-
-                break;
-
-            case 4:
-
-                break;
-
-            case 5:
-
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    public void DisplayMessage(int i, float delay)
+    public void DialogueShortcut(int i)
     {
         string s = "";
 
         switch (i)
         {
-            #region Dialogue 1
             case 1:
                 s = "Welcome back " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
+                assistant.QueueMessage(new Message(s, 0, 4F));
+
+                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as per usual.";
+                assistant.QueueMessage(new Message(s, 0, 4F));
+
+                s = "A new software update has been deployed while you were absent.";
+                assistant.QueueMessage(new Message(s, 0, 4F));
+
+                s = "Update v1.0.4 has improved the security and wireless access protocols.";
+                assistant.QueueMessage(new Message(s, 0, 4F));
+
+                s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
+                assistant.QueueMessage(new Message(s, 0, 60F, true));
+
                 break;
 
             case 2:
-                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as per usual.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
+                s = "Well done! This is your new content explorer.";
+                assistant.QueueMessage(new Message(s, 0, 4F, false, true));
+
+                s = "The new update allows you to type 'open ' followed by a node name to access it.";
+                assistant.QueueMessage(new Message(s, 0, 7F));
+
+                s = "For example, try typing 'open root' to open the Root node";
+                assistant.QueueMessage(new Message(s, 0, 5F));
+
+                s = "If you want to return to the previous node, type 'move up'";
+                assistant.QueueMessage(new Message(s, 0, 7F));
+
+                s = "That's it for the new update, I'll let you get back to work now";
+                assistant.QueueMessage(new Message(s, 0, 4F));
+
+                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
+                assistant.QueueMessage(new Message(s, 0, 60F, true));
+
                 break;
 
             case 3:
-                s = "A new software update has been deployed while you were absent.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
+
                 break;
 
             case 4:
-                s = "Update v1.0.4 has improved the security and wireless access protocols.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
+
                 break;
 
             case 5:
-                s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 60F));
-                break;
-
-            #endregion Dialogue 1
-            #region Dialogue 2
-            case 6:
-                s = "Well done! This is your new content explorer.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
-                break;
-
-            case 7:
-                s = "The new update allows you to type 'open ' followed by a node name to access it.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 7F));
-                break;
-
-            case 8:
-                s = "For example, try typing 'open root' to open the Root node";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 5F));
-                break;
-
-            case 9:
-                s = "If you want to return to the previous node, type 'move up'";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 7F));
-                break;
-
-            case 10:
-                s = "That's it for the new update, I'll let you get back to work now";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 4F));
-                break;
-
-            case 11:
-                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
-                StartCoroutine(assistant.DisplayMessage(s, delay));
-                StartCoroutine(assistant.HideMessage(delay + 120F));
-                break;
-
-            #endregion Dialogue 2
-
-            case 12:
-
-                break;
-
-            case 13:
-
-                break;
-
-            case 14:
-
-                break;
-
-            case 15:
-
-                break;
-
-            case 16:
-
-                break;
-
-            case 17:
-
-                break;
-
-            case 18:
-
-                break;
-
-            case 19:
-
-                break;
-
-            case 20:
-
-                break;
-
-            case 21:
-
-                break;
-
-            case 22:
-
-                break;
-
-            case 23:
-
-                break;
-
-            case 24:
-
-                break;
-
-            case 25:
 
                 break;
 
@@ -491,4 +354,5 @@ public class BootManager : MonoBehaviour
                 break;
         }
     }
+
 }
