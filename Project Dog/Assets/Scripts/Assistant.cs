@@ -102,6 +102,14 @@ public class Assistant : MonoBehaviour
         }
     }
 
+    public void Silence()
+    {
+        StopCoroutine("DisplayMessage");
+        StopCoroutine("HideMessage");
+
+        messageQueue.Clear();
+    }
+
     public IEnumerator DisplayMessage(string s, float startDelay)
     {
         inUse = true;
