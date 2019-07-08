@@ -385,7 +385,11 @@ public class BootExplorer : MonoBehaviour
             {
                 nav.MoveToChild(node, string.Empty);
 
-                if (nav.HasAttributes)
+                if (!nav.HasAttributes)
+                {
+                    StartCoroutine(UpdateData());
+                }
+                else if (nav.HasAttributes)
                 {
                     if (nav.GetAttribute("status", string.Empty) == "hidden")
                     {
@@ -405,11 +409,11 @@ public class BootExplorer : MonoBehaviour
                         switch (flag)
                         {
                             case "always":
-                                m = new Message(text, 0, 4);
+                                m = new Message(text, 0, 4, true);
                                 assistant.QueueMessage(m);
                                 break;
                             case "false":
-                                m = new Message(text, 0, 4);
+                                m = new Message(text, 0, 4, true);
                                 assistant.QueueMessage(m);
                                 nav.SetValue("true");
                                 break;
@@ -422,6 +426,14 @@ public class BootExplorer : MonoBehaviour
 
                         nav.MoveToPrevious();
                     }
+
+                    if(nav.GetAttribute("locked", string.Empty) != "" || nav.GetAttribute("encrypted", string.Empty) != "")
+                    {
+                        nav.MoveToParent();
+                        return;
+                    }
+
+                    StartCoroutine(UpdateData());
                 }
             }
         }

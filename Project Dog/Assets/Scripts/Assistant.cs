@@ -6,6 +6,8 @@ using TMPro;
 
 public class Assistant : MonoBehaviour
 {
+    public AudioClip newNotification;
+    public AudioClip notification;
 
     public GameObject assistant_Object;
     public TMP_Text assistant_Text;
@@ -25,12 +27,17 @@ public class Assistant : MonoBehaviour
     private bool inUse;
     private Queue<Message> messageQueue;
     private Message currentMessage;
+    [HideInInspector]
+    public List<Message> messageLog;
+
+    private AudioSource notificationSource;
 
     void Start()
     {
         assistant_Rect = assistant_Object.GetComponent<RectTransform>();
         manager = GetComponent<BootManager>();
         messageQueue = new Queue<Message>();
+        messageLog = new List<Message>();
 
         shownPosMin = assistant_Rect.anchorMin;
         shownPosMax = assistant_Rect.anchorMax;
@@ -40,6 +47,8 @@ public class Assistant : MonoBehaviour
         assistant_Rect.anchorMin = hiddenPosMin;
         assistant_Rect.anchorMax = hiddenPosMax;
         assistant_Text.text = "";
+
+        notificationSource = manager.gameObject.transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     void Update()
@@ -68,6 +77,15 @@ public class Assistant : MonoBehaviour
             {
                 Message m = messageQueue.Dequeue();
                 currentMessage = m;
+                messageLog.Add(m);
+                if (m.newNotification == true)
+                {
+                    notificationSource.clip = newNotification;
+                }
+                else
+                {
+                    notificationSource.clip = notification;
+                }
                 StartCoroutine(DisplayMessage(m.content, m.startDelay));
                 StartCoroutine(HideMessage(m.startDelay + m.duration));
             }
@@ -95,7 +113,7 @@ public class Assistant : MonoBehaviour
 
         assistant_Text.text = s;
 
-        manager.gameObject.transform.GetChild(0).GetComponent<AudioSource>().Play();
+        notificationSource.Play();
 
         while (t < 1)
         {
@@ -137,10 +155,11 @@ public class Message
     public float startDelay;
     public float duration;
 
+    public bool newNotification;
     public bool weak;
     public bool priority;
 
-    public Message(string _content, float _startDelay, float _duration, bool _weak = false, bool _priority = false)
+    public Message(string _content, float _startDelay, float _duration, bool _newNotification = false, bool _weak = false, bool _priority = false)
     {
         content = _content;
         startDelay = _startDelay;
@@ -148,5 +167,6 @@ public class Message
 
         weak = _weak;
         priority = _priority;
+        newNotification = _newNotification;
     }
 }    
