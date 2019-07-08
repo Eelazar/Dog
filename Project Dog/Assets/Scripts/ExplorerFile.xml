@@ -17,7 +17,7 @@
     </Assistant>
   </Help>
   <Programs description="Program Files and Data">
-    <Console security="locked" assistant="You need admin privileges to access this node" assistantFlag="always">
+    <Console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
       <launch.exe trigger="">
       </launch.exe>
     </Console>
@@ -27,7 +27,7 @@
         <Status entry="Assistant won't start">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
         <Behaviour entry="Faulty personality chip">Your Smart Assistant may develop a stronger personality over time, but this should not cause any major productivity loss. Should the Assissant start insulting you however, or cause any emotional grief to you or your coworkers, your workstation is to be returned to the tech department ASAP.</Behaviour>
       </Troubleshooting>
-      <Data security="encrypted" assistant="This node is encrypted" assistantFlag="always">
+      <Data encrypted="" assistant="This node is encrypted" assistantFlag="always">
         <launch.exe trigger="">
         </launch.exe>
         <securityProtocols bool="true">
@@ -36,8 +36,8 @@
     </Assistant>
   </Programs>
   <Log>
-    <Entry1 entry="First Entry Summary" security="encrypted">You're not supposed to see this</Entry1>
+    <Secret entry="Secret Stuff" encrypted="ananaspizza" assistant="This node is encrypted" assistantFlag="always">You're not supposed to see this</Secret>
     <Entry2 entry="Lorem Ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</Entry2>
-    <Entry3 entry="Third Entry Summary" security="locked">How did you access this?!</Entry3>
+    <Entry3 entry="Third Entry Summary" locked="Berlin Lebt">How did you access this?!</Entry3>
   </Log>
 </Root>
