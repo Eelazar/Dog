@@ -12,6 +12,7 @@ public class DecryptionSoftware : MonoBehaviour
     public float charPause;
     public int encryptedTextLength;
     public int waveAmount;
+    public int charsBeforeNextHint;
 
     private string password;
 
@@ -56,6 +57,8 @@ public class DecryptionSoftware : MonoBehaviour
 
         char[] encryptedChars = new char[encryptedTextLength];
 
+        int currentWave = Random.Range(0, waveAmount);
+
         bool done = false;
 
         //Fill encrypted Text
@@ -64,7 +67,58 @@ public class DecryptionSoftware : MonoBehaviour
             encryptedChars[i] = System.Convert.ToChar(Random.Range(32, 127));
         }
         encryptedText.text = encryptedChars.ArrayToString();
-        
+
+        //Hints
+        int charHintCounter = 0;
+        int hintIndex = 0;
+
+        //Update Encrypted Text
+        while (!done)
+        {            
+            for(int i = 0; i < encryptedTextLength / waveAmount; i++)
+            {
+                charHintCounter++;
+
+                if(charHintCounter >= charsBeforeNextHint)
+                {
+                    charHintCounter = 0;
+                    currentWave = Random.Range(0, waveAmount);
+                    hintIndex = 0;
+                }
+
+                for (int j = 0; j < waveAmount; j++)
+                {
+                    int index = (j * (encryptedTextLength / waveAmount)) + i;
+                    encryptedChars[index] = System.Convert.ToChar(Random.Range(32, 127));
+                    if (char.IsWhiteSpace(encryptedChars[index]))
+                    {
+                        encryptedChars[index] = '@';
+                    }
+                    if (encryptedChars[index] == '-')
+                    {
+                        encryptedChars[index] = '&';
+                    }
+
+                    if(hintIndex < password.Length)
+                    {
+                        if(j == currentWave)
+                        {
+                            Debug.Log(currentWave + "    " + passChars[hintIndex]);
+                            encryptedChars[index] = passChars[hintIndex];
+                            hintIndex++;
+                        }
+                    }
+
+                    encryptedText.text = encryptedChars.ArrayToString();
+
+                    
+                }
+
+                yield return new WaitForSeconds(charPause);
+            }
+            
+        }
+
         while (!done)
         {
             currentChar = passChars[counter].ToString();
@@ -84,26 +138,6 @@ public class DecryptionSoftware : MonoBehaviour
                 }
             }
 
-            for(int i = 0; i < encryptedChars.Length; i++)
-            {
-                for (int j = 0; j < waveAmount; j++)
-                {
-                    int index = (j * (encryptedTextLength / waveAmount)) + i;
-                    if (index >= encryptedChars.Length)
-                    {
-                        int tempI = index - encryptedChars.Length;
-                        index = (j * (encryptedTextLength / waveAmount)) + tempI;
-                    }
-                    encryptedChars[index] = System.Convert.ToChar(Random.Range(32, 127));
-
-                    encryptedText.text = encryptedChars.ArrayToString();
-
-                    
-                }
-
-                yield return new WaitForSeconds(charPause);
-            }
-            
         }
 
         yield return null;
