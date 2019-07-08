@@ -7,12 +7,28 @@
         <Markup entry="Guide to the visual representation">We haven't decided on the markup yet...</Markup>
       </Structure>
       <Commands description="List of available commands">
-        <Move_Up entry="true">Type 'move up' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple multiple levels up at once. Example: 'move up 2'</Move_Up>
-        <Open entry="true">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</Open>
-        <Refresh entry="true">Type 'refresh' to reload the contents of your browser.</Refresh>
-        <Decrypt entry="true" status="hidden">Type 'decrypt ' followed by the name of the node your are trying to decrypt to reveal its contents</Decrypt>
+        <move_up entry="true">Type 'move up' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple multiple levels up at once. Example: 'move up 2'</move_up>
+        <open entry="true">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</open>
+        <refresh entry="true">Type 'refresh' to reload the contents of your browser.</refresh>
+        <decrypt entry="true" status="hidden">Type 'decrypt ' followed by the name of the node your are trying to decrypt to reveal its contents</decrypt>
       </Commands>
     </Explorer>
+    <Unit_Control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
+      <General>
+        <access entry="true">Type 'access' followed by an unit name to access it and see it's contents in the file explorer.</access>
+      </General>
+      <Fox_Unit_001 status="hidden">
+        <Modules>
+          <area_scan entry="true">Type "area scan" to activate the area scan of a Fox unit. This allows you to commuicate with and access other units.</area_scan>
+        </Modules>
+      </Fox_Unit_001>
+      <Movement>
+        <move_front entry="true">Type 'move front' to move an unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
+        <move_right entry="true">Type 'move right' to turn and move an unit to the right. Add a number at the end to let it move further.</move_right>
+        <move_left entry="true">Type 'move left' to turn and move an unit to the left. Add a number at the end to let it move further.</move_left>
+        <move_back entry="true">Type 'move back' to turn an unit 180 degrees and let it move afterwards. Add a number at the end to let it move further.</move_back>
+      </Movement>
+    </Unit_Control>
     <Assistant description="Smart Assistant Documentation" status="hidden">
     </Assistant>
   </Help>

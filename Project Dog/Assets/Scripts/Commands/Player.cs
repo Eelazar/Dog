@@ -36,7 +36,7 @@ public class Move
 
         this.angle = angle;
 
-        hasToRotate = angle > 1f || angle < 1f;
+        hasToRotate = !(angle < 1f && angle > -1f);
     }
 }
 
@@ -128,8 +128,6 @@ public class Player : BaseObject
     {
         currentMove = newCurrent;
 
-        playerAnimation.Reset();
-
         if (newCurrent != null)
         {
             positionInterpolation = 0f;
@@ -140,24 +138,29 @@ public class Player : BaseObject
 
             rotationInterpolationStep = rotationSpeed;
 
-            newCurrent.hasRotated = newCurrent.hasToRotate;
+            newCurrent.hasRotated = !newCurrent.hasToRotate;
 
             RaycastHit raycastHit;
 
             Vector3 direction = (newCurrent.targetPosition - newCurrent.startPosition);
 
-            if (Physics.SphereCast(newCurrent.startPosition + collider.center, collider.radius * 0.8f, direction, out raycastHit, direction.magnitude))
-            {
-                float length = Mathf.FloorToInt(raycastHit.distance / 4f) * 4f;
+            //if (Physics.SphereCast(newCurrent.startPosition + collider.center, collider.radius * 0.8f, direction, out raycastHit, direction.magnitude))
+            //{
+            //    float length = Mathf.FloorToInt(raycastHit.distance / 4f) * 4f;
 
-                Debug.Log(length);
+            //    Debug.Log(length);
 
-                newCurrent.targetPosition = currentMove.startPosition + direction * length;
-            }
+            //    newCurrent.targetPosition = currentMove.startPosition + direction * length;
+            //}
 
             if (newCurrent.angle < -1f)
             {
                 playerAnimation.SetLeft(true);
+            }
+
+            if (newCurrent.angle > 1f)
+            {
+                playerAnimation.SetRight(true);
             }
         }
     }
@@ -218,5 +221,7 @@ public class Player : BaseObject
         {
             playerAnimation.SetIdle(true);
         }
+
+        playerAnimation.Reset();
     }
 }

@@ -26,14 +26,14 @@ public class ThrowBro_Wander : MonoBehaviour
 
     void Update()
     {
-        if(navAgent.remainingDistance < 0.1F)
+        if (navAgent.remainingDistance < 0.1F)
         {
             currentTarget = FindRandomPointOnNav();
         }
 
         navAgent.SetDestination(currentTarget);
 
-        
+
     }
 
     Vector3 FindRandomPointOnNav()
