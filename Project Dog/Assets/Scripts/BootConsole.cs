@@ -131,14 +131,9 @@ public class BootConsole : MonoBehaviour
                     //If start command launch start animation
                     StartCoroutine(manager.AnimateStart());
                 }
-                else if (rawInput.Contains("analyze"))
+                else if (rawInput.Contains("save"))
                 {
-                    //hard coded: must begin with "analyze "
-                    string temp = rawInput.Remove(0, 8);
-                    //Capitalize first letter
-                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
-
-                    explorer.Analyze(temp);
+                    explorer.xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
                 }
                 else if (rawInput.Contains("move up"))
                 {
@@ -162,7 +157,7 @@ public class BootConsole : MonoBehaviour
                     //Capitalize first letter
                     temp = temp.First().ToString().ToUpper() + temp.Substring(1);
 
-                    explorer.NavigateDown(temp);
+                    explorer.Interact(temp);
                 }
                 else if (rawInput.Contains("refresh"))
                 {
@@ -239,8 +234,6 @@ public class BootConsole : MonoBehaviour
 
         //Check how many slots are currently active
         int activeAmount = log_ActiveFields.Count;
-
-        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         //If more slots could fit into the log, add them
         if (activeAmount < slotAmount)
