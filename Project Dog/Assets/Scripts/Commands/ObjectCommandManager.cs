@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using UnityEngine;
 
 
+// Data structure just to easily serialize the xml file. (XML File is a straight mirror of this class)
 public class ObjectCommands
 {
     public string baseName;
@@ -12,8 +13,10 @@ public class ObjectCommands
     public Command[] commands;
 }
 
+//CommandManager holds all available Commands for an Object
 public static class ObjectCommandManager
 {
+    //Used to look up the commands for a certain type of Object (indexed by name)
     private static Dictionary<string, ObjectCommands> baseNameCommandDicitionary = new Dictionary<string, ObjectCommands>();
 
     public static void AddCommands(ObjectCommands objectCommand)
@@ -21,6 +24,12 @@ public static class ObjectCommandManager
         baseNameCommandDicitionary.Add(objectCommand.baseName, objectCommand);
     }
 
+    //Checks if a command string is a valid command for a given object
+    //baseName is the class name of the object, not the object-specific name ("Door" or "ThrowBro")
+    //words is each word out of the command {"Open","the","door"}
+    //actions is an array of actions connected to the command, if the command is valid the keywords connected to this action are in this array, empty if not valid
+    //function call is the actual Command that is called on the MonoBehaviour "OnCommandOpen"
+    //parameters is a list of objects (int, float, string etc) that is passed to the command function
     public static bool IsValidCommand(string baseName, string[] words, out string[] actions, out string functionCall, out object[] paramters)
     {
         functionCall = "";
@@ -37,6 +46,7 @@ public static class ObjectCommandManager
 
         paramters = new object[0];
 
+        //look for object
         if (baseNameCommandDicitionary.TryGetValue(baseName, out objectCommands))
         {
             for (int i = 0; i < objectCommands.commands.Length; i++)

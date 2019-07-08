@@ -27,6 +27,9 @@ public class BootManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The explorer window")]
     private GameObject explorerWindow;
+    [SerializeField]
+    [Tooltip("The decryption window")]
+    private GameObject decryptionWindow;
 
     [Header("Login Logo Animation")]
     [SerializeField]
@@ -96,6 +99,7 @@ public class BootManager : MonoBehaviour
     private Assistant assistant;
     private BootConsole console;
     private BootExplorer explorer;
+    private DecryptionSoftware decryptor;
 
     private TMP_InputField login_Input;
 
@@ -109,6 +113,7 @@ public class BootManager : MonoBehaviour
         assistant = transform.GetComponent<Assistant>();
         console = transform.GetComponent<BootConsole>();
         explorer = transform.GetComponent<BootExplorer>();
+        decryptor = transform.GetComponent<DecryptionSoftware>();
 
         loadingEye.SetActive(false);
         osMaster_Object.SetActive(false);
@@ -143,25 +148,12 @@ public class BootManager : MonoBehaviour
 
         login_Panel.SetActive(false);
         loginAnimLogo.SetActive(true);
-
-        ////Login Loading Logo Animation:
-        //while (t < 1)
-        //{
-        //    t = (Time.time - start) / loginAnimDuration;
-
-        //    //Get the appropriate rotation from the curve and rotate the logo
-        //    float rotation = (360 * loginAnimTurnCount) * loginAnimCurve.Evaluate(t);
-        //    Vector3 rotationVector = new Vector3(0, 0, rotation);
-        //    loginAnimLogo.transform.eulerAngles = rotationVector;
-
-        //    yield return null;
-        //}
-
-        //loginAnimLogo.GetComponent<Animator>().StartPlayback();
-        //Wait for animation length
-        yield return new WaitForSeconds(2F);
+        float duration = (1.0F + Random.Range(0.5F, 2F));
+        yield return new WaitForSeconds(duration);
 
         loginAnimLogo.SetActive(false);
+
+
         access_Panel.SetActive(true);
 
         yield return new WaitForSeconds(1.5F);
@@ -188,7 +180,7 @@ public class BootManager : MonoBehaviour
 
         loginMaster_Object.SetActive(false);        
 
-        console.Launch();
+        console.Activate();
 
         DialogueShortcut(1);
     }
@@ -224,6 +216,41 @@ public class BootManager : MonoBehaviour
         yield return new WaitForSeconds(1F);
 
         DialogueShortcut(2);  
+    }
+
+    public IEnumerator LaunchDecryptor()
+    {
+        StartCoroutine(console.Deactivate());
+
+        //Initialize Lerp
+        float t = 0;
+        float start = Time.time;
+
+        Vector2 oldMin = decryptionWindow.GetComponent<RectTransform>().anchorMin;
+        Vector2 oldMax = decryptionWindow.GetComponent<RectTransform>().anchorMax;
+
+        Color full = decryptionWindow.GetComponent<Image>().color;
+        Color clear = new Color(full.r, full.g, full.b, 0);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / explorerAnimDuration;
+
+            decryptionWindow.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(oldMin, decryptor.anchorMin, t);
+            decryptionWindow.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(oldMax, decryptor.anchorMax, t);
+
+            decryptionWindow.GetComponent<Image>().color = Vector4.Lerp(clear, full, t);
+
+            yield return null;
+        }
+
+        //yield return new WaitForSeconds(0.2F);
+
+        //StartCoroutine(explorer.UpdateData());
+
+        //yield return new WaitForSeconds(1F);
+
+        //DialogueShortcut(2);
     }
 
     public IEnumerator AnimateStart()
@@ -301,7 +328,7 @@ public class BootManager : MonoBehaviour
         {
             case 1:
                 s = "Welcome back " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
-                assistant.QueueMessage(new Message(s, 0, 4F));
+                assistant.QueueMessage(new Message(s, 0, 4F, true));
 
                 s = "I'm Neptune, your personal assistant, here to help whenever you need me, as per usual.";
                 assistant.QueueMessage(new Message(s, 0, 4F));
@@ -313,13 +340,13 @@ public class BootManager : MonoBehaviour
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
                 s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
-                assistant.QueueMessage(new Message(s, 0, 60F, true));
+                assistant.QueueMessage(new Message(s, 0, 60F, false, true));
 
                 break;
 
             case 2:
                 s = "Well done! This is your new content explorer.";
-                assistant.QueueMessage(new Message(s, 0, 4F, false, true));
+                assistant.QueueMessage(new Message(s, 0, 4F, true, false, true));
 
                 s = "The new update allows you to type 'open ' followed by a node name to access it.";
                 assistant.QueueMessage(new Message(s, 0, 7F));
@@ -334,7 +361,7 @@ public class BootManager : MonoBehaviour
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
                 s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
-                assistant.QueueMessage(new Message(s, 0, 60F, true));
+                assistant.QueueMessage(new Message(s, 0, 60F, false, true));
 
                 break;
 

@@ -48,6 +48,8 @@ public class BootConsole : MonoBehaviour
     private BootManager manager;
     //Explorer
     private BootExplorer explorer;
+    //Assistant
+    private Assistant assistant;
 
     ////Other Variables
     //Holder for the text input
@@ -80,6 +82,7 @@ public class BootConsole : MonoBehaviour
         keySource = gameObject.GetComponent<AudioSource>();
         manager = transform.GetComponent<BootManager>();
         explorer = transform.GetComponent<BootExplorer>();
+        assistant = transform.GetComponent<Assistant>();
 
         GenerateTextFieldArray();
 
@@ -99,10 +102,17 @@ public class BootConsole : MonoBehaviour
         ResizeLog();
     }
 
-    public void Launch()
+    public void Activate()
     {
         console_InputField.ActivateInputField();
 
+    }
+
+    public IEnumerator Deactivate()
+    {
+        yield return new WaitForEndOfFrame();
+
+        console_InputField.DeactivateInputField();
     }
 
     void GetInput()
@@ -135,6 +145,10 @@ public class BootConsole : MonoBehaviour
                 {
                     explorer.xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
                 }
+                else if (rawInput.Contains("shut up"))
+                {
+                    assistant.Silence();
+                }
                 else if (rawInput.Contains("move up"))
                 {
                     //Check for numbers
@@ -149,6 +163,15 @@ public class BootConsole : MonoBehaviour
                     {
                         explorer.NavigateUp(1);
                     }                    
+                }
+                else if (rawInput.Contains("decrypt"))
+                {
+                    //hard coded: must begin with "decrypt "
+                    string temp = rawInput.Remove(0, 8);
+                    //Capitalize first letter
+                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+
+                    explorer.DecryptNode(temp);
                 }
                 else if (rawInput.Contains("open"))
                 {
