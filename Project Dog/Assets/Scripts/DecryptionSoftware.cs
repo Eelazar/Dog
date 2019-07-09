@@ -24,8 +24,24 @@ public class DecryptionSoftware : MonoBehaviour
     [HideInInspector]
     public Vector2 anchorMax;
 
+    private bool decrypting = false;
+    private KeyCode lastKey;
+
+    private int counter = 0;
+    private string currentChar = "";
+    private int length = 0;
+    private char[] passChars;
+
+    private string node;
+
+    private BootManager manager;
+    private BootExplorer explorer;
+
     void Start()
     {
+        manager = transform.GetComponent<BootManager>();
+        explorer = transform.GetComponent<BootExplorer>();
+
         anchorMin = decryptionPanel.transform.parent.GetComponent<RectTransform>().anchorMin;
         anchorMax = decryptionPanel.transform.parent.GetComponent<RectTransform>().anchorMax;
 
@@ -38,11 +54,37 @@ public class DecryptionSoftware : MonoBehaviour
 
     void Update()
     {
-        
+        if (decrypting)
+        {
+            foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
+            {
+                if (Input.GetKey(vKey))
+                {
+                    lastKey = vKey;
+                }
+            }
+
+            if (counter < passChars.Length)
+            {
+                currentChar = passChars[counter].ToString();
+                if ((KeyCode)System.Enum.Parse(typeof(KeyCode), currentChar.ToUpper()) == lastKey)
+                {
+                    decryptedText.text += currentChar;
+                    counter++;
+                }
+            }
+            else
+            {
+                StartCoroutine(manager.CloseDecryptor());
+                explorer.ApplyDecryption(node);
+                decrypting = false;
+            }
+        }        
     }
 
-    public void LaunchDecryption(string pass)
+    public void LaunchDecryption(string concernedNode, string pass)
     {
+        node = concernedNode;
         password = pass;
 
         StartCoroutine(Decryption());
@@ -50,16 +92,18 @@ public class DecryptionSoftware : MonoBehaviour
 
     IEnumerator Decryption()
     {
-        int counter = 0;
-        string currentChar = "";
-        int length = password.Length;
-        char[] passChars = password.ToCharArray();
+        decrypting = true;
+
+        counter = 0;
+        currentChar = "";
+        length = password.Length;
+        passChars = password.ToCharArray();
 
         char[] encryptedChars = new char[encryptedTextLength];
 
         int currentWave = Random.Range(0, waveAmount);
 
-        bool done = false;
+        
 
         //Fill encrypted Text
         for(int i = 0; i < encryptedTextLength; i++)
@@ -73,9 +117,9 @@ public class DecryptionSoftware : MonoBehaviour
         int hintIndex = 0;
 
         //Update Encrypted Text
-        while (!done)
-        {            
-            for(int i = 0; i < encryptedTextLength / waveAmount; i++)
+        while (decrypting)
+        {
+            for (int i = 0; i < encryptedTextLength / waveAmount; i++)
             {
                 charHintCounter++;
 
@@ -114,29 +158,7 @@ public class DecryptionSoftware : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(charPause);
-            }
-            
-        }
-
-        while (!done)
-        {
-            currentChar = passChars[counter].ToString();
-
-            foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode)))
-            {
-                if (Input.GetKey(vKey))
-                {
-                    Debug.Log(vKey);
-
-                    if (vKey == (KeyCode)System.Enum.Parse(typeof(KeyCode), currentChar.ToUpper()))
-                    {
-                        decryptedText.text += currentChar;
-                        counter++;
-                    }
-
-                }
-            }
-
+            }            
         }
 
         yield return null;

@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-4029-OUT,spec-3149-OUT,normal-5964-RGB,difocc-8731-R;n:type:ShaderForge.SFN_Tex2d,id:7736,x:32386,y:32648,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32386,y:32844,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Panner,id:1775,x:31900,y:32603,varname:node_1775,prsc:2,spu:0,spv:-0.25|UVIN-2627-UVOUT;n:type:ShaderForge.SFN_TexCoord,id:2627,x:31677,y:32603,varname:node_2627,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Tex2d,id:8731,x:32386,y:33049,ptovrint:False,ptlb:AO,ptin:_AO,varname:node_8731,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Slider,id:3149,x:31881,y:32931,ptovrint:False,ptlb:Metal,ptin:_Metal,varname:node_3149,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Tex2d,id:4592,x:32342,y:32387,ptovrint:False,ptlb:Edge Shadow,ptin:_EdgeShadow,varname:node_4592,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False;n:type:ShaderForge.SFN_Blend,id:4029,x:32563,y:32434,varname:node_4029,prsc:2,blmd:0,clmp:True|SRC-4592-RGB,DST-7736-RGB;proporder:5964-7736-8731-3149-4592;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:3,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:True,hqlp:False,rprd:True,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:0,bdst:1,dpts:2,wrdp:True,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:False,qofs:0,qpre:1,rntp:1,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:2865,x:32719,y:32712,varname:node_2865,prsc:2|diff-7736-RGB,spec-3149-OUT,gloss-2883-R,normal-5964-RGB,difocc-8731-R;n:type:ShaderForge.SFN_Tex2d,id:7736,x:32386,y:32648,ptovrint:True,ptlb:Base Color,ptin:_MainTex,varname:_MainTex,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Tex2d,id:5964,x:32386,y:32844,ptovrint:True,ptlb:Normal Map,ptin:_BumpMap,varname:_BumpMap,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:3,isnm:True|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Panner,id:1775,x:31900,y:32603,varname:node_1775,prsc:2,spu:0,spv:-0.25|UVIN-2627-UVOUT;n:type:ShaderForge.SFN_TexCoord,id:2627,x:31677,y:32603,varname:node_2627,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Tex2d,id:8731,x:32386,y:33049,ptovrint:False,ptlb:AO,ptin:_AO,varname:node_8731,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,ntxv:0,isnm:False|UVIN-1775-UVOUT;n:type:ShaderForge.SFN_Slider,id:3149,x:31881,y:32931,ptovrint:False,ptlb:Metal,ptin:_Metal,varname:node_3149,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:0,max:1;n:type:ShaderForge.SFN_Color,id:2883,x:32174,y:32766,ptovrint:False,ptlb:Gloss,ptin:_Gloss,varname:node_2883,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5,c2:0.5,c3:0.5,c4:1;proporder:5964-7736-8731-3149-2883;pass:END;sub:END;*/
 
 Shader "Shader Forge/Conveyor Belts" {
     Properties {
@@ -9,7 +9,7 @@ Shader "Shader Forge/Conveyor Belts" {
         _MainTex ("Base Color", 2D) = "white" {}
         _AO ("AO", 2D) = "white" {}
         _Metal ("Metal", Range(0, 1)) = 0
-        _EdgeShadow ("Edge Shadow", 2D) = "white" {}
+        _Gloss ("Gloss", Color) = (0.5,0.5,0.5,1)
     }
     SubShader {
         Tags {
@@ -44,7 +44,7 @@ Shader "Shader Forge/Conveyor Belts" {
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform sampler2D _AO; uniform float4 _AO_ST;
             uniform float _Metal;
-            uniform sampler2D _EdgeShadow; uniform float4 _EdgeShadow_ST;
+            uniform float4 _Gloss;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -95,8 +95,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 i.normalDir = normalize(i.normalDir);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float4 node_4141 = _Time;
-                float2 node_1775 = (i.uv0+node_4141.g*float2(0,-0.25));
+                float4 node_3030 = _Time;
+                float2 node_1775 = (i.uv0+node_3030.g*float2(0,-0.25));
                 float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(node_1775, _BumpMap)));
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
@@ -110,8 +110,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
-                float gloss = 0.5;
-                float perceptualRoughness = 1.0 - 0.5;
+                float gloss = _Gloss.r;
+                float perceptualRoughness = 1.0 - _Gloss.r;
                 float roughness = perceptualRoughness * perceptualRoughness;
                 float specPow = exp2( gloss * 10.0 + 1.0 );
 /////// GI Data:
@@ -159,9 +159,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 float LdotH = saturate(dot(lightDirection, halfDirection));
                 float3 specularColor = _Metal;
                 float specularMonochrome;
-                float4 _EdgeShadow_var = tex2D(_EdgeShadow,TRANSFORM_TEX(i.uv0, _EdgeShadow));
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(node_1775, _MainTex));
-                float3 diffuseColor = saturate(min(_EdgeShadow_var.rgb,_MainTex_var.rgb)); // Need this for specular when using metallic
+                float3 diffuseColor = _MainTex_var.rgb; // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -238,7 +237,7 @@ Shader "Shader Forge/Conveyor Belts" {
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform sampler2D _BumpMap; uniform float4 _BumpMap_ST;
             uniform float _Metal;
-            uniform sampler2D _EdgeShadow; uniform float4 _EdgeShadow_ST;
+            uniform float4 _Gloss;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
@@ -278,8 +277,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 i.normalDir = normalize(i.normalDir);
                 float3x3 tangentTransform = float3x3( i.tangentDir, i.bitangentDir, i.normalDir);
                 float3 viewDirection = normalize(_WorldSpaceCameraPos.xyz - i.posWorld.xyz);
-                float4 node_605 = _Time;
-                float2 node_1775 = (i.uv0+node_605.g*float2(0,-0.25));
+                float4 node_6396 = _Time;
+                float2 node_1775 = (i.uv0+node_6396.g*float2(0,-0.25));
                 float3 _BumpMap_var = UnpackNormal(tex2D(_BumpMap,TRANSFORM_TEX(node_1775, _BumpMap)));
                 float3 normalLocal = _BumpMap_var.rgb;
                 float3 normalDirection = normalize(mul( normalLocal, tangentTransform )); // Perturbed normals
@@ -292,8 +291,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 float Pi = 3.141592654;
                 float InvPi = 0.31830988618;
 ///////// Gloss:
-                float gloss = 0.5;
-                float perceptualRoughness = 1.0 - 0.5;
+                float gloss = _Gloss.r;
+                float perceptualRoughness = 1.0 - _Gloss.r;
                 float roughness = perceptualRoughness * perceptualRoughness;
                 float specPow = exp2( gloss * 10.0 + 1.0 );
 ////// Specular:
@@ -301,9 +300,8 @@ Shader "Shader Forge/Conveyor Belts" {
                 float LdotH = saturate(dot(lightDirection, halfDirection));
                 float3 specularColor = _Metal;
                 float specularMonochrome;
-                float4 _EdgeShadow_var = tex2D(_EdgeShadow,TRANSFORM_TEX(i.uv0, _EdgeShadow));
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(node_1775, _MainTex));
-                float3 diffuseColor = saturate(min(_EdgeShadow_var.rgb,_MainTex_var.rgb)); // Need this for specular when using metallic
+                float3 diffuseColor = _MainTex_var.rgb; // Need this for specular when using metallic
                 diffuseColor = DiffuseAndSpecularFromMetallic( diffuseColor, specularColor, specularColor, specularMonochrome );
                 specularMonochrome = 1.0-specularMonochrome;
                 float NdotV = abs(dot( normalDirection, viewDirection ));
@@ -365,7 +363,7 @@ Shader "Shader Forge/Conveyor Belts" {
             #pragma target 3.0
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform float _Metal;
-            uniform sampler2D _EdgeShadow; uniform float4 _EdgeShadow_ST;
+            uniform float4 _Gloss;
             struct VertexInput {
                 float4 vertex : POSITION;
                 float2 texcoord0 : TEXCOORD0;
@@ -395,15 +393,15 @@ Shader "Shader Forge/Conveyor Belts" {
                 
                 o.Emission = 0;
                 
-                float4 _EdgeShadow_var = tex2D(_EdgeShadow,TRANSFORM_TEX(i.uv0, _EdgeShadow));
-                float4 node_4232 = _Time;
-                float2 node_1775 = (i.uv0+node_4232.g*float2(0,-0.25));
+                float4 node_785 = _Time;
+                float2 node_1775 = (i.uv0+node_785.g*float2(0,-0.25));
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(node_1775, _MainTex));
-                float3 diffColor = saturate(min(_EdgeShadow_var.rgb,_MainTex_var.rgb));
+                float3 diffColor = _MainTex_var.rgb;
                 float specularMonochrome;
                 float3 specColor;
                 diffColor = DiffuseAndSpecularFromMetallic( diffColor, _Metal, specColor, specularMonochrome );
-                o.Albedo = diffColor + specColor * 0.125; // No gloss connected. Assume it's 0.5
+                float roughness = 1.0 - _Gloss.r;
+                o.Albedo = diffColor + specColor * roughness * roughness * 0.5;
                 
                 return UnityMetaFragment( o );
             }

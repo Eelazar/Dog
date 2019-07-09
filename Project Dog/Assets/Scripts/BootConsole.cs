@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml.XPath;
+using System.Xml;
 
 [RequireComponent(typeof(AudioSource), typeof(BootManager))]
 public class BootConsole : MonoBehaviour
@@ -60,6 +62,10 @@ public class BootConsole : MonoBehaviour
     private int selectedSlotIndex;
     //Backup of up to x log entries
     private string[] consoleLog = new string[50];
+
+    //XML Navigation Variables
+    private XPathNavigator nav;
+    private XmlDocument xmlDoc;
     #endregion Private Variables
 
     #region Public Variables
@@ -90,7 +96,19 @@ public class BootConsole : MonoBehaviour
         foreach (TMP_Text tmp in log_TextFields)
         {
             tmp.gameObject.SetActive(false);
-        }        
+        }
+
+        // Open the XML.
+        xmlDoc = new XmlDocument();
+        xmlDoc.Load("Assets\\Scripts\\CommandTree.xml");
+        // Create a navigator to query with XPath.
+        nav = xmlDoc.CreateNavigator();
+        //Initial XPathNavigator to start at the root.
+        nav.MoveToRoot();
+        nav.MoveToFirstChild();
+
+        XMLObject obj = new XMLObject("open someStuff");
+        FindMethod(obj);
     }
 
     void Update()
@@ -166,12 +184,7 @@ public class BootConsole : MonoBehaviour
                 }
                 else if (rawInput.Contains("decrypt"))
                 {
-                    //hard coded: must begin with "decrypt "
-                    string temp = rawInput.Remove(0, 8);
-                    //Capitalize first letter
-                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
-
-                    explorer.DecryptNode(temp);
+                    explorer.DecryptNode();
                 }
                 else if (rawInput.Contains("open"))
                 {
@@ -196,6 +209,74 @@ public class BootConsole : MonoBehaviour
             //Refocus input field
             console_InputField.ActivateInputField();
         }
+    }
+
+    void FindMethod(XMLObject obj)
+    {
+        if(obj.progressionIndex == 0)
+        {
+            nav.MoveToRoot();
+            nav.MoveToFirstChild();
+        }
+
+        if (nav.HasChildren)
+        {
+            if (obj.commandWords.Length >= obj.progressionIndex)
+            {
+                int childCount = nav.SelectChildren(XPathNodeType.All).Count;
+                nav.MoveToFirstChild();
+
+                for (int i = 0; i < childCount; i++)
+                {
+                    if (nav.GetAttribute("synonyms", string.Empty) != "")
+                    {
+                        string[] synonyms = nav.GetAttribute("synonyms", string.Empty).Split(' ');
+
+                        foreach (string synonym in synonyms)
+                        {
+                            if (synonym == obj.commandWords[obj.progressionIndex])
+                            {
+                                obj.xmlPath.Add(nav.Name);
+                                obj.progressionIndex++;
+                                FindMethod(obj);
+                                return;
+                            }
+                        }
+                    }
+                    else if (nav.Name[0] == '_')
+                    {
+                        obj.xmlPath.Add(nav.Name);
+                        obj.parameters.Add(obj.commandWords[obj.progressionIndex]);
+                        obj.progressionIndex++;
+                        FindMethod(obj);
+                        return;
+                    }
+                    else if (nav.Name == "method")
+                    {
+                        obj.xmlPath.Add(nav.Name);
+                        obj.progressionIndex++;
+                        obj.methodName = nav.Value;
+                        ExecuteMethod(obj);
+                        return;
+                    }
+
+                    nav.MoveToNext();
+                }
+            }
+            else
+            {
+                /////////////DEFAULT
+            }
+        }
+        else
+        {
+            Debug.Log("XML has no child nodes at level: " + nav.Name);
+        }
+    }
+
+    void ExecuteMethod(XMLObject finalObj)
+    {
+        Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
     }
 
     void LogText(string s)
@@ -307,5 +388,23 @@ public class BootConsole : MonoBehaviour
             go.name = "Log TextField " + (textFieldAmount - i);
             log_TextFields[textFieldAmount - (i + 1)] = go.GetComponent<TMP_Text>();
         }
+    }
+}
+
+public class XMLObject
+{
+    public string[] commandWords;
+    public List<string> xmlPath;
+    public List<string> parameters;
+    public int progressionIndex;
+
+    public string methodName;
+
+    public XMLObject(string text)
+    {
+        commandWords = text.Split(' ');
+
+        xmlPath = new List<string>();
+        parameters = new List<string>();
     }
 }
