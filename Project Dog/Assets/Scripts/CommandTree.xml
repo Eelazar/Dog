@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Root>
+<root>
   <open synonyms="open goto">
-    <_node var="string">
-      <method parameters="_node">OpenNode</method>
+    <_node>
+      <method>OpenNode</method>
     </_node>
     <default>
       <debug assistant="2">What do you want to open?</debug>
@@ -10,21 +10,21 @@
   </open>
   
   <return synonyms="return">
-    <method parameters="">MoveUp</method>
+    <method>MoveUp</method>
   </return>
   
   <move synonyms="move walk go">
-    ´<forward synonyms="forward front up north">
-      <method parameters="">MoveForward</method>
+    <forward synonyms="forward front up north">
+      <method>MoveForward</method>
     </forward>
     <back synonyms="back backwards behind south">
-      <method parameters="">MoveBack</method>
+      <method>MoveBack</method>
     </back>
     <left synonyms="left west">
-      <method parameters="">MoveLeft</method>
+      <method>MoveLeft</method>
     </left>
     <right synonyms="right east">
-      <method parameters="">MoveRight</method>
+      <method>MoveRight</method>
     </right>
     <default>
       <debug assistant="2">Where do you want to go?</debug>
@@ -32,8 +32,8 @@
   </move>
   
   <launch synonyms="launch boot start">
-    <_program var="string">
-      <method parameters="_program">LaunchProgram</method>
+    <_program>
+      <method>LaunchProgram</method>
     </_program>
   </launch>
-</Root>
+</root>
