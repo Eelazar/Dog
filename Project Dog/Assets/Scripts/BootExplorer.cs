@@ -295,7 +295,7 @@ public class BootExplorer : MonoBehaviour
 
                 }
                 //Check if the child node is encrypted
-                else if (nav.GetAttribute("encrypted", string.Empty) != "")
+                else if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
                 {
                     //Display the child node name with entry description
                     StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
@@ -367,22 +367,58 @@ public class BootExplorer : MonoBehaviour
         }
     }
 
-    public void DecryptNode(string node)
+    public void DecryptNode()
     {
         if (launched)
         {
-            if(nav.MoveToChild(node, string.Empty) == true)
+            if (nav.HasChildren)
             {
-                StartCoroutine(manager.LaunchDecryptor());
+                //Get the amount of children
+                int childCount = nav.SelectChildren(XPathNodeType.All).Count;
+                //Move to the first child
+                nav.MoveToFirstChild();
 
-                string password = nav.GetAttribute("encrypted", string.Empty);
-                nav.MoveToParent();
+                //For each child
+                for (int i = 0; i < childCount; i++)
+                {
+                    //Check if the child node is hidden
+                    if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
+                    {
+                        StartCoroutine(manager.LaunchDecryptor());
 
-                decryptor.LaunchDecryption(password);
+                        string password = nav.GetAttribute("encrypted", string.Empty);
+
+                        decryptor.LaunchDecryption(nav.Name, password);
+
+                        nav.MoveToParent();
+                    }
+
+                    nav.MoveToNext();
+                }
             }
         }
     }
 
+    public void ApplyDecryption(string node)
+    {
+        if (launched)
+        {
+            if (nav.MoveToChild(node, string.Empty) == true)
+            {
+                nav.MoveToAttribute("encrypted", string.Empty);
+                nav.SetValue("decrypted");
+
+                nav.MoveToParent();
+                nav.MoveToAttribute("assistantFlag", string.Empty);
+                nav.SetValue("true");
+
+                nav.MoveToParent();
+                nav.MoveToParent();
+                StartCoroutine(UpdateData());
+            }
+        }
+    }
+   
     public void Interact(string node)
     {
         if (launched)
@@ -443,7 +479,7 @@ public class BootExplorer : MonoBehaviour
                         return;
                     }
 
-                    if (nav.GetAttribute("encrypted", string.Empty) != "")
+                    if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
                     {                        
                         nav.MoveToParent();
                         return;

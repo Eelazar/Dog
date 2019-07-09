@@ -184,12 +184,7 @@ public class BootConsole : MonoBehaviour
                 }
                 else if (rawInput.Contains("decrypt"))
                 {
-                    //hard coded: must begin with "decrypt "
-                    string temp = rawInput.Remove(0, 8);
-                    //Capitalize first letter
-                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
-
-                    explorer.DecryptNode(temp);
+                    explorer.DecryptNode();
                 }
                 else if (rawInput.Contains("open"))
                 {

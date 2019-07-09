@@ -1934,8 +1934,8 @@ RectTransform:
   m_Father: {fileID: 1468748005}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.2}
-  m_AnchorMax: {x: 0.83, y: 0.9}
+  m_AnchorMin: {x: 0.25, y: 0.25}
+  m_AnchorMax: {x: 0.7, y: 0.8}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2008,10 +2008,10 @@ RectTransform:
   m_Father: {fileID: 1021159370}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.6}
-  m_AnchorMax: {x: 0.9, y: 0.9}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 5, y: -2.5}
+  m_SizeDelta: {x: -30, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726082205
 MonoBehaviour:
@@ -2033,7 +2033,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "aR3UAuhBkZneTd8AA9oyKn0wAyL2WvPjHy4bVbnIPlVYD8DVBQCyGvwNuG9CLQtAfZbk51Wa8XzmAQ0SsITA5UdUDvBIuatY60xadtVpt6eCktIrO8x8vHZSUn1of7mFZtjXXI9oCKiHtaSxneTfG7g8ptPKjSzKe62sj1fUmgLe741HoTlN10iYxWXXu5k5TQX62C4mCuytKtMuh7KfcRmvcADjxLovDoDKal09wrFRawPzDjzuz2rRKX2jt5zKNG4c8HBD2TlgLCpRoBnJWYDQymT11xKEh3Mp1F6CXrXB5mB2vhvPHkOR0yJIjk9MGKBPksLVjku5Qe4iOgbHKRmvyduCErUYyJQMt3QrYzvZZ3rcNPctRNx0Ov25eMrkwPeKpoe0KnFZMFdDd0ESO2GivWkgMw28c3OEu0UfO\r\n"
+  m_text: "7Z1pPaXzJmBAFym4H17DlLPWtMsW3qDpnqC7AQQT8zeQz0CLxYZjCtiYe6SqU1MHl8EUbNInKdvAgYDaawqHsXTPKZ2SpfrKU5lj5IXWG3lsAMZ2usyf61MXWNbzPCu6Ca0AWh8Q1cysVGlx5m44EYOVntJEx9ajBEFkRtH3O1I96WpyYnTWrgQMh1U7ya5gdYeUOspwqQCoq584RGO2ybAvGD7MIByKqewTQPzNeUjB3GIJu3Yu6LX90ftLd7O4OeHlgTGw5pSdoDyaebhdQdGZo9Q8H4Ui1zrZ9SBvYKP2IED8BRa2TSvEWc3ripTXiPSPwex6uPm66hKAMYCQYTgF7rArCHKbc6AzObqjcOgmbEO8B7zljHk0rDaxm96oxx8NEkl4wUzlFeCUBGi1fINmHDL4SoxAzml640znYh0dkpj7wQCaK5V2qo2lfyl3b2K9pLZwXdjiZKt1P1ZWwLUjEi5kabfk13K2b8ytskYiEeGoAbugknvyGOHhSLo641kjN442ULMs8dwClykTNUJPjJNaFh1W2yV0hl2V2AV4eRfWq0CWBU4uvG2Z6MP7pmUEnqAlsYpP8kYLx05oAX7eXrAcTtTGIMA4ZPH8AZTduNggK6b6VdfXpEA5SU7amd7TxYtmv2kbILK0aAs2CMxnIRjeZYVaVT8hSTNbFrUYxJxcuHCr19DDQ5ase6YQJH379MQE9jQwWZ4EVRMpZq9ElWRrfMMxQJm2NPZDIcfEHXmExS1u7UXx4IPy97PnZ9y4gyfHU9ECNELhY1kRuW9t9Nio8Q56oFF\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0a8cad09214128843807514b877d5654, type: 2}
   m_sharedMaterial: {fileID: -7200566123736090481, guid: 0a8cad09214128843807514b877d5654,
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_fontSizeMin: 15
   m_fontSizeMax: 20
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2082,7 +2082,7 @@ MonoBehaviour:
   m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
-  m_isTextTruncated: 1
+  m_isTextTruncated: 0
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -2103,12 +2103,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 726082205}
-    characterCount: 190
+    characterCount: 805
     spriteCount: 0
-    spaceCount: 0
+    spaceCount: 1
     wordCount: 1
     linkCount: 0
-    lineCount: 5
+    lineCount: 11
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2141,6 +2141,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 651327264}
     m_Modifications:
+    - target: {fileID: 8134427142971740122, guid: 1cb192a4260a19049abf22898c78d7a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7724543503762220931, guid: 1cb192a4260a19049abf22898c78d7a6,
         type: 3}
       propertyPath: m_Name
@@ -2266,11 +2271,6 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8134427142971740122, guid: 1cb192a4260a19049abf22898c78d7a6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8134427142971740125, guid: 1cb192a4260a19049abf22898c78d7a6,
         type: 3}
       propertyPath: m_RootOrder
@@ -2279,12 +2279,12 @@ PrefabInstance:
     - target: {fileID: 8134427142971740125, guid: 1cb192a4260a19049abf22898c78d7a6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8134427142971740125, guid: 1cb192a4260a19049abf22898c78d7a6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cb192a4260a19049abf22898c78d7a6, type: 3}
@@ -5145,7 +5145,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 18
+  m_fontSize: 33.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5162,7 +5162,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -5821,8 +5821,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decryptionPanel: {fileID: 1021159369}
   charPause: 0.01
-  encryptedTextLength: 425
-  waveAmount: 4
+  encryptedTextLength: 803
+  waveAmount: 7
   charsBeforeNextHint: 100
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}
@@ -6676,12 +6676,12 @@ PrefabInstance:
     - target: {fileID: 3891920964650435816, guid: fed7d903ad767d642ac54c33de8f70b9,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3891920964650435816, guid: fed7d903ad767d642ac54c33de8f70b9,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fed7d903ad767d642ac54c33de8f70b9, type: 3}

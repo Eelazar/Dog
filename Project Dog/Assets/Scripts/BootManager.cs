@@ -230,6 +230,7 @@ public class BootManager : MonoBehaviour
         Vector2 oldMax = decryptionWindow.GetComponent<RectTransform>().anchorMax;
 
         Color full = decryptionWindow.GetComponent<Image>().color;
+        full = new Color(full.r, full.g, full.b, 255);
         Color clear = new Color(full.r, full.g, full.b, 0);
 
         while (t < 1)
@@ -243,14 +244,34 @@ public class BootManager : MonoBehaviour
 
             yield return null;
         }
+    }
 
-        //yield return new WaitForSeconds(0.2F);
+    public IEnumerator CloseDecryptor()
+    {
+        console.Activate();
 
-        //StartCoroutine(explorer.UpdateData());
+        //Initialize Lerp
+        float t = 0;
+        float start = Time.time;
 
-        //yield return new WaitForSeconds(1F);
+        Vector2 oldMin = decryptionWindow.GetComponent<RectTransform>().anchorMin;
+        Vector2 oldMax = decryptionWindow.GetComponent<RectTransform>().anchorMax;
 
-        //DialogueShortcut(2);
+        Color full = decryptionWindow.GetComponent<Image>().color;
+        full = new Color(full.r, full.g, full.b, 255);
+        Color clear = new Color(full.r, full.g, full.b, 0);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / explorerAnimDuration;
+
+            decryptionWindow.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(oldMin, new Vector2(0.15F, 0.05F), t);
+            decryptionWindow.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(oldMax, new Vector2(0.15F, 0.05F), t);
+
+            decryptionWindow.GetComponent<Image>().color = Vector4.Lerp(full, clear, t);
+
+            yield return null;
+        }
     }
 
     public IEnumerator AnimateStart()
