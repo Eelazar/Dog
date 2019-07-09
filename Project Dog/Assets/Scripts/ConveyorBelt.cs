@@ -51,16 +51,14 @@ public class ConveyorBelt : MonoBehaviour
 
             Vector3 nearestPointOnBelt = transform.position + Vector3.Project((conveyorBeltObject.rbody.transform.position - transform.position), transform.rotation * forceDirection);
 
-            conveyorBeltObject.rbody.AddForce((nearestPointOnBelt - conveyorBeltObject.rbody.transform.position), ForceMode.Force);
+            conveyorBeltObject.rbody.AddForce((nearestPointOnBelt - conveyorBeltObject.rbody.transform.position) * conveyorBeltObject.force, ForceMode.Force);
 
             Debug.DrawLine(nearestPointOnBelt, conveyorBeltObject.rbody.transform.position, Color.green);
 
             if (velocityAlongDirection.sqrMagnitude < force * force)
-                conveyorBeltObject.rbody.AddForce(transform.localToWorldMatrix * forceDirection.normalized * force, ForceMode.Force);
+                conveyorBeltObject.rbody.AddForce(transform.localToWorldMatrix * forceDirection.normalized * force * conveyorBeltObject.force, ForceMode.Force);
 
-            conveyorBeltObject.force = Mathf.Clamp(conveyorBeltObject.force + Time.fixedDeltaTime, 0f, force);
-
-            Debug.Log(conveyorBeltObject.force);
+            conveyorBeltObject.force = Mathf.Clamp(conveyorBeltObject.force + Time.fixedDeltaTime, 0f, 1f);
 
             rbodies[i] = conveyorBeltObject;
         }

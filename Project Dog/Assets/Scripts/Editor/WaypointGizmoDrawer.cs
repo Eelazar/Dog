@@ -8,6 +8,9 @@ public class WaypointGizmoDrawer
     [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected)]
     static void DrawGizmoForMyScript(Waypoint waypoint, GizmoType gizmoType)
     {
+        if (waypoint.next == null)
+            return;
+
         Vector3 position = waypoint.transform.position;
 
         Vector3 nextPosition = waypoint.next.transform.position;

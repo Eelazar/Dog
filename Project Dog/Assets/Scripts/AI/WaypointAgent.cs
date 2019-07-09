@@ -33,29 +33,15 @@ public class WaypointAgent : MonoBehaviour
         {
             Wait();
         }
-        else
-        {
-            if (navAgent.remainingDistance < 0.1f)
-            {
-                Debug.Log(currentTarget.startFunction != null);
+    }
 
-                if (currentTarget.startFunction != null)
-                    currentTarget.startFunction.Invoke();
-
-                waitTimer = currentTarget.waitTime;
-
-                navAgent.isStopped = true;
-            }
-        }
+    public void Stop()
+    {
+        navAgent.isStopped = true;
     }
 
     void SetNewTarget()
     {
-        Debug.Log(currentTarget.endFunction != null);
-
-        if (currentTarget.endFunction != null)
-            currentTarget.endFunction.Invoke();
-
         currentTarget = currentTarget.next;
 
         if (currentTarget != null)
@@ -66,12 +52,7 @@ public class WaypointAgent : MonoBehaviour
 
     void Wait()
     {
-        waitTimer -= Time.deltaTime;
-
-        if (currentTarget.waitFunction != null)
-            currentTarget.waitFunction.Invoke((currentTarget.waitTime - waitTimer) / currentTarget.waitTime);
-
-        if (waitTimer <= 0f)
+        if (currentTarget.Continue)
         {
             SetNewTarget();
             navAgent.isStopped = false;
