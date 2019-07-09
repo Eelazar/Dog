@@ -103,7 +103,6 @@ public class DecryptionSoftware : MonoBehaviour
                     {
                         if(j == currentWave)
                         {
-                            Debug.Log(currentWave + "    " + passChars[hintIndex]);
                             encryptedChars[index] = passChars[hintIndex];
                             hintIndex++;
                         }
