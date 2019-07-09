@@ -21,8 +21,6 @@ public class WaypointTest : MonoBehaviour
 
     public void TestWaitBox(float normalizedtime)
     {
-        Debug.Log(normalizedtime);
-
         box.position = Vector3.Lerp(startPosition, endPosition, curve.Evaluate(normalizedtime));
     }
 
