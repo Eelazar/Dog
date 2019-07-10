@@ -42,9 +42,13 @@ public class Waypoint : MonoBehaviour
 
     public bool IsAtWaypoint()
     {
-        float distance = Vector3.Distance(transform.position, agent.transform.position);
+        Vector3 pos = transform.position;
 
-        return distance < 0.05f;
+        pos.y = agent.transform.position.y;
+
+        float distance = Vector3.Distance(pos, agent.transform.position);
+        Debug.Log(distance);
+        return distance < 0.25f;
     }
 
     private void Update()
@@ -65,8 +69,6 @@ public class Waypoint : MonoBehaviour
         }
 
         waitTimer -= Time.deltaTime;
-
-        Debug.Log(waitTimer);
 
         if (wait)
         {
