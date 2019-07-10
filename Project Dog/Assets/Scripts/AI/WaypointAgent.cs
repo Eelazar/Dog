@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class WaypointAgent : MonoBehaviour
@@ -17,6 +18,12 @@ public class WaypointAgent : MonoBehaviour
 
     private bool targetA;
 
+    public UnityEvent OnNewTarget;
+
+    public UnityEvent OnStop;
+
+    Quaternion targetRotation;
+
     void Start()
     {
         //player_Object = GameObject.FindGameObjectWithTag("Player");
@@ -25,11 +32,29 @@ public class WaypointAgent : MonoBehaviour
 
         currentTarget = start;
 
+        navAgent.updateRotation = false;
+
         navAgent.SetDestination(currentTarget.transform.position);
     }
 
     void Update()
     {
+        if (navAgent.velocity.sqrMagnitude > 0.1f)
+        {
+            Vector3 velocity = navAgent.velocity.normalized;
+
+            velocity.y = 0f;
+
+            targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(velocity, Vector3.up), navAgent.angularSpeed * 0.1f * Time.deltaTime);
+        }
+        else
+        {
+            if (currentTarget.rotateForward)
+                targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentTarget.transform.forward.normalized, Vector3.up), navAgent.angularSpeed * 0.1f * Time.deltaTime);
+        }
+
+        transform.rotation = targetRotation;
+
         if (navAgent.isStopped)
         {
             Wait();
@@ -39,6 +64,10 @@ public class WaypointAgent : MonoBehaviour
     public void Stop()
     {
         navAgent.isStopped = true;
+
+        if (currentTarget.waitTime >= 0.5f)
+            if (OnStop != null)
+                OnStop.Invoke();
     }
 
     void SetNewTarget()
@@ -47,9 +76,10 @@ public class WaypointAgent : MonoBehaviour
 
         if (currentTarget != null)
             navAgent.SetDestination(currentTarget.transform.position);
-    }
 
-    float waitTimer;
+        if (OnNewTarget != null)
+            OnNewTarget.Invoke();
+    }
 
     void Wait()
     {

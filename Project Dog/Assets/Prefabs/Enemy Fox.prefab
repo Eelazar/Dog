@@ -1114,6 +1114,7 @@ GameObject:
   - component: {fileID: 3842776932862454952}
   - component: {fileID: 2208169326766193108}
   - component: {fileID: 2208169326766193115}
+  - component: {fileID: -5715401470198006717}
   m_Layer: 0
   m_Name: Enemy Fox
   m_TagString: Untagged
@@ -1194,6 +1195,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5715401470198006717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7891735207690548161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f5aa7faf765bc4897da90ff64ec4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8047374703526377270
 GameObject:
   m_ObjectHideFlags: 0

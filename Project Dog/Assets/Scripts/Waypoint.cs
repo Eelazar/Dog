@@ -13,6 +13,8 @@ public class Waypoint : MonoBehaviour
 
     public int waitTime;
 
+    public bool rotateForward;
+
     public WaypointAgent agent;
 
     public UnityEvent startFunction;
