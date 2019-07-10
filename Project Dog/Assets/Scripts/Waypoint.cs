@@ -53,6 +53,9 @@ public class Waypoint : MonoBehaviour
 
     private void Update()
     {
+        if (!agent.currentTarget.Equals(this))
+            return;
+
         if (IsAtWaypoint() && !wait && waitTimer <= -1f)
         {
             if (startFunction != null)
