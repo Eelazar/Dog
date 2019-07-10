@@ -14,11 +14,13 @@ public class TrashSpawner : MonoBehaviour
 
     public GameObject currentTrash;
 
+    public float parentTimer;
+
     public void Spawn()
     {
         currentTrash = Instantiate(Trash, spawnPoint);
 
-        Invoke("Parent", 3f);
+        Invoke("Parent", parentTimer);
     }
 
     public void Parent()

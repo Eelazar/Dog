@@ -49,7 +49,6 @@ public class Waypoint : MonoBehaviour
         pos.y = agent.transform.position.y;
 
         float distance = Vector3.Distance(pos, agent.transform.position);
-        Debug.Log(distance);
         return distance < 0.25f;
     }
 

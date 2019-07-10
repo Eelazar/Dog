@@ -9,6 +9,10 @@ public class WaypointAgent : MonoBehaviour
 {
     public Waypoint start;
 
+    public Transform raycastPoint;
+
+    public float raycastLength;
+
     [HideInInspector]
     public Waypoint currentTarget;
 
@@ -55,10 +59,49 @@ public class WaypointAgent : MonoBehaviour
 
         transform.rotation = targetRotation;
 
-        if (navAgent.isStopped)
+        if (halting)
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(raycastPoint.position, transform.forward, out hit, raycastLength))
+            {
+                if (!hit.transform.tag.Equals("Player"))
+                {
+                    navAgent.isStopped = halting = false;
+                }
+            }
+            else
+            {
+                navAgent.isStopped = halting = false;
+            }
+        }
+        else if (navAgent.isStopped)
         {
             Wait();
         }
+        else
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(raycastPoint.position, transform.forward, out hit, raycastLength))
+            {
+                if (hit.transform.tag.Equals("Player"))
+                {
+                    Halt();
+                }
+            }
+        }
+    }
+
+    bool halting = false;
+
+    public void Halt()
+    {
+        navAgent.isStopped = halting = true;
+
+        if (currentTarget.waitTime >= 0.5f)
+            if (OnStop != null)
+                OnStop.Invoke();
     }
 
     public void Stop()
