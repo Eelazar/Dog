@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TrashTosser : MonoBehaviour
 {
+    public ThrowBroToss toss;
+
     public TrashSpawner trashSpawner;
 
     public void ReleaseTrash()
@@ -11,5 +13,12 @@ public class TrashTosser : MonoBehaviour
         trashSpawner.currentTrash.transform.SetParent(null);
 
         trashSpawner.currentTrash.GetComponent<Rigidbody>().isKinematic = false;
+
+        Invoke("ThrowBroToss", 1f);
+    }
+
+    public void ThrowBroToss()
+    {
+        toss.Toss();
     }
 }

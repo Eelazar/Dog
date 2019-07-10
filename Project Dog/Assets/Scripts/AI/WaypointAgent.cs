@@ -8,7 +8,8 @@ public class WaypointAgent : MonoBehaviour
 {
     public Waypoint start;
 
-    Waypoint currentTarget;
+    [HideInInspector]
+    public Waypoint currentTarget;
 
     private GameObject player_Object;
     private Player player_Script;

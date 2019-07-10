@@ -140,7 +140,7 @@ public class Player : BaseObject
 
             newCurrent.hasRotated = !newCurrent.hasToRotate;
 
-            RaycastHit raycastHit;
+            //RaycastHit raycastHit;
 
             Vector3 direction = (newCurrent.targetPosition - newCurrent.startPosition);
 
@@ -194,6 +194,9 @@ public class Player : BaseObject
 
                 transform.rotation = Quaternion.Lerp(currentMove.startRotation, currentMove.targetRotation, rotationInterpolation);
 
+                if (rotationInterpolation >= 0.75f)
+                    playerAnimation.Reset();
+
                 if (rotationInterpolation >= 1f)
                 {
                     currentMove.hasRotated = true;
@@ -221,7 +224,5 @@ public class Player : BaseObject
         {
             playerAnimation.SetIdle(true);
         }
-
-        playerAnimation.Reset();
     }
 }
