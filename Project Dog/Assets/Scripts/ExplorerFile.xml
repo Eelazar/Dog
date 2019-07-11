@@ -14,13 +14,20 @@
       <Fox_Unit_001 status="hidden">
         <Modules>
           <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the explorer of other units.</bridge>
+          <about entry="true">The Fox unit was the first </about>
         </Modules>
       </Fox_Unit_001>
-    </Unit_Control>
-    <S.I.T. assistant="Use S.I.T. to access cameras, units and more inside our factory system" assistantFlag="false">
-      <Boot>
-        <boot_S.I.T. entry="true">Type 'boot S.I.T.' to launch the S.I.T. security watch protocol</boot_S.I.T.>
-    </Boot>
+      <TB_Unit>
+        <about entry="true">TB units are common worker units. TBs are used to carry and move loads. They use a move, lift and toss module. Their tasks can vary in complexity.</about>
+        <Did_you_know entry="true">Did you know, TB is said to stand for 'ThrowBro'. Their creator De Havilland and his friends developed this unit during their collage days. It is our oldest unit still in use. </Did_you_know>
+      </TB_Unit>
+     </Unit_Control>
+    <S.I.T. assistant="Use the updated S.I.T. watch software to start your work" assistantFlag="false">
+      <S.I.T._watch>
+        <Boot>
+         <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software v.</boot_S.I.T.>
+        </Boot>
+      </S.I.T._watch>
       <Navigation>
         
       </Navigation>
@@ -41,8 +48,8 @@
     </Assistant>
   </Help>
   <Software description="Program Files and Data">
-    <S.I.T. assistant="Use S.I.T. to access cameras, units and more inside our factory system" assistantFlag="false">
-      <about entry="true">S.I.T. (Secure IT & Transfer) is the leading security software that helps organizations centralize access management across hybrid IT environments. </about>
+    <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system" assistantFlag="false">
+      <about entry="true">S.I.T. (Secure IT & Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
     <Console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
       <launch.exe trigger="">
