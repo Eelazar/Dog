@@ -8,14 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dust Particles
-  m_Shader: {fileID: 4800000, guid: 2696d27ee337adb4d81e9a3c3584b15c, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON
+  m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - ALWAYS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -68,7 +69,7 @@ Material:
     - _DistortionEnabled: 0
     - _DistortionStrength: 1
     - _DistortionStrengthScaled: 0.1
-    - _DstBlend: 1
+    - _DstBlend: 0
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _Gloss: 0.41
@@ -77,8 +78,8 @@ Material:
     - _GlossyReflections: 1
     - _InvFade: 0.2
     - _LightingEnabled: 1
-    - _Metallic: 1
-    - _Mode: 4
+    - _Metallic: 0
+    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -86,9 +87,9 @@ Material:
     - _SoftParticlesFarFadeDistance: 0
     - _SoftParticlesNearFadeDistance: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _UVSec: 0
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,4 +100,5 @@ Material:
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecularAO: {r: 1, g: 0, b: 0, a: 1}
     - _SpecularAmbient: {r: 0.18867919, g: 0.18867919, b: 0.18867919, a: 1}
+    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _Transmission: {r: 1, g: 0, b: 0, a: 1}
