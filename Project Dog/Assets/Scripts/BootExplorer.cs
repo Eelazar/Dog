@@ -11,7 +11,6 @@ public class BootExplorer : MonoBehaviour
     private const float lineHeight = 20F;
     private const float charWidth = 11.47F;
 
-    public bool tutorialLaunch;
     [SerializeField]
     [Tooltip("The duration between each character being added during the typewriter animation")]
     private float textSpeed;
@@ -85,16 +84,8 @@ public class BootExplorer : MonoBehaviour
         ////Move to first Child
         //nav.MoveToFirstChild();
 
-        if (!tutorialLaunch)
-        {
-            //Initial Update
-            StartCoroutine(UpdateData());
-        }
-        else
-        {
-            explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
-            explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
-        }
+        explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
+        explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
     }
 
     void Update()
