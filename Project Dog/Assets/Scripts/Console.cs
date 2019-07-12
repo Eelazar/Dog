@@ -396,7 +396,7 @@ public class Console : MonoBehaviour
         //Check how many slots are currently active
         int activeAmount = log_ActiveFields.Count;
 
-        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         //If more slots could fit into the log, add them
         if (activeAmount < slotAmount)
