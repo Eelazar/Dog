@@ -3,7 +3,10 @@
   <Help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work" assistantFlag="false">
     <Unit_Control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
       <General>
-        <access entry="true" assistant="Accessing an unit usually requires the accessing agent to be close by. A bridging unit can circumvent this." assistantFlag="false">Type 'access' followed by an unit name to access it and see it's contents in the file explorer.</access>
+        <terminals entry="true">Exploring a terminal will display all unit names connected to it and allows the exploring agent to explore these units remotely.</terminals>
+        <unit_name entry="true">An units name is displayed in its explorer file after the root node. A terminal will show you an units name without accessing its content structure.</unit_name>
+        <explore entry="true" assistant="Exploring an unit usually requires the accessing agent to be close by. A bridging unit can circumvent this" assistantFlag="false">Type 'explore unit' followed by an unit name to see it's contents in the file explorer. Type 'explore other' to view the next unit in reach.</explore>
+        <exit_unit entry="true">Type 'exit unit' to close the current units contents.</exit_unit>
       </General>
       <Movement assistant="Units that allow movement can be steered using movement commands" assistantFlag="false">
         <move_front entry="true">Type 'move front' to move an unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
@@ -13,26 +16,26 @@
       </Movement>
       <Fox_Unit_001 status="hidden">
         <Modules>
-          <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the explorer of other units.</bridge>
-          <about entry="true">The Fox unit was the first </about>
+          <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the contents of other units. The nearest unit will be opened automatically.</bridge>
+          <movement entry="true">This unit holds a basic movement module. See the unit control movement entry to utilize it.</movement>
         </Modules>
+        <about>
+          <description entry="true"></description>
+        </about>
       </Fox_Unit_001>
-      <TB_Unit>
-        <about entry="true">TB units are common worker units. TBs are used to carry and move loads. They use a move, lift and toss module. Their tasks can vary in complexity.</about>
-        <Did_you_know entry="true">Did you know, TB is said to stand for 'ThrowBro'. Their creator De Havilland and his friends developed this unit during their collage days. It is our oldest unit still in use. </Did_you_know>
-      </TB_Unit>
      </Unit_Control>
     <S.I.T. assistant="Use the updated S.I.T. watch software to start your work" assistantFlag="false">
       <S.I.T._watch>
         <Boot>
-         <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software v.</boot_S.I.T.>
+         <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software.</boot_S.I.T.>
         </Boot>
       </S.I.T._watch>
       <Navigation>
-        
+        <open_cam entry="true">Type 'open cam#' (# for the related number) to open a camera view in the S.I.T. watch. </open_cam>
+        <show_map entry="true">Type 'show map' to display the map currently available to you.</show_map>
       </Navigation>
     </S.I.T.>
-    <Explorer description="System Explorer Documentation" assistant="In here you'll find all help related to your the Explorer" assistantFlag="false">
+    <Explorer description="System Explorer Documentation" assistant="In here you'll find all help related to the Explorer" assistantFlag="false">
       <Structure assistant="This node contains help about the structure and design of the explorer" assistantFlag="false">
         <Introduction entry="Guide to the explorer structure">The explorer window consists of multiple nodes, that are organized in a tree hierarchy. The nodes are gathered from the system you are currently accessing. Every node has a different purpose; most are either sub-categories or log entries, but some may have a critical role, especially if you are accessing a foreign entity.</Introduction>
         <Markup entry="Guide to the visual representation">We haven't decided on the markup yet...</Markup>
@@ -47,9 +50,12 @@
     <Assistant description="Smart Assistant Documentation" status="hidden">
     </Assistant>
   </Help>
+  <Schedule assistant="You are viewing the work schedule for today, 07.12.43">
+    <Entry_1 entry="true">Follow the assistants instructions</Entry_1>
+  </Schedule>
   <Software description="Program Files and Data">
     <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system" assistantFlag="false">
-      <about entry="true">S.I.T. (Secure IT & Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
+      <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
     <Console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
       <launch.exe trigger="">
