@@ -8,6 +8,7 @@ public class ThrowBroObject : BaseObject
 
     public void OnCommandToss()
     {
-        toss.Toss();
+        Debug.Log("TOSS NIGGA");
+        //toss.Toss();
     }
 }

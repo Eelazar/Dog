@@ -23,7 +23,7 @@ public class CommandContext
 
     public string[] command;
 
-    public object[] paramters;
+    public object[] parameters;
 }
 
 public class CommandFeedback
@@ -96,7 +96,7 @@ public static class CommandManager
         }
 
         //Call function on the player object
-        GameManager.current.player.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions, paramters = paramters });
+        GameManager.current.player.SendMessage(functionCall, new CommandContext() { sender = GameManager.current.player, receiver = baseObject, command = actions, parameters = paramters });
 
         //if an object was found call the function on the object
         if (objectFound)

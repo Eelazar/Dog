@@ -66,8 +66,8 @@ public class Player : BaseObject
     public void OnCommandMoveFront(CommandContext context)
     {
         int count = 1;
-        if (context.paramters.Length > 0)
-            count = (int)context.paramters[0];
+        if (context.parameters.Length > 0)
+            count = (int)context.parameters[0];
 
         AddNewMove(moveDistance * count, Quaternion.identity, 0f);
     }
@@ -75,8 +75,8 @@ public class Player : BaseObject
     public void OnCommandMoveBack(CommandContext context)
     {
         int count = 1;
-        if (context.paramters.Length > 0)
-            count = (int)context.paramters[0];
+        if (context.parameters.Length > 0)
+            count = (int)context.parameters[0];
 
         AddNewMove(moveDistance * count, Quaternion.Euler(0f, 180f, 0f), 180f);
     }
@@ -84,8 +84,8 @@ public class Player : BaseObject
     public void OnCommandMoveLeft(CommandContext context)
     {
         int count = 1;
-        if (context.paramters.Length > 0)
-            count = (int)context.paramters[0];
+        if (context.parameters.Length > 0)
+            count = (int)context.parameters[0];
 
         AddNewMove(moveDistance * count, Quaternion.Euler(0f, -90f, 0f), -90f);
     }
@@ -93,8 +93,8 @@ public class Player : BaseObject
     public void OnCommandMoveRight(CommandContext context)
     {
         int count = 1;
-        if (context.paramters.Length > 0)
-            count = (int)context.paramters[0];
+        if (context.parameters.Length > 0)
+            count = (int)context.parameters[0];
 
         AddNewMove(moveDistance * count, Quaternion.Euler(0f, 90f, 0f), 90f);
     }

@@ -8,11 +8,11 @@
       <debug assistant="2">What do you want to open?</debug>
     </default>
   </open>
-  
+
   <return synonyms="return">
     <method>MoveUp</method>
   </return>
-  
+
   <move synonyms="move walk go">
     <forward synonyms="forward front up north">
       <method>MoveForward</method>
@@ -30,7 +30,16 @@
       <debug assistant="2">Where do you want to go?</debug>
     </default>
   </move>
-  
+
+  <throwbro name="throwbro">
+    <toss synonyms="toss">
+      <method>OnCommandToss</method>
+    </toss>
+    <default>
+      <debug assistant="2">Where do you want to go?</debug>
+    </default>
+  </throwbro>
+
   <launch synonyms="launch boot start">
     <_program>
       <method>LaunchProgram</method>

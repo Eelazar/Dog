@@ -20,7 +20,7 @@ public class CommandController : MonoBehaviour
         {
             if (Input.GetKeyDown(command.key))
             {
-                SendMessage(command.function, new CommandContext() { paramters = new object[] { 1 } });
+                SendMessage(command.function, new CommandContext() { parameters = new object[] { 1 } });
             }
         }
     }

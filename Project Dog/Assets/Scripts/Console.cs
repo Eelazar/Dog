@@ -147,7 +147,7 @@ public class Console : MonoBehaviour
             keySource.Play();
         }
 
-        if(focus == "console")
+        if (focus == "console")
         {
             //Listen for submissions
             if (Input.GetKeyDown(KeyCode.Return) && !loading)
@@ -160,6 +160,7 @@ public class Console : MonoBehaviour
                 {
                     //Send the text to the log
                     LogText(rawInput);
+                    FindMethod(new XMLObject(rawInput));
                 }
 
                 //Refocus input field
@@ -228,8 +229,23 @@ public class Console : MonoBehaviour
 
                 for (int i = 0; i < childCount; i++)
                 {
-                    if (nav.GetAttribute("synonyms", string.Empty) != "")
+                    if (nav.GetAttribute("name", string.Empty) != "")
                     {
+                        string name = nav.GetAttribute("name", string.Empty);
+
+                        if (obj.commandWords[obj.progressionIndex].StartsWith(name))
+                        {
+                            obj.objectName = obj.commandWords[obj.progressionIndex];
+
+                            obj.xmlPath.Add(nav.Name);
+                            obj.progressionIndex++;
+                            FindMethod(obj);
+                            return;
+                        }
+                    }
+                    else if (nav.GetAttribute("synonyms", string.Empty) != "")
+                    {
+
                         string[] synonyms = nav.GetAttribute("synonyms", string.Empty).Split(' ');
 
                         foreach (string synonym in synonyms)
@@ -276,7 +292,14 @@ public class Console : MonoBehaviour
 
     void ExecuteMethod(XMLObject finalObj)
     {
-        Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
+        BaseObject baseObject;
+
+        ObjectManager.GetObject(finalObj.objectName, out baseObject);
+
+        if (baseObject != null)
+            baseObject.SendMessage(finalObj.methodName, new CommandContext() { parameters = finalObj.parameters.ToArray() });
+
+        //Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
     }
 
     void LogText(string s)
@@ -396,7 +419,7 @@ public class Console : MonoBehaviour
         //Check how many slots are currently active
         int activeAmount = log_ActiveFields.Count;
 
-        Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         //If more slots could fit into the log, add them
         if (activeAmount < slotAmount)

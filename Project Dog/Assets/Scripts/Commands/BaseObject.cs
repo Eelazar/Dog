@@ -8,15 +8,8 @@ public class BaseObject : MonoBehaviour
 
     public string definedName;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        ObjectManager.AddObject(this);
     }
 }

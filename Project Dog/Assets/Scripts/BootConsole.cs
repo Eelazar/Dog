@@ -115,7 +115,7 @@ public class BootConsole : MonoBehaviour
     {
         //Listen for key presses
         GetInput();
-        
+
         //Dynamically resize the log
         ResizeLog();
     }
@@ -172,7 +172,7 @@ public class BootConsole : MonoBehaviour
                     //Check for numbers
                     string resultString = Regex.Match(rawInput, @"\d+").Value;
 
-                    if(resultString != "")
+                    if (resultString != "")
                     {
                         int amount = int.Parse(resultString);
                         explorer.NavigateUp(amount);
@@ -180,7 +180,7 @@ public class BootConsole : MonoBehaviour
                     else
                     {
                         explorer.NavigateUp(1);
-                    }                    
+                    }
                 }
                 else if (rawInput.Contains("decrypt"))
                 {
@@ -213,7 +213,7 @@ public class BootConsole : MonoBehaviour
 
     void FindMethod(XMLObject obj)
     {
-        if(obj.progressionIndex == 0)
+        if (obj.progressionIndex == 0)
         {
             nav.MoveToRoot();
             nav.MoveToFirstChild();
@@ -276,6 +276,7 @@ public class BootConsole : MonoBehaviour
 
     void ExecuteMethod(XMLObject finalObj)
     {
+
         Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
     }
 
@@ -378,7 +379,7 @@ public class BootConsole : MonoBehaviour
 
         yield return null;
     }
-    
+
     void GenerateTextFieldArray()
     {
         for (int i = 0; i < textFieldAmount; i++)
@@ -399,6 +400,8 @@ public class XMLObject
     public int progressionIndex;
 
     public string methodName;
+
+    public string objectName;
 
     public XMLObject(string text)
     {
