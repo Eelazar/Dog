@@ -187,6 +187,10 @@ public class Console : MonoBehaviour
                 console_InputField.caretPosition = console_InputField.text.Length;
                 //Remove the "> " from the selected slot
                 log_TextFields[selectedSlotIndex].text = log_TextFields[selectedSlotIndex].text.Remove(0, 2);
+
+                currentLogIndex = 0;
+                selectedSlotIndex = 0;
+                UpdateLog();
             }
 
             if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -337,6 +341,8 @@ public class Console : MonoBehaviour
         if (special && !up)
         {
             console_InputField.text = "";
+            currentLogIndex = 0;
+            selectedSlotIndex = 0;
         }
         else
         {

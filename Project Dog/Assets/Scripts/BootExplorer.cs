@@ -462,6 +462,7 @@ public class BootExplorer : MonoBehaviour
                         }
 
                         nav.MoveToParent();
+                        Debug.Log(nav.Name);
                     }
 
                     if(nav.GetAttribute("locked", string.Empty) != "")

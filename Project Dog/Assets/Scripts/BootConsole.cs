@@ -190,8 +190,8 @@ public class BootConsole : MonoBehaviour
                 {
                     //hard coded: must begin with "open "
                     string temp = rawInput.Remove(0, 5);
-                    //Capitalize first letter
-                    temp = temp.First().ToString().ToUpper() + temp.Substring(1);
+                    ////Capitalize first letter
+                    //temp = temp.First().ToString().ToUpper() + temp.Substring(1);
 
                     explorer.Interact(temp);
                 }
