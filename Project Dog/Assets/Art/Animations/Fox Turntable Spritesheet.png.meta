@@ -1,0 +1,2501 @@
+fileFormatVersion: 2
+guid: 0472fb1234e3b4f40b2633a446803683
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5376654565478564025
+    second: Fox Turntable Spritesheet_0
+  - first:
+      213: -2069950298272002567
+    second: Fox Turntable Spritesheet_1
+  - first:
+      213: -6182229366174775656
+    second: Fox Turntable Spritesheet_2
+  - first:
+      213: 7043024145999877022
+    second: Fox Turntable Spritesheet_3
+  - first:
+      213: 6799329049120830569
+    second: Fox Turntable Spritesheet_4
+  - first:
+      213: -8033234593823002507
+    second: Fox Turntable Spritesheet_5
+  - first:
+      213: -3847768388106545443
+    second: Fox Turntable Spritesheet_6
+  - first:
+      213: -7868963592128822946
+    second: Fox Turntable Spritesheet_7
+  - first:
+      213: -6011581924582488699
+    second: Fox Turntable Spritesheet_8
+  - first:
+      213: -3945981272778807164
+    second: Fox Turntable Spritesheet_9
+  - first:
+      213: 3599501440859830106
+    second: Fox Turntable Spritesheet_10
+  - first:
+      213: 7561586899240149283
+    second: Fox Turntable Spritesheet_11
+  - first:
+      213: -3684839534549423634
+    second: Fox Turntable Spritesheet_12
+  - first:
+      213: -2272412457876840244
+    second: Fox Turntable Spritesheet_13
+  - first:
+      213: 9038844119616964780
+    second: Fox Turntable Spritesheet_14
+  - first:
+      213: 8072656301260870673
+    second: Fox Turntable Spritesheet_15
+  - first:
+      213: 1823831768284528520
+    second: Fox Turntable Spritesheet_16
+  - first:
+      213: -3626842465058552143
+    second: Fox Turntable Spritesheet_17
+  - first:
+      213: 8943726697357251267
+    second: Fox Turntable Spritesheet_18
+  - first:
+      213: -1504061839124490531
+    second: Fox Turntable Spritesheet_19
+  - first:
+      213: -3184636959033795687
+    second: Fox Turntable Spritesheet_20
+  - first:
+      213: 531474078393303872
+    second: Fox Turntable Spritesheet_21
+  - first:
+      213: 7513991228151384954
+    second: Fox Turntable Spritesheet_22
+  - first:
+      213: 3892536301045327089
+    second: Fox Turntable Spritesheet_23
+  - first:
+      213: -860274974475852364
+    second: Fox Turntable Spritesheet_24
+  - first:
+      213: -3669451141678696720
+    second: Fox Turntable Spritesheet_25
+  - first:
+      213: -7870493894581966075
+    second: Fox Turntable Spritesheet_26
+  - first:
+      213: -5555746118457163358
+    second: Fox Turntable Spritesheet_27
+  - first:
+      213: -997775183134610809
+    second: Fox Turntable Spritesheet_28
+  - first:
+      213: 7786342726718485403
+    second: Fox Turntable Spritesheet_29
+  - first:
+      213: -6479496975869576905
+    second: Fox Turntable Spritesheet_30
+  - first:
+      213: 5947226185746700490
+    second: Fox Turntable Spritesheet_31
+  - first:
+      213: 8996968159931340445
+    second: Fox Turntable Spritesheet_32
+  - first:
+      213: -1244816785998863775
+    second: Fox Turntable Spritesheet_33
+  - first:
+      213: 7828233363647424702
+    second: Fox Turntable Spritesheet_34
+  - first:
+      213: -1582687094858665720
+    second: Fox Turntable Spritesheet_35
+  - first:
+      213: 7954720578257553832
+    second: Fox Turntable Spritesheet_36
+  - first:
+      213: -2248355155519968262
+    second: Fox Turntable Spritesheet_37
+  - first:
+      213: 2395573600094983528
+    second: Fox Turntable Spritesheet_38
+  - first:
+      213: -635499291413785176
+    second: Fox Turntable Spritesheet_39
+  - first:
+      213: 8684004527101119482
+    second: Fox Turntable Spritesheet_40
+  - first:
+      213: 159882479690871453
+    second: Fox Turntable Spritesheet_41
+  - first:
+      213: 8546677507868561250
+    second: Fox Turntable Spritesheet_42
+  - first:
+      213: 5882111118083177422
+    second: Fox Turntable Spritesheet_43
+  - first:
+      213: 19504624219053142
+    second: Fox Turntable Spritesheet_44
+  - first:
+      213: 2855708070310747161
+    second: Fox Turntable Spritesheet_45
+  - first:
+      213: -2282705322975012717
+    second: Fox Turntable Spritesheet_46
+  - first:
+      213: -2276967858333006935
+    second: Fox Turntable Spritesheet_47
+  - first:
+      213: 2819142503045624349
+    second: Fox Turntable Spritesheet_48
+  - first:
+      213: -7126454965412594671
+    second: Fox Turntable Spritesheet_49
+  - first:
+      213: -7729247287017875045
+    second: Fox Turntable Spritesheet_50
+  - first:
+      213: -4951095454434724569
+    second: Fox Turntable Spritesheet_51
+  - first:
+      213: 3052652584543136813
+    second: Fox Turntable Spritesheet_52
+  - first:
+      213: -4812343072566319528
+    second: Fox Turntable Spritesheet_53
+  - first:
+      213: -1811123639084088682
+    second: Fox Turntable Spritesheet_54
+  - first:
+      213: 2645317021951166454
+    second: Fox Turntable Spritesheet_55
+  - first:
+      213: -3958476652959690683
+    second: Fox Turntable Spritesheet_56
+  - first:
+      213: 3850885171357930123
+    second: Fox Turntable Spritesheet_57
+  - first:
+      213: -8266949250370710506
+    second: Fox Turntable Spritesheet_58
+  - first:
+      213: 1005502849140880625
+    second: Fox Turntable Spritesheet_59
+  - first:
+      213: 3154566309995213550
+    second: Fox Turntable Spritesheet_60
+  - first:
+      213: 801949982467300657
+    second: Fox Turntable Spritesheet_61
+  - first:
+      213: -1890819367310818168
+    second: Fox Turntable Spritesheet_62
+  - first:
+      213: 1179527411979819513
+    second: Fox Turntable Spritesheet_63
+  - first:
+      213: 4470671202494641149
+    second: Fox Turntable Spritesheet_64
+  - first:
+      213: -6765353039569220037
+    second: Fox Turntable Spritesheet_65
+  - first:
+      213: 8921272330672105948
+    second: Fox Turntable Spritesheet_66
+  - first:
+      213: -5218941968389767215
+    second: Fox Turntable Spritesheet_67
+  - first:
+      213: 8624951320057431688
+    second: Fox Turntable Spritesheet_68
+  - first:
+      213: -3401629384694966032
+    second: Fox Turntable Spritesheet_69
+  - first:
+      213: 2193172370274307261
+    second: Fox Turntable Spritesheet_70
+  - first:
+      213: 8881545349212883438
+    second: Fox Turntable Spritesheet_71
+  - first:
+      213: 2228894200256581191
+    second: Fox Turntable Spritesheet_72
+  - first:
+      213: -5716177358199151446
+    second: Fox Turntable Spritesheet_73
+  - first:
+      213: 4896144773431424475
+    second: Fox Turntable Spritesheet_74
+  - first:
+      213: -8876282692129957913
+    second: Fox Turntable Spritesheet_75
+  - first:
+      213: 6191525381278375994
+    second: Fox Turntable Spritesheet_76
+  - first:
+      213: 4737678973492927958
+    second: Fox Turntable Spritesheet_77
+  - first:
+      213: -1433930814614132943
+    second: Fox Turntable Spritesheet_78
+  - first:
+      213: -7542463383036569794
+    second: Fox Turntable Spritesheet_79
+  - first:
+      213: 6311964781562851254
+    second: Fox Turntable Spritesheet_80
+  - first:
+      213: -8390318628508876910
+    second: Fox Turntable Spritesheet_81
+  - first:
+      213: 4938933430002828854
+    second: Fox Turntable Spritesheet_82
+  - first:
+      213: -6571290702639933837
+    second: Fox Turntable Spritesheet_83
+  - first:
+      213: 8671934810922582698
+    second: Fox Turntable Spritesheet_84
+  - first:
+      213: 3379532691821396076
+    second: Fox Turntable Spritesheet_85
+  - first:
+      213: -6872390759716162764
+    second: Fox Turntable Spritesheet_86
+  - first:
+      213: 517404102620542975
+    second: Fox Turntable Spritesheet_87
+  - first:
+      213: 345725776733437046
+    second: Fox Turntable Spritesheet_88
+  - first:
+      213: 714985409937343189
+    second: Fox Turntable Spritesheet_89
+  - first:
+      213: 7615960752020285385
+    second: Fox Turntable Spritesheet_90
+  - first:
+      213: 7287056924068884843
+    second: Fox Turntable Spritesheet_91
+  - first:
+      213: 5670986026230682169
+    second: Fox Turntable Spritesheet_92
+  - first:
+      213: -4136524205312310609
+    second: Fox Turntable Spritesheet_93
+  - first:
+      213: 8043422951497099133
+    second: Fox Turntable Spritesheet_94
+  - first:
+      213: -5400663960895759062
+    second: Fox Turntable Spritesheet_95
+  - first:
+      213: 197816762681310783
+    second: Fox Turntable Spritesheet_96
+  - first:
+      213: 148558370409269911
+    second: Fox Turntable Spritesheet_97
+  - first:
+      213: -1810548965690018078
+    second: Fox Turntable Spritesheet_98
+  - first:
+      213: 1378144491929222744
+    second: Fox Turntable Spritesheet_99
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6b168d37f028c94ba0e568a61bb447b
+      internalID: -5376654565478564025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7209785a470bef740921cb09cdc503cc
+      internalID: -2069950298272002567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06893277879a3d947b7926a1e1834c5e
+      internalID: -6182229366174775656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f594029b1a3fc449be2c83dd1a6d66
+      internalID: 7043024145999877022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fcbe748354d5442b4a56823a5e4582
+      internalID: 6799329049120830569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f5458cd0119ab14c877a405488f0b39
+      internalID: -8033234593823002507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a847fa2b93677c4e87cfb0de8603cfa
+      internalID: -3847768388106545443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f207408f20e0abf4e97c22a466e6503e
+      internalID: -7868963592128822946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a3ddccf6415ca49b59d69a48006753
+      internalID: -6011581924582488699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 2439
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d538d931fe20da4f90bef6f8f66b2c2
+      internalID: -3945981272778807164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ef26930dc735645babc89e316d5f5f
+      internalID: 3599501440859830106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9829ebce535d37479310b26cfaad34f
+      internalID: 7561586899240149283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1831631c9f282949bc1094361d53f97
+      internalID: -3684839534549423634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45ee124a417543409f7bb733c57baac
+      internalID: -2272412457876840244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4c883fd73f846478951da9a4c183c1
+      internalID: 9038844119616964780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f4374f631413b846b264c5f7ef2342e
+      internalID: 8072656301260870673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67770d1e30f04b849bd13fc1f33feb96
+      internalID: 1823831768284528520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c1b1d1ab7d52d4183cce1851135ab2
+      internalID: -3626842465058552143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5110e8bacd521d4c81af4928c40562f
+      internalID: 8943726697357251267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 2168
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79c7b72ba7cc84469554e5f1705a51f
+      internalID: -1504061839124490531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4701fdff937e5594abd7f9e482673617
+      internalID: -3184636959033795687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25b1ff0765c2106458a05dd3c64fd4d6
+      internalID: 531474078393303872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d91917cdedce74438e88e920b2e1990
+      internalID: 7513991228151384954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d59a0ef8b6c5a4b85cffb55d02e6d1
+      internalID: 3892536301045327089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b524167774f421f40b63f19dc5d4b620
+      internalID: -860274974475852364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2a3e9b43e3d8b428c84934b4836f7a
+      internalID: -3669451141678696720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fd16e0e00ad5e42a05b2d14f0873ac
+      internalID: -7870493894581966075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09321eb47d2c5f540bd3f06156de2fe6
+      internalID: -5555746118457163358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89399a1a96391174f88d749c9d8ed7ec
+      internalID: -997775183134610809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 1897
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02bd29fc2ea33442a51e1d1ff17d809
+      internalID: 7786342726718485403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc080c288349cd41a90f7c1f328c17c
+      internalID: -6479496975869576905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7f6b00bb89ddc41b4725a4c1cd0f68
+      internalID: 5947226185746700490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cc7a1bd3e900144b6b4a3a7d193c0e
+      internalID: 8996968159931340445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1892dd09b4d5f0741b25974cda511f06
+      internalID: -1244816785998863775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2b2f296a960544d8ad53985195638c
+      internalID: 7828233363647424702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a584d0dca479a0d4a8350889323a6312
+      internalID: -1582687094858665720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff0e90076d6d4f841a9da6878efb2e70
+      internalID: 7954720578257553832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bde0eb0e259eb4795b5c641b6a886b
+      internalID: -2248355155519968262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71bd139afe4f32743be5bf52dc2bd178
+      internalID: 2395573600094983528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 1626
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8eefe58b69e2b46832ea60f5324ae1
+      internalID: -635499291413785176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed38f4cf8e5a07040ab6928bb238e606
+      internalID: 8684004527101119482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c633701ddd875344ab245ebf07e77bb3
+      internalID: 159882479690871453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fbb969332c00f40a8f1d50c0a2b5ed
+      internalID: 8546677507868561250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4a3b6991aad894eaf2152830b78387
+      internalID: 5882111118083177422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5bafe4e9e37e3347899b550bbde61d4
+      internalID: 19504624219053142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bcefc04f6f6dab42a63536873ac7235
+      internalID: 2855708070310747161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adaebedf7e1dd9643828e934d8217368
+      internalID: -2282705322975012717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624b911c345db4a40ac9a1b969827555
+      internalID: -2276967858333006935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5750ed01a265d524fbbc604975a9858f
+      internalID: 2819142503045624349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 1355
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1565534ba3bf644ca491adb72ed3f05
+      internalID: -7126454965412594671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab949400e46ebad44904949ece0002dd
+      internalID: -7729247287017875045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24d26904fcfc274e810c642704bc714
+      internalID: -4951095454434724569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8b3e35d148bc3479606e30537d116a
+      internalID: 3052652584543136813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2eb2ffde2665c540b28aaa87e498828
+      internalID: -4812343072566319528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce5096508bbddf49926a7590e10a340
+      internalID: -1811123639084088682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0ff6268ed8bff4f8e9ef3453d29086
+      internalID: 2645317021951166454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0762f6b50940d6e4c8e7b4cb53a245d8
+      internalID: -3958476652959690683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277fdac5dbe192a4f98be120f10b0e82
+      internalID: 3850885171357930123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d93957b81cb5ae40a0d22ab734fd188
+      internalID: -8266949250370710506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 1084
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1bc5098e0f4e74ea2bd020792cb5ef
+      internalID: 1005502849140880625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94cb5cc6d7c35c64eac7683c64153615
+      internalID: 3154566309995213550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e758468aac9519b4783d9660ca3db6ee
+      internalID: 801949982467300657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71ae0062886f694388e1e407e0d18a0
+      internalID: -1890819367310818168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690333173396d5f4e8ad95c535b89f98
+      internalID: 1179527411979819513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3354c13a70c6e9b418bf63791eb90913
+      internalID: 4470671202494641149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8dffbf3b58175488ac3575e4a82018
+      internalID: -6765353039569220037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b81b085dd2cafef4f9138609bda49b5f
+      internalID: 8921272330672105948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08c6e5b17d2d774dae05c4068e31211
+      internalID: -5218941968389767215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f218a97f09208341824264b4554c02b
+      internalID: 8624951320057431688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 813
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6973fb0981b457a44b7e2d9c00ed0abb
+      internalID: -3401629384694966032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e77e5778ee6d07e40b12f30ff8f2520d
+      internalID: 2193172370274307261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d1a84ab472e0d4bb100bd861431307
+      internalID: 8881545349212883438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de37eb024012dc548b38bd676d05361b
+      internalID: 2228894200256581191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7861f0a660948f418c551061c834a92
+      internalID: -5716177358199151446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5423b403b0626124983a2cc97ecbccb8
+      internalID: 4896144773431424475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df5c1ff2d222bf47aace6ec3c8c0d25
+      internalID: -8876282692129957913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84af70934dbef8543ab187c3b751b3b4
+      internalID: 6191525381278375994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610ffb15570cdbe42805fbfc2c4a3a4a
+      internalID: 4737678973492927958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888d28e9dcebfb64c932199b6ff434f7
+      internalID: -1433930814614132943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 542
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614c32689e6c7c54d824ab29f169a632
+      internalID: -7542463383036569794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609d7ac1cae39b547b951e7f5e130e3f
+      internalID: 6311964781562851254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3034506bef47b154e905ec38e7d486d3
+      internalID: -8390318628508876910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256f0a3cc70d4504b866d9dd7e8d4c47
+      internalID: 4938933430002828854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f05c1e828279544ab9e1863ca6095d9
+      internalID: -6571290702639933837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0373d510dfa5e83428a9364777e799b7
+      internalID: 8671934810922582698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a601b3dd50cc744da263fb8a79c3895
+      internalID: 3379532691821396076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21c1fb3b71830c47b375ea503c74ae9
+      internalID: -6872390759716162764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c393fd1e2db92614f82f39a4de0ad5e7
+      internalID: 517404102620542975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4b2917fd3093f4692df799927d2863
+      internalID: 345725776733437046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 271
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602e1d8e2d35f6b49a8f982e97a5ad1c
+      internalID: 714985409937343189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cdc31a9c1af57b4ba5fb0561e9d3164
+      internalID: 7615960752020285385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540bbbb8c073c8645b2cf1040ba0cc0e
+      internalID: 7287056924068884843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: def7b93a8580af64dae2cc4efdf3f803
+      internalID: 5670986026230682169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc9d7b86cba5e14a9a4eb9f81ac3a92
+      internalID: -4136524205312310609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69bfd1c908e4ba6448010eedefba36fa
+      internalID: 8043422951497099133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e547113d25a5947966e824447d3bad
+      internalID: -5400663960895759062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4165f2763b65ae143b8a9f6f6cefdea9
+      internalID: 197816762681310783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 2940
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68d53896339f71449149002760dda84
+      internalID: 148558370409269911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 3360
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0740dbd20c4b1c94a9aa55078a52b6cc
+      internalID: -1810548965690018078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fox Turntable Spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 3780
+        y: 0
+        width: 420
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2063cd6c6d7c8ae418cce72b457738c1
+      internalID: 1378144491929222744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: be8423e60d5a5204c87a86bafa78e441
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
