@@ -160,7 +160,7 @@ public class Console : MonoBehaviour
                 {
                     //Send the text to the log
                     LogText(rawInput);
-                    FindMethod(new XMLObject(rawInput));
+                    FindMethod(new XMLQuery(rawInput));
                 }
 
                 //Refocus input field
@@ -212,7 +212,7 @@ public class Console : MonoBehaviour
         }
     }
 
-    void FindMethod(XMLObject obj)
+    void FindMethod(XMLQuery obj)
     {
         if (obj.progressionIndex == 0)
         {
@@ -290,7 +290,7 @@ public class Console : MonoBehaviour
         }
     }
 
-    void ExecuteMethod(XMLObject finalObj)
+    void ExecuteMethod(XMLQuery finalObj)
     {
         BaseObject baseObject;
 
@@ -482,6 +482,8 @@ public class XMLQuery
     public int progressionIndex;
 
     public string methodName;
+
+    public string objectName;
 
     public XMLQuery(string text)
     {

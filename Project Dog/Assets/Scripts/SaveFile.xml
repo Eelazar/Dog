@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <current>1</current>
+
+  <save_1>
+    
+    <spawn>
+      <x></x>
+      <y></y>
+      <z></z>
+    </spawn>
+
+    <camera></camera>
+
+    <level></level>
+
+  </save_1>
+</root>

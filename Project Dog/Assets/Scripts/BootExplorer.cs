@@ -48,13 +48,13 @@ public class BootExplorer : MonoBehaviour
     private List<TMP_Text> lockedFields;
 
     private BootManager manager;
-    private Assistant assistant;
+    private AssistantDocked assistant;
     private DecryptionSoftware decryptor;
 
     void Start()
     {
         manager = transform.GetComponent<BootManager>();
-        assistant = transform.GetComponent<Assistant>();
+        assistant = transform.GetComponent<AssistantDocked>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
 
         encryptedFields = new List<TMP_Text>();
@@ -412,8 +412,11 @@ public class BootExplorer : MonoBehaviour
         }
     }
    
-    public void Interact(string node)
+    public void Interact(CommandContext cc)
     {
+        string node = cc.parameters[0].ToString();
+        Debug.Log(node);
+
         if (launched)
         {
             if (!nav.HasChildren)

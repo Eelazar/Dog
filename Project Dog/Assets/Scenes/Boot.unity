@@ -1917,7 +1917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &673267044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5794,7 +5794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fa7354ad5ec254eb8a18077baeded6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialLaunch: 1
   textSpeed: 0.01
   node_Prefab: {fileID: 7326543335313210315, guid: 18000411f73e0df4c97ae1733b1535d7,
     type: 3}

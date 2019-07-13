@@ -193,7 +193,7 @@ public class BootConsole : MonoBehaviour
                     ////Capitalize first letter
                     //temp = temp.First().ToString().ToUpper() + temp.Substring(1);
 
-                    explorer.Interact(temp);
+                    //explorer.Interact(temp);
                 }
                 else if (rawInput.Contains("refresh"))
                 {

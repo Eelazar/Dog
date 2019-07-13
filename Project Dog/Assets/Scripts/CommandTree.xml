@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <open synonyms="open goto">
-    <_node>
-      <method>OpenNode</method>
-    </_node>
-    <default>
-      <debug assistant="2">What do you want to open?</debug>
-    </default>
-  </open>
+  <os name="system">
+    <open synonyms="open goto">
+      <_node>
+        <method>Interact</method>
+      </_node>
+      <default>
+        <debug assistant="2">What do you want to open?</debug>
+      </default>
+    </open>
 
-  <return synonyms="return">
-    <method>MoveUp</method>
-  </return>
+    <return synonyms="return">
+      <method>MoveUp</method>
+    </return>
+  </os>  
 
   <move synonyms="move walk go">
     <forward synonyms="forward front up north">
