@@ -13,7 +13,16 @@
     <return synonyms="return">
       <method>MoveUp</method>
     </return>
-  </os>  
+  </os>
+
+  <open synonyms="open">
+    <camera name="Cam">
+      <method>OnCommandActivate</method>
+    </camera>
+    <default>
+      <debug assistant="2">What do you want to open?</debug>
+    </default>
+  </open>
 
   <move synonyms="move walk go">
     <forward synonyms="forward front up north">

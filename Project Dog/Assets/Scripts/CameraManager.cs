@@ -2,35 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public static class CameraManager
 {
-    public static CameraManager current;
+    public static List<CameraObject> cams = new List<CameraObject>();
 
-    public Camera[] cams;
+    public static CameraObject activeCamera;
 
-    public Camera activeCamera;
-
-    public void Awake()
+    public static void Add(CameraObject newCamera)
     {
-        current = this;
-
-        activeCamera = cams[0];
-
-        for (int i = 0; i < cams.Length; i++)
-        {
-            BaseObject baseObject = cams[i].GetComponent<BaseObject>();
-
-            ObjectManager.AddObject(baseObject);
-        }
-
-        UpdateCameras();
+        cams.Add(newCamera);
     }
 
-    public void UpdateCameras()
+    public static void UpdateCameras()
     {
-        for (int i = 0; i < cams.Length; i++)
+        for (int i = 0; i < cams.Count; i++)
         {
-            cams[i].enabled = cams[i] == activeCamera;
+            cams[i].SetState(cams[i] == activeCamera);
         }
     }
 }

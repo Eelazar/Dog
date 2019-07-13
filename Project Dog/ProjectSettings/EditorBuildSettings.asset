@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Console.unity
     guid: f7eb886c5cb9e59458394b13052da474
   - enabled: 1
-    path: Assets/Scenes/ConveyorBeltToss.unity
-    guid: b771f4ec1ea912d4fbe589508bfac649
-  - enabled: 1
     path: Assets/Scenes/Dump.unity
     guid: 1d685cc7768b9db4e9193bd1e4fd1053
   - enabled: 1

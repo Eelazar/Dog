@@ -81,6 +81,9 @@ public class WaypointAgent : MonoBehaviour
         }
         else
         {
+            if (raycastPoint == null)
+                return;
+
             RaycastHit hit;
 
             if (Physics.Raycast(raycastPoint.position, transform.forward, out hit, raycastLength))

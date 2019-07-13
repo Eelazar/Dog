@@ -26,6 +26,5 @@ public class TrashSpawner : MonoBehaviour
     public void Parent()
     {
         currentTrash.transform.SetParent(dropPoint.agent.transform);
-        currentTrash.GetComponent<Animator>().enabled = false;
     }
 }

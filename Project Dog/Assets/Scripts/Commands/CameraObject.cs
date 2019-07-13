@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class CameraObject : BaseObject
 {
-    public Camera camera;
+    public string sceneName;
 
-    public void OnCommandOpen(CommandContext context)
+    GameObject camera;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        Debug.Log("CAMERA OPEN");
+        camera = transform.GetChild(0).gameObject;
 
-        CameraManager.current.activeCamera = camera;
+        CameraManager.Add(this);
+    }
 
-        CameraManager.current.UpdateCameras();
+    public void OnCommandActivate(CommandContext context)
+    {
+        CameraManager.activeCamera = this;
+
+        CameraManager.UpdateCameras();
+
+        SceneLightManager.Activate(sceneName);
+    }
+
+    public void SetState(bool state)
+    {
+        Debug.Log(state);
+
+        camera.SetActive(state);
     }
 }
