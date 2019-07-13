@@ -1,29 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<root assistant="You are now exploring the contents of a TB unit" assistantFlag="false">
-  <tb_001 assistant="To exit the unit type 'exit unit'" assistantFlag="false">
-   <status assistant="" assistantFlag="false">
-     <offline entry="true">This unit is currently offline. Follow the access protocol to change it's status. </offline>
-     <online entry="true">This unit is currently online and performing its designated tasks.</online>
-     <task entry="true">2 currently designated tasks found: 1) move 2) toss</task>
-     <hostility entry="true">False</hostility>   
-   </status>
-   <access assistant="Some nodes seem to be locked" assistantFlag="false">
-     <status>
-        
-     </status>
-     <task>
-        <move
-     </task>
-   </access>
-   <observe>
-     <task>
-       <observe_move entry="true" assistant="The node: 'Movement' has been added to your unit control help section" assistantFlag="false">Movement observation successful. Movement capabilities have been added to Fox_Unit_001.</observe_move>
-       <observe_toss entry="true">There is no module in Fox_Unit_001 capable of applying the transfered tasks. Obeservation failed.</observe_toss>
-     </task>
-   </observe>
-   <about>
-    <description entry="true">TB units are common worker units. TBs are used to carry and move loads. They use a move, lift and toss module. Their tasks can vary in complexity.</description>
-    <Did_you_know entry="true">Did you know, TB is said to stand for 'ThrowBro'. Their creator, De Havilland and his friends developed this unit during their college days. It is our oldest unit still in use. </Did_you_know>
-   </about>
-  </tb_001>
+<root assistant="You are now exploring the contents of fox_unit_001" assistantFlag="false">
+  <fox_001>
+    <access assistant="Unit has no lock or encryption. Access granted.">
+      <boot>
+        <boot_fox_001 trigger="bootfox" entry="true" assistant="The Fox unit 001 has been added to your unit control help section" assistantFlag="false">Fox unit 001 has been booted successfully.</boot_fox_001>
+      </boot>
+    </access>
+  </fox_001>
 </root>

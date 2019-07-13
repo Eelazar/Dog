@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <tb_002>
+  <tb_002 asssitant="unit tb_002 is online" assitantFlag="false">
    <status>
-     <online entry="true">This unit is currently online and performing its designated tasks.</online>
      <task entry="true">1 currently designated task found: 1) move</task>
      <hostility entry="true">False</hostility>   
    </status>
    <access locked="tbaccess1045" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
      <status>
        <boot>
-         <boot_unit trigger="bootunit" entry="true">Unit online.</boot_unit>
+         <boot_unit trigger="enablemovement" entry="true">Unit online.</boot_unit>
        </boot>
        <shut_down>
-         <shut_down_unit trigger="shutdownunit" entry="true">Unit offline.</shut_down_unit>
+         <shut_down_unit trigger="disablemovement" entry="true">Unit offline.</shut_down_unit>
        </shut_down>
      </status>
      <task>

@@ -2,7 +2,6 @@
 <root assistant="You are now exploring the contents of a TB unit" assistantFlag="false">
   <tb_001 assistant="To exit the unit type 'exit unit'" assistantFlag="false">
    <status assistant="" assistantFlag="false">
-     <online entry="true">This unit is currently online and performing its designated tasks.</online>
      <task entry="true">1 currently designated task found: 1) move</task>
      <hostility entry="true">False</hostility>   
    </status>
