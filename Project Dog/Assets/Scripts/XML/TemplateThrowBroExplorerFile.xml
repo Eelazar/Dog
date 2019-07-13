@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<root assistant="You are now exploring the contents of a TB unit" assistantFlag="false">
-  <tb_001 assistant="To exit the unit type 'exit unit'" assistantFlag="false">
+<root>
+  <tb_00x>
    <status assistant="" assistantFlag="false">
      <offline entry="true">This unit is currently offline. Follow the access protocol to change it's status. </offline>
      <online entry="true">This unit is currently online and performing its designated tasks.</online>
      <task entry="true">2 currently designated tasks found: 1) move 2) toss</task>
      <hostility entry="true">False</hostility>   
    </status>
-   <access locked="tbaccess0032" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
+   <access locked="tbaccess1045" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
      <status>
        <boot>
          <boot_unit trigger="bootunit" entry="true">Unit online.</boot_unit>
@@ -41,5 +41,5 @@
     <exit>
       <exit_unit entry="true">Type 'exit unit' to close this units content.</exit_unit>
     </exit>
-  </tb_001>
+  </tb_00x>
 </root>

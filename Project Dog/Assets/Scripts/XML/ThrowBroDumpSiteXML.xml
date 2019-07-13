@@ -2,12 +2,11 @@
 <root assistant="You are now exploring the contents of a TB unit" assistantFlag="false">
   <tb_001 assistant="To exit the unit type 'exit unit'" assistantFlag="false">
    <status assistant="" assistantFlag="false">
-     <offline entry="true">This unit is currently offline. Follow the access protocol to change it's status. </offline>
      <online entry="true">This unit is currently online and performing its designated tasks.</online>
-     <task entry="true">2 currently designated tasks found: 1) move 2) toss</task>
+     <task entry="true">1 currently designated task found: 1) move</task>
      <hostility entry="true">False</hostility>   
    </status>
-   <access locked="tbaccess0032" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
+   <access locked="tbaccess1045" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
      <status>
        <boot>
          <boot_unit trigger="bootunit" entry="true">Unit online.</boot_unit>
@@ -21,17 +20,11 @@
          <enable_move trigger="enablemovement" entry="true">Movement is enabled.</enable_move>
          <disable_move trigger="disablemovement" entry="true">Movement is disabled.</disable_move>
        </move>
-       <toss>
-         <enable_toss trigger="enabletoss" entry="true">Toss is enabled.</enable_toss>
-         <disable_toss trigger="disabletoss" entry="true">Toss is disabled.</disable_toss>
-         <perform_toss trigger="ThrowBroToss" entry="true">Toss performed.</perform_toss>
-       </toss>
      </task>
    </access>
    <observe>
      <task>
        <observe_move entry="true" trigger="unlockmovement" assistant="The node: 'Movement' has been added to your unit control help section" assistantFlag="false">Movement observation successful. Movement capabilities have been added to Fox_Unit_001.</observe_move>
-       <observe_toss entry="true">There is no module in Fox_Unit_001 capable of applying the transfered tasks. Obeservation failed.</observe_toss>
      </task>
    </observe>
    <about>

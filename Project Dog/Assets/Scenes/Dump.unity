@@ -11497,7 +11497,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670134735}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 17.05571, y: 7.7733355, z: 1.8837729}
@@ -17960,14 +17960,14 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: -27.240656, y: 6.5030003, z: 12.533693}
-  - {x: -26.61913, y: 6.1346693, z: 13.757966}
-  - {x: -25.986904, y: 5.81595, z: 14.975426}
-  - {x: -25.334574, y: 5.5904727, z: 16.180079}
-  - {x: -24.655155, y: 5.4906187, z: 17.367474}
-  - {x: -23.944933, y: 5.533619, z: 18.535252}
-  - {x: -23.203907, y: 5.719473, z: 19.68341}
-  - {x: -22.435793, y: 6.0309505, z: 20.814314}
-  - {x: -21.647573, y: 6.435669, z: 21.932411}
+  - {x: -26.79839, y: 6.2612333, z: 13.862329}
+  - {x: -26.323803, y: 6.0538135, z: 15.171562}
+  - {x: -25.788475, y: 5.910945, z: 16.444332}
+  - {x: -25.171312, y: 5.8550463, z: 17.667974}
+  - {x: -24.46109, y: 5.8980465, z: 18.835752}
+  - {x: -23.657808, y: 6.0399446, z: 19.947664}
+  - {x: -22.77269, y: 6.2688136, z: 21.01045}
+  - {x: -21.826834, y: 6.5622334, z: 22.036774}
   - {x: -20.848656, y: 6.8900003, z: 23.043694}
   m_Parameters:
     serializedVersion: 3
@@ -25029,7 +25029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1239383227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37611,14 +37611,14 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 1.0613441, y: 7.37, z: 22.523693}
-  - {x: 0.99536526, y: 6.562714, z: 21.270119}
-  - {x: 0.9396226, y: 5.7801623, z: 20.016708}
-  - {x: 0.903118, y: 5.0440946, z: 18.763605}
-  - {x: 0.8925326, y: 4.370654, z: 17.510914}
-  - {x: 0.91142154, y: 3.768432, z: 16.25869}
-  - {x: 0.9597846, y: 3.2374277, z: 15.006936}
-  - {x: 1.0340672, y: 2.7690516, z: 13.755596}
-  - {x: 1.1275874, y: 2.347159, z: 12.504563}
+  - {x: 1.0425073, y: 6.540909, z: 21.281317}
+  - {x: 1.0282205, y: 5.739182, z: 20.037754}
+  - {x: 1.0224857, y: 4.988882, z: 18.791958}
+  - {x: 1.0282725, y: 4.3078694, z: 17.543156}
+  - {x: 1.0471615, y: 3.705647, z: 16.290932}
+  - {x: 1.0791523, y: 3.1822155, z: 15.03529}
+  - {x: 1.122665, y: 2.7280715, z: 13.776641}
+  - {x: 1.1747295, y: 2.3253539, z: 12.51576}
   - {x: 1.2313442, y: 1.9500003, z: 11.253693}
   m_Parameters:
     serializedVersion: 3
@@ -38780,11 +38780,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Throw Bro (1)
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: d3f75786b82110f45895f5b1a4aa8551,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 931082a677c889f4ab0894affb72851a, type: 2}
     - target: {fileID: -4216859302048453862, guid: d3f75786b82110f45895f5b1a4aa8551,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38850,6 +38845,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ace074b3208f575428aa8a1c8e29239c, type: 2}
+    - target: {fileID: -6057140222963153312, guid: d3f75786b82110f45895f5b1a4aa8551,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 931082a677c889f4ab0894affb72851a, type: 2}
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: d3f75786b82110f45895f5b1a4aa8551, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d3f75786b82110f45895f5b1a4aa8551, type: 3}
