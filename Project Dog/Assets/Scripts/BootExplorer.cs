@@ -84,8 +84,10 @@ public class BootExplorer : MonoBehaviour
         ////Move to first Child
         //nav.MoveToFirstChild();
 
-        explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
-        explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
+        //explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
+        //explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
+
+        StartCoroutine(UpdateData());
     }
 
     void Update()
