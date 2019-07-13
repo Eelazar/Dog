@@ -44,7 +44,7 @@
         <return entry="true">Type 'return' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple levels up at once. Example: 'return 2'</return>
         <open entry="true">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</open>
         <refresh entry="true">Type 'refresh' to reload the contents of your browser.</refresh>
-        <decrypt entry="true" status="hidden">Type 'decrypt ' followed by the name of the node your are trying to decrypt to reveal its contents</decrypt>
+        <decrypt entry="true">Type 'decrypt ' followed by the name of the node your are trying to decrypt to reveal its contents</decrypt>
       </commands>
     </explorer>
   </help>

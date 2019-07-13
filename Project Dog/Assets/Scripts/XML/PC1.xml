@@ -1,70 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <Help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work" assistantFlag="false">
-    <Unit_Control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
-      <General>
-        <access entry="true" assistant="Accessing an unit usually requires the accessing agent to be close by. A bridging unit can circumvent this." assistantFlag="false">Type 'access' followed by an unit name to access it and see it's contents in the file explorer.</access>
-      </General>
-      <Movement assistant="Units that allow movement can be steered using movement commands" assistantFlag="false">
-        <move_front entry="true">Type 'move front' to move an unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
-        <move_right entry="true">Type 'move right' to turn and move an unit to the right. Add a number at the end to let it move further.</move_right>
-        <move_left entry="true">Type 'move left' to turn and move an unit to the left. Add a number at the end to let it move further.</move_left>
-        <move_back entry="true">Type 'move back' to turn an unit 180 degrees and let it move afterwards. Add a number at the end to let it move further.</move_back>
-      </Movement>
-      <Fox_Unit_001 status="hidden">
-        <Modules>
-          <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the explorer of other units.</bridge>
-        </Modules>
-      </Fox_Unit_001>
-    </Unit_Control>
-    <S.I.T. assistant="Use S.I.T. to access cameras, units and more inside our factory system" assistantFlag="false">
-      <Boot>
-        <boot_S.I.T. entry="true">Type 'boot S.I.T.' to launch the S.I.T. security watch protocol</boot_S.I.T.>
-    </Boot>
-      <Navigation>
-        
-      </Navigation>
-    </S.I.T.>
-    <Explorer description="System Explorer Documentation" assistant="In here you'll find all help related to your the Explorer" assistantFlag="false">
-      <Structure assistant="This node contains help about the structure and design of the explorer" assistantFlag="false">
-        <Introduction entry="Guide to the explorer structure">The explorer window consists of multiple nodes, that are organized in a tree hierarchy. The nodes are gathered from the system you are currently accessing. Every node has a different purpose; most are either sub-categories or log entries, but some may have a critical role, especially if you are accessing a foreign entity.</Introduction>
-        <Markup entry="Guide to the visual representation">We haven't decided on the markup yet...</Markup>
-      </Structure>
-      <Commands description="List of available commands">
-        <return entry="true">Type 'return' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple levels up at once. Example: 'return 2'</return>
-        <open entry="true">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</open>
-        <refresh entry="true">Type 'refresh' to reload the contents of your browser.</refresh>
-        <decrypt entry="true" status="hidden">Type 'decrypt ' followed by the name of the node your are trying to decrypt to reveal its contents</decrypt>
-      </Commands>
-    </Explorer>
-    <Assistant description="Smart Assistant Documentation" status="hidden">
-    </Assistant>
-  </Help>
-  <Software description="Program Files and Data">
-    <S.I.T. assistant="Use S.I.T. to access cameras, units and more inside our factory system" assistantFlag="false">
-      <about entry="true">S.I.T. (Secure IT & Transfer) is the leading security software that helps organizations centralize access management across hybrid IT environments. </about>
-    </S.I.T.>
-    <Console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
-      <launch.exe trigger="">
-      </launch.exe>
-    </Console>
-    <Assistant>
-      <about entry="">The Smart Assistant assists you with all kinds of tasks you may receive, so that you can focus on being as productive as possible! It has access to your entire system and can take care of menial tasks while teaching you how to best make use of <i>FykeOs</i>. It will auto-collect information to create a helpful documentation personalized for you.</about>
-      <Troubleshooting>
-        <Status entry="Assistant won't start">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
-        <Behaviour entry="Faulty personality chip">Your Smart Assistant may develop a stronger personality over time, but this should not cause any major productivity loss. Should the Assissant start insulting you however, or cause any emotional grief to you or your coworkers, your workstation is to be returned to the tech department ASAP.</Behaviour>
-      </Troubleshooting>
-      <Data encrypted="" assistant="This node is encrypted" assistantFlag="always">
-        <launch.exe trigger="">
-        </launch.exe>
-        <securityProtocols bool="true">
-        </securityProtocols>
-      </Data>
-    </Assistant>
-  </Software>
-  <Log>
-    <Secret entry="Secret Stuff" encrypted="ananaspizza" assistant="This node is encrypted" assistantFlag="always">You're not supposed to see this</Secret>
-    <Entry2 entry="Lorem Ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</Entry2>
-    <Entry3 entry="Third Entry Summary" locked="Berlin Lebt">How did you access this?!</Entry3>
-  </Log>
+  <AdminPC_003 assistant="The contents of this system seem to be encrypted" assistantFlag="false">
+    <login assistant="See the decrypt entry in the help section for more information">
+      <system encrypted="autonomous cloud computing">
+        <logs>
+          <entry1 entry="true"></entry1>
+        </logs>
+        <unit_access_passwords locked="1206shepherd">
+          <tb_units entry="true">tbaccess1045</tb_units>
+        </unit_access_passwords>
+      </system>
+    </login>
+  </AdminPC_003>
 </Root>
