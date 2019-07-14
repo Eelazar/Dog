@@ -349,16 +349,16 @@ public class BootManager : MonoBehaviour
         {
             case 1:
                 s = "Welcome back " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
-                assistant.QueueMessage(new Message(s, 0, 4F, true));
+                assistant.QueueMessage(new Message(s, 0, 5F, true));
 
-                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as per usual.";
-                assistant.QueueMessage(new Message(s, 0, 4F));
+                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as usual.";
+                assistant.QueueMessage(new Message(s, 0, 5F));
 
                 s = "A new software update has been deployed while you were absent.";
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
                 s = "Update v1.0.4 has improved the security and wireless access protocols.";
-                assistant.QueueMessage(new Message(s, 0, 4F));
+                assistant.QueueMessage(new Message(s, 0, 6F));
 
                 s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
                 assistant.QueueMessage(new Message(s, 0, 60F, false, true));
@@ -373,7 +373,7 @@ public class BootManager : MonoBehaviour
                 assistant.QueueMessage(new Message(s, 0, 7F));
 
                 s = "For example, try typing 'open root' to open the Root node";
-                assistant.QueueMessage(new Message(s, 0, 5F));
+                assistant.QueueMessage(new Message(s, 0, 7F));
 
                 s = "If you want to return to the previous node, type 'move up'";
                 assistant.QueueMessage(new Message(s, 0, 7F));
@@ -381,7 +381,7 @@ public class BootManager : MonoBehaviour
                 s = "That's it for the new update, I'll let you get back to work now";
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
-                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
+                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'return' to navigate the explorer.";
                 assistant.QueueMessage(new Message(s, 0, 60F, false, true));
 
                 break;
