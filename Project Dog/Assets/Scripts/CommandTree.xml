@@ -15,7 +15,7 @@
     </return>
   </os>
 
-  <open synonyms="open">
+  <open synonyms="view">
     <camera name="Cam">
       <method>OnCommandActivate</method>
     </camera>

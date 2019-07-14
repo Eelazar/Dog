@@ -212,9 +212,9 @@ public class Console : MonoBehaviour
         }
     }
 
-    void FindMethod(XMLQuery obj)
+    bool FindMethod(XMLQuery obj)
     {
-        if (obj.progressionIndex == 0)
+        if (obj.xmlPath.Count == 0)
         {
             nav.MoveToRoot();
             nav.MoveToFirstChild();
@@ -233,6 +233,24 @@ public class Console : MonoBehaviour
                     {
                         string name = nav.GetAttribute("name", string.Empty);
 
+                        //special case
+
+                        if (name.Equals("system"))
+                        {
+                            obj.objectName = "system";
+
+                            obj.xmlPath.Add(nav.Name);
+                            if (FindMethod(obj))
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                obj.xmlPath.Remove(nav.Name);
+                                obj.objectName = "";
+                            }
+                        }
+
                         if (obj.commandWords[obj.progressionIndex].StartsWith(name))
                         {
                             obj.objectName = obj.commandWords[obj.progressionIndex];
@@ -240,7 +258,7 @@ public class Console : MonoBehaviour
                             obj.xmlPath.Add(nav.Name);
                             obj.progressionIndex++;
                             FindMethod(obj);
-                            return;
+                            return true;
                         }
                     }
                     else if (nav.GetAttribute("synonyms", string.Empty) != "")
@@ -255,7 +273,7 @@ public class Console : MonoBehaviour
                                 obj.xmlPath.Add(nav.Name);
                                 obj.progressionIndex++;
                                 FindMethod(obj);
-                                return;
+                                return true;
                             }
                         }
                     }
@@ -265,7 +283,7 @@ public class Console : MonoBehaviour
                         obj.parameters.Add(obj.commandWords[obj.progressionIndex]);
                         obj.progressionIndex++;
                         FindMethod(obj);
-                        return;
+                        return true;
                     }
                     else if (nav.Name == "method")
                     {
@@ -273,7 +291,7 @@ public class Console : MonoBehaviour
                         obj.progressionIndex++;
                         obj.methodName = nav.Value;
                         ExecuteMethod(obj);
-                        return;
+                        return true;
                     }
 
                     nav.MoveToNext();
@@ -288,6 +306,12 @@ public class Console : MonoBehaviour
         {
             Debug.Log("XML has no child nodes at level: " + nav.Name);
         }
+
+        Debug.Log("MOVE TO PARENT");
+
+        nav.MoveToParent();
+
+        return false;
     }
 
     void ExecuteMethod(XMLQuery finalObj)
