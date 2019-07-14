@@ -38,7 +38,7 @@ public class AssistantDocked : MonoBehaviour
     private Vector2 shownPosMin;
     private Vector2 shownPosMax;
 
-    private BootManager manager;
+    private UIManager manager;
 
     private bool inUse;
     private Queue<Message> messageQueue;
@@ -59,7 +59,7 @@ public class AssistantDocked : MonoBehaviour
     void Start()
     {
         assistantIcon_Rect = assistant_Icon.GetComponent<RectTransform>();
-        manager = GetComponent<BootManager>();
+        manager = GetComponent<UIManager>();
         messageQueue = new Queue<Message>();
         messageLog = new List<Message>();
         log_ActiveFields = new List<GameObject>();

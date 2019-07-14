@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class BootManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     #region Editor Variables
     [Header("Object References")]
@@ -97,7 +97,7 @@ public class BootManager : MonoBehaviour
 
 
     private Assistant assistant;
-    private BootConsole console;
+    private Console console;
     private Explorer explorer;
     private DecryptionSoftware decryptor;
 
@@ -111,7 +111,7 @@ public class BootManager : MonoBehaviour
         login_Input = login_Panel.GetComponentInChildren<TMP_InputField>();
 
         assistant = transform.GetComponent<Assistant>();
-        console = transform.GetComponent<BootConsole>();
+        console = transform.GetComponent<Console>();
         explorer = transform.GetComponent<Explorer>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
 
@@ -142,6 +142,20 @@ public class BootManager : MonoBehaviour
     }
 
 
+    public void LaunchProgram(CommandContext cc)
+    {
+        string name = cc.parameters[0].ToString();
+
+        switch (name)
+        {
+            case "explorer":
+                StartCoroutine(LaunchExplorer());
+                break;
+
+            default:
+                break;
+        }
+    }
 
     IEnumerator LaunchFakeOS()
     {

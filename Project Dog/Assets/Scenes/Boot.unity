@@ -5429,10 +5429,11 @@ GameObject:
   - component: {fileID: 1657284612}
   - component: {fileID: 1657284609}
   - component: {fileID: 1657284613}
-  - component: {fileID: 1657284610}
+  - component: {fileID: 1657284616}
   - component: {fileID: 1657284611}
   - component: {fileID: 1657284614}
   - component: {fileID: 1657284615}
+  - component: {fileID: 1657284610}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -5545,17 +5546,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657284608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f654a6911f653b042b1f6e5d96c822dd, type: 3}
+  m_Script: {fileID: 11500000, guid: 151879febba97aa47bd0da2e83e09e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  console_InputField: {fileID: 1809537091}
-  consolePanel: {fileID: 1682874038}
-  log_Prefab: {fileID: 4811073375514735703, guid: d6b1841e429e857418c727523f3c560d,
-    type: 3}
-  textFieldAmount: 50
-  textSpeed: 0.02
-  loading: 0
-  window: {fileID: 0}
+  baseName: 
+  definedName: system
 --- !u!114 &1657284611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5826,6 +5821,28 @@ MonoBehaviour:
   charsBeforeNextHint: 100
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}
+--- !u!114 &1657284616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657284608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db0d231a0a55964d9579e358fbedec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  console_InputField: {fileID: 1809537091}
+  consolePanel: {fileID: 1682874038}
+  log_Prefab: {fileID: 4811073375514735703, guid: d6b1841e429e857418c727523f3c560d,
+    type: 3}
+  textFieldAmount: 50
+  bootLaunch: 1
+  textSpeed: 0.02
+  altTextColor: {r: 1, g: 1, b: 1, a: 0.78431374}
+  loading: 0
+  window: {fileID: 0}
 --- !u!1 &1682874038
 GameObject:
   m_ObjectHideFlags: 0
@@ -7013,6 +7030,7 @@ GameObject:
   - component: {fileID: 1926118612}
   - component: {fileID: 1926118611}
   - component: {fileID: 1926118610}
+  - component: {fileID: 1926118613}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -7027,7 +7045,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1926118609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7068,6 +7086,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926118613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926118609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d0ebb7a66cfe84fbdf9308cb19c86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1987985757
 GameObject:
   m_ObjectHideFlags: 0

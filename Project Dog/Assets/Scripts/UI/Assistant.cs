@@ -22,7 +22,7 @@ public class Assistant : MonoBehaviour
     private Vector2 shownPosMin;
     private Vector2 shownPosMax;
 
-    private BootManager manager;
+    private UIManager manager;
 
     private bool inUse;
     private Queue<Message> messageQueue;
@@ -35,7 +35,7 @@ public class Assistant : MonoBehaviour
     void Start()
     {
         assistant_Rect = assistant_Object.GetComponent<RectTransform>();
-        manager = GetComponent<BootManager>();
+        manager = GetComponent<UIManager>();
         messageQueue = new Queue<Message>();
         messageLog = new List<Message>();
 

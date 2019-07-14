@@ -10,9 +10,31 @@
       </default>
     </open>
 
+    <launch synonyms="launch boot start">
+      <_program>
+        <method>LaunchProgram</method>
+      </_program>
+    </launch>
+
     <return synonyms="return">
       <method>MoveUp</method>
     </return>
+
+    <save synonyms="save">
+      <method>Save</method>
+    </save>
+
+    <silence synonyms="silence quiet">
+      <method>Silence</method>
+    </silence>
+
+    <decrypt synonyms="decrypt">
+      <method>DecryptNode</method>
+    </decrypt>
+
+    <refresh synonyms="refresh">
+      <method>LaunchUpdate</method>
+    </refresh>
   </os>
 
   <open synonyms="view">
@@ -50,10 +72,5 @@
       <debug assistant="2">Where do you want to go?</debug>
     </default>
   </throwbro>
-
-  <launch synonyms="launch boot start">
-    <_program>
-      <method>LaunchProgram</method>
-    </_program>
-  </launch>
+  
 </root>

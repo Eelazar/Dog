@@ -49,13 +49,13 @@ public class Explorer : MonoBehaviour
     private List<TMP_Text> encryptedFields;
     private List<TMP_Text> lockedFields;
 
-    private BootManager manager;
+    private UIManager manager;
     private AssistantDocked assistant;
     private DecryptionSoftware decryptor;
 
     void Start()
     {
-        manager = transform.GetComponent<BootManager>();
+        manager = transform.GetComponent<UIManager>();
         assistant = transform.GetComponent<AssistantDocked>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
 
@@ -105,73 +105,7 @@ public class Explorer : MonoBehaviour
 
             AnimateEncryptedNode();
         }
-    }
-
-    void ResizeLog()
-    {
-        //Measure how many pixels are unused (e.g. the top part of the window -> decoration)
-        float yOffset = explorerPanel.GetComponent<RectTransform>().sizeDelta.y;
-
-        //Get the anchors of the explorer window, i.e. from where to where on the screen it spans
-        Vector2 parentAnchorMin = new Vector2(explorerWindow.GetComponent<RectTransform>().anchorMin.x, explorerWindow.GetComponent<RectTransform>().anchorMin.y);
-        Vector2 parentAnchorMax = new Vector2(explorerWindow.GetComponent<RectTransform>().anchorMax.x, explorerWindow.GetComponent<RectTransform>().anchorMax.y);
-
-        //From the anchors get the percentage of screen the explorer window occupies
-        Vector2 parentScreenPercent = new Vector2(parentAnchorMax.x - parentAnchorMin.x, parentAnchorMax.y - parentAnchorMin.y);
-
-        //Get the height in pixels of the entire game window
-        float canvasHeight = Screen.height;
-
-        //Calculate the actual height of the explorer by multiplying the screen height by the window percentage, and finally substracting the unused space
-        float explorerSize = (canvasHeight * parentScreenPercent.y) + yOffset;
-
-        //Calculate the highest possible amount of slots that can fit into the explorer
-        int slotAmount = Mathf.FloorToInt(explorerSize / (lineHeight + explorerPanel.GetComponent<VerticalLayoutGroup>().spacing));
-
-        //Check how many slots are currently active
-        int activeAmount = node_ActiveFields.Count;
-
-        //Debug.Log("Pixel Height: " + canvasHeight + ", Explorer Window Size: " + explorerSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
-
-        if(activeAmount != slotAmount)
-        {
-            //If more slots could fit into the log, add them
-            if (activeAmount < slotAmount)
-            {
-                for (int i = activeAmount; i < slotAmount; i++)
-                {
-                    node_TextFields[i].gameObject.SetActive(true);
-                    node_ActiveFields.Add(node_TextFields[i].gameObject);
-                }
-            }
-            //Otherwise remove the excess slots
-            else if (activeAmount > slotAmount)
-            {
-                for (int i = activeAmount; i > slotAmount; i--)
-                {
-                    node_TextFields[i - 1].gameObject.SetActive(false);
-                    node_ActiveFields.Remove(node_TextFields[i - 1].gameObject);
-                }
-
-                //Cleanup
-                for (int i = activeAmount; i < node_TextFields.Length; i++)
-                {
-                    node_TextFields[i].gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-
-    private string AddColor(Color c, string s)
-    {
-        string final = "";
-
-        final += "<color=#" + ColorUtility.ToHtmlStringRGBA(c) + ">";
-        final += s;
-        final += "</color>";
-
-        return final;
-    }
+    }    
 
     public IEnumerator UpdateData()
     {
@@ -344,27 +278,11 @@ public class Explorer : MonoBehaviour
             nav.MoveToParent();
         }
         #endregion Child Node Stuff
-    }
+    }    
 
-    public void AnimateEncryptedNode()
+    public void LaunchUpdate()
     {
-        if(encryptedFields.Count > 0)
-        {
-            foreach(TMP_Text tmp in encryptedFields)
-            {
-                char[] chars = tmp.text.ToCharArray();
-                int modulo = Random.Range(1, 5);
-
-                for (int i = 0; i < chars.Length; i++)
-                {
-                    if(i % modulo == 0)
-                    {
-                        chars[i] = System.Convert.ToChar(Random.Range(32, 127));
-                        tmp.text = new string(chars);
-                    }
-                }
-            }
-        }
+        StartCoroutine(UpdateData());
     }
 
     public void DecryptNode()
@@ -508,6 +426,12 @@ public class Explorer : MonoBehaviour
         }
     }
 
+    public void Save()
+    {
+        xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
+    }
+
+    #region Utility
     void GenerateTextFieldArray()
     {
         node_TextFields[0] = explorerPanel.transform.GetChild(0).GetComponent<TMP_Text>();
@@ -519,6 +443,61 @@ public class Explorer : MonoBehaviour
             go.transform.SetParent(explorerPanel.transform, false);
             go.name = "Node TextField " + (i +  1);
             node_TextFields[i] = go.GetComponent<TMP_Text>();
+        }
+    }
+
+    void ResizeLog()
+    {
+        //Measure how many pixels are unused (e.g. the top part of the window -> decoration)
+        float yOffset = explorerPanel.GetComponent<RectTransform>().sizeDelta.y;
+
+        //Get the anchors of the explorer window, i.e. from where to where on the screen it spans
+        Vector2 parentAnchorMin = new Vector2(explorerWindow.GetComponent<RectTransform>().anchorMin.x, explorerWindow.GetComponent<RectTransform>().anchorMin.y);
+        Vector2 parentAnchorMax = new Vector2(explorerWindow.GetComponent<RectTransform>().anchorMax.x, explorerWindow.GetComponent<RectTransform>().anchorMax.y);
+
+        //From the anchors get the percentage of screen the explorer window occupies
+        Vector2 parentScreenPercent = new Vector2(parentAnchorMax.x - parentAnchorMin.x, parentAnchorMax.y - parentAnchorMin.y);
+
+        //Get the height in pixels of the entire game window
+        float canvasHeight = Screen.height;
+
+        //Calculate the actual height of the explorer by multiplying the screen height by the window percentage, and finally substracting the unused space
+        float explorerSize = (canvasHeight * parentScreenPercent.y) + yOffset;
+
+        //Calculate the highest possible amount of slots that can fit into the explorer
+        int slotAmount = Mathf.FloorToInt(explorerSize / (lineHeight + explorerPanel.GetComponent<VerticalLayoutGroup>().spacing));
+
+        //Check how many slots are currently active
+        int activeAmount = node_ActiveFields.Count;
+
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Explorer Window Size: " + explorerSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
+
+        if(activeAmount != slotAmount)
+        {
+            //If more slots could fit into the log, add them
+            if (activeAmount < slotAmount)
+            {
+                for (int i = activeAmount; i < slotAmount; i++)
+                {
+                    node_TextFields[i].gameObject.SetActive(true);
+                    node_ActiveFields.Add(node_TextFields[i].gameObject);
+                }
+            }
+            //Otherwise remove the excess slots
+            else if (activeAmount > slotAmount)
+            {
+                for (int i = activeAmount; i > slotAmount; i--)
+                {
+                    node_TextFields[i - 1].gameObject.SetActive(false);
+                    node_ActiveFields.Remove(node_TextFields[i - 1].gameObject);
+                }
+
+                //Cleanup
+                for (int i = activeAmount; i < node_TextFields.Length; i++)
+                {
+                    node_TextFields[i].gameObject.SetActive(false);
+                }
+            }
         }
     }
 
@@ -536,4 +515,37 @@ public class Explorer : MonoBehaviour
 
         yield return null;
     }
+
+    public void AnimateEncryptedNode()
+    {
+        if (encryptedFields.Count > 0)
+        {
+            foreach (TMP_Text tmp in encryptedFields)
+            {
+                char[] chars = tmp.text.ToCharArray();
+                int modulo = Random.Range(1, 5);
+
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    if (i % modulo == 0)
+                    {
+                        chars[i] = System.Convert.ToChar(Random.Range(32, 127));
+                        tmp.text = new string(chars);
+                    }
+                }
+            }
+        }
+    }
+
+    private string AddColor(Color c, string s)
+    {
+        string final = "";
+
+        final += "<color=#" + ColorUtility.ToHtmlStringRGBA(c) + ">";
+        final += s;
+        final += "</color>";
+
+        return final;
+    }
+    #endregion Utility
 }

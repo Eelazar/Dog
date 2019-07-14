@@ -9,8 +9,8 @@ using System.Text.RegularExpressions;
 using System.Xml.XPath;
 using System.Xml;
 
-[RequireComponent(typeof(AudioSource), typeof(BootManager))]
-public class BootConsole : MonoBehaviour
+[RequireComponent(typeof(AudioSource))]
+public class Console : MonoBehaviour
 {
     //Constants
     private const float lineHeight = 20F;
@@ -31,11 +31,18 @@ public class BootConsole : MonoBehaviour
     [SerializeField]
     [Tooltip("The amount of TextFields that will be generated (also max displayed)")]
     private int textFieldAmount;
+    [SerializeField]
+    [Tooltip("Indicates that this instance launches as if it was the boot tutorial")]
+    private bool bootLaunch;
+
 
     [Header("Text Animation")]
     [SerializeField]
     [Tooltip("The duration of the pause between each letter during typewriter animation")]
     private float textSpeed;
+    [SerializeField]
+    [Tooltip("The color of not-selected text when scrolling the log")]
+    private Color altTextColor;
     #endregion Editor Varibles
 
     #region Private Variables
@@ -47,7 +54,7 @@ public class BootConsole : MonoBehaviour
     //All the textfields from bottom to top
     private TMP_Text[] log_TextFields;
     //Manager
-    private BootManager manager;
+    private UIManager manager;
     //Explorer
     private Explorer explorer;
     //Assistant
@@ -61,17 +68,19 @@ public class BootConsole : MonoBehaviour
     //Index for the currently selected text field position i.e. slot
     private int selectedSlotIndex;
     //Backup of up to x log entries
-    private string[] consoleLog = new string[50];
+    private string[] consoleLog = new string[200];
 
     //XML Navigation Variables
     private XPathNavigator nav;
     private XmlDocument xmlDoc;
+
+    private string focus;
     #endregion Private Variables
 
     #region Public Variables
     //Boolean to lock console entries during animations
     [HideInInspector]
-    public bool loading;
+    public bool loading = true;
     //The panel containing the console panel and input panel
     [HideInInspector]
     public GameObject window;
@@ -86,7 +95,7 @@ public class BootConsole : MonoBehaviour
         //Get some stuff
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
-        manager = transform.GetComponent<BootManager>();
+        manager = transform.GetComponent<UIManager>();
         explorer = transform.GetComponent<Explorer>();
         assistant = transform.GetComponent<Assistant>();
 
@@ -107,8 +116,10 @@ public class BootConsole : MonoBehaviour
         nav.MoveToRoot();
         nav.MoveToFirstChild();
 
-        XMLObject obj = new XMLObject("open someStuff");
-        FindMethod(obj);
+        if (!bootLaunch)
+        {
+            Activate();
+        }
     }
 
     void Update()
@@ -122,8 +133,11 @@ public class BootConsole : MonoBehaviour
 
     public void Activate()
     {
+        loading = false;
+
         console_InputField.ActivateInputField();
 
+        focus = "console";
     }
 
     public IEnumerator Deactivate()
@@ -142,78 +156,74 @@ public class BootConsole : MonoBehaviour
             keySource.Play();
         }
 
-        //Listen for submissions
-        if (Input.GetKeyDown(KeyCode.Return) && !loading)
+        if (focus == "console")
         {
-            //Get the input and clear the field
-            rawInput = console_InputField.text;
-            console_InputField.text = "";
-
-            if (rawInput != "")
+            //Listen for submissions
+            if (Input.GetKeyDown(KeyCode.Return) && !loading)
             {
-                //Send the text to the log
-                LogText(rawInput);
+                //Get the input and clear the field
+                rawInput = console_InputField.text;
+                console_InputField.text = "";
 
-                if (rawInput.Contains("yea yup"))
+                if (rawInput != "")
                 {
-                    //If start command launch start animation
-                    StartCoroutine(manager.AnimateStart());
+                    //Send the text to the log
+                    LogText(rawInput);
+                    FindMethod(new XMLQuery(rawInput));
                 }
-                else if (rawInput.Contains("save"))
-                {
-                    explorer.xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
-                }
-                else if (rawInput.Contains("shut up"))
-                {
-                    assistant.Silence();
-                }
-                else if (rawInput.Contains("move up"))
-                {
-                    //Check for numbers
-                    string resultString = Regex.Match(rawInput, @"\d+").Value;
 
-                    if (resultString != "")
-                    {
-                        int amount = int.Parse(resultString);
-                        explorer.NavigateUp(amount);
-                    }
-                    else
-                    {
-                        explorer.NavigateUp(1);
-                    }
-                }
-                else if (rawInput.Contains("decrypt"))
-                {
-                    explorer.DecryptNode();
-                }
-                else if (rawInput.Contains("open"))
-                {
-                    //hard coded: must begin with "open "
-                    string temp = rawInput.Remove(0, 5);
-                    ////Capitalize first letter
-                    //temp = temp.First().ToString().ToUpper() + temp.Substring(1);
-
-                    //explorer.Interact(temp);
-                }
-                else if (rawInput.Contains("refresh"))
-                {
-                    //If 
-                    StartCoroutine(explorer.UpdateData());
-                }
-                else if (rawInput.Contains("launch explorer"))
-                {
-                    StartCoroutine(manager.LaunchExplorer());
-                }
+                //Refocus input field
+                console_InputField.ActivateInputField();
             }
 
-            //Refocus input field
-            console_InputField.ActivateInputField();
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                StartCoroutine(Deactivate());
+
+                focus = "log";
+
+                ScrollText(true, true);
+            }
+        }
+        else if (focus == "log")
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                Activate();
+
+                //Copy the selected text to input
+                console_InputField.text = consoleLog[currentLogIndex];
+                //Set the caret to the end of the line
+                console_InputField.caretPosition = console_InputField.text.Length;
+                //Remove the "> " from the selected slot
+                log_TextFields[selectedSlotIndex].text = log_TextFields[selectedSlotIndex].text.Remove(0, 2);
+
+                currentLogIndex = 0;
+                selectedSlotIndex = 0;
+                UpdateLog();
+            }
+
+            if (Input.GetKeyUp(KeyCode.UpArrow))
+            {
+                ScrollText(true);
+            }
+
+            if (Input.GetKeyUp(KeyCode.DownArrow) && currentLogIndex == 0)
+            {
+                ScrollText(false, true);
+                Activate();
+            }
+            else if (Input.GetKeyUp(KeyCode.DownArrow))
+            {
+                ScrollText(false);
+            }
+
         }
     }
 
-    void FindMethod(XMLObject obj)
+    bool FindMethod(XMLQuery obj)
     {
-        if (obj.progressionIndex == 0)
+        if (obj.xmlPath.Count == 0)
         {
             nav.MoveToRoot();
             nav.MoveToFirstChild();
@@ -228,8 +238,41 @@ public class BootConsole : MonoBehaviour
 
                 for (int i = 0; i < childCount; i++)
                 {
-                    if (nav.GetAttribute("synonyms", string.Empty) != "")
+                    if (nav.GetAttribute("name", string.Empty) != "")
                     {
+                        string name = nav.GetAttribute("name", string.Empty);
+
+                        //special case
+
+                        if (name.Equals("system"))
+                        {
+                            obj.objectName = "system";
+
+                            obj.xmlPath.Add(nav.Name);
+                            if (FindMethod(obj))
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                obj.xmlPath.Remove(nav.Name);
+                                obj.objectName = "";
+                            }
+                        }
+
+                        if (obj.commandWords[obj.progressionIndex].StartsWith(name))
+                        {
+                            obj.objectName = obj.commandWords[obj.progressionIndex];
+
+                            obj.xmlPath.Add(nav.Name);
+                            obj.progressionIndex++;
+                            FindMethod(obj);
+                            return true;
+                        }
+                    }
+                    else if (nav.GetAttribute("synonyms", string.Empty) != "")
+                    {
+
                         string[] synonyms = nav.GetAttribute("synonyms", string.Empty).Split(' ');
 
                         foreach (string synonym in synonyms)
@@ -239,7 +282,7 @@ public class BootConsole : MonoBehaviour
                                 obj.xmlPath.Add(nav.Name);
                                 obj.progressionIndex++;
                                 FindMethod(obj);
-                                return;
+                                return true;
                             }
                         }
                     }
@@ -249,7 +292,7 @@ public class BootConsole : MonoBehaviour
                         obj.parameters.Add(obj.commandWords[obj.progressionIndex]);
                         obj.progressionIndex++;
                         FindMethod(obj);
-                        return;
+                        return true;
                     }
                     else if (nav.Name == "method")
                     {
@@ -257,7 +300,7 @@ public class BootConsole : MonoBehaviour
                         obj.progressionIndex++;
                         obj.methodName = nav.Value;
                         ExecuteMethod(obj);
-                        return;
+                        return true;
                     }
 
                     nav.MoveToNext();
@@ -272,12 +315,24 @@ public class BootConsole : MonoBehaviour
         {
             Debug.Log("XML has no child nodes at level: " + nav.Name);
         }
+
+        Debug.Log("MOVE TO PARENT");
+
+        nav.MoveToParent();
+
+        return false;
     }
 
-    void ExecuteMethod(XMLObject finalObj)
+    void ExecuteMethod(XMLQuery finalObj)
     {
+        BaseObject baseObject;
 
-        Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
+        ObjectManager.GetObject(finalObj.objectName, out baseObject);
+
+        if (baseObject != null)
+            baseObject.SendMessage(finalObj.methodName, new CommandContext() { parameters = finalObj.parameters.ToArray() });
+
+        //Debug.Log(finalObj.methodName + " / " + string.Join(", ", finalObj.parameters.ToArray()));
     }
 
     void LogText(string s)
@@ -297,6 +352,62 @@ public class BootConsole : MonoBehaviour
         }
 
         UpdateLog();
+    }
+
+    void ScrollText(bool up, bool special = false)
+    {
+        //First time scrolling up, e.g. switching from input to log
+        if (special && up)
+        {
+            currentLogIndex = 0;
+            selectedSlotIndex = 0;
+        }
+        else if (up)
+        {
+            if (selectedSlotIndex >= log_ActiveFields.Count - 1)
+            {
+                //If selection is at the top of window, only scroll
+                currentLogIndex++;
+            }
+            else
+            {
+                //If selection is not at the top of window, also move selection
+                currentLogIndex++;
+                selectedSlotIndex++;
+            }
+        }
+        else if (!up)
+        {
+            if (currentLogIndex > 0)
+            {
+                //If log is above 0, scroll down
+                currentLogIndex--;
+            }
+
+            if (selectedSlotIndex > 0)
+            {
+                //if selection is not at the bottom, also move selection
+                selectedSlotIndex--;
+            }
+        }
+
+        UpdateLog();
+
+        //If we're switching from log to input, reset the input
+        if (special && !up)
+        {
+            console_InputField.text = "";
+            currentLogIndex = 0;
+            selectedSlotIndex = 0;
+        }
+        else
+        {
+            //Add an indentation to currently selected text
+            log_TextFields[selectedSlotIndex].text = "> " + log_TextFields[selectedSlotIndex].text;
+            //Set Input Text to selected text, also lower alpha
+            console_InputField.text = "<color=#" + ColorUtility.ToHtmlStringRGBA(altTextColor) + ">" + consoleLog[currentLogIndex] + "</color>";
+        }
+
     }
 
     void UpdateLog()
@@ -320,6 +431,7 @@ public class BootConsole : MonoBehaviour
     {
         //Measure how many pixels are unused (e.g. the top part of the window -> decoration)
         float yOffset = consolePanel.GetComponent<RectTransform>().sizeDelta.y;
+        yOffset -= 20F;
 
         //Get the anchors of the log window, i.e. from where to where on the screen it spans
         Vector2 parentAnchorMin = new Vector2(window.GetComponent<RectTransform>().anchorMin.x, window.GetComponent<RectTransform>().anchorMin.y);
@@ -339,6 +451,8 @@ public class BootConsole : MonoBehaviour
 
         //Check how many slots are currently active
         int activeAmount = log_ActiveFields.Count;
+
+        //Debug.Log("Pixel Height: " + canvasHeight + ", Log Window Size: " + logSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
         //If more slots could fit into the log, add them
         if (activeAmount < slotAmount)
@@ -387,12 +501,13 @@ public class BootConsole : MonoBehaviour
             GameObject go = Instantiate<GameObject>(log_Prefab);
             go.transform.SetParent(consolePanel.transform, false);
             go.name = "Log TextField " + (textFieldAmount - i);
+            go.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
             log_TextFields[textFieldAmount - (i + 1)] = go.GetComponent<TMP_Text>();
         }
     }
 }
 
-public class XMLObject
+public class XMLQuery
 {
     public string[] commandWords;
     public List<string> xmlPath;
@@ -403,7 +518,7 @@ public class XMLObject
 
     public string objectName;
 
-    public XMLObject(string text)
+    public XMLQuery(string text)
     {
         commandWords = text.Split(' ');
 
