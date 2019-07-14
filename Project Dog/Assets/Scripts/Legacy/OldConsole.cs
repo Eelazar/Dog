@@ -101,8 +101,6 @@ public class OldConsole : MonoBehaviour
                 {
                     LogText(rawInput);
 
-                    CommandFeedback commandFeedback = CommandManager.ExecuteCommand(rawInput.Split(' '));
-
                     //if (!commandFeedback.valid)
                     //{
                     //    LogText(commandFeedback.feedback);
