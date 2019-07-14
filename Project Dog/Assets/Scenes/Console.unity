@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006741787}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c970e3b4118242438e7a62715adb530, type: 3}
   m_Name: 
@@ -1388,9 +1388,9 @@ GameObject:
   - component: {fileID: 1231494666}
   - component: {fileID: 1231494667}
   - component: {fileID: 1231494663}
-  - component: {fileID: 1231494662}
-  - component: {fileID: 1231494664}
+  - component: {fileID: 1231494669}
   - component: {fileID: 1231494665}
+  - component: {fileID: 1231494662}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1434,79 +1434,11 @@ MonoBehaviour:
   log_Prefab: {fileID: 4811073375514735703, guid: d6b1841e429e857418c727523f3c560d,
     type: 3}
   textFieldAmount: 50
+  bootLaunch: 0
   textSpeed: 0.01
   altTextColor: {r: 1, g: 1, b: 1, a: 0.69803923}
   loading: 0
   window: {fileID: 0}
---- !u!114 &1231494664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1231494661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e5bbba26770a04a825a87ab0ed17fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  newNotification: {fileID: 8300000, guid: f2e02d99e7df8b940a58ca703ac40e0d, type: 3}
-  notification: {fileID: 8300000, guid: e8791c8ecdd2b1946ac6a08cd97c06c1, type: 3}
-  letterPause: 0.07
-  shortPause: 0.07
-  normalPause: 0.3
-  longPause: 0.6
-  textAnimPause: 0.015
-  assistant_Window: {fileID: 125309323}
-  assistant_Text: {fileID: 603592882}
-  assistant_Icon: {fileID: 1439582955}
-  log_Panel: {fileID: 1434044126}
-  logEntry_Prefab: {fileID: 4811073375514735703, guid: a6d5018af04386847b7d679c85fd172f,
-    type: 3}
-  animCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.12447928
-      outSlope: 0.12447928
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.6379372
-    - serializedVersion: 3
-      time: 0.2926309
-      value: 0.047886647
-      inSlope: 0.90625435
-      outSlope: 0.90625435
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5666842
-      outWeight: 0.19739328
-    - serializedVersion: 3
-      time: 0.7472011
-      value: 0.9831918
-      inSlope: 0.37318927
-      outSlope: 0.37318927
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.22856079
-      outWeight: 0.4896972
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.06468074
-      outSlope: 0.06468074
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.5820639
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  logEntryAmount: 20
-  animDuration: 0.7
 --- !u!114 &1231494665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,6 +1460,7 @@ MonoBehaviour:
   entryMarkup_Color: {r: 0.1966002, g: 0.4598363, b: 0.8867924, a: 1}
   entryText_Color: {r: 1, g: 1, b: 1, a: 1}
   lockedMarkup_Color: {r: 0.6792453, g: 0.0032039948, b: 0.0032039948, a: 1}
+  bootLaunch: 0
   textFieldAmount: 70
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}
@@ -1656,6 +1589,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231494669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231494661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7cc61117d7e9a4596dc6b7ffc8941d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newNotification: {fileID: 8300000, guid: e8791c8ecdd2b1946ac6a08cd97c06c1, type: 3}
+  notification: {fileID: 8300000, guid: f2e02d99e7df8b940a58ca703ac40e0d, type: 3}
+  letterPause: 0.07
+  shortPause: 0.07
+  normalPause: 0.3
+  longPause: 0.6
+  assistant_Window: {fileID: 125309323}
+  assistant_Text: {fileID: 603592882}
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0024719238
+      inSlope: -0.000012715027
+      outSlope: -0.000012715027
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.69757485
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.69900143
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  docked: 1
+  assistant_Icon: {fileID: 1439582955}
+  log_Panel: {fileID: 1434044126}
+  logEntry_Prefab: {fileID: 4811073375514735703, guid: a6d5018af04386847b7d679c85fd172f,
+    type: 3}
+  logEntryAmount: 20
+  textAnimPause: 0.07
+  animDuration: 0.7
 --- !u!1 &1366431513
 GameObject:
   m_ObjectHideFlags: 0

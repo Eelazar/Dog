@@ -584,12 +584,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 10
-  m_fontSizeMax: 40
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 0
@@ -5565,7 +5565,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newNotification: {fileID: 8300000, guid: f2e02d99e7df8b940a58ca703ac40e0d, type: 3}
   notification: {fileID: 8300000, guid: e8791c8ecdd2b1946ac6a08cd97c06c1, type: 3}
-  assistant_Object: {fileID: 2047541712}
+  letterPause: 0.02
+  shortPause: 0.02
+  normalPause: 0.3
+  longPause: 0.6
+  assistant_Window: {fileID: 2047541712}
   assistant_Text: {fileID: 265461738}
   animCurve:
     serializedVersion: 2
@@ -5609,6 +5613,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  docked: 0
+  assistant_Icon: {fileID: 1472858841}
+  log_Panel: {fileID: 0}
+  logEntry_Prefab: {fileID: 0}
+  logEntryAmount: 2
+  textAnimPause: 0
   animDuration: 0.7
 --- !u!4 &1657284612
 Transform:

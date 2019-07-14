@@ -343,8 +343,6 @@ public class AssistantDocked : MonoBehaviour
     }
 }
 
-
-
 public class MessageDocked
 {
     public string content;

@@ -144,19 +144,33 @@ public class UIManager : MonoBehaviour
 
     public void LaunchProgram(CommandContext cc)
     {
-        string name = cc.parameters[0].ToString();
-
-        switch (name)
+        if(cc.parameters.Length > 0)
         {
-            case "explorer":
-                StartCoroutine(LaunchExplorer());
-                break;
+            string name = cc.parameters[0].ToString();
 
-            default:
-                break;
+            switch (name)
+            {
+                case "explorer":
+                    StartCoroutine(LaunchExplorer());
+                    break;
+
+                case "veryComplicat3dFil3Nam3.exe":
+                    StartCoroutine(AnimateStart());
+                    break;
+
+                default:
+                    assistant.QueueMessage(new Message("I couldn't find a program under that name", 0F, 3F, true));
+                    break;
+            }
         }
+        else
+        {
+            assistant.QueueMessage(new Message("What do you want to open?", 0F, 3F, true));
+        }
+        
     }
 
+    #region LaunchMethods
     IEnumerator LaunchFakeOS()
     {
         //Initialize Lerp
@@ -357,6 +371,7 @@ public class UIManager : MonoBehaviour
 
         yield return null;
     }
+    #endregion LaunchMethods
 
     public void DialogueShortcut(int i)
     {
