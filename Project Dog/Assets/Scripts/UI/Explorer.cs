@@ -295,6 +295,8 @@ public class Explorer : MonoBehaviour
         nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
         nav.MoveToRoot();
+
+        LaunchUpdate();
     }
 
     #region Commands
