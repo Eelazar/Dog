@@ -58,13 +58,10 @@ public class Player : BaseObject
 
     public CapsuleCollider collider;
 
-    private void Awake()
-    {
-
-    }
-
     public void OnCommandMoveFront(CommandContext context)
     {
+        Debug.Log("OK");
+
         int count = 1;
         if (context.parameters.Length > 0)
             count = (int)context.parameters[0];

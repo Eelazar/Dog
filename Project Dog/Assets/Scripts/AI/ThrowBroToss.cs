@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class ThrowBroToss : MonoBehaviour
 {
+    public AudioSource audio;
+
     public Animator animator;
+
+    public Collider platformCollider;
 
     public List<Rigidbody> rbodies;
 
@@ -24,12 +28,23 @@ public class ThrowBroToss : MonoBehaviour
 
     public void Toss()
     {
+        platformCollider.isTrigger = true;
+
         animator.SetBool("Toss", true);
 
         foreach (Rigidbody rbody in rbodies)
         {
             rbody.AddForce(transform.localToWorldMatrix * tossDirection.normalized * force, ForceMode.Impulse);
         }
+
+        audio.Play();
+
+        Invoke("ResetPlatformCollider", 1.5f);
+    }
+
+    void ResetPlatformCollider()
+    {
+        platformCollider.isTrigger = false;
     }
 
     private void OnDrawGizmos()
