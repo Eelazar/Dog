@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <AdminPC_003 assistant="The contents of this system seem to be encrypted" assistantFlag="false">
+  <AdminPC_003 assistant="The contents of this system seem to be encrypted." assistantFlag="false">
     <login assistant="See the decrypt entry in the help section for more information">
-      <system encrypted="autonomous cloud computing">
-        <logs>
-          <entry1 entry="true"></entry1>
-        </logs>
+      <system_passwords encrypted="autonomous cloud computing">
         <unit_access_passwords locked="1206shepherd">
           <tb_units entry="true">tbaccess1045</tb_units>
         </unit_access_passwords>
-      </system>
+      </system_passwords>
     </login>
+    <exit>
+      <exit_unit entry="true">Type 'exit unit' to close this units content.</exit_unit>
+    </exit>
   </AdminPC_003>
 </Root>

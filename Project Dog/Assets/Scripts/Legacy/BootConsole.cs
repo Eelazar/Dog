@@ -172,11 +172,11 @@ public class BootConsole : MonoBehaviour
                     if (resultString != "")
                     {
                         int amount = int.Parse(resultString);
-                        explorer.NavigateUp(amount);
+                        //explorer.NavigateUp(amount);
                     }
                     else
                     {
-                        explorer.NavigateUp(1);
+                        //explorer.NavigateUp(1);
                     }
                 }
                 else if (rawInput.Contains("decrypt"))

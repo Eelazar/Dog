@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<root assistant="You are now exploring the contents of a TB unit" assistantFlag="false">
-  <tb_001 assistant="To exit the unit type 'exit unit'" assistantFlag="false">
+<root assistant="You are now exploring the contents of a TB unit." assistantFlag="false">
+  <tb_001 assistant="To exit the unit type 'exit unit'." assistantFlag="false">
    <status assistant="" assistantFlag="false">
      <task entry="true">1 currently designated task found: 1) move</task>
      <hostility entry="true">False</hostility>   
@@ -23,7 +23,7 @@
    </access>
    <observe>
      <task>
-       <observe_move entry="true" trigger="unlockmovement" assistant="The node: 'Movement' has been added to your unit control help section" assistantFlag="false">Movement observation successful. Movement capabilities have been added to Fox_Unit_001.</observe_move>
+       <observe_move entry="true" trigger="unlockmovement" assistant="The node: 'Movement' has been added to your unit control help section." assistantFlag="false">Movement observation successful. Movement capabilities have been added to Fox_Unit_001.</observe_move>
      </task>
    </observe>
    <about>

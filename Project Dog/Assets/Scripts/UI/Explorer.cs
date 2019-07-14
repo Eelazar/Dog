@@ -8,8 +8,11 @@ using System.Xml;
 
 public class Explorer : MonoBehaviour
 {
+    //Constants
     private const float lineHeight = 20F;
     private const float charWidth = 11.47F;
+    private const string xmlPath = "Assets\\Scripts\\";
+    private const string xmlFileName = "ExplorerFile.xml";
 
     [SerializeField]
     [Tooltip("The duration between each character being added during the typewriter animation")]
@@ -44,19 +47,21 @@ public class Explorer : MonoBehaviour
     [HideInInspector]
     public Vector2 anchorMax;
 
+    private string currentXMLFileName = "ExplorerFile.xml";
+
     private bool launched;
 
     private List<TMP_Text> encryptedFields;
     private List<TMP_Text> lockedFields;
 
     private UIManager manager;
-    private AssistantDocked assistant;
+    private Assistant assistant;
     private DecryptionSoftware decryptor;
 
     void Start()
     {
         manager = transform.GetComponent<UIManager>();
-        assistant = transform.GetComponent<AssistantDocked>();
+        assistant = transform.GetComponent<Assistant>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
 
         encryptedFields = new List<TMP_Text>();
@@ -78,13 +83,12 @@ public class Explorer : MonoBehaviour
 
         // Open the XML.
         xmlDoc = new XmlDocument();
-        xmlDoc.Load("Assets\\Scripts\\ExplorerFile.xml");
+        //Filename Example: "ExplorerFile.xml"
+        xmlDoc.Load(xmlPath + xmlFileName);
         // Create a navigator to query with XPath.
         nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
         nav.MoveToRoot();
-        ////Move to first Child
-        //nav.MoveToFirstChild();
 
         if (bootLaunch == true)
         {
@@ -278,11 +282,47 @@ public class Explorer : MonoBehaviour
             nav.MoveToParent();
         }
         #endregion Child Node Stuff
-    }    
+    }
 
+    public void SwitchXML(string fileName)
+    {
+        xmlDoc.Save(xmlPath + currentXMLFileName);
+        currentXMLFileName = fileName;
+
+        //Filename Example: "ExplorerFile.xml"
+        xmlDoc.Load(xmlPath + xmlFileName);
+        // Create a navigator to query with XPath.
+        nav = xmlDoc.CreateNavigator();
+        //Initial XPathNavigator to start at the root.
+        nav.MoveToRoot();
+
+        LaunchUpdate();
+    }
+
+    #region Commands
     public void LaunchUpdate()
     {
         StartCoroutine(UpdateData());
+    }
+
+    public void ApplyDecryption(string node)
+    {
+        if (launched)
+        {
+            if (nav.MoveToChild(node, string.Empty) == true)
+            {
+                nav.MoveToAttribute("encrypted", string.Empty);
+                nav.SetValue("decrypted");
+
+                nav.MoveToParent();
+                nav.MoveToAttribute("assistantFlag", string.Empty);
+                nav.SetValue("true");
+
+                nav.MoveToParent();
+                nav.MoveToParent();
+                StartCoroutine(UpdateData());
+            }
+        }
     }
 
     public void DecryptNode()
@@ -313,26 +353,6 @@ public class Explorer : MonoBehaviour
 
                     nav.MoveToNext();
                 }
-            }
-        }
-    }
-
-    public void ApplyDecryption(string node)
-    {
-        if (launched)
-        {
-            if (nav.MoveToChild(node, string.Empty) == true)
-            {
-                nav.MoveToAttribute("encrypted", string.Empty);
-                nav.SetValue("decrypted");
-
-                nav.MoveToParent();
-                nav.MoveToAttribute("assistantFlag", string.Empty);
-                nav.SetValue("true");
-
-                nav.MoveToParent();
-                nav.MoveToParent();
-                StartCoroutine(UpdateData());
             }
         }
     }
@@ -413,8 +433,10 @@ public class Explorer : MonoBehaviour
         }
     }
 
-    public void NavigateUp(int amount)
+    public void NavigateUp(CommandContext cc)
     {
+        int amount = int.Parse(cc.parameters[0].ToString());
+
         if (launched)
         {
             for (int i = 0; i < amount; i++)
@@ -430,6 +452,7 @@ public class Explorer : MonoBehaviour
     {
         xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
     }
+    #endregion Commands
 
     #region Utility
     void GenerateTextFieldArray()

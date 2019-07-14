@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <tb_003 asssitant="unit tb_003 is offline" assitantFlag="false">
+  <tb_003 asssitant="unit tb_003 is offline." assitantFlag="false">
     <status locked="tbaccess4501">
      <task entry="true">0 currently designated tasks found.</task>
      <hostility entry="true">False</hostility>   
