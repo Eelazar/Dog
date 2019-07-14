@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <tb_002 asssitant="unit tb_002 is online" assitantFlag="false">
+  <tb_002 asssitant="unit tb_002 is online." assitantFlag="false">
    <status>
      <task entry="true">1 currently designated task found: 1) move</task>
      <hostility entry="true">False</hostility>   

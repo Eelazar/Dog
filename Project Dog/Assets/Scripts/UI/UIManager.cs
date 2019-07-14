@@ -404,13 +404,13 @@ public class UIManager : MonoBehaviour
                 s = "The new update allows you to type 'open ' followed by a node name to access it.";
                 assistant.QueueMessage(new Message(s, 0, 7F));
 
-                s = "For example, try typing 'open root' to open the Root node";
+                s = "For example, try typing 'open root' to open the Root node.";
                 assistant.QueueMessage(new Message(s, 0, 7F));
 
-                s = "If you want to return to the previous node, type 'move up'";
+                s = "If you want to return to the previous node, type 'return'.";
                 assistant.QueueMessage(new Message(s, 0, 7F));
 
-                s = "That's it for the new update, I'll let you get back to work now";
+                s = "That's it for the new update, I'll let you get back to work now.";
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
                 s = "Just as a reminder: Use 'open ' followed by a node's name, and 'return' to navigate the explorer.";

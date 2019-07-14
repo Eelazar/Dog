@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work" assistantFlag="false">
+  <help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work." assistantFlag="false">
     <unit_control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
       <general>
         <terminals entry="true">Exploring a terminal will display all unit names connected to it and allows the exploring agent to explore these units remotely by providing a bridge.</terminals>
         <unit_name entry="true">A units name is displayed in its explorer file after the root node. A terminal will show you a units name without accessing its content structure.</unit_name>
-        <explore entry="true" assistant="Exploring a unit usually requires the accessing agent to be close by. A bridging unit can circumvent this" assistantFlag="false">Type 'explore unit' followed by a unit name to see it's contents in the file explorer. Type 'explore other' to view the next unit in reach. Some units require a bridging unit to be close by.</explore>
+        <explore entry="true" assistant="Exploring a unit usually requires the accessing agent to be close by. A bridging unit can circumvent this." assistantFlag="false">Type 'explore unit' followed by a unit name to see it's contents in the file explorer. Type 'explore other' to view the next unit in reach. Some units require a bridging unit to be close by.</explore>
         <exit_unit entry="true">Type 'exit unit' to close the current units contents.</exit_unit>
       </general>
-      <movement assistant="Units that allow movement can be steered using movement commands" assistantFlag="false">
+      <movement assistant="Units that allow movement can be steered using movement commands." assistantFlag="false">
         <move_front entry="true">Type 'move front' to move a unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
         <move_right entry="true">Type 'move right' to turn and move a unit to the right. Add a number at the end to let it move further.</move_right>
         <move_left entry="true">Type 'move left' to turn and move a unit to the left. Add a number at the end to let it move further.</move_left>
@@ -24,7 +24,7 @@
         </about>
       </fox_unit_001>
      </unit_control>
-    <S.I.T. assistant="Use the updated S.I.T. watch software to start your work" assistantFlag="false">
+    <S.I.T. assistant="Use the updated S.I.T. watch software to start your work." assistantFlag="false">
       <S.I.T._watch>
         <boot>
          <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software.</boot_S.I.T.>
@@ -35,8 +35,8 @@
         <show_map entry="true">Type 'show map' to display the map currently available to you.</show_map>
       </navigation>
     </S.I.T.>
-    <explorer description="System Explorer Documentation" assistant="In here you'll find all help related to the Explorer" assistantFlag="false">
-      <structure assistant="This node contains help about the structure and design of the explorer" assistantFlag="false">
+    <explorer description="System Explorer Documentation" assistant="In here you'll find all help related to the Explorer." assistantFlag="false">
+      <structure assistant="This node contains help about the structure and design of the explorer." assistantFlag="false">
         <Introduction entry="Guide to the explorer structure">The explorer window consists of multiple nodes, that are organized in a tree hierarchy. The nodes are gathered from the system you are currently accessing. Every node has a different purpose; most are either sub-categories or log entries, but some may have a critical role, especially if you are accessing a foreign entity.</Introduction>
         <Markup entry="Guide to the visual representation">We haven't decided on the markup yet...</Markup>
       </structure>
@@ -48,21 +48,21 @@
       </commands>
     </explorer>
   </help>
-  <schedule assistant="You are viewing the work schedule for today, 07.12.43">
+  <schedule assistant="You are viewing the work schedule for today, 07.12.43.">
     <entry_1 entry="true">Update introduction - Follow the assistants instructions.</entry_1>
     <entry_2 entry="true">Launch the updated S.I.T. watch software.</entry_2>
     <entry_3 entry="true">Familiarize yourself with the new S.I.T. watch user interface.</entry_3>
     <entry_4 entry="true">Use camera 1 and 2 to watch the dump sites processes. Report any malfunctions occuring.</entry_4>
   </schedule>
   <software description="Program Files and Data">
-    <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system" assistantFlag="false">
+    <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system." assistantFlag="false">
       <watch entry="true">The S.I.T. security watch software is used to monitor camera ativity and communicate with malfunctioning units.</watch>
       <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
     <assistant>
       <about entry="">The Smart Assistant assists you with all kinds of tasks you may receive, so that you can focus on being as productive as possible! It has access to your entire system and can take care of menial tasks while teaching you how to best make use of <i>FykeOs</i>. It will auto-collect information to create a helpful documentation personalized for you.</about>
       <troubleshooting>
-        <Status entry="Assistant won't start">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
+        <Status entry="Assistant won't start.">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
         <Behaviour entry="Faulty personality chip">Your Smart Assistant may develop a stronger personality over time, but this should not cause any major productivity loss. Should the Assissant start insulting you however, or cause any emotional grief to you or your coworkers, your workstation is to be returned to the tech department ASAP.</Behaviour>
       </troubleshooting>
     </assistant>
