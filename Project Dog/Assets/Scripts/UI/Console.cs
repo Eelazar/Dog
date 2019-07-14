@@ -60,6 +60,8 @@ public class Console : MonoBehaviour
     //Assistant
     private Assistant assistant;
 
+    private GameObject log_Panel;
+
     ////Other Variables
     //Holder for the text input
     private string rawInput;
@@ -94,6 +96,7 @@ public class Console : MonoBehaviour
 
         //Get some stuff
         window = consolePanel.transform.parent.gameObject;
+        log_Panel = consolePanel.transform.GetChild(0).gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
         manager = transform.GetComponent<UIManager>();
         explorer = transform.GetComponent<Explorer>();
@@ -289,10 +292,22 @@ public class Console : MonoBehaviour
                     else if (nav.Name[0] == '_')
                     {
                         obj.xmlPath.Add(nav.Name);
-                        obj.parameters.Add(obj.commandWords[obj.progressionIndex]);
-                        obj.progressionIndex++;
-                        FindMethod(obj);
-                        return true;
+                        if(obj.commandWords.Length > obj.progressionIndex)
+                        {
+                            if(obj.commandWords[obj.progressionIndex] != null)
+                            {
+                                obj.parameters.Add(obj.commandWords[obj.progressionIndex]);
+                                obj.progressionIndex++;
+                                FindMethod(obj);
+                                return true;
+                            }
+                        }
+                        else if(obj.xmlPath[obj.xmlPath.Count - 1] == "_amount")
+                        {
+                            obj.parameters.Add("1");
+                            FindMethod(obj);
+                            return true;
+                        }
                     }
                     else if (nav.Name == "method")
                     {
@@ -316,7 +331,6 @@ public class Console : MonoBehaviour
             Debug.Log("XML has no child nodes at level: " + nav.Name);
         }
 
-        Debug.Log("MOVE TO PARENT");
 
         nav.MoveToParent();
 
@@ -499,7 +513,7 @@ public class Console : MonoBehaviour
         for (int i = 0; i < textFieldAmount; i++)
         {
             GameObject go = Instantiate<GameObject>(log_Prefab);
-            go.transform.SetParent(consolePanel.transform, false);
+            go.transform.SetParent(log_Panel.transform, false);
             go.name = "Log TextField " + (textFieldAmount - i);
             go.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
             log_TextFields[textFieldAmount - (i + 1)] = go.GetComponent<TMP_Text>();

@@ -17,7 +17,9 @@
     </launch>
 
     <return synonyms="return">
-      <method>MoveUp</method>
+      <_amount>
+        <method>NavigateUp</method>
+      </_amount>      
     </return>
 
     <save synonyms="save">

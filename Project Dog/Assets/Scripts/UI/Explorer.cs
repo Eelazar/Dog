@@ -433,8 +433,10 @@ public class Explorer : MonoBehaviour
         }
     }
 
-    public void NavigateUp(int amount)
+    public void NavigateUp(CommandContext cc)
     {
+        int amount = int.Parse(cc.parameters[0].ToString());
+
         if (launched)
         {
             for (int i = 0; i < amount; i++)
