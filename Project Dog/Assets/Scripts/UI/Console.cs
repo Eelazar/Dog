@@ -262,6 +262,21 @@ public class Console : MonoBehaviour
                                 obj.objectName = "";
                             }
                         }
+                        if (name.Equals("player"))
+                        {
+                            obj.objectName = "player";
+
+                            obj.xmlPath.Add(nav.Name);
+                            if (FindMethod(obj))
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                obj.xmlPath.Remove(nav.Name);
+                                obj.objectName = "";
+                            }
+                        }
 
                         if (obj.commandWords[obj.progressionIndex].StartsWith(name))
                         {
