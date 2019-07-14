@@ -17,6 +17,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: trash
       objectReference: {fileID: 0}
+    - target: {fileID: 2410952504934492213, guid: 9edb64de051f7744f9268a4d028d4611,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2410952504934492213, guid: 9edb64de051f7744f9268a4d028d4611,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7549327349812535447, guid: 9edb64de051f7744f9268a4d028d4611,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,14 +97,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.8
       objectReference: {fileID: 0}
-    - target: {fileID: 2410952504934492213, guid: 9edb64de051f7744f9268a4d028d4611,
+    - target: {fileID: 3750948956990965317, guid: 9edb64de051f7744f9268a4d028d4611,
         type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2410952504934492213, guid: 9edb64de051f7744f9268a4d028d4611,
-        type: 3}
-      propertyPath: m_Constraints
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

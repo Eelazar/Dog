@@ -27,8 +27,6 @@ public class CameraObject : BaseObject
 
     public void SetState(bool state)
     {
-        Debug.Log(state);
-
         camera.SetActive(state);
     }
 }

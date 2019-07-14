@@ -6,9 +6,20 @@ public class PlayerAnimation : MonoBehaviour
 {
     public Animator animator;
 
+    public AudioSource audio;
+
+    bool idle;
+
     public void SetIdle(bool value)
     {
         animator.SetBool("Idle", value);
+
+        if (!value && value != idle)
+            audio.Play();
+        else if (value && value != idle)
+            audio.Stop();
+
+        idle = value;
     }
 
     public void SetLeft(bool value)

@@ -46,23 +46,25 @@
     </default>
   </open>
 
-  <move synonyms="move walk go">
-    <forward synonyms="forward front up north">
-      <method>MoveForward</method>
-    </forward>
-    <back synonyms="back backwards behind south">
-      <method>MoveBack</method>
-    </back>
-    <left synonyms="left west">
-      <method>MoveLeft</method>
-    </left>
-    <right synonyms="right east">
-      <method>MoveRight</method>
-    </right>
-    <default>
-      <debug assistant="2">Where do you want to go?</debug>
-    </default>
-  </move>
+  <player name="player">
+    <move synonyms="move walk go">
+      <forward synonyms="forward front up north">
+        <method>OnCommandMoveFront</method>
+      </forward>
+      <back synonyms="back backwards behind south">
+        <method>OnCommandMoveBack</method>
+      </back>
+      <left synonyms="left west">
+        <method>OnCommandMoveLeft</method>
+      </left>
+      <right synonyms="right east">
+        <method>OnCommandMoveRight</method>
+      </right>
+      <default>
+        <debug assistant="2">Where do you want to go?</debug>
+      </default>
+    </move>
+  </player>
 
   <throwbro name="throwbro">
     <toss synonyms="toss">
@@ -72,5 +74,5 @@
       <debug assistant="2">Where do you want to go?</debug>
     </default>
   </throwbro>
-  
+
 </root>
