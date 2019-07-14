@@ -381,7 +381,7 @@ public class BootManager : MonoBehaviour
                 s = "That's it for the new update, I'll let you get back to work now";
                 assistant.QueueMessage(new Message(s, 0, 4F));
 
-                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'move up' to navigate the explorer.";
+                s = "Just as a reminder: Use 'open ' followed by a node's name, and 'return' to navigate the explorer.";
                 assistant.QueueMessage(new Message(s, 0, 60F, false, true));
 
                 break;
