@@ -3844,7 +3844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343433927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -5803,6 +5803,7 @@ MonoBehaviour:
   entryMarkup_Color: {r: 0.1966002, g: 0.4598363, b: 0.8867924, a: 1}
   entryText_Color: {r: 1, g: 1, b: 1, a: 1}
   lockedMarkup_Color: {r: 0.6792453, g: 0.0032039948, b: 0.0032039948, a: 1}
+  bootLaunch: 1
   textFieldAmount: 70
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}

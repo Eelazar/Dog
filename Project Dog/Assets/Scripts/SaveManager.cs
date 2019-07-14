@@ -22,9 +22,7 @@ public class SaveManager : MonoBehaviour
         xmlDoc.Load("Assets\\Scripts\\SaveFile.xml");
         // Create a navigator to query with XPath.
         nav = xmlDoc.CreateNavigator();
-        //Initial XPathNavigator to start in the root.
-        nav.MoveToRoot();
-        nav.MoveToFirstChild();
+        
     }
 
     void Update()
@@ -43,6 +41,10 @@ public class SaveManager : MonoBehaviour
 
     private void Save()
     {
+        //Initial XPathNavigator to start in the root.
+        nav.MoveToRoot();
+        nav.MoveToFirstChild();
+
         nav.MoveToFirstChild();
         nav.SetValue("" + currentSave);
 
@@ -66,5 +68,7 @@ public class SaveManager : MonoBehaviour
 
         nav.MoveToChild("level", string.Empty);
         nav.SetValue(currentScene);
+
+        xmlDoc.Save("Assets\\Scripts\\SaveFile.xml");
     }
 }

@@ -98,7 +98,7 @@ public class BootManager : MonoBehaviour
 
     private Assistant assistant;
     private BootConsole console;
-    private BootExplorer explorer;
+    private Explorer explorer;
     private DecryptionSoftware decryptor;
 
     private TMP_InputField login_Input;
@@ -112,7 +112,7 @@ public class BootManager : MonoBehaviour
 
         assistant = transform.GetComponent<Assistant>();
         console = transform.GetComponent<BootConsole>();
-        explorer = transform.GetComponent<BootExplorer>();
+        explorer = transform.GetComponent<Explorer>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
 
         loadingEye.SetActive(false);
@@ -122,6 +122,9 @@ public class BootManager : MonoBehaviour
         login_Panel.SetActive(true);
         loginAnimLogo.SetActive(false);
         login_Input.ActivateInputField();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

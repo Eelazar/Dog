@@ -49,7 +49,7 @@ public class BootConsole : MonoBehaviour
     //Manager
     private BootManager manager;
     //Explorer
-    private BootExplorer explorer;
+    private Explorer explorer;
     //Assistant
     private Assistant assistant;
 
@@ -87,7 +87,7 @@ public class BootConsole : MonoBehaviour
         window = consolePanel.transform.parent.gameObject;
         keySource = gameObject.GetComponent<AudioSource>();
         manager = transform.GetComponent<BootManager>();
-        explorer = transform.GetComponent<BootExplorer>();
+        explorer = transform.GetComponent<Explorer>();
         assistant = transform.GetComponent<Assistant>();
 
         GenerateTextFieldArray();

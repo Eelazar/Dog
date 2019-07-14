@@ -6,7 +6,7 @@ using TMPro;
 using System.Xml.XPath;
 using System.Xml;
 
-public class BootExplorer : MonoBehaviour
+public class Explorer : MonoBehaviour
 {
     private const float lineHeight = 20F;
     private const float charWidth = 11.47F;
@@ -23,6 +23,8 @@ public class BootExplorer : MonoBehaviour
     public Color entryMarkup_Color;
     public Color entryText_Color;
     public Color lockedMarkup_Color;
+
+    public bool bootLaunch;
 
     public int textFieldAmount;
 
@@ -84,10 +86,15 @@ public class BootExplorer : MonoBehaviour
         ////Move to first Child
         //nav.MoveToFirstChild();
 
-        //explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
-        //explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
-
-        StartCoroutine(UpdateData());
+        if (bootLaunch == true)
+        {
+            explorerWindow.GetComponent<RectTransform>().anchorMin = new Vector2(0.11F, 0.05F);
+            explorerWindow.GetComponent<RectTransform>().anchorMax = new Vector2(0.11F, 0.05F);
+        }
+        else
+        {
+            StartCoroutine(UpdateData());
+        }
     }
 
     void Update()
