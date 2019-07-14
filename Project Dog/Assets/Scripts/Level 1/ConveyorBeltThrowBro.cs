@@ -48,6 +48,6 @@ public class ConveyorBeltThrowBro : MonoBehaviour
     {
         t += Time.deltaTime * speed;
 
-        transform.position = Vector3.Lerp(fromPos, toPos, t);
+        transform.localPosition = Vector3.Lerp(fromPos, toPos, t);
     }
 }
