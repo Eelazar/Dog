@@ -524,19 +524,23 @@ public class Explorer : MonoBehaviour
         }
     }
 
-    private IEnumerator AnimateText(TMP_Text ui, string s)
+    IEnumerator AnimateText(TMP_Text ui, string s)
     {
-        //Add text one character at a time to create a typewriter effect
+        var wait = new WaitForSeconds(textSpeed);
 
-        ui.text = "";
+        ui.text = s;
+        ui.maxVisibleCharacters = 0;
 
-        foreach (char c in s)
+        yield return new WaitForEndOfFrame();
+
+        int i = 0;
+        char[] charArray = s.ToCharArray();
+        while (i < charArray.Length)
         {
-            ui.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            ui.maxVisibleCharacters = i + 1;
+            i++;
+            yield return wait;
         }
-
-        yield return null;
     }
 
     public void AnimateEncryptedNode()

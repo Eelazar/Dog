@@ -132,11 +132,7 @@ public class UIManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Return) && login_Input.text != "" && login == false)
         {
             login = true;
-
-            PlayerPrefs.SetString("Username", login_Input.text);
-
-            
-
+            PlayerPrefs.SetString("Username", login_Input.text);  
             StartCoroutine(LaunchFakeOS());
         }
     }
@@ -381,40 +377,43 @@ public class UIManager : MonoBehaviour
         {
             case 1:
                 s = "Welcome back " + PlayerPrefs.GetString("Username", "UNKNOWN") + ", how are you today?";
-                assistant.QueueMessage(new Message(s, 0, 5F, true));
+                assistant.QueueMessage(new Message(s, 0, 1.5F, true));
 
-                s = "I'm Neptune, your personal assistant, here to help whenever you need me, as usual.";
-                assistant.QueueMessage(new Message(s, 0, 5F));
+                s = "I'm Neptune, your personal assistant, and I've been installed on your PC to help you achieve more.";
+                assistant.QueueMessage(new Message(s, 0, 2F));
 
-                s = "A new software update has been deployed while you were absent.";
-                assistant.QueueMessage(new Message(s, 0, 4F));
+                s = "A new software update has also been deployed while you were absent.";
+                assistant.QueueMessage(new Message(s, 0, 1.5F));
 
                 s = "Update v1.0.4 has improved the security and wireless access protocols.";
-                assistant.QueueMessage(new Message(s, 0, 6F));
+                assistant.QueueMessage(new Message(s, 0, 1.5F));
 
                 s = "Try typing 'launch explorer' in the console to see available information and get started on your daily tasks.";
-                assistant.QueueMessage(new Message(s, 0, 60F, false, true));
+                assistant.QueueMessage(new Message(s, 0, 2F, false, true));
 
                 break;
 
             case 2:
                 s = "Well done! This is your new content explorer.";
-                assistant.QueueMessage(new Message(s, 0, 4F, true, false, true));
+                assistant.QueueMessage(new Message(s, 0, 2F, true));
 
-                s = "The new update allows you to type 'open ' followed by a node name to access it.";
-                assistant.QueueMessage(new Message(s, 0, 7F));
+                s = "It contains every data node currently available to you";
+                assistant.QueueMessage(new Message(s, 0, 1.5F));
+
+                s = "Update v.1.0.4. allows you to type 'open ' followed by a node name to access it.";
+                assistant.QueueMessage(new Message(s, 0, 2F));
 
                 s = "For example, try typing 'open root' to open the Root node.";
-                assistant.QueueMessage(new Message(s, 0, 7F));
+                assistant.QueueMessage(new Message(s, 0, 2F));
 
-                s = "If you want to return to the previous node, type 'return'.";
-                assistant.QueueMessage(new Message(s, 0, 7F));
+                s = "If you wish to return to the previous node, type 'return'.";
+                assistant.QueueMessage(new Message(s, 0, 2F));
 
-                s = "That's it for the new update, I'll let you get back to work now.";
-                assistant.QueueMessage(new Message(s, 0, 4F));
+                s = "Why don't you get acquainted with the explorer for a while? I'll assist you wherever I can.";
+                assistant.QueueMessage(new Message(s, 0, 2F));
 
                 s = "Just as a reminder: Use 'open ' followed by a node's name, and 'return' to navigate the explorer.";
-                assistant.QueueMessage(new Message(s, 0, 60F, false, true));
+                assistant.QueueMessage(new Message(s, 0, 2F, false, true));
 
                 break;
 

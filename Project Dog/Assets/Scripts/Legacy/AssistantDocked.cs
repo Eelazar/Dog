@@ -126,30 +126,30 @@ public class AssistantDocked : MonoBehaviour
     {
         if(messageQueue.Count > 0)
         {
-            if (!inUse)
-            {
-                Message m = messageQueue.Dequeue();
-                currentMessage = m;
-                messageLog.Add(m);
+            //if (!inUse)
+            //{
+            //    Message m = messageQueue.Dequeue();
+            //    currentMessage = m;
+            //    messageLog.Add(m);
 
-                if (m.newNotification == true)
-                {
-                    notificationSource.clip = newNotification;
-                }
-                else
-                {
-                    notificationSource.clip = notification;
-                }
-                StartCoroutine(DisplayMessage(m.content, m.startDelay));
-                StartCoroutine(HideMessage(m.startDelay + m.duration));
-            }
-            else
-            {
-                if(currentMessage.weak == true)
-                {
-                    ClearQueue();
-                }
-            }
+            //    if (m.newNotification == true)
+            //    {
+            //        notificationSource.clip = newNotification;
+            //    }
+            //    else
+            //    {
+            //        notificationSource.clip = notification;
+            //    }
+            //    StartCoroutine(DisplayMessage(m.content, m.startDelay));
+            //    StartCoroutine(HideMessage(m.startDelay + m.duration));
+            //}
+            //else
+            //{
+            //    if(currentMessage.weak == true)
+            //    {
+            //        ClearQueue();
+            //    }
+            //}
         }
     }
 

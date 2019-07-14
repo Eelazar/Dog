@@ -52,13 +52,15 @@ public class Assistant : MonoBehaviour
     private UIManager manager;
 
     private bool inUse;
+    private bool writing;
+
     private Queue<Message> messageQueue;
     private Message currentMessage;
     public List<Message> messageLog;
 
     private AudioSource notificationSource;
 
-    private char[] shortCharList = { '-', '"', '(', ')', '\'', ' ' };
+    private char[] shortCharList = { '-', '"', '(', ')', '\'', };
     private char[] normalCharList = { ',', ':', ';' };
     private char[] longCharList = { '.', '!', '?' };
 
@@ -114,10 +116,16 @@ public class Assistant : MonoBehaviour
                 tmp.gameObject.SetActive(false);
             }
 
-            Message test = new Message("Hi there! I'm Neptune, still your assistant, only difference is that I'm in here now...", 2F, 10F, true);
+            Message test = new Message("Hi there! I hope you don't mind that I've taken the liberty to integrate myself into the program.", 2F, 2F, true);
             QueueMessage(test);
-            Message test2 = new Message("As you can see I have started to log my messages so you can review anything you missed.", 1F, 10F);
+            Message test2 = new Message("As you can see I have also started to log my messages, so you can review anything you missed.", 0F, 2F);
             QueueMessage(test2);
+            Message test3 = new Message("This is the main security terminal.", 0F, 2);
+            QueueMessage(test3);
+            Message test4 = new Message("The top right corner of the screen displays the factory's surveillance system.", 0F, 2);
+            QueueMessage(test4);
+            Message test5 = new Message("Try typing 'view cam1' to launch the camera.", 0F, 2);
+            QueueMessage(test5);
         }        
     }
 
@@ -150,6 +158,8 @@ public class Assistant : MonoBehaviour
                 Message m = messageQueue.Dequeue();
                 currentMessage = m;
                 messageLog.Add(m);
+
+                //Play appropriate notification sound
                 if (m.newNotification == true)
                 {
                     notificationSource.clip = newNotification;
@@ -159,27 +169,30 @@ public class Assistant : MonoBehaviour
                     notificationSource.clip = notification;
                 }
 
+                //Play appropriate notification
                 if (docked)
                 {
-                    StartCoroutine(DisplayDockedMessage(m.content, m.startDelay));
-                    StartCoroutine(HideDockedMessage(m.startDelay + m.duration));
+                    StartCoroutine(DisplayDockedMessage(m.content, m.startDelay, m.endDelay, m.stay));
                 }
                 else if (!docked)
                 {
-                    StartCoroutine(DisplayMessage(m.content, m.startDelay));
-                    StartCoroutine(HideMessage(m.startDelay + m.duration));
+                    StartCoroutine(DisplayMessage(m.content, m.startDelay, m.endDelay, m.stay));
                 }                
             }
             else
             {
-                if(currentMessage.weak == true)
+                if(currentMessage.stay == true && writing == false)
                 {
-                    StopCoroutine("DisplayMessage");
-                    StopCoroutine("HideMessage");
-                    StopCoroutine("DisplayDockedMessage");
-                    StopCoroutine("HideDockedMessage");
-
-                    inUse = false;
+                    if (docked)
+                    {
+                        StartCoroutine(HideDockedMessage());
+                        writing = true;
+                    }                        
+                    else
+                    {
+                        StartCoroutine(HideMessage());
+                        writing = true;
+                    }
                 }
             }
         }
@@ -214,9 +227,13 @@ public class Assistant : MonoBehaviour
     }
 
     #region Animations
-    public IEnumerator DisplayMessage(string s, float startDelay)
+    public IEnumerator DisplayMessage(string s, float startDelay, float endDelay, bool stay)
     {
+        assistant_Text.text = s;
+        assistant_Text.maxVisibleCharacters = 0;
+
         inUse = true;
+        writing = true;
 
         yield return new WaitForSeconds(startDelay);
 
@@ -235,39 +252,53 @@ public class Assistant : MonoBehaviour
             yield return null;
         }
 
+        var letterWait = new WaitForSeconds(letterPause);
+        var shortWait = new WaitForSeconds(shortPause);
+        var normalWait = new WaitForSeconds(normalPause);
+        var longWait = new WaitForSeconds(longPause);
+
         int i = 0;
         char[] charArray = s.ToCharArray();
         while (i < charArray.Length)
         {
-            assistant_Text.text += charArray[i];
+            assistant_Text.maxVisibleCharacters = i + 1;
 
             if (char.IsLetterOrDigit(charArray[i]))
             {
-                yield return new WaitForSeconds(letterPause);
+                yield return letterWait;
             }
             else if (Array.Exists(shortCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(shortPause);
+                yield return shortWait;
             }
             else if (Array.Exists(normalCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(normalPause);
+                yield return normalWait;
             }
             else if (Array.Exists(longCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(longPause);
+                yield return longWait;
             }
             else
             {
-                Debug.Log("Char: " + charArray[i] + " could not be matched to a list");
+                yield return letterWait;
             }
 
             i++;
+        }
 
+        if (!stay)
+        {
+            StartCoroutine(HideMessage(endDelay));
+        }
+        else
+        {
+            yield return new WaitForSeconds(endDelay);
+            writing = false;
         }
     }
 
-    public IEnumerator HideMessage(float startDelay)
+    public IEnumerator HideMessage(float startDelay = 0)
     {
         yield return new WaitForSeconds(startDelay);
 
@@ -277,9 +308,10 @@ public class Assistant : MonoBehaviour
         while (t < 1)
         {
             t = (Time.time - start) / animDuration;
+            float tE = animCurve.Evaluate(t);
 
-            assistant_Rect.anchorMin = Vector2.LerpUnclamped(shownPosMin, hiddenPosMin, animCurve.Evaluate(t));
-            assistant_Rect.anchorMax = Vector2.LerpUnclamped(shownPosMax, hiddenPosMax, animCurve.Evaluate(t));
+            assistant_Rect.anchorMin = Vector2.LerpUnclamped(shownPosMin, hiddenPosMin, tE);
+            assistant_Rect.anchorMax = Vector2.LerpUnclamped(shownPosMax, hiddenPosMax, tE);
 
             yield return null;
         }
@@ -289,9 +321,13 @@ public class Assistant : MonoBehaviour
         inUse = false;
     }
 
-    public IEnumerator DisplayDockedMessage(string s, float startDelay)
+    public IEnumerator DisplayDockedMessage(string s, float startDelay, float endDelay, bool stay)
     {
+        assistant_Text.text = s;
+        assistant_Text.maxVisibleCharacters = 0;
+
         inUse = true;
+        writing = true;
 
         yield return new WaitForSeconds(startDelay);
 
@@ -311,39 +347,54 @@ public class Assistant : MonoBehaviour
             yield return null;
         }
 
+        var letterWait = new WaitForSeconds(letterPause);
+        var shortWait = new WaitForSeconds(shortPause);
+        var normalWait = new WaitForSeconds(normalPause);
+        var longWait = new WaitForSeconds(longPause);
+
         int i = 0;
         char[] charArray = s.ToCharArray();
         while (i < charArray.Length)
         {
-            assistant_Text.text += charArray[i];
+            assistant_Text.maxVisibleCharacters = i + 1;
 
             if (char.IsLetterOrDigit(charArray[i]))
             {
-                yield return new WaitForSeconds(letterPause);
+                yield return letterWait;
             }
             else if (Array.Exists(shortCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(shortPause);
+                yield return shortWait;
             }
             else if (Array.Exists(normalCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(normalPause);
+                yield return normalWait;
             }
             else if (Array.Exists(longCharList, element => element == charArray[i]))
             {
-                yield return new WaitForSeconds(longPause);
+                yield return longWait;
             }
             else
             {
-                Debug.Log("Char: " + charArray[i] + " could not be matched to a list");
+                yield return letterWait;
             }
 
             i++;
 
         }
+        
+        if (!stay)
+        {
+            StartCoroutine(HideDockedMessage(endDelay));
+        }
+        else
+        {
+            yield return new WaitForSeconds(endDelay);
+            writing = false;
+        }
     }
 
-    public IEnumerator HideDockedMessage(float startDelay)
+    public IEnumerator HideDockedMessage(float startDelay = 0)
     {
         yield return new WaitForSeconds(startDelay);
 
@@ -452,16 +503,21 @@ public class Assistant : MonoBehaviour
 
     IEnumerator AnimateText(TMP_Text ui, string s)
     {
-        ui.text = "";
+        var wait = new WaitForSeconds(textAnimPause);
 
-        //Add a new character every X seconds for a typewriter effect
-        foreach (char c in s)
+        ui.text = s;
+        ui.maxVisibleCharacters = 0;
+
+        yield return new WaitForEndOfFrame();
+
+        int i = 0;
+        char[] charArray = s.ToCharArray();
+        while (i < charArray.Length)
         {
-            ui.text += c;
-            yield return new WaitForSeconds(textAnimPause);
+            ui.maxVisibleCharacters = i + 1;
+            i++;
+            yield return wait;
         }
-
-        yield return null;
     }
     #endregion Utility
 }
@@ -470,19 +526,19 @@ public class Message
 {
     public string content;
     public float startDelay;
-    public float duration;
+    public float endDelay;
 
     public bool newNotification;
-    public bool weak;
+    public bool stay;
     public bool priority;
 
-    public Message(string _content, float _startDelay, float _duration, bool _newNotification = false, bool _weak = false, bool _priority = false)
+    public Message(string _content, float _startDelay = 0, float _endDelay = 0, bool _newNotification = false, bool _stay = false, bool _priority = false)
     {
         content = _content;
         startDelay = _startDelay;
-        duration = _duration;
+        endDelay = _endDelay;
 
-        weak = _weak;
+        stay = _stay;
         priority = _priority;
         newNotification = _newNotification;
     }

@@ -511,16 +511,21 @@ public class Console : MonoBehaviour
 
     IEnumerator AnimateText(TMP_Text ui, string s)
     {
-        ui.text = "";
+        var wait = new WaitForSeconds(textSpeed);
 
-        //Add a new character every X seconds for a typewriter effect
-        foreach (char c in s)
+        ui.text = s;
+        ui.maxVisibleCharacters = 0;
+
+        yield return new WaitForEndOfFrame();
+
+        int i = 0;
+        char[] charArray = s.ToCharArray();
+        while (i < charArray.Length)
         {
-            ui.text += c;
-            yield return new WaitForSeconds(textSpeed);
+            ui.maxVisibleCharacters = i + 1;
+            i++;
+            yield return wait;
         }
-
-        yield return null;
     }
 
     void GenerateTextFieldArray()

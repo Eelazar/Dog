@@ -5651,9 +5651,9 @@ MonoBehaviour:
   newNotification: {fileID: 8300000, guid: f2e02d99e7df8b940a58ca703ac40e0d, type: 3}
   notification: {fileID: 8300000, guid: e8791c8ecdd2b1946ac6a08cd97c06c1, type: 3}
   letterPause: 0.02
-  shortPause: 0.02
-  normalPause: 0.3
-  longPause: 0.6
+  shortPause: 0.05
+  normalPause: 0.5
+  longPause: 0.9
   assistant_Window: {fileID: 2047541712}
   assistant_Text: {fileID: 265461738}
   animCurve:
