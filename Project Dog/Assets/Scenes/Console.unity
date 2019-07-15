@@ -1185,15 +1185,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006741787}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c970e3b4118242438e7a62715adb530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scenesToLoad:
   - Dump
-  - Level 1
-  - Stealth Section
 --- !u!4 &1006741789
 Transform:
   m_ObjectHideFlags: 0
@@ -1664,9 +1662,9 @@ MonoBehaviour:
   normalPause: 0.5
   longPause: 0.9
   assistant_Window: {fileID: 125309323}
-  assistant_Text_Red: {fileID: 0}
-  assistant_Text_Blue: {fileID: 0}
-  assistant_Text_White: {fileID: 0}
+  assistant_Text_Red: {fileID: 7313256280349614005}
+  assistant_Text_Blue: {fileID: 7313256279612791637}
+  assistant_Text_White: {fileID: 7313256279117667861}
   animCurve:
     serializedVersion: 2
     m_Curve:

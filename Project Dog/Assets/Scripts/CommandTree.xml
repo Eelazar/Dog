@@ -39,8 +39,8 @@
     </refresh>
   </os>
 
-  <open synonyms="view, show">
-    <camera name="Cam">
+  <open synonyms="view show">
+    <camera name="cam">
       <method>OnCommandActivate</method>
     </camera>
     <default>

@@ -54,7 +54,7 @@ public class TempManager : MonoBehaviour
                 break;
 
             case 2:
-                m = new Message("Hmm, strange...", 0F, 0.5F, true);
+                m = new Message("Hmm, strange...", 0F, 0.5F, true, false, true);
                 assistant.QueueMessage(m);
 
                 m = new Message("I'm picking up an unknown entity in this room.", 0F, 1F);
