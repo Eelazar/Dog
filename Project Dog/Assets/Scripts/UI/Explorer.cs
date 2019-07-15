@@ -55,6 +55,7 @@ public class Explorer : MonoBehaviour
     public Color entryMarkup_Color;
     public Color entryText_Color;
     public Color lockedMarkup_Color;
+    public Color triggerMarkup_Color;
 
     public bool bootLaunch;
 
@@ -96,6 +97,7 @@ public class Explorer : MonoBehaviour
 
     void Start()
     {
+        currentXmlObj = "system";
         streamingPath = Path.Combine(Application.streamingAssetsPath, "XML\\");
         current = this;
 
@@ -131,7 +133,7 @@ public class Explorer : MonoBehaviour
         // Create a navigator to query with XPath.
         nav = tempXMLDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
-        nav.MoveToRoot();        
+        nav.MoveToRoot();
 
         if (bootLaunch == true)
         {
@@ -301,6 +303,11 @@ public class Explorer : MonoBehaviour
                     //Add the node to the array
                     lockedFields.Add(node_TextFields[i + 2]);
                 }
+                else if (nav.GetAttribute("trigger", string.Empty) != "")
+                {
+                    //Display the child node name with entry description
+                    StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(triggerMarkup_Color, "<" + nav.Name + ">")));
+                }
                 //Check if the child node is an entry
                 else if (nav.GetAttribute("entry", string.Empty) != "")
                 {
@@ -333,6 +340,14 @@ public class Explorer : MonoBehaviour
             nav.MoveToParent();
         }
         #endregion Child Node Stuff
+    }
+
+    /// <summary>
+    /// /TTTTTTTTTEEEEEEEEEEEEEEESSSSSSSSSSSSSTTTTTTTTTTTTTTT
+    /// </summary>
+    public void DebugThisShit()
+    {
+        Debug.Log("YEET");
     }
 
     public void SwitchXML(string fileName, string objName)
@@ -460,6 +475,20 @@ public class Explorer : MonoBehaviour
         string node = cc.parameters[0].ToString();
         string password = cc.parameters[1].ToString();
 
+        if (string.IsNullOrEmpty(node))
+        {
+            Debug.Log("Node is null");
+            string text = "Which node are you trying to unlock?";
+            Message m = new Message(text, 0, 1, true);
+            assistant.QueueMessage(m);
+        }
+        if (password == null || password == "")
+        {
+            string text = "You need a password to unlock this node";
+            Message m = new Message(text, 0, 1, true);
+            assistant.QueueMessage(m);
+        }
+
         nav.MoveToChild(node, string.Empty);
 
         if (nav.HasAttributes)
@@ -521,11 +550,11 @@ public class Explorer : MonoBehaviour
                         switch (flag)
                         {
                             case "always":
-                                m = new Message(text, 0, 4, true);
+                                m = new Message(text, 0, 1, true);
                                 assistant.QueueMessage(m);
                                 break;
                             case "false":
-                                m = new Message(text, 0, 4, true);
+                                m = new Message(text, 0, 1, true);
                                 assistant.QueueMessage(m);
                                 nav.SetValue("true");
                                 break;
@@ -541,12 +570,27 @@ public class Explorer : MonoBehaviour
 
                     if (nav.GetAttribute("locked", string.Empty) != "" && nav.GetAttribute("locked", string.Empty) != "false")
                     {
+                        string text = "This node is locked, find the password to unlock it";
+                        Message m = new Message(text, 0, 1, true);
+                        assistant.QueueMessage(m);
                         nav.MoveToParent();
                         return;
                     }
 
                     if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
                     {
+                        string text = "This node is encrypted, decrypt to reveal it.";
+                        Message m = new Message(text, 0, 1, true);
+                        assistant.QueueMessage(m);
+                        nav.MoveToParent();
+                        return;
+                    }
+
+                    if (nav.GetAttribute("trigger", string.Empty) != "")
+                    {
+                        string text = "This node is a trigger, you cannot open it.";
+                        Message m = new Message(text, 0, 1, true);
+                        assistant.QueueMessage(m);
                         nav.MoveToParent();
                         return;
                     }

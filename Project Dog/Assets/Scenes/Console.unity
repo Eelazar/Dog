@@ -1516,10 +1516,12 @@ MonoBehaviour:
   entryMarkup_Color: {r: 0.1966002, g: 0.4598363, b: 0.8867924, a: 1}
   entryText_Color: {r: 1, g: 1, b: 1, a: 1}
   lockedMarkup_Color: {r: 0.6792453, g: 0.0032039948, b: 0.0032039948, a: 1}
+  triggerMarkup_Color: {r: 0.020834513, g: 0.7264151, b: 0, a: 1}
   bootLaunch: 0
   textFieldAmount: 70
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}
+  currentXmlObj: 
 --- !u!114 &1231494666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1532,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151879febba97aa47bd0da2e83e09e85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xmlPath: 
   definedName: system
 --- !u!82 &1231494667
 AudioSource:
