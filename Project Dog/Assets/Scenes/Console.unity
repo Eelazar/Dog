@@ -694,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &603592881
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1659,12 +1659,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newNotification: {fileID: 8300000, guid: e8791c8ecdd2b1946ac6a08cd97c06c1, type: 3}
   notification: {fileID: 8300000, guid: f2e02d99e7df8b940a58ca703ac40e0d, type: 3}
-  letterPause: 0.07
-  shortPause: 0.07
-  normalPause: 0.3
-  longPause: 0.6
+  letterPause: 0.02
+  shortPause: 0.05
+  normalPause: 0.5
+  longPause: 0.9
   assistant_Window: {fileID: 125309323}
-  assistant_Text: {fileID: 603592882}
+  assistant_Text_Red: {fileID: 0}
+  assistant_Text_Blue: {fileID: 0}
+  assistant_Text_White: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:

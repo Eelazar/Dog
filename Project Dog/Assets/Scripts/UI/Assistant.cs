@@ -22,7 +22,9 @@ public class Assistant : MonoBehaviour
 
 
     public GameObject assistant_Window;
-    public TMP_Text assistant_Text;
+    public TMP_Text assistant_Text_Red;
+    public TMP_Text assistant_Text_Blue;
+    public TMP_Text assistant_Text_White;
     public AnimationCurve animCurve;
 
     #region Docked Mode
@@ -70,7 +72,7 @@ public class Assistant : MonoBehaviour
     private TMP_Text[] log_TextFields;
     #endregion PrivateVariables
 
-    void Start()
+    void Awake()
     {
         assistant_Rect = assistant_Window.GetComponent<RectTransform>();
         //manager = transform.GetComponent<UIManager>();
@@ -102,7 +104,9 @@ public class Assistant : MonoBehaviour
             assistant_Rect.anchorMax = hiddenPosMax;
         }
 
-        assistant_Text.text = "";
+        assistant_Text_Red.text = "";
+        assistant_Text_Blue.text = "";
+        assistant_Text_White.text = "";
 
         notificationSource = transform.GetChild(0).GetComponent<AudioSource>();
 
@@ -206,7 +210,8 @@ public class Assistant : MonoBehaviour
 
             if (i == 0)
             {
-                StartCoroutine(AnimateText(log_TextFields[i], messageLog[currentLogIndex].content));
+                //StartCoroutine(AnimateText(log_TextFields[i], messageLog[currentLogIndex].content));
+                log_TextFields[i].text = messageLog[currentLogIndex].content;
             }
             else if (i < messageLog.Count)
             {
@@ -218,8 +223,12 @@ public class Assistant : MonoBehaviour
     #region Animations
     public IEnumerator DisplayMessage(string s, float startDelay, float endDelay, bool stay)
     {
-        assistant_Text.text = s;
-        assistant_Text.maxVisibleCharacters = 0;
+        assistant_Text_Red.text = s;
+        assistant_Text_Red.maxVisibleCharacters = 0;
+        assistant_Text_Blue.text = s;
+        assistant_Text_Blue.maxVisibleCharacters = 0;
+        assistant_Text_White.text = s;
+        assistant_Text_White.maxVisibleCharacters = 0;
 
         inUse = true;
         writing = true;
@@ -250,7 +259,9 @@ public class Assistant : MonoBehaviour
         char[] charArray = s.ToCharArray();
         while (i < charArray.Length)
         {
-            assistant_Text.maxVisibleCharacters = i + 1;
+            assistant_Text_Red.maxVisibleCharacters = i + 1;
+            assistant_Text_Blue.maxVisibleCharacters = i + 1;
+            assistant_Text_White.maxVisibleCharacters = i + 1;
 
             if (char.IsLetterOrDigit(charArray[i]))
             {
@@ -305,15 +316,21 @@ public class Assistant : MonoBehaviour
             yield return null;
         }
 
-        assistant_Text.text = "";
+        assistant_Text_Red.text = "";
+        assistant_Text_Blue.text = "";
+        assistant_Text_White.text = "";
 
         inUse = false;
     }
 
     public IEnumerator DisplayDockedMessage(string s, float startDelay, float endDelay, bool stay)
     {
-        assistant_Text.text = s;
-        assistant_Text.maxVisibleCharacters = 0;
+        assistant_Text_Red.text = s;
+        assistant_Text_Red.maxVisibleCharacters = 0;
+        assistant_Text_Blue.text = s;
+        assistant_Text_Blue.maxVisibleCharacters = 0;
+        assistant_Text_White.text = s;
+        assistant_Text_White.maxVisibleCharacters = 0;
 
         inUse = true;
         writing = true;
@@ -345,7 +362,9 @@ public class Assistant : MonoBehaviour
         char[] charArray = s.ToCharArray();
         while (i < charArray.Length)
         {
-            assistant_Text.maxVisibleCharacters = i + 1;
+            assistant_Text_Red.maxVisibleCharacters = i + 1;
+            assistant_Text_Blue.maxVisibleCharacters = i + 1;
+            assistant_Text_White.maxVisibleCharacters = i + 1;
 
             if (char.IsLetterOrDigit(charArray[i]))
             {
@@ -390,9 +409,15 @@ public class Assistant : MonoBehaviour
         float t = 0;
         float start = Time.time;
 
-        Color32 full = assistant_Text.color;
-        full = new Color32(full.r, full.g, full.b, 255);
-        Color32 clear = new Color32(full.r, full.g, full.b, 0);
+        Color32 fullRed = assistant_Text_Red.color;
+        fullRed = new Color32(fullRed.r, fullRed.g, fullRed.b, 255);
+        Color32 clearRed = new Color32(fullRed.r, fullRed.g, fullRed.b, 0);
+        Color32 fullBlue = assistant_Text_Blue.color;
+        fullBlue = new Color32(fullBlue.r, fullBlue.g, fullBlue.b, 255);
+        Color32 clearBlue = new Color32(fullBlue.r, fullBlue.g, fullBlue.b, 0);
+        Color32 fullWhite = assistant_Text_White.color;
+        fullWhite = new Color32(fullWhite.r, fullWhite.g, fullWhite.b, 255);
+        Color32 clearWhite = new Color32(fullWhite.r, fullWhite.g, fullWhite.b, 0);
 
         while (t < 1)
         {
@@ -402,14 +427,20 @@ public class Assistant : MonoBehaviour
             assistantIcon_Rect.anchorMin = Vector2.LerpUnclamped(shownPosMin, hiddenPosMin, tE);
             assistantIcon_Rect.anchorMax = Vector2.LerpUnclamped(shownPosMax, hiddenPosMax, tE);
 
-            assistant_Text.color = Color32.Lerp(full, clear, t);
+            assistant_Text_Red.color = Color32.Lerp(fullRed, clearRed, t);
+            assistant_Text_Blue.color = Color32.Lerp(fullBlue, clearBlue, t);
+            assistant_Text_White.color = Color32.Lerp(fullWhite, clearWhite, t);
 
             yield return null;
         }
 
-        assistant_Text.text = "";
+        assistant_Text_Red.text = "";
+        assistant_Text_Blue.text = "";
+        assistant_Text_White.text = "";
 
-        assistant_Text.color = full;
+        assistant_Text_Red.color = fullRed;
+        assistant_Text_Blue.color = fullBlue;
+        assistant_Text_White.color = fullWhite;
 
 
         UpdateLog();
@@ -555,7 +586,9 @@ public class MyScriptEditor : Editor
 
         EditorGUILayout.LabelField("References", EditorStyles.boldLabel);
         myScript.assistant_Window = (GameObject)EditorGUILayout.ObjectField("Assistant Window: ", myScript.assistant_Window, typeof(GameObject), true);
-        myScript.assistant_Text = (TMP_Text)EditorGUILayout.ObjectField("Assistant TextField: ", myScript.assistant_Text, typeof(TMP_Text), true);
+        myScript.assistant_Text_Red = (TMP_Text)EditorGUILayout.ObjectField("Red TextField: ", myScript.assistant_Text_Red, typeof(TMP_Text), true);
+        myScript.assistant_Text_Blue = (TMP_Text)EditorGUILayout.ObjectField("Blue TextField: ", myScript.assistant_Text_Blue, typeof(TMP_Text), true);
+        myScript.assistant_Text_White = (TMP_Text)EditorGUILayout.ObjectField("White TextField: ", myScript.assistant_Text_White, typeof(TMP_Text), true);
 
         EditorGUILayout.LabelField("Animation Stuff", EditorStyles.boldLabel);
         myScript.animCurve = EditorGUILayout.CurveField("Assistant AnimCurve: ", myScript.animCurve);
