@@ -115,17 +115,6 @@ public class Assistant : MonoBehaviour
             {
                 tmp.gameObject.SetActive(false);
             }
-
-            Message test = new Message("Hi there! I hope you don't mind that I've taken the liberty to integrate myself into the program.", 2F, 2F, true);
-            QueueMessage(test);
-            Message test2 = new Message("As you can see I have also started to log my messages, so you can review anything you missed.", 0F, 2F);
-            QueueMessage(test2);
-            Message test3 = new Message("This is the main security terminal.", 0F, 2);
-            QueueMessage(test3);
-            Message test4 = new Message("The top right corner of the screen displays the factory's surveillance system.", 0F, 2);
-            QueueMessage(test4);
-            Message test5 = new Message("Try typing 'view cam1' to launch the camera.", 0F, 2);
-            QueueMessage(test5);
         }        
     }
 
