@@ -77,6 +77,8 @@ public class Explorer : MonoBehaviour
     public Vector2 anchorMax;
 
     private string currentXMLFileName = "ExplorerFile.xml";
+    [HideInInspector]
+    public string currentXmlObj;
 
     private bool launched;
 
@@ -291,7 +293,7 @@ public class Explorer : MonoBehaviour
                     encryptedFields.Add(node_TextFields[i + 2]);
                 }
                 //Check if the child node is locked
-                else if (nav.GetAttribute("locked", string.Empty) != "")
+                else if (nav.GetAttribute("locked", string.Empty) != "" && nav.GetAttribute("locked", string.Empty) != "false")
                 {
                     //Display the child node name with entry description
                     StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(lockedMarkup_Color, "<" + nav.Name + ">")));
@@ -333,10 +335,11 @@ public class Explorer : MonoBehaviour
         #endregion Child Node Stuff
     }
 
-    public void SwitchXML(string fileName)
+    public void SwitchXML(string fileName, string objName)
     {
         tempXMLDoc.Save(streamingPath + currentXMLFileName);
         currentXMLFileName = fileName;
+        currentXmlObj = objName;
 
         //Filename Example: "ExplorerFile.xml"
         tempXMLDoc.Load(streamingPath + currentXMLFileName);
@@ -385,7 +388,7 @@ public class Explorer : MonoBehaviour
     #region Commands
     public void ExitUnitXML()
     {
-        SwitchXML("TempXML\\" + ogXMLs[0] + ".xml");
+        SwitchXML("TempXML\\" + ogXMLs[0] + ".xml", "system");
     }
 
     public void LaunchUpdate()
@@ -452,6 +455,34 @@ public class Explorer : MonoBehaviour
         }
     }
 
+    public void UnlockNode(CommandContext cc)
+    {
+        string node = cc.parameters[0].ToString();
+        string password = cc.parameters[1].ToString();
+
+        nav.MoveToChild(node, string.Empty);
+
+        if (nav.HasAttributes)
+        {
+            if(nav.GetAttribute("locked", string.Empty) != "" && nav.GetAttribute("locked", string.Empty) != "false")
+            {
+                string xmlPassword = (nav.GetAttribute("locked", string.Empty));
+
+                if(xmlPassword == password)
+                {
+                    nav.MoveToAttribute("locked", string.Empty);
+                    nav.SetValue("false");
+                    nav.MoveToParent();
+                    nav.MoveToParent();
+
+                    LaunchUpdate();
+                    return;
+                }
+            }
+        }
+        nav.MoveToParent();
+    }
+
     public void Interact(CommandContext cc)
     {
         string node = cc.parameters[0].ToString();
@@ -508,7 +539,7 @@ public class Explorer : MonoBehaviour
                         nav.MoveToParent();
                     }
 
-                    if (nav.GetAttribute("locked", string.Empty) != "" || nav.GetAttribute("locked", string.Empty) != "false")
+                    if (nav.GetAttribute("locked", string.Empty) != "" && nav.GetAttribute("locked", string.Empty) != "false")
                     {
                         nav.MoveToParent();
                         return;
@@ -551,34 +582,30 @@ public class Explorer : MonoBehaviour
 
     public void XMLTrigger(CommandContext cc)
     {
-        string id = cc.parameters[0].ToString();
+        string node = cc.parameters[0].ToString();
 
-        switch (id)
+        if (nav.HasChildren)
         {
-            case "boot_fox_001":
-                //Do Shit
-                break;
+            if(nav.MoveToChild(node, string.Empty))
+            {
+                if(nav.GetAttribute("trigger", string.Empty) != "")
+                {
+                    string method = nav.GetAttribute("trigger", string.Empty);
 
-            case "1":
+                    BaseObject baseObject;
 
-                break;
+                    ObjectManager.GetObject(currentXmlObj, out baseObject);
 
-            case "2":
+                    if (baseObject != null)
+                    {
+                        baseObject.SendMessage(method, new CommandContext());
+                    }
+                        
+                }
 
-                break;
-
-
-            case "3":
-
-                break;
-
-
-            case "4":
-
-                break;
-
-            default:
-                break;
+                nav.MoveToParent();
+                LaunchUpdate();
+            }
         }
     }
     #endregion Commands

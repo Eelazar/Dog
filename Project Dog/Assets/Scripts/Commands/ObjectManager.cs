@@ -15,4 +15,9 @@ public static class ObjectManager
     {
         objectDictionary.Add(baseObject.definedName, baseObject);
     }
+
+    public static void Clear()
+    {
+        objectDictionary.Clear();
+    }
 }

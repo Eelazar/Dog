@@ -34,6 +34,14 @@
       <method>DecryptNode</method>
     </decrypt>
 
+    <unlock synonyms="unlock">
+      <_node>
+        <_password>
+          <method>UnlockNode</method>
+        </_password>
+      </_node>
+    </unlock>
+
     <refresh synonyms="refresh">
       <method>LaunchUpdate</method>
     </refresh>

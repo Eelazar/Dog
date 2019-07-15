@@ -21,6 +21,11 @@ public class TempManager : MonoBehaviour
     private Console console;
     private DecryptionSoftware decryptor;
 
+    private void Awake()
+    {
+        ObjectManager.Clear();
+    }
+
     void Start()
     {
         Cursor.visible = false;
@@ -101,7 +106,7 @@ public class TempManager : MonoBehaviour
 
     public void ExploreFox()
     {
-        explorer.SwitchXML(foxXMLFileName);
+        explorer.SwitchXML(foxXMLFileName, "player");
     }
 
     public void DialogueShortcut(int i)

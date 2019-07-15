@@ -15,7 +15,7 @@ public class BaseObject : MonoBehaviour
 
     public void ScanObject()
     {
-        Explorer.current.SwitchXML(xmlPath);
+        Explorer.current.SwitchXML(xmlPath, definedName);
     }
 
     public void Unscan()
