@@ -28,6 +28,8 @@ public class WaypointAgent : MonoBehaviour
 
     Quaternion targetRotation;
 
+    bool canMove = true;
+
     void Start()
     {
         //player_Object = GameObject.FindGameObjectWithTag("Player");
@@ -38,7 +40,7 @@ public class WaypointAgent : MonoBehaviour
 
         navAgent.updateRotation = false;
 
-        if(currentTarget != null)
+        if (currentTarget != null)
         {
             navAgent.SetDestination(currentTarget.transform.position);
         }
@@ -46,6 +48,9 @@ public class WaypointAgent : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         if (navAgent.velocity.sqrMagnitude > 0.1f)
         {
             Vector3 velocity = navAgent.velocity.normalized;
@@ -60,7 +65,7 @@ public class WaypointAgent : MonoBehaviour
             {
                 if (currentTarget.rotateForward)
                     targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentTarget.transform.forward.normalized, Vector3.up), navAgent.angularSpeed * 0.1f * Time.deltaTime);
-            }                
+            }
         }
 
         transform.rotation = targetRotation;
@@ -113,7 +118,7 @@ public class WaypointAgent : MonoBehaviour
             if (currentTarget.waitTime >= 0.5f)
                 if (OnStop != null)
                     OnStop.Invoke();
-        }            
+        }
     }
 
     public void Stop()
@@ -125,7 +130,19 @@ public class WaypointAgent : MonoBehaviour
             if (currentTarget.waitTime >= 0.5f)
                 if (OnStop != null)
                     OnStop.Invoke();
-        }            
+        }
+    }
+
+    public void enablemovement()
+    {
+        canMove = true;
+        navAgent.isStopped = false;
+    }
+
+    public void disablemovement()
+    {
+        canMove = false;
+        navAgent.isStopped = true;
     }
 
     void SetNewTarget()
@@ -145,6 +162,7 @@ public class WaypointAgent : MonoBehaviour
         {
             if (currentTarget.Continue)
             {
+                currentTarget.ResetContinue();
                 SetNewTarget();
                 navAgent.isStopped = false;
             }

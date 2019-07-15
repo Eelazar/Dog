@@ -18,7 +18,7 @@
         <toss>
           <enable_toss trigger="enabletoss" entry="true">Toss is enabled.</enable_toss>
           <disable_toss trigger="disabletoss" entry="true">Toss is disabled.</disable_toss>
-          <perform_toss trigger="ThrowBroToss" entry="true">Toss performed.</perform_toss>
+          <perform_toss trigger="throwbrotoss" entry="true">Toss performed.</perform_toss>
         </toss>
       </task>
     </access>

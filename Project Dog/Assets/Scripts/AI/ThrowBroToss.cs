@@ -16,6 +16,8 @@ public class ThrowBroToss : MonoBehaviour
 
     public float force;
 
+    bool canToss = true;
+
     private void OnTriggerEnter(Collider other)
     {
         rbodies.Add(other.attachedRigidbody);
@@ -28,8 +30,11 @@ public class ThrowBroToss : MonoBehaviour
 
     public void Toss()
     {
-        if(platformCollider !=null)
-        platformCollider.isTrigger = true;
+        if (!canToss)
+            return;
+
+        if (platformCollider != null)
+            platformCollider.isTrigger = true;
 
         animator.SetBool("Toss", true);
 
@@ -52,5 +57,21 @@ public class ThrowBroToss : MonoBehaviour
     private void OnDrawGizmos()
     {
         Debug.DrawLine(transform.position, transform.position + (transform.rotation * tossDirection), Color.red);
+    }
+
+    public void enabletoss()
+    {
+        canToss = true;
+    }
+
+    public void disabletoss()
+    {
+        canToss = false;
+    }
+
+    public void throwbrotoss()
+    {
+        canToss = true;
+        Toss();
     }
 }

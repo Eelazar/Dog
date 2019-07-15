@@ -28,7 +28,7 @@ public class CameraObject : BaseObject
 
         SceneLightManager.Activate(sceneName);
 
-        if(cameraActivated == false)
+        if (cameraActivated == false)
         {
             if (definedName == "cam1" || definedName == "cam2")
             {

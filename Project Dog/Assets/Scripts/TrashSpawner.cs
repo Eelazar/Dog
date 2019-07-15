@@ -18,13 +18,19 @@ public class TrashSpawner : MonoBehaviour
 
     public void Spawn()
     {
-        currentTrash = Instantiate(Trash, spawnPoint);
+        Debug.Log("SPAWN");
 
-        Invoke("Parent", parentTimer);
+        if (tosser.IsFree())
+        {
+            currentTrash = Instantiate(Trash, spawnPoint);
+
+            Invoke("Parent", parentTimer);
+        }
     }
 
     public void Parent()
     {
         currentTrash.transform.SetParent(dropPoint.agent.transform);
+        dropPoint.SetContinueWaypoint();
     }
 }

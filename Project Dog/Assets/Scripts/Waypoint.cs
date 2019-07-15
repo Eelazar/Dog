@@ -23,7 +23,9 @@ public class Waypoint : MonoBehaviour
 
     public UnityEvent endFunction;
 
-    private bool continueWaypoint;
+    public bool continueWaypoint;
+
+    public bool waitForSignal;
 
     public bool Continue
     {
@@ -35,7 +37,19 @@ public class Waypoint : MonoBehaviour
 
     public void SetContinueWaypoint()
     {
+        if (endFunction != null)
+            endFunction.Invoke();
+
         continueWaypoint = true;
+
+        wait = false;
+
+        waitTimer = 0f;
+    }
+
+    public void ResetContinue()
+    {
+        continueWaypoint = false;
     }
 
     float waitTimer;
@@ -59,15 +73,16 @@ public class Waypoint : MonoBehaviour
 
         if (IsAtWaypoint() && !wait && waitTimer <= -1f)
         {
+
             if (startFunction != null)
                 startFunction.Invoke();
-
 
             agent.Stop();
 
             waitTimer = waitTime;
 
-            continueWaypoint = false;
+            if (!waitForSignal)
+                continueWaypoint = false;
 
             wait = true;
         }
@@ -79,7 +94,7 @@ public class Waypoint : MonoBehaviour
             if (waitFunction != null)
                 waitFunction.Invoke(waitTimer / (float)waitTime);
 
-            if (waitTimer <= 0f)
+            if (!waitForSignal && waitTimer <= 0f)
             {
                 if (endFunction != null)
                     endFunction.Invoke();

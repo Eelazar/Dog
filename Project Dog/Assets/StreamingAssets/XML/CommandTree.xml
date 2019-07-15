@@ -19,7 +19,7 @@
     <return synonyms="return">
       <_amount>
         <method>NavigateUp</method>
-      </_amount>      
+      </_amount>
     </return>
 
     <save synonyms="save">
@@ -92,6 +92,18 @@
         <debug assistant="2">Where do you want to go?</debug>
       </default>
     </move>
+
+    <activate synonyms="activate">
+      <bridge synonyms="bridge">
+        <method>Scan</method>
+      </bridge>
+    </activate>
+
+    <explore synonyms="explore">
+      <other synonyms="other">
+        <method>ExploreOther</method>
+      </other>
+    </explore>
   </player>
 
   <throwbro name="throwbro">

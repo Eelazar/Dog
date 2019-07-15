@@ -17,6 +17,11 @@ public class TrashTosser : MonoBehaviour
         Invoke("ThrowBroToss", 1f);
     }
 
+    public bool IsFree()
+    {
+        return toss.rbodies.Count == 0;
+    }
+
     public void ThrowBroToss()
     {
         toss.Toss();
