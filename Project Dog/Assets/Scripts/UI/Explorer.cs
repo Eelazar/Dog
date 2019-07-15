@@ -125,7 +125,7 @@ public class Explorer : MonoBehaviour
         RestoreXMLs();
 
         //Filename Example: "ExplorerFile.xml"
-        tempXMLDoc.Load(streamingPath + "Temp\\" + ogXMLs[0] + ".xml");
+        tempXMLDoc.Load(streamingPath + "TempXML\\" + ogXMLs[0] + ".xml");
         // Create a navigator to query with XPath.
         nav = tempXMLDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
@@ -385,7 +385,7 @@ public class Explorer : MonoBehaviour
     #region Commands
     public void ExitUnitXML()
     {
-        SwitchXML("Temp\\" + ogXMLs[0] + ".xml");
+        SwitchXML("TempXML\\" + ogXMLs[0] + ".xml");
     }
 
     public void LaunchUpdate()
@@ -545,7 +545,7 @@ public class Explorer : MonoBehaviour
     {
         for (int i = 0; i < ogXMLs.Length; i++)
         {
-            tempXMLDoc.Save(streamingPath + "Temp\\" + ogXMLs[0] + ".xml");
+            tempXMLDoc.Save(streamingPath + "TempXML\\" + ogXMLs[0] + ".xml");
         }
     }
 
@@ -589,7 +589,7 @@ public class Explorer : MonoBehaviour
         for (int i = 0; i < ogXMLs.Length; i++)
         {
             tempXMLDoc.Load(streamingPath + ogXMLs[i] + ".xml");
-            tempXMLDoc.Save(streamingPath + "Temp\\" + ogXMLs[i] + ".xml");
+            tempXMLDoc.Save(streamingPath + "TempXML\\" + ogXMLs[i] + ".xml");
         }
     }
 

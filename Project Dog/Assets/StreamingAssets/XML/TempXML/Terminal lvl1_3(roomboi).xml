@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <terminal_003>
+    <registered_units>
+      <unit_rb_001 entry="true">The unit rb 001 is registered in this terminal. The terminal acts as a bridging unit.</unit_rb_001>
+    </registered_units>
+  </terminal_003>
+</root>

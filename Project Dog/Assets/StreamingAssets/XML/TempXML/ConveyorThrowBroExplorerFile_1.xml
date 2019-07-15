@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <tbc_001 asssitant="unit tbc_001 is online" assitantFlag="false">
+    <status assistant="" assistantFlag="false">
+      <task entry="true">3 currently designated tasks found: 1) move 2) toss 3) scan for unidentified objects</task>
+      <hostility entry="true">False</hostility>
+    </status>
+    <access locked="tbaccess1045" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
+      <status>
+        <boot>
+          <boot_unit trigger="enablemovement" entry="true">Unit online.</boot_unit>
+        </boot>
+        <shut_down>
+          <shut_down_unit trigger="disablemovement" entry="true">Unit offline.</shut_down_unit>
+        </shut_down>
+      </status>
+      <task>
+        <move>
+          <enable_move trigger="enablemovement" entry="true">Movement is enabled.</enable_move>
+          <disable_move trigger="disablemovement" entry="true">Movement is disabled.</disable_move>
+        </move>
+        <toss>
+          <enable_toss trigger="enabletoss" entry="true">Toss is enabled.</enable_toss>
+          <disable_toss trigger="disabletoss" entry="true">Toss is disabled.</disable_toss>
+          <perform_toss trigger="ThrowBroToss" entry="true">Toss performed.</perform_toss>
+        </toss>
+        <scan>
+          <enable_scan trigger="enablemovement" entry="true">Scan is enabled.</enable_scan>
+          <disable_scan trigger="disablemovement" entry="true">Scan is disabled.</disable_scan>
+        </scan>
+      </task>
+    </access>
+    <observe>
+      <task>
+        <observe_move entry="true">Observation successful. No new entries in Fox_Unit_001.</observe_move>
+        <observe_toss entry="true">There is no module in Fox_Unit_001 capable of applying the transfered tasks. Obeservation failed.</observe_toss>
+        <observe_scan entry="true">There is no module in Fox_Unit_001 capable of applying the transfered tasks. Obeservation failed.</observe_scan>
+      </task>
+    </observe>
+    <about>
+      <description entry="true">TB units are common worker units. TBs are used to carry and move loads. They use a move, lift and toss module. Their tasks can vary in complexity.</description>
+      <Did_you_know entry="true">Did you know, TB is said to stand for 'ThrowBro'. Their creator, De Havilland and his friends developed this unit during their college days. It is our oldest unit still in use. </Did_you_know>
+    </about>
+    <exit>
+      <exit_unit entry="true">Type 'exit unit' to close this units content.</exit_unit>
+    </exit>
+  </tbc_001>
+</root>
