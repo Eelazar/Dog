@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct ScannedObject
+{
+    public ScannableObject scannedableObject;
+
+    public float initalDistance;
+}
+
 public class ScanManager : MonoBehaviour
 {
+    public string excludeTag;
+
     public ParticleSystem particleSystem;
 
     public float scanTime;
 
     public float scanRadius;
-
-    public float scanInterval;
 
     public float scanPower;
 
@@ -24,9 +31,7 @@ public class ScanManager : MonoBehaviour
 
     float scanTimer;
 
-    float scanIntervalTimer;
-
-    List<ScannableObject> currentScannedObjects = new List<ScannableObject>();
+    List<ScannedObject> currentScannedObjects = new List<ScannedObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -41,107 +46,96 @@ public class ScanManager : MonoBehaviour
         {
             scanTimer -= Time.deltaTime;
 
-            scanIntervalTimer += Time.deltaTime;
-
-            if (scanIntervalTimer >= scanInterval)
+            foreach (ScannedObject currentObject in currentScannedObjects)
             {
-                ScanForObjects();
-                scanIntervalTimer = 0f;
-            }
+                Material mat = currentObject.scannedableObject.GetComponent<Renderer>().material;
 
-            foreach (ScannableObject currentObject in currentScannedObjects)
-            {
-                Material mat = currentObject.GetComponent<Renderer>().material;
-
-                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, scanPower));
+                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, 1f) * scanPower);
             }
 
             if (currentActive != null && activeChanged)
             {
+                currentActive.baseObject.Unscan();
                 activeChanged = false;
-                currentActive.baseObject.Scan();
+                currentActive.baseObject.ScanObject();
             }
 
             if (currentActive != null)
             {
                 Material mat = currentActive.GetComponent<Renderer>().material;
 
-                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, activeScanPower));
+                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, 1f) * activeScanPower);
             }
 
             if (scanTimer <= 0f)
             {
                 scan = false;
-                foreach (ScannableObject currentObject in currentScannedObjects)
+                foreach (ScannedObject currentObject in currentScannedObjects)
                 {
-                    Material mat = currentObject.GetComponent<Renderer>().material;
+                    Material mat = currentObject.scannedableObject.GetComponent<Renderer>().material;
 
                     mat.SetFloat("_ScanPower", 0f);
                 }
 
-                currentActive.baseObject.Unscan();
+                if (currentActive != null)
+                    currentActive.baseObject.Unscan();
 
                 currentActive = null;
+
+                scanTimer = 0f;
 
                 currentScannedObjects.Clear();
 
                 particleSystem.Stop();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.F1) && !scan)
-        {
-            particleSystem.Play();
-            Invoke("Scan", 2f);
-        }
     }
 
     public void Scan()
     {
-        scan = true;
-        scanTimer = scanTime;
+        particleSystem.Play();
+        Invoke("ActuallyScan", 2f);
     }
 
-    List<ScannableObject> remove = new List<ScannableObject>();
+    public void ExploreOther()
+    {
+        if (!scan)
+            return;
+
+        SwitchContext();
+    }
+
+    void ActuallyScan()
+    {
+        scan = true;
+        scanTimer = scanTime;
+        ScanForObjects();
+        ScanClosestObject();
+    }
+
+    void SwitchContext()
+    {
+        currentIndex++;
+        ScanClosestObject();
+    }
+
+    int currentIndex = 0;
+
+    void ScanClosestObject()
+    {
+        currentIndex = (currentIndex < currentScannedObjects.Count) ? currentIndex : 0;
+
+        Debug.Log(currentIndex);
+
+        currentActive = currentScannedObjects[currentIndex].scannedableObject;
+        activeChanged = true;
+    }
 
     void ScanForObjects()
     {
+        currentScannedObjects.Clear();
+
         Collider[] objects = Physics.OverlapSphere(transform.position, scanRadius);
-
-        remove.Clear();
-        //Remove
-        foreach (ScannableObject currentObject in currentScannedObjects)
-        {
-            bool found = false;
-
-            for (int i = 0; i < objects.Length; i++)
-            {
-                if (currentObject.Equals(objects[i].GetComponent<Collider>()))
-                {
-                    found = true;
-                }
-            }
-
-            if (!found)
-            {
-                remove.Add(currentObject);
-            }
-        }
-
-        foreach (ScannableObject currentObject in remove)
-        {
-            // Reset Effect
-
-            Material mat = currentObject.GetComponent<Renderer>().material;
-
-            mat.SetFloat("_ScanPower", 0f);
-
-            currentScannedObjects.Remove(currentObject);
-        }
-
-        float currentDistance = float.MaxValue;
-
-        ScannableObject current = null;
 
         foreach (Collider currentObject in objects)
         {
@@ -150,31 +144,10 @@ public class ScanManager : MonoBehaviour
             {
                 float distance = Vector3.Distance(currentObject.transform.position, transform.position);
 
-                if (distance < currentDistance)
-                {
-                    currentDistance = distance;
-                    current = relay;
-                }
-
-                if (!currentScannedObjects.Contains(relay))
-                {
-                    currentScannedObjects.Add(relay);
-                }
+                currentScannedObjects.Add(new ScannedObject() { scannedableObject = relay, initalDistance = distance });
             }
         }
 
-        if (currentActive == null)
-        {
-            activeChanged = true;
-        }
-        else
-        {
-            if (!currentActive.Equals(current))
-            {
-                activeChanged = true;
-            }
-        }
-
-        currentActive = current;
+        currentScannedObjects.Sort((a, b) => a.initalDistance > b.initalDistance ? 1 : -1);
     }
 }

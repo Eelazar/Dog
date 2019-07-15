@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour
 {
-    private string xmlPath = "XML\\ThrowBroExplorerFile.xml";
+    public string xmlPath;
 
     public string definedName;
 
@@ -13,7 +13,7 @@ public class BaseObject : MonoBehaviour
         ObjectManager.AddObject(this);
     }
 
-    public void Scan()
+    public void ScanObject()
     {
         Explorer.current.SwitchXML(xmlPath);
     }
