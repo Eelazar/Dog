@@ -28,10 +28,13 @@ public class CameraObject : BaseObject
 
         SceneLightManager.Activate(sceneName);
 
-        if (definedName == "cam1" || definedName == "cam2")
+        if(cameraActivated == false)
         {
-            manager.LaunchFoxStartup();
-            cameraActivated = true;
+            if (definedName == "cam1" || definedName == "cam2")
+            {
+                manager.LaunchFoxStartup();
+                cameraActivated = true;
+            }
         }
     }
 

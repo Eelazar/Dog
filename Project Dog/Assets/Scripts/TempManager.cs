@@ -60,13 +60,13 @@ public class TempManager : MonoBehaviour
                 m = new Message("I'm picking up an unknown entity in this room.", 0F, 1F);
                 assistant.QueueMessage(m);
 
-                m = new Message("It looks like an early iteration of our fox units... The serial nummer is 001.", 0F, 2);
+                m = new Message("It looks like an early iteration of our fox units... The serial nummer is 001.", 0F, 1.5F);
                 assistant.QueueMessage(m);
 
-                m = new Message("", 0F, 2);
+                m = new Message("I think it's broken. You should probably check just to be sure though.", 0F, 1F);
                 assistant.QueueMessage(m);
 
-                m = new Message("Try typing 'view cam1' to launch the camera.", 0F, 2);
+                m = new Message("Type 'explore unit' to attempt to establish a wireless link between SITWatch and the unit", 0F, 2F, false, true);
                 assistant.QueueMessage(m);
 
                 break;
