@@ -502,6 +502,39 @@ public class Explorer : MonoBehaviour
     {
         xmlDoc.Save(xmlPath + xmlFileName);
     }
+
+    public void XMLTrigger(CommandContext cc)
+    {
+        string id = cc.parameters[0].ToString();
+
+        switch (id)
+        {
+            case "boot_fox_001":
+                //Do Shit
+                break;
+
+            case "1":
+
+                break;
+
+            case "2":
+
+                break;
+
+
+            case "3":
+
+                break;
+
+
+            case "4":
+
+                break;
+
+            default:
+                break;
+        }
+    }
     #endregion Commands
 
     #region Utility

@@ -49,6 +49,12 @@
         <method>ExploreFox</method>
       </fox>
     </explore>
+
+    <trigger synonyms="trigger">
+      <_node>
+        <method>XMLTrigger</method>
+      </_node>
+    </trigger>
   </os>
 
   <open synonyms="view show">
