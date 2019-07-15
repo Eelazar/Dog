@@ -54,9 +54,12 @@ public class Player : BaseObject
 
     public float rotationSpeed;
 
-    public PlayerAnimation playerAnimation;
+    private PlayerAnimation playerAnimation;
 
-    public CapsuleCollider collider;
+    private void Start()
+    {
+        playerAnimation = transform.GetComponent<PlayerAnimation>();
+    }
 
     public void OnCommandMoveFront(CommandContext context)
     {

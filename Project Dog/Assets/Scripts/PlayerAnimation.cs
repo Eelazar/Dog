@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
 
-    public AudioSource audio;
+    private AudioSource audio_Source;
 
     bool idle;
 
+    private void Start()
+    {
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        audio_Source = transform.GetComponent<AudioSource>();
+    }
+
     public void SetIdle(bool value)
     {
-        animator.SetBool("Idle", value);
+        if(audio_Source != null)
+        {
+            animator.SetBool("Idle", value);
 
-        if (!value && value != idle)
-            audio.Play();
-        else if (value && value != idle)
-            audio.Stop();
+            if (!value && value != idle)
+                audio_Source.Play();
+            else if (value && value != idle)
+                audio_Source.Stop();
 
-        idle = value;
+            idle = value;
+        }
     }
 
     public void SetLeft(bool value)
