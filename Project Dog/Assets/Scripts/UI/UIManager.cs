@@ -104,6 +104,8 @@ public class UIManager : MonoBehaviour
     private TMP_InputField login_Input;
 
     private bool login;
+    private bool explorerLaunched;
+    private bool sitwatchLaunched;
 
 
     void Start()
@@ -147,11 +149,19 @@ public class UIManager : MonoBehaviour
             switch (name)
             {
                 case "explorer":
-                    StartCoroutine(LaunchExplorer());
+                    if (!explorerLaunched)
+                    {
+                        StartCoroutine(LaunchExplorer());
+                        explorerLaunched = true;
+                    }                    
                     break;
 
                 case "veryComplicat3dFil3Nam3.exe":
-                    StartCoroutine(AnimateStart());
+                    if (!sitwatchLaunched)
+                    {
+                        StartCoroutine(AnimateStart());
+                        sitwatchLaunched = true;
+                    }                    
                     break;
 
                 default:

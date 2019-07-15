@@ -8,7 +8,7 @@
         <explore entry="true" assistant="Exploring a unit usually requires the accessing agent to be close by. A bridging unit can circumvent this." assistantFlag="false">Type 'explore unit' followed by a unit name to see it's contents in the file explorer. Type 'explore other' to view the next unit in reach. Some units require a bridging unit to be close by.</explore>
         <exit_unit entry="true">Type 'exit unit' to close the current units contents.</exit_unit>
       </general>
-      <movement assistant="Units that allow movement can be steered using movement commands." assistantFlag="false">
+      <movement status="hidden" assistant="Units that allow movement can be steered using movement commands." assistantFlag="false">
         <move_front entry="true">Type 'move front' to move a unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
         <move_right entry="true">Type 'move right' to turn and move a unit to the right. Add a number at the end to let it move further.</move_right>
         <move_left entry="true">Type 'move left' to turn and move a unit to the left. Add a number at the end to let it move further.</move_left>
@@ -17,11 +17,8 @@
       <fox_unit_001 status="hidden">
         <modules>
           <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the contents of other units. The nearest unit will be opened automatically.</bridge>
-          <movement entry="true">This unit holds a basic movement module. See the unit control movement entry to utilize it.</movement>
+          <movement entry="true">This unit holds a basic movement module.</movement>
         </modules>
-        <about>
-          <description entry="true"></description>
-        </about>
       </fox_unit_001>
      </unit_control>
     <S.I.T. assistant="Use the updated S.I.T. watch software to start your work." assistantFlag="false">
@@ -31,7 +28,7 @@
         </boot>
       </S.I.T._watch>
       <navigation>
-        <open_cam entry="true">Type 'open cam#' (# for the related number) to open a camera view in the S.I.T. watch software. </open_cam>
+        <open_cam entry="true">Type 'view cam#' (# for the related number) to open a camera view in the S.I.T. watch software. </open_cam>
         <show_map entry="true">Type 'show map' to display the map currently available to you.</show_map>
       </navigation>
     </S.I.T.>
@@ -48,7 +45,7 @@
       </commands>
     </explorer>
   </help>
-  <schedule assistant="You are viewing the work schedule for today, 07.12.43.">
+  <schedule assistant="You are viewing the work schedule for today, 07.12.43." assistantFlag="false">
     <entry_1 entry="true">Update introduction - Follow the assistants instructions.</entry_1>
     <entry_2 entry="true">Launch the updated S.I.T. watch software.</entry_2>
     <entry_3 entry="true">Familiarize yourself with the new S.I.T. watch user interface.</entry_3>

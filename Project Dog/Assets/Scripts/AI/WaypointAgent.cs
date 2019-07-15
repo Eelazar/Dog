@@ -38,7 +38,10 @@ public class WaypointAgent : MonoBehaviour
 
         navAgent.updateRotation = false;
 
-        navAgent.SetDestination(currentTarget.transform.position);
+        if(currentTarget != null)
+        {
+            navAgent.SetDestination(currentTarget.transform.position);
+        }
     }
 
     void Update()
@@ -53,8 +56,11 @@ public class WaypointAgent : MonoBehaviour
         }
         else
         {
-            if (currentTarget.rotateForward)
-                targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentTarget.transform.forward.normalized, Vector3.up), navAgent.angularSpeed * 0.1f * Time.deltaTime);
+            if (currentTarget != null)
+            {
+                if (currentTarget.rotateForward)
+                    targetRotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(currentTarget.transform.forward.normalized, Vector3.up), navAgent.angularSpeed * 0.1f * Time.deltaTime);
+            }                
         }
 
         transform.rotation = targetRotation;
@@ -102,18 +108,24 @@ public class WaypointAgent : MonoBehaviour
     {
         navAgent.isStopped = halting = true;
 
-        if (currentTarget.waitTime >= 0.5f)
-            if (OnStop != null)
-                OnStop.Invoke();
+        if (currentTarget != null)
+        {
+            if (currentTarget.waitTime >= 0.5f)
+                if (OnStop != null)
+                    OnStop.Invoke();
+        }            
     }
 
     public void Stop()
     {
         navAgent.isStopped = true;
 
-        if (currentTarget.waitTime >= 0.5f)
-            if (OnStop != null)
-                OnStop.Invoke();
+        if (currentTarget != null)
+        {
+            if (currentTarget.waitTime >= 0.5f)
+                if (OnStop != null)
+                    OnStop.Invoke();
+        }            
     }
 
     void SetNewTarget()
@@ -129,10 +141,13 @@ public class WaypointAgent : MonoBehaviour
 
     void Wait()
     {
-        if (currentTarget.Continue)
+        if (currentTarget != null)
         {
-            SetNewTarget();
-            navAgent.isStopped = false;
+            if (currentTarget.Continue)
+            {
+                SetNewTarget();
+                navAgent.isStopped = false;
+            }
         }
     }
 }

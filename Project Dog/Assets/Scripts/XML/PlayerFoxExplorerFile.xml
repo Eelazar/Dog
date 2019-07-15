@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root assistant="You are now exploring the contents of fox_unit_001" assistantFlag="false">
   <fox_001>
-    <access assistant="Unit has no lock or encryption. Access granted.">
+    <access assistant="Unit has no lock or encryption. Access granted." assistantFlag="false">
       <boot>
         <boot_fox_001 trigger="bootfox" entry="true" assistant="The Fox unit 001 has been added to your unit control help section" assistantFlag="false">Fox unit 001 has been booted successfully.</boot_fox_001>
       </boot>
     </access>
   </fox_001>
+  <exit>
+    <exit_unit entry="true">Type 'exit unit' to close its content explorer.</exit_unit>
+  </exit>
 </root>
