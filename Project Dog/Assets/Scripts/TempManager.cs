@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class TempManager : MonoBehaviour
 {
-    private const string foxXMLFileName = "XML\\PlayerFoxExplorerFile.xml";
+    private const string foxXMLFileName = "PlayerFoxExplorerFile.xml";
 
     private Assistant assistant;
     private Explorer explorer;

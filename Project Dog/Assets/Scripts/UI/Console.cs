@@ -112,7 +112,7 @@ public class Console : MonoBehaviour
 
         // Open the XML.
         xmlDoc = new XmlDocument();
-        xmlDoc.Load("Assets\\Scripts\\CommandTree.xml");
+        xmlDoc.Load("Assets\\Scripts\\XML\\CommandTree.xml");
         // Create a navigator to query with XPath.
         nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.

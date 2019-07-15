@@ -42,7 +42,7 @@
   </Help>
   <Software description="Program Files and Data">
     <S.I.T. assistant="Use S.I.T. to access cameras, units and more inside our factory system" assistantFlag="false">
-      <about entry="true">S.I.T. (Secure IT & Transfer) is the leading security software that helps organizations centralize access management across hybrid IT environments. </about>
+      <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
     <Console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
       <launch.exe trigger="">

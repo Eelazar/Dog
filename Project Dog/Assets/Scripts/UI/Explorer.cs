@@ -11,8 +11,36 @@ public class Explorer : MonoBehaviour
     //Constants
     private const float lineHeight = 20F;
     private const float charWidth = 11.47F;
-    private const string xmlPath = "Assets\\Scripts\\";
-    private const string xmlFileName = "ExplorerFile.xml";
+    private const string xmlPath = "Assets\\Scripts\\XML\\";
+
+    private string[] ogXMLs = {
+        "ThrowBrolvl1_1",
+        "ThrowBrolvl1_2",
+        "ThrowBrolvl1_3",
+        "ThrowBroExplorerFile",
+        "ThrowBroDumpSiteXML",
+        "Terminal lvl1_3(roomboi)",
+        "Terminal lvl1_2(ThrowBro2)",
+        "Terminal lvl1_1(ThrowBro1)",
+        "Terminal Conveyorbelt_3(ConveyorbeltThrowBro7-9)",
+        "Terminal Conveyorbelt_2(ConveyorbeltThrowBro1-6)",
+        "Terminal Conveyorbelt_1(ConveyorbeltThrowBro1-6)",
+        "SaveFile",
+        "RoomboiExplorerFile",
+        "PlayerFoxExplorerFile",
+        "PC2",
+        "PC1",
+        "ExplorerFile",
+        "ConveyorThrowBroExplorerFile_1",
+        "ConveyorThrowBroExplorerFile_2",
+        "ConveyorThrowBroExplorerFile_3",
+        "ConveyorThrowBroExplorerFile_4",
+        "ConveyorThrowBroExplorerFile_5",
+        "ConveyorThrowBroExplorerFile_6",
+        "ConveyorThrowBroExplorerFile_7",
+        "ConveyorThrowBroExplorerFile_8",
+        "ConveyorThrowBroExplorerFile_9",
+    };
 
     [SerializeField]
     [Tooltip("The duration between each character being added during the typewriter animation")]
@@ -40,7 +68,7 @@ public class Explorer : MonoBehaviour
     //XML Navigation Variables
     private XPathNavigator nav;
     [HideInInspector]
-    public XmlDocument xmlDoc;
+    public XmlDocument tempXMLDoc;
 
     [HideInInspector]
     public Vector2 anchorMin;
@@ -88,13 +116,16 @@ public class Explorer : MonoBehaviour
         }
 
         // Open the XML.
-        xmlDoc = new XmlDocument();
+        tempXMLDoc = new XmlDocument();
+
+        RestoreXMLs();
+
         //Filename Example: "ExplorerFile.xml"
-        xmlDoc.Load(xmlPath + xmlFileName);
+        tempXMLDoc.Load(xmlPath + "Temp\\" + ogXMLs[0] + ".xml");
         // Create a navigator to query with XPath.
-        nav = xmlDoc.CreateNavigator();
+        nav = tempXMLDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
-        nav.MoveToRoot();
+        nav.MoveToRoot();        
 
         if (bootLaunch == true)
         {
@@ -300,16 +331,13 @@ public class Explorer : MonoBehaviour
 
     public void SwitchXML(string fileName)
     {
-        Debug.Log(xmlPath + currentXMLFileName);
-        xmlDoc.Save(xmlPath + currentXMLFileName);
+        tempXMLDoc.Save(xmlPath + currentXMLFileName);
         currentXMLFileName = fileName;
 
-        Debug.Log(xmlPath + currentXMLFileName);
-
         //Filename Example: "ExplorerFile.xml"
-        xmlDoc.Load(xmlPath + currentXMLFileName);
+        tempXMLDoc.Load(xmlPath + currentXMLFileName);
         // Create a navigator to query with XPath.
-        nav = xmlDoc.CreateNavigator();
+        nav = tempXMLDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
         nav.MoveToRoot();
         nav.MoveToFirstChild();
@@ -353,7 +381,7 @@ public class Explorer : MonoBehaviour
     #region Commands
     public void ExitUnitXML()
     {
-        SwitchXML(xmlFileName);
+        SwitchXML("Temp\\" + ogXMLs[0] + ".xml");
     }
 
     public void LaunchUpdate()
@@ -416,7 +444,6 @@ public class Explorer : MonoBehaviour
     public void Interact(CommandContext cc)
     {
         string node = cc.parameters[0].ToString();
-        Debug.Log(node);
 
         if (launched)
         {
@@ -505,7 +532,10 @@ public class Explorer : MonoBehaviour
 
     public void Save()
     {
-        xmlDoc.Save(xmlPath + xmlFileName);
+        for (int i = 0; i < ogXMLs.Length; i++)
+        {
+            tempXMLDoc.Save(xmlPath + "Temp\\" + ogXMLs[0] + ".xml");
+        }
     }
 
     public void XMLTrigger(CommandContext cc)
@@ -543,6 +573,16 @@ public class Explorer : MonoBehaviour
     #endregion Commands
 
     #region Utility
+    public void RestoreXMLs()
+    {
+        for (int i = 0; i < ogXMLs.Length; i++)
+        {
+            Debug.Log(i);
+            tempXMLDoc.Load(xmlPath + ogXMLs[i] + ".xml");
+            tempXMLDoc.Save(xmlPath + "Temp\\" + ogXMLs[i] + ".xml");
+        }
+    }
+
     void GenerateTextFieldArray()
     {
         node_TextFields[0] = explorerPanel.transform.GetChild(0).GetComponent<TMP_Text>();

@@ -158,7 +158,7 @@ public class BootConsole : MonoBehaviour
                 }
                 else if (rawInput.Contains("save"))
                 {
-                    explorer.xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
+                    //explorer.xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
                 }
                 else if (rawInput.Contains("shut up"))
                 {
