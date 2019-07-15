@@ -20,11 +20,11 @@
           <movement entry="true">This unit holds a basic movement module.</movement>
         </modules>
       </fox_unit_001>
-     </unit_control>
+    </unit_control>
     <S.I.T. assistant="Use the updated S.I.T. watch software to start your work." assistantFlag="false">
       <S.I.T._watch>
         <boot>
-         <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software.</boot_S.I.T.>
+          <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software.</boot_S.I.T.>
         </boot>
       </S.I.T._watch>
       <navigation>

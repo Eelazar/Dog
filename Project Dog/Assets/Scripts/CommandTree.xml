@@ -37,6 +37,18 @@
     <refresh synonyms="refresh">
       <method>LaunchUpdate</method>
     </refresh>
+
+    <exit synonyms="exit close">
+      <unit synonyms="unit">
+        <method>ExitUnitXML</method>
+      </unit>
+    </exit>
+
+    <explore synonyms="explore">
+      <fox synonyms="fox">
+        <method>ExploreFox</method>
+      </fox>
+    </explore>
   </os>
 
   <open synonyms="view show">

@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class TempManager : MonoBehaviour
 {
+    private const string foxXMLFileName = "XML\\PlayerFoxExplorerFile.xml";
+
     private Assistant assistant;
+    private Explorer explorer;
 
     void Start()
     {
@@ -15,6 +18,7 @@ public class TempManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         assistant = transform.GetComponent<Assistant>();
+        explorer = transform.GetComponent<Explorer>();
 
         DialogueShortcut(1);
     }
@@ -27,6 +31,11 @@ public class TempManager : MonoBehaviour
     public void LaunchFoxStartup()
     {
         DialogueShortcut(2);
+    }
+
+    public void ExploreFox()
+    {
+        explorer.SwitchXML(foxXMLFileName);
     }
 
     public void DialogueShortcut(int i)
