@@ -59,6 +59,7 @@ public class ScanManager : MonoBehaviour
             if (currentActive != null && activeChanged)
             {
                 currentActive.baseObject.Scan();
+                activeChanged = false;
             }
 
             if (currentActive != null)
@@ -88,7 +89,7 @@ public class ScanManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && !scan)
+        if (Input.GetKeyDown(KeyCode.F1) && !scan)
         {
             particleSystem.Play();
             Invoke("Scan", 2f);
