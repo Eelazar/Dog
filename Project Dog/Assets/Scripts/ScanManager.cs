@@ -12,13 +12,21 @@ public class ScanManager : MonoBehaviour
 
     public float scanInterval;
 
+    public float scanPower;
+
+    public float activeScanPower;
+
+    public ScannableObject currentActive;
+
+    bool activeChanged = false;
+
     bool scan;
 
     float scanTimer;
 
     float scanIntervalTimer;
 
-    List<GameObject> currentScannedObjects = new List<GameObject>();
+    List<ScannableObject> currentScannedObjects = new List<ScannableObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -41,34 +49,59 @@ public class ScanManager : MonoBehaviour
                 scanIntervalTimer = 0f;
             }
 
-            foreach (GameObject currentObject in currentScannedObjects)
+            foreach (ScannableObject currentObject in currentScannedObjects)
             {
                 Material mat = currentObject.GetComponent<Renderer>().material;
 
-                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, 0.5f));
+                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, scanPower));
+            }
+
+            if (currentActive != null && activeChanged)
+            {
+                currentActive.baseObject.Scan();
+            }
+
+            if (currentActive != null)
+            {
+                Material mat = currentActive.GetComponent<Renderer>().material;
+
+                mat.SetFloat("_ScanPower", Mathf.PingPong(Time.time, activeScanPower));
             }
 
             if (scanTimer <= 0f)
             {
                 scan = false;
+                foreach (ScannableObject currentObject in currentScannedObjects)
+                {
+                    Material mat = currentObject.GetComponent<Renderer>().material;
+
+                    mat.SetFloat("_ScanPower", 0f);
+                }
+
+                currentActive.baseObject.Unscan();
+
+                currentActive = null;
+
+                currentScannedObjects.Clear();
+
                 particleSystem.Stop();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && !scan)
         {
-            Scan();
+            particleSystem.Play();
+            Invoke("Scan", 2f);
         }
     }
 
     public void Scan()
     {
-        particleSystem.Play();
         scan = true;
         scanTimer = scanTime;
     }
 
-    List<GameObject> remove = new List<GameObject>();
+    List<ScannableObject> remove = new List<ScannableObject>();
 
     void ScanForObjects()
     {
@@ -76,7 +109,7 @@ public class ScanManager : MonoBehaviour
 
         remove.Clear();
         //Remove
-        foreach (GameObject currentObject in currentScannedObjects)
+        foreach (ScannableObject currentObject in currentScannedObjects)
         {
             bool found = false;
 
@@ -94,23 +127,53 @@ public class ScanManager : MonoBehaviour
             }
         }
 
-        foreach (GameObject currentObject in remove)
+        foreach (ScannableObject currentObject in remove)
         {
             // Reset Effect
 
+            Material mat = currentObject.GetComponent<Renderer>().material;
+
+            mat.SetFloat("_ScanPower", 0f);
 
             currentScannedObjects.Remove(currentObject);
         }
 
+        float currentDistance = float.MaxValue;
+
+        ScannableObject current = null;
+
         foreach (Collider currentObject in objects)
         {
-            if (currentObject.transform.root.GetComponent<BaseObject>() != null)
+            ScannableObject relay = currentObject.transform.GetComponent<ScannableObject>();
+            if (relay != null)
             {
-                if (!currentScannedObjects.Contains(currentObject.gameObject))
+                float distance = Vector3.Distance(currentObject.transform.position, transform.position);
+
+                if (distance < currentDistance)
                 {
-                    currentScannedObjects.Add(currentObject.gameObject);
+                    currentDistance = distance;
+                    current = relay;
+                }
+
+                if (!currentScannedObjects.Contains(relay))
+                {
+                    currentScannedObjects.Add(relay);
                 }
             }
         }
+
+        if (currentActive == null)
+        {
+            activeChanged = true;
+        }
+        else
+        {
+            if (!currentActive.Equals(current))
+            {
+                activeChanged = true;
+            }
+        }
+
+        currentActive = current;
     }
 }
