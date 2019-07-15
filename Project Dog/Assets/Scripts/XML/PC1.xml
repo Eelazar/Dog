@@ -3,7 +3,7 @@
   <AdminPC_003 assistant="The contents of this system seem to be encrypted." assistantFlag="false">
     <login assistant="See the decrypt entry in the help section for more information">
       <system_passwords encrypted="autonomous cloud computing">
-        <unit_access_passwords locked="1206shepherd">
+        <unit_access_passwords>
           <tb_units entry="true">tbaccess1045</tb_units>
         </unit_access_passwords>
       </system_passwords>

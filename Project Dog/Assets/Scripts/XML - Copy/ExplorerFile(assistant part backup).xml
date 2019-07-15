@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work" assistantFlag="false">
+    <unit_control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
+      <general>
+        <terminals entry="true">Exploring a terminal will display all unit names connected to it and allows the exploring agent to explore these units remotely.</terminals>
+        <unit_name entry="true">An units name is displayed in its explorer file after the root node. A terminal will show you an units name without accessing its content structure.</unit_name>
+        <explore entry="true" assistant="Exploring an unit usually requires the accessing agent to be close by. A bridging unit can circumvent this" assistantFlag="false">Type 'explore unit' followed by an unit name to see it's contents in the file explorer. Type 'explore other' to view the next unit in reach.</explore>
+        <exit_unit entry="true">Type 'exit unit' to close the current units contents.</exit_unit>
+      </general>
+      <movement assistant="Units that allow movement can be steered using movement commands" assistantFlag="false">
+        <move_front entry="true">Type 'move front' to move an unit in the direction it is facing. Add a number at the end to perform the action multiple times.</move_front>
+        <move_right entry="true">Type 'move right' to turn and move an unit to the right. Add a number at the end to let it move further.</move_right>
+        <move_left entry="true">Type 'move left' to turn and move an unit to the left. Add a number at the end to let it move further.</move_left>
+        <move_back entry="true">Type 'move back' to turn an unit 180 degrees and let it move afterwards. Add a number at the end to let it move further.</move_back>
+      </movement>
+      <fox_unit_001 status="hidden">
+        <modules>
+          <bridge entry="true">Type "activate bridge" to activate the bridging module of a Fox unit. This allows you to commuicate with and access the contents of other units. The nearest unit will be opened automatically.</bridge>
+          <movement entry="true">This unit holds a basic movement module. See the unit control movement entry to utilize it.</movement>
+        </modules>
+        <about>
+          <description entry="true"></description>
+        </about>
+      </fox_unit_001>
+     </unit_control>
+    <S.I.T. assistant="Use the updated S.I.T. watch software to start your work" assistantFlag="false">
+      <S.I.T._watch>
+        <boot>
+         <boot_S.I.T. entry="true">Type 'boot S.I.T. watch' to launch the S.I.T. security watch software.</boot_S.I.T.>
+        </boot>
+      </S.I.T._watch>
+      <navigation>
+        <open_cam entry="true">Type 'open cam#' (# for the related number) to open a camera view in the S.I.T. watch software. </open_cam>
+        <show_map entry="true">Type 'show map' to display the map currently available to you.</show_map>
+      </navigation>
+    </S.I.T.>
+    <explorer description="System Explorer Documentation" assistant="In here you'll find all help related to the Explorer" assistantFlag="false">
+      <structure assistant="This node contains help about the structure and design of the explorer" assistantFlag="false">
+        <Introduction entry="Guide to the explorer structure">The explorer window consists of multiple nodes, that are organized in a tree hierarchy. The nodes are gathered from the system you are currently accessing. Every node has a different purpose; most are either sub-categories or log entries, but some may have a critical role, especially if you are accessing a foreign entity.</Introduction>
+        <Markup entry="Guide to the visual representation">We haven't decided on the markup yet...</Markup>
+      </structure>
+      <commands description="List of available commands">
+        <return entry="true">Type 'return' to access the parent of your current node. It is currently displayed at the top of the hierarchy. A number can be appended to move multiple levels up at once. Example: 'return 2'</return>
+        <open entry="true">Type 'open ' followed by the name of the node you are trying to access. Example: 'open Root'</open>
+        <refresh entry="true">Type 'refresh' to reload the contents of your browser.</refresh>
+        <decrypt entry="true" status="hidden">Type 'decrypt' followed by the name of the node your are trying to access. This will start the decryption process. To complete decryption of a message find the password within the changing code.</decrypt>
+      </commands>
+    </explorer>
+    <assistant description="Smart Assistant Documentation" status="hidden">
+    </assistant>
+  </help>
+  <schedule assistant="You are viewing the work schedule for today, 07.12.43">
+    <entry_1 entry="true">Update introduction - Follow the assistants instructions.</entry_1>
+    <entry_2 entry="true">Launch the updated S.I.T. watch software.</entry_2>
+    <entry_3 entry="true">Familiarize yourself with the new S.I.T. watch user interface.</entry_3>
+    <entry_4 entry="true">Use camera 1 and 2 to watch the dump sites processes. Report any malfunctions occuring.</entry_4>
+  </schedule>
+  <software description="Program Files and Data">
+    <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system" assistantFlag="false">
+      <watch entry="true">The S.I.T. security watch software is used to monitor camera ativity and communicate with malfunctioning units.</watch>
+      <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
+    </S.I.T.>
+    <console locked="" assistant="You need admin privileges to access this node" assistantFlag="always">
+      <launch.exe trigger="">
+      </launch.exe>
+    </console>
+    <assistant>
+      <about entry="">The Smart Assistant assists you with all kinds of tasks you may receive, so that you can focus on being as productive as possible! It has access to your entire system and can take care of menial tasks while teaching you how to best make use of <i>FykeOs</i>. It will auto-collect information to create a helpful documentation personalized for you.</about>
+      <troubleshooting>
+        <Status entry="Assistant won't start">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
+        <Behaviour entry="Faulty personality chip">Your Smart Assistant may develop a stronger personality over time, but this should not cause any major productivity loss. Should the Assissant start insulting you however, or cause any emotional grief to you or your coworkers, your workstation is to be returned to the tech department ASAP.</Behaviour>
+      </troubleshooting>
+      <data encrypted="" assistant="This node is encrypted" assistantFlag="always">
+        <launch.exe trigger="">
+        </launch.exe>
+        <securityProtocols bool="true">
+        </securityProtocols>
+      </data>
+    </assistant>
+  </software>
+  <log>
+    <secret entry="Secret Stuff" encrypted="ananaspizza" assistant="This node is encrypted" assistantFlag="always">You're not supposed to see this</secret>
+    <entry2 entry="Lorem Ipsum">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</entry2>
+    <entry3 entry="Third Entry Summary" locked="Berlin Lebt">How did you access this?!</entry3>
+  </log>
+</root>

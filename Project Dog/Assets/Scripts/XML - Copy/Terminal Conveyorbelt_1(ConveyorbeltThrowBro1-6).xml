@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <terminal_003.1>
+    <registered_units>
+      <unit_tbc_001 entry="true">The unit tbc 001 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_001>
+      <unit_tbc_002 entry="true">The unit tbc 002 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_002>
+      <unit_tbc_003 entry="true">The unit tbc 003 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_003>
+      <unit_tbc_004 entry="true">The unit tbc 004 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_004>
+      <unit_tbc_005 entry="true">The unit tbc 005 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_005>
+      <unit_tbc_006 entry="true">The unit tbc 006 is registered in this terminal. The terminal acts as a bridging unit.</unit_tbc_006>
+    </registered_units>
+  </terminal_003.1>
+</root>

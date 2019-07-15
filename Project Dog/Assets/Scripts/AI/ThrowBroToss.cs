@@ -28,6 +28,7 @@ public class ThrowBroToss : MonoBehaviour
 
     public void Toss()
     {
+        if(platformCollider !=null)
         platformCollider.isTrigger = true;
 
         animator.SetBool("Toss", true);
@@ -44,7 +45,8 @@ public class ThrowBroToss : MonoBehaviour
 
     void ResetPlatformCollider()
     {
-        platformCollider.isTrigger = false;
+        if (platformCollider != null)
+            platformCollider.isTrigger = false;
     }
 
     private void OnDrawGizmos()

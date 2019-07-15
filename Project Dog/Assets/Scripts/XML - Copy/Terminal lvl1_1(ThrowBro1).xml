@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <terminal_001 assistant="Opening a terminal allows you to communicate with all registered units in it from the terminals position." assistantFlag="false">
+    <registered_units>
+      <unit_tb_002 entry="true">The unit tb 002 is registered in this terminal. The terminal acts as a bridging unit.</unit_tb_002>
+    </registered_units>
+  </terminal_001>
+</root>
