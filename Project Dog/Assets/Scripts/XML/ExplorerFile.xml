@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work." assistantFlag="false">
+  <help encrypted ="password" description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work." assistantFlag="false">
     <unit_control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
       <general>
         <terminals entry="true">Exploring a terminal will display all unit names connected to it and allows the exploring agent to explore these units remotely by providing a bridge.</terminals>

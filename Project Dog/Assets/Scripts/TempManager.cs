@@ -7,10 +7,19 @@ using UnityEngine.SceneManagement;
 
 public class TempManager : MonoBehaviour
 {
+    [SerializeField]
+    [Tooltip("The decryption window")]
+    private GameObject decryptionWindow;
+
+    public float decryptWindowAnimDuration;
+
+
     private const string foxXMLFileName = "PlayerFoxExplorerFile.xml";
 
     private Assistant assistant;
     private Explorer explorer;
+    private Console console;
+    private DecryptionSoftware decryptor;
 
     void Start()
     {
@@ -19,6 +28,8 @@ public class TempManager : MonoBehaviour
 
         assistant = transform.GetComponent<Assistant>();
         explorer = transform.GetComponent<Explorer>();
+        console = transform.GetComponent<Console>();
+        decryptor = transform.GetComponent<DecryptionSoftware>();
 
         DialogueShortcut(1);
     }
@@ -26,6 +37,61 @@ public class TempManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public IEnumerator LaunchDecryptor()
+    {
+        StartCoroutine(console.Deactivate());
+
+        //Initialize Lerp
+        float t = 0;
+        float start = Time.time;
+
+        Vector2 oldMin = decryptionWindow.GetComponent<RectTransform>().anchorMin;
+        Vector2 oldMax = decryptionWindow.GetComponent<RectTransform>().anchorMax;
+
+        Color full = decryptionWindow.GetComponent<Image>().color;
+        full = new Color(full.r, full.g, full.b, 255);
+        Color clear = new Color(full.r, full.g, full.b, 0);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / decryptWindowAnimDuration;
+
+            decryptionWindow.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(oldMin, decryptor.anchorMin, t);
+            decryptionWindow.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(oldMax, decryptor.anchorMax, t);
+
+            decryptionWindow.GetComponent<Image>().color = Vector4.Lerp(clear, full, t);
+
+            yield return null;
+        }
+    }
+    public IEnumerator CloseDecryptor()
+    {
+        console.Activate();
+
+        //Initialize Lerp
+        float t = 0;
+        float start = Time.time;
+
+        Vector2 oldMin = decryptionWindow.GetComponent<RectTransform>().anchorMin;
+        Vector2 oldMax = decryptionWindow.GetComponent<RectTransform>().anchorMax;
+
+        Color full = decryptionWindow.GetComponent<Image>().color;
+        full = new Color(full.r, full.g, full.b, 255);
+        Color clear = new Color(full.r, full.g, full.b, 0);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / decryptWindowAnimDuration;
+
+            decryptionWindow.GetComponent<RectTransform>().anchorMin = Vector2.Lerp(oldMin, new Vector2(0.15F, 0.05F), t);
+            decryptionWindow.GetComponent<RectTransform>().anchorMax = Vector2.Lerp(oldMax, new Vector2(0.15F, 0.05F), t);
+
+            decryptionWindow.GetComponent<Image>().color = Vector4.Lerp(full, clear, t);
+
+            yield return null;
+        }
     }
 
     public void LaunchFoxStartup()

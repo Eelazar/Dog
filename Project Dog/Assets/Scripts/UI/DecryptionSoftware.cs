@@ -34,12 +34,12 @@ public class DecryptionSoftware : MonoBehaviour
 
     private string node;
 
-    private UIManager manager;
+    private TempManager manager;
     private Explorer explorer;
 
     void Start()
     {
-        manager = transform.GetComponent<UIManager>();
+        manager = transform.GetComponent<TempManager>();
         explorer = transform.GetComponent<Explorer>();
 
         anchorMin = decryptionPanel.transform.parent.GetComponent<RectTransform>().anchorMin;

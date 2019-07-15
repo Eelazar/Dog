@@ -14,6 +14,7 @@ public class Explorer : MonoBehaviour
     private const string xmlPath = "Assets\\Scripts\\XML\\";
 
     private string[] ogXMLs = {
+        "ExplorerFile",
         "ThrowBrolvl1_1",
         "ThrowBrolvl1_2",
         "ThrowBrolvl1_3",
@@ -30,7 +31,6 @@ public class Explorer : MonoBehaviour
         "PlayerFoxExplorerFile",
         "PC2",
         "PC1",
-        "ExplorerFile",
         "ConveyorThrowBroExplorerFile_1",
         "ConveyorThrowBroExplorerFile_2",
         "ConveyorThrowBroExplorerFile_3",
@@ -82,6 +82,7 @@ public class Explorer : MonoBehaviour
     private List<TMP_Text> encryptedFields;
     private List<TMP_Text> lockedFields;
 
+    private TempManager tempManager;
     private UIManager manager;
     private Assistant assistant;
     private DecryptionSoftware decryptor;
@@ -97,6 +98,7 @@ public class Explorer : MonoBehaviour
         manager = transform.GetComponent<UIManager>();
         assistant = transform.GetComponent<Assistant>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
+        tempManager = transform.GetComponent<TempManager>();
 
         encryptedFields = new List<TMP_Text>();
         lockedFields = new List<TMP_Text>();
@@ -426,7 +428,14 @@ public class Explorer : MonoBehaviour
                     //Check if the child node is hidden
                     if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
                     {
-                        StartCoroutine(manager.LaunchDecryptor());
+                        if (bootLaunch)
+                        {
+                            StartCoroutine(manager.LaunchDecryptor());
+                        }
+                        else
+                        {
+                            StartCoroutine(tempManager.LaunchDecryptor());
+                        }
 
                         string password = nav.GetAttribute("encrypted", string.Empty);
 
@@ -577,7 +586,6 @@ public class Explorer : MonoBehaviour
     {
         for (int i = 0; i < ogXMLs.Length; i++)
         {
-            Debug.Log(i);
             tempXMLDoc.Load(xmlPath + ogXMLs[i] + ".xml");
             tempXMLDoc.Save(xmlPath + "Temp\\" + ogXMLs[i] + ".xml");
         }
