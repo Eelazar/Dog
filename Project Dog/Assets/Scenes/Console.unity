@@ -1493,6 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5c3ef05358947043892408821773d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foxXMLFileName: XML\\PlayerFoxExplorerFile.xml
 --- !u!114 &1231494665
 MonoBehaviour:
   m_ObjectHideFlags: 0

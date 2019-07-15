@@ -7,7 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class TempManager : MonoBehaviour
 {
+    private const string foxXMLFileName = "XML\\PlayerFoxExplorerFile.xml";
+
     private Assistant assistant;
+    private Explorer explorer;
 
     void Start()
     {
@@ -15,6 +18,7 @@ public class TempManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         assistant = transform.GetComponent<Assistant>();
+        explorer = transform.GetComponent<Explorer>();
 
         DialogueShortcut(1);
     }
@@ -27,6 +31,11 @@ public class TempManager : MonoBehaviour
     public void LaunchFoxStartup()
     {
         DialogueShortcut(2);
+    }
+
+    public void ExploreFox()
+    {
+        explorer.SwitchXML(foxXMLFileName);
     }
 
     public void DialogueShortcut(int i)
@@ -66,7 +75,7 @@ public class TempManager : MonoBehaviour
                 m = new Message("I think it's broken. You should probably check just to be sure though.", 0F, 1F);
                 assistant.QueueMessage(m);
 
-                m = new Message("Type 'explore unit' to attempt to establish a wireless link between SITWatch and the unit", 0F, 2F, false, true);
+                m = new Message("Type 'explore fox' to attempt to establish a wireless link between SITWatch and the unit", 0F, 2F, false, true);
                 assistant.QueueMessage(m);
 
                 break;
