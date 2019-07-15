@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml.XPath;
 using System.Xml;
+using System.IO;
 
 [RequireComponent(typeof(AudioSource))]
 public class Console : MonoBehaviour
@@ -112,7 +113,7 @@ public class Console : MonoBehaviour
 
         // Open the XML.
         xmlDoc = new XmlDocument();
-        xmlDoc.Load("Assets\\Scripts\\XML\\CommandTree.xml");
+        xmlDoc.Load(Path.Combine(Application.streamingAssetsPath, "XML\\CommandTree.xml"));
         // Create a navigator to query with XPath.
         nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.

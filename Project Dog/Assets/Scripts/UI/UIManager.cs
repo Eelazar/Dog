@@ -119,14 +119,13 @@ public class UIManager : MonoBehaviour
 
         loadingEye.SetActive(false);
         osMaster_Object.SetActive(false);
-        loginMaster_Object.SetActive(true);
         access_Panel.SetActive(false);
-        login_Panel.SetActive(true);
         loginAnimLogo.SetActive(false);
-        login_Input.ActivateInputField();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        StartCoroutine(StartUpFade());
     }
 
     void Update()
@@ -156,7 +155,7 @@ public class UIManager : MonoBehaviour
                     }                    
                     break;
 
-                case "veryComplicat3dFil3Nam3.exe":
+                case "sit_watch.exe":
                     if (!sitwatchLaunched)
                     {
                         StartCoroutine(AnimateStart());
@@ -177,6 +176,49 @@ public class UIManager : MonoBehaviour
     }
 
     #region LaunchMethods
+
+    IEnumerator StartUpFade()
+    {
+        loginMaster_Object.SetActive(true);
+
+        for (int i = 0; i < login_Panel.transform.childCount; i++)
+        {
+            login_Panel.transform.GetChild(i).gameObject.SetActive(false);
+        }
+        login_Panel.SetActive(false);
+
+        yield return new WaitForSeconds(1.5F);
+
+        float t = 0;
+        float start = Time.time;
+        Color full = login_Panel.GetComponent<Image>().color;
+        Color fade = new Color(full.r, full.g, full.b, 0);
+        Color32 full32 = loginMaster_Object.GetComponent<Image>().color;
+        Color32 fade32 = new Color(full.r, full.g, full.b, 0);
+
+        for (int i = 0; i < login_Panel.transform.childCount; i++)
+        {
+            login_Panel.transform.GetChild(i).gameObject.SetActive(true);
+        }
+        login_Panel.SetActive(true);
+
+        while (t < 1)
+        {
+            t = (Time.time - start) / 2;
+
+            login_Panel.transform.GetComponent<Image>().color = Color.Lerp(fade, full, t);
+            login_Panel.transform.GetChild(0).GetComponent<Image>().color = Color.Lerp(fade, full, t);
+            login_Panel.transform.GetChild(1).GetComponent<TMP_Text>().color = Color32.Lerp(fade32, full32, t);
+            login_Panel.transform.GetChild(2).GetComponent<TMP_Text>().color = Color32.Lerp(fade32, full32, t);
+            login_Panel.transform.GetChild(3).GetComponent<TMP_Text>().color = Color32.Lerp(fade32, full32, t);
+            login_Panel.transform.GetChild(4).GetComponent<Image>().color = Color.Lerp(fade, full, t);
+
+            yield return null;
+        }
+
+        login_Input.ActivateInputField();
+    }
+
     IEnumerator LaunchFakeOS()
     {
         //Initialize Lerp
@@ -185,7 +227,7 @@ public class UIManager : MonoBehaviour
 
         login_Panel.SetActive(false);
         loginAnimLogo.SetActive(true);
-        float duration = (1.0F + Random.Range(0.5F, 2F));
+        float duration = (1.0F + Random.Range(1F, 3F));
         yield return new WaitForSeconds(duration);
 
         loginAnimLogo.SetActive(false);
@@ -407,7 +449,7 @@ public class UIManager : MonoBehaviour
                 s = "Well done! This is your new content explorer.";
                 assistant.QueueMessage(new Message(s, 0, 2F, true));
 
-                s = "It contains every data node currently available to you";
+                s = "It contains every data node currently available to you.";
                 assistant.QueueMessage(new Message(s, 0, 1.5F));
 
                 s = "Update v.1.0.4. allows you to type 'open ' followed by a node name to access it.";

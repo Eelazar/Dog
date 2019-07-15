@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <help encrypted ="password" description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work." assistantFlag="false">
+  <help description="Need help?" assistant="This node is where I gather every piece of documentation relevant to your work." assistantFlag="false">
     <unit_control description="See commands for unit control" assistant="This section can update once you access new units or learn about new functions of registered ones." assistantFlag="false">
       <general>
         <terminals entry="true">Exploring a terminal will display all unit names connected to it and allows the exploring agent to explore these units remotely by providing a bridge.</terminals>
@@ -52,7 +52,7 @@
     <entry_4 entry="true">Use camera 1 and 2 to watch the dump sites processes. Report any malfunctions occuring.</entry_4>
   </schedule>
   <software description="Program Files and Data">
-    <S.I.T. assistant="S.I.T. software can be used to access cameras, units and more inside our factory system." assistantFlag="false">
+    <S.I.T. encrypted ="password" assistant="S.I.T. software can be used to access cameras, units and more inside our factory system." assistantFlag="false">
       <watch entry="true">The S.I.T. security watch software is used to monitor camera ativity and communicate with malfunctioning units.</watch>
       <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
