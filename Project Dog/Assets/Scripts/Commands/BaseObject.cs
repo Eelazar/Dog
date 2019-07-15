@@ -15,11 +15,11 @@ public class BaseObject : MonoBehaviour
 
     public void Scan()
     {
-        Debug.Log("SCAN");
+        Explorer.current.SwitchXML(xmlPath);
     }
 
     public void Unscan()
     {
-        Debug.Log("UNSCAN");
+
     }
 }

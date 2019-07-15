@@ -140,7 +140,10 @@ public class Explorer : MonoBehaviour
             nav.MoveToChild(currentNode, string.Empty);
         }
         //If there is no parent display an empty node
-        else node_TextFields[0].text = "<>";
+        else
+        {
+            node_TextFields[0].text = "<>";
+        }
         #endregion Parent Node Stuff
 
         #region Current Node Stuff
@@ -204,6 +207,11 @@ public class Explorer : MonoBehaviour
                 }
 
                 entry = true;
+            }
+            else
+            {
+                //Display the node name
+                StartCoroutine(AnimateText(node_TextFields[1], AddColor(nodeMarkup_Color, "<" + nav.Name + ">")));
             }
         }
         else
@@ -286,20 +294,63 @@ public class Explorer : MonoBehaviour
 
     public void SwitchXML(string fileName)
     {
+        Debug.Log(xmlPath + currentXMLFileName);
         xmlDoc.Save(xmlPath + currentXMLFileName);
         currentXMLFileName = fileName;
 
+        Debug.Log(xmlPath + currentXMLFileName);
+
         //Filename Example: "ExplorerFile.xml"
-        xmlDoc.Load(xmlPath + xmlFileName);
+        xmlDoc.Load(xmlPath + currentXMLFileName);
         // Create a navigator to query with XPath.
         nav = xmlDoc.CreateNavigator();
         //Initial XPathNavigator to start at the root.
         nav.MoveToRoot();
+        nav.MoveToFirstChild();
+
+        if (nav.HasAttributes)
+        {
+            //Check if the current node has an assistant message
+            if (nav.GetAttribute("assistant", string.Empty) != "")
+            {
+                string text = nav.GetAttribute("assistant", string.Empty);
+                string flag = nav.GetAttribute("assistantFlag", string.Empty);
+
+                nav.MoveToAttribute("assistantFlag", string.Empty);
+                Message m = null;
+
+                switch (flag)
+                {
+                    case "always":
+                        m = new Message(text, 0, 4, true);
+                        assistant.QueueMessage(m);
+                        break;
+                    case "false":
+                        m = new Message(text, 0, 4, true);
+                        assistant.QueueMessage(m);
+                        nav.SetValue("true");
+                        break;
+                    case "true":
+                        break;
+
+                    default:
+                        break;
+                }
+
+                nav.MoveToParent();
+                Debug.Log(nav.Name);
+            }
+        }
 
         LaunchUpdate();
     }
 
     #region Commands
+    public void ExitUnitXML()
+    {
+        SwitchXML(xmlFileName);
+    }
+
     public void LaunchUpdate()
     {
         StartCoroutine(UpdateData());
@@ -412,7 +463,6 @@ public class Explorer : MonoBehaviour
                         }
 
                         nav.MoveToParent();
-                        Debug.Log(nav.Name);
                     }
 
                     if(nav.GetAttribute("locked", string.Empty) != "")
@@ -450,7 +500,40 @@ public class Explorer : MonoBehaviour
 
     public void Save()
     {
-        xmlDoc.Save("Assets\\Scripts\\ExplorerFile.xml");
+        xmlDoc.Save(xmlPath + xmlFileName);
+    }
+
+    public void XMLTrigger(CommandContext cc)
+    {
+        string id = cc.parameters[0].ToString();
+
+        switch (id)
+        {
+            case "boot_fox_001":
+                //Do Shit
+                break;
+
+            case "1":
+
+                break;
+
+            case "2":
+
+                break;
+
+
+            case "3":
+
+                break;
+
+
+            case "4":
+
+                break;
+
+            default:
+                break;
+        }
     }
     #endregion Commands
 
