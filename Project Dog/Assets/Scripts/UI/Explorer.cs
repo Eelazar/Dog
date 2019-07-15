@@ -345,9 +345,19 @@ public class Explorer : MonoBehaviour
     /// <summary>
     /// /TTTTTTTTTEEEEEEEEEEEEEEESSSSSSSSSSSSSTTTTTTTTTTTTTTT
     /// </summary>
-    public void DebugThisShit()
+    public void Yeet()
     {
-        Debug.Log("YEET");
+        for(int i = 0; i <= 10; i++)
+        {
+            if (i == 0)
+                Debug.Log("Y");
+            if (i == 9)
+                Debug.Log("T");
+            if (i == 10)
+                Debug.Log("!");
+            else
+                Debug.Log("E");
+        }
     }
 
     public void SwitchXML(string fileName, string objName)
@@ -378,11 +388,11 @@ public class Explorer : MonoBehaviour
                 switch (flag)
                 {
                     case "always":
-                        m = new Message(text, 0, 4, true);
+                        m = new Message(text, 0, 2, true);
                         assistant.QueueMessage(m);
                         break;
                     case "false":
-                        m = new Message(text, 0, 4, true);
+                        m = new Message(text, 0, 2, true);
                         assistant.QueueMessage(m);
                         nav.SetValue("true");
                         break;
@@ -475,9 +485,9 @@ public class Explorer : MonoBehaviour
         string node = cc.parameters[0].ToString();
         string password = cc.parameters[1].ToString();
 
+        //DOES NOT WORK
         if (string.IsNullOrEmpty(node))
         {
-            Debug.Log("Node is null");
             string text = "Which node are you trying to unlock?";
             Message m = new Message(text, 0, 1, true);
             assistant.QueueMessage(m);
@@ -503,6 +513,10 @@ public class Explorer : MonoBehaviour
                     nav.SetValue("false");
                     nav.MoveToParent();
                     nav.MoveToParent();
+                    
+                    string text = "Node " + node + " was successfully unlocked!";
+                    Message m = new Message(text, 0, 1, true);
+                    assistant.QueueMessage(m);
 
                     LaunchUpdate();
                     return;
@@ -642,6 +656,9 @@ public class Explorer : MonoBehaviour
 
                     if (baseObject != null)
                     {
+                        string text = "Node " + node + " was triggered";
+                        Message m = new Message(text, 0, 1, true);
+                        assistant.QueueMessage(m);
                         baseObject.SendMessage(method, new CommandContext());
                     }
                         
