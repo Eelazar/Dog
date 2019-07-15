@@ -4,11 +4,5 @@ using UnityEngine;
 
 public class ThrowBroObject : BaseObject
 {
-    public ThrowBroToss toss;
 
-    public void OnCommandToss()
-    {
-        Debug.Log("TOSS NIGGA");
-        //toss.Toss();
-    }
 }

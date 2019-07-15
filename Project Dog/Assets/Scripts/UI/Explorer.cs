@@ -58,8 +58,14 @@ public class Explorer : MonoBehaviour
     private Assistant assistant;
     private DecryptionSoftware decryptor;
 
+    //Singleton
+
+    public static Explorer current;
+
     void Start()
     {
+        current = this;
+
         manager = transform.GetComponent<UIManager>();
         assistant = transform.GetComponent<Assistant>();
         decryptor = transform.GetComponent<DecryptionSoftware>();
@@ -109,7 +115,7 @@ public class Explorer : MonoBehaviour
 
             AnimateEncryptedNode();
         }
-    }    
+    }
 
     public IEnumerator UpdateData()
     {
@@ -161,7 +167,7 @@ public class Explorer : MonoBehaviour
             }
             //Check if the current node is an entry
             else if (nav.GetAttribute("entry", string.Empty) != "")
-            {             
+            {
                 //Get the entry description
                 string s = nav.GetAttribute("entry", string.Empty);
 
@@ -195,7 +201,7 @@ public class Explorer : MonoBehaviour
                 for (int i = 0; i < wordArray.Length; i++)
                 {
                     //If the current line text + the next word would be too long, go down one line
-                    if(node_TextFields[2 + (lineCounter - 1)].text.Length + (wordArray[i].Length) >= maxChars)
+                    if (node_TextFields[2 + (lineCounter - 1)].text.Length + (wordArray[i].Length) >= maxChars)
                     {
                         lineCounter++;
                     }
@@ -219,7 +225,7 @@ public class Explorer : MonoBehaviour
             //Display the node name
             StartCoroutine(AnimateText(node_TextFields[1], AddColor(nodeMarkup_Color, "<" + nav.Name + ">")));
         }
-        
+
         yield return new WaitForSeconds(0.2F);
         #endregion Current Node Stuff
 
@@ -263,7 +269,7 @@ public class Explorer : MonoBehaviour
                 {
                     //Get the entry description
                     string s = nav.GetAttribute("entry", string.Empty);
-                    if(s == "true")
+                    if (s == "true")
                     {
                         //Display the child node name
                         StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(entryMarkup_Color, "<" + nav.Name + ">")));
@@ -278,7 +284,7 @@ public class Explorer : MonoBehaviour
                 {
                     //Display the child node name
                     StartCoroutine(AnimateText(node_TextFields[i + 2], AddColor(nodeMarkup_Color, "<" + nav.Name + ">")));
-                }                
+                }
 
                 yield return new WaitForSeconds(0.1F);
 
@@ -338,7 +344,6 @@ public class Explorer : MonoBehaviour
                 }
 
                 nav.MoveToParent();
-                Debug.Log(nav.Name);
             }
         }
 
@@ -407,7 +412,7 @@ public class Explorer : MonoBehaviour
             }
         }
     }
-   
+
     public void Interact(CommandContext cc)
     {
         string node = cc.parameters[0].ToString();
@@ -465,14 +470,14 @@ public class Explorer : MonoBehaviour
                         nav.MoveToParent();
                     }
 
-                    if(nav.GetAttribute("locked", string.Empty) != "")
+                    if (nav.GetAttribute("locked", string.Empty) != "")
                     {
                         nav.MoveToParent();
                         return;
                     }
 
                     if (nav.GetAttribute("encrypted", string.Empty) != "" && nav.GetAttribute("encrypted", string.Empty) != "decrypted")
-                    {                        
+                    {
                         nav.MoveToParent();
                         return;
                     }
@@ -547,7 +552,7 @@ public class Explorer : MonoBehaviour
         {
             GameObject go = Instantiate<GameObject>(node_Prefab);
             go.transform.SetParent(explorerPanel.transform, false);
-            go.name = "Node TextField " + (i +  1);
+            go.name = "Node TextField " + (i + 1);
             node_TextFields[i] = go.GetComponent<TMP_Text>();
         }
     }
@@ -578,7 +583,7 @@ public class Explorer : MonoBehaviour
 
         //Debug.Log("Pixel Height: " + canvasHeight + ", Explorer Window Size: " + explorerSize + ", Offset: " + yOffset + ", Slots: " + slotAmount + ", Active Slots: " + activeAmount);
 
-        if(activeAmount != slotAmount)
+        if (activeAmount != slotAmount)
         {
             //If more slots could fit into the log, add them
             if (activeAmount < slotAmount)

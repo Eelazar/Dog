@@ -58,8 +58,8 @@ public class ScanManager : MonoBehaviour
 
             if (currentActive != null && activeChanged)
             {
-                currentActive.baseObject.Scan();
                 activeChanged = false;
+                currentActive.baseObject.Scan();
             }
 
             if (currentActive != null)

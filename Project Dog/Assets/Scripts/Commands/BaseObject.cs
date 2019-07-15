@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseObject : MonoBehaviour
 {
-    public string xmlPath;
+    private string xmlPath = "XML\\ThrowBroExplorerFile.xml";
 
     public string definedName;
 
