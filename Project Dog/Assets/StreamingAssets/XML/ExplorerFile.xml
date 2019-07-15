@@ -57,7 +57,7 @@
       <about entry="true">S.I.T. (Secure IT and Transfer) is the leading security software company that helps organizations centralize access management across hybrid IT environments. </about>
     </S.I.T.>
     <assistant locked="password">
-      <triggerTest trigger="DebugThisShit"></triggerTest>
+      <triggerTest trigger="Yeet"></triggerTest>
       <about entry="">The Smart Assistant assists you with all kinds of tasks you may receive, so that you can focus on being as productive as possible! It has access to your entire system and can take care of menial tasks while teaching you how to best make use of <i>FykeOs</i>. It will auto-collect information to create a helpful documentation personalized for you.</about>
       <troubleshooting>
         <Status entry="Assistant won't start.">If your Smart Assistant did not launch on boot or is defect for some reason, it can be started manually from a node within the program files. To access these nodes, you must decrypt the necessary nodes to reveal their contents. Further information on this can be found in the help section.</Status>
