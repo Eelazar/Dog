@@ -5,7 +5,7 @@
      <task entry="true">1 currently designated task found: 1) toss</task>
      <hostility entry="true">False</hostility>   
    </status>
-   <access locked="tbaccess1045" assistant="This node is locked. To access it enter the correct password." assistantFlag="false">
+   <access>
      <status>
        <boot>
          <boot_unit trigger="enabletoss" entry="true">Unit online.</boot_unit>
